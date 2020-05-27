@@ -64,30 +64,41 @@ $ flutter pub get
 5. You're good to go!
 
 # Features
-## Hire a qualified tutor
 
-![](./prototype/mentor-preview.png)
+## Hire a mentor
+
+<img src="./prototype/mentor-preview.jpg" width="150">
+
 Choose from our qualified pool of mentors to suit your learning needs and
 preferences.
 
-## View others' profile and progress
+## View others' profile
 
-![](./prototype/profile-learner.png)
+<img src="./prototype/profile-learner.jpg" width="150">
+
 Check out other language learners' profile and learning progress.
 
-## Connect with another learner with similar goal
+## Connect with others
 
-![](./prototype/messenger-preview.png) ![](../prototype/messenger.png) ![](./prototype/messenger-chat.png)
+<img src="./prototype/messenger-preview.jpg" width="150">
+<img src="./prototype/messenger.jpg" width="150">
+<img src="./prototype/messenger-chat.jpg" width="150">
+
 Find someone with similar learning goals to practice speaking with.
 
-## Schedule a meeting with another user
+## Schedule a meeting
 
-![](./prototype/booking-preview.png) ![](./prototype/calendar.png)
+<img src="./prototype/booking-preview.jpg" width="150">
+<img src="./prototype/booking-calendar.jpg" width="150">
+<img src="./prototype/booking-request.jpg" width="150">
+
 Arrange a meeting with a language learner near your location and practice
 speaking in a safe environment. 
 
+<!--
 ## Meetup online to practice speaking (KIV)
 
 Use our platform to randomly pair up with other language learner who is just as
 committed as you to practice speaking and accelerate your learning progress!
+-->
 
