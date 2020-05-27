@@ -67,30 +67,34 @@ $ flutter pub get
 
 ## Hire a mentor
 
-<img src="./prototype/mentor-preview.jpg" width="150">
+<img src="./prototype/mentor-preview.jpg" width="250">
 
 Choose from our qualified pool of mentors to suit your learning needs and
 preferences.
 
 ## View others' profile
 
-<img src="./prototype/profile-learner.jpg" width="150">
+<img src="./prototype/profile-learner.jpg" width="250">
 
 Check out other language learners' profile and learning progress.
 
 ## Connect with others
 
-<img src="./prototype/messenger-preview.jpg" width="150">
-<img src="./prototype/messenger.jpg" width="150">
-<img src="./prototype/messenger-chat.jpg" width="150">
+<p>
+<img src="./prototype/messenger-preview.jpg" width="250">
+<img src="./prototype/messenger.jpg" width="250">
+<img src="./prototype/messenger-chat.jpg" width="250">
+</p>
 
 Find someone with similar learning goals to practice speaking with.
 
 ## Schedule a meeting
 
-<img src="./prototype/booking-preview.jpg" width="150">
-<img src="./prototype/booking-calendar.jpg" width="150">
-<img src="./prototype/booking-request.jpg" width="150">
+<p>
+<img src="./prototype/booking-preview.jpg" width="250">
+<img src="./prototype/booking-calendar.jpg" width="250">
+<img src="./prototype/booking-request.jpg" width="250">
+</p>
 
 Arrange a meeting with a language learner near your location and practice
 speaking in a safe environment. 
