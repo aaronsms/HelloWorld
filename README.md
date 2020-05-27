@@ -6,10 +6,15 @@ all around the world.
 
 ## Table of Contents
 
-* Motivation
-* Technologies
-* Setup
-* Features
+* ![Motivation](#motivation)
+* ![Technologies](#technologies)
+* ![Setup](#setup)
+* ![Features](#features)
+    * ![Create an account](#create-an-account)
+    * ![Hire a mentor](#hire-a-mentor)
+    * ![View user profile](#view-user-profile)
+    * ![Connect with others](#connect-with-others)
+    * ![Schedule a meeting](#schedule-a-meeting)
 
 # Motivation
 
@@ -64,21 +69,33 @@ $ flutter pub get
 5. You're good to go!
 
 # Features
+## Create an account
+
+Sign-up as either a learner or a mentor hassle-free!
+
+<p>
+<img src="./prototype/login.jpg" width="250">
+<img src="./prototype/sign-up.jpg" width="250">
+<img src="./prototype/sign-up-mentor.jpg" width="250">
+</p>
 
 ## Hire a mentor
-
-<img src="./prototype/mentor-preview.jpg" width="250">
 
 Choose from our qualified pool of mentors to suit your learning needs and
 preferences.
 
-## View others' profile
+<img src="./prototype/mentor-preview.jpg" width="250">
 
-<img src="./prototype/profile-learner.jpg" width="250">
+## View user profile
 
 Check out other language learners' profile and learning progress.
 
+<img src="./prototype/homepage.jpg" width="250">
+<img src="./prototype/profile-learner.jpg" width="250">
+
 ## Connect with others
+
+Find someone with similar learning goals to practice speaking with.
 
 <p>
 <img src="./prototype/messenger-preview.jpg" width="250">
@@ -86,18 +103,16 @@ Check out other language learners' profile and learning progress.
 <img src="./prototype/messenger-chat.jpg" width="250">
 </p>
 
-Find someone with similar learning goals to practice speaking with.
-
 ## Schedule a meeting
+
+Arrange a meeting with a language learner near your location and practice
+speaking in a safe environment. 
 
 <p>
 <img src="./prototype/booking-preview.jpg" width="250">
 <img src="./prototype/booking-calendar.jpg" width="250">
 <img src="./prototype/booking-request.jpg" width="250">
 </p>
-
-Arrange a meeting with a language learner near your location and practice
-speaking in a safe environment. 
 
 <!--
 ## Meetup online to practice speaking (KIV)
