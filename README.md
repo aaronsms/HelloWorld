@@ -6,15 +6,15 @@ all around the world.
 
 ## Table of Contents
 
-* ![Motivation](#motivation)
-* ![Technologies](#technologies)
-* ![Setup](#setup)
-* ![Features](#features)
-    * ![Create an account](#create-an-account)
-    * ![Hire a mentor](#hire-a-mentor)
-    * ![View user profile](#view-user-profile)
-    * ![Connect with others](#connect-with-others)
-    * ![Schedule a meeting](#schedule-a-meeting)
+* [Motivation](#motivation)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Features](#features)
+    * [Create an account](#create-an-account)
+    * [Hire a mentor](#hire-a-mentor)
+    * [View user profile](#view-user-profile)
+    * [Connect with others](#connect-with-others)
+    * [Schedule a meeting](#schedule-a-meeting)
 
 <a name="motivation"/>
 # Motivation
