@@ -16,7 +16,7 @@ all around the world.
     * [Connect with others](#connect-with-others)
     * [Schedule a meeting](#schedule-a-meeting)
 
-<a name="motivation"/>
+<a name="motivation"></a>
 # Motivation
 
 Our team has seen similar applications that aims to provide language learners
@@ -33,7 +33,7 @@ Thus, our team hopes to provide a more integrative and seamless experience to
 many users who are looking for such alternatives, that is we wish to provide
 a platform where users can  
 
-<a name="technologies"/>
+<a name="technologies"></a>
 # Technologies
 
 Our team decided to use Flutter mainly due to its cross-platform compatibility 
@@ -49,7 +49,7 @@ Despite being a convenient solution, we want our app to remain flexible and
 migration-friendly. So we decided to go with MySQL for user information and
 MongoDB to store messages and conversations at scale. 
 
-<a name="setup"/>
+<a name="setup"></a>
 # Setup
 
 1. Download [Fluter SDK](https://flutter.dev/docs/get-started/install) from the
@@ -71,9 +71,10 @@ $ flutter pub get
 
 5. You're good to go!
 
-<a name="features"/>
+<a name="features"></a>
 # Features
-<a name="create-an-account"/>
+
+<a name="create-an-account"></a>
 ## Create an account
 
 Sign-up as either a learner or a mentor hassle-free!
@@ -84,7 +85,7 @@ Sign-up as either a learner or a mentor hassle-free!
 <img src="./prototype/sign-up-mentor.jpg" width="250">
 </p>
 
-<a name="hire-a-mentor"/>
+<a name="hire-a-mentor"></a>
 ## Hire a mentor
 
 Choose from our qualified pool of mentors to suit your learning needs and
@@ -92,7 +93,7 @@ preferences.
 
 <img src="./prototype/mentor-preview.jpg" width="250">
 
-<a name="view-user-profile"/>
+<a name="view-user-profile"></a>
 ## View user profile
 
 Check out other language learners' profile and learning progress.
@@ -102,7 +103,7 @@ Check out other language learners' profile and learning progress.
 <img src="./prototype/profile-learner.jpg" width="250">
 </p>
 
-<a name="connect-with-others"/>
+<a name="connect-with-others"></a>
 ## Connect with others
 
 Find someone with similar learning goals to practice speaking with.
@@ -113,7 +114,7 @@ Find someone with similar learning goals to practice speaking with.
 <img src="./prototype/messenger-chat.jpg" width="250">
 </p>
 
-<a name="schedule-a-meeting"/>
+<a name="schedule-a-meeting"></a>
 ## Schedule a meeting
 
 Arrange a meeting with a language learner near your location and practice
