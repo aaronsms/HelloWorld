@@ -31,7 +31,7 @@ practice the language together.
 
 Thus, our team hopes to provide a more integrative and seamless experience to
 many users who are looking for such alternatives, that is we wish to provide
-a platform where users can  
+a platform where users can schedule meetings with practice partners.
 
 <a name="technologies"></a>
 # Technologies
@@ -52,7 +52,7 @@ MongoDB to store messages and conversations at scale.
 <a name="setup"></a>
 # Setup
 
-1. Download [Fluter SDK](https://flutter.dev/docs/get-started/install) from the
+1. Download [Flutter SDK](https://flutter.dev/docs/get-started/install) from the
    official website.
 
 2. Clone into this repository.
