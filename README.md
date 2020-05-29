@@ -130,7 +130,7 @@ of both of you and practice speaking in a safe and conducive environment.
 </p>
 
 <a name="connect-with-others"></a>
-## Connect with others
+## Connect with Others
 
 Find someone with similar learning goals to practice speaking with.
 
