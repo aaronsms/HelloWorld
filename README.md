@@ -103,7 +103,7 @@ Check out other language learners' profile and learning goals.
 
 <p>
 <img src="./prototype/homepage.jpg" width="250">
-<img src="./prototype/profile - learner.jpg" width="250">
+<img src="./prototype/profile - learner (2).jpg" width="250">
 </p>
 
 <a name="view-mentor-profile"></a>
@@ -113,8 +113,8 @@ Look through mentors' profiles and their respective qualifications
 and ratings. 
 
 <p>
-<img src="./prototype/profile - mentor.jpg" width="250">
-<img src="./prototype/profile - mentor (1).jpg" width="250">
+<img src="./prototype/profile - mentor (2).jpg" width="250">
+<img src="./prototype/profile - mentor (3).jpg" width="250">
 </p>
 
 <a name="schedule-a-meeting"></a>
