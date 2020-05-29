@@ -93,7 +93,7 @@ needs at your preferred timing and location.
 
 <p>
 <img src="./prototype/mentor-preview.jpg" width="250">
-<img src="./prototype/homepage-mentor.jpg" width="250">
+<img src="./prototype/homepage - mentor.jpg" width="250">
 </p>
 
 <a name="view-user-profile"></a>
@@ -114,7 +114,7 @@ and ratings.
 
 <p>
 <img src="./prototype/profile - mentor.jpg" width="250">
-<img src="./prototype/profile - mentor(1).jpg" width="250">
+<img src="./prototype/profile - mentor (1).jpg" width="250">
 </p>
 
 <a name="schedule-a-meeting"></a>
