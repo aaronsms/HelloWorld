@@ -75,32 +75,58 @@ $ flutter pub get
 # Features
 
 <a name="create-an-account"></a>
-## Create an account
+## Create an Account
 
-Sign-up as either a learner or a mentor hassle-free!
+Sign-up as a learner in 2 steps or a mentor in 3 steps, hassle-free!
 
 <p>
 <img src="./prototype/login.jpg" width="250">
 <img src="./prototype/sign-up.jpg" width="250">
-<img src="./prototype/sign-up-mentor.jpg" width="250">
+<img src="./prototype/sign up page - learner.jpg" width="250">
 </p>
 
 <a name="hire-a-mentor"></a>
-## Hire a mentor
+## Hire a Mentor
 
-Choose from our qualified pool of mentors to suit your learning needs and
-preferences.
+Book a mentor from our qualified pool of mentors to suit your learning
+needs at your preferred timing and location. 
 
+<p>
 <img src="./prototype/mentor-preview.jpg" width="250">
+<img src="./prototype/homepage-mentor.jpg" width="250">
+</p>
 
 <a name="view-user-profile"></a>
-## View user profile
+## View Learner's Profile
 
-Check out other language learners' profile and learning progress.
+Check out other language learners' profile and learning goals.
 
 <p>
 <img src="./prototype/homepage.jpg" width="250">
-<img src="./prototype/profile-learner.jpg" width="250">
+<img src="./prototype/profile - learner.jpg" width="250">
+</p>
+
+<a name="view-mentor-profile"></a>
+## View Mentors' Profile
+
+Look through mentors' profiles and their respective qualifications 
+and ratings. 
+
+<p>
+<img src="./prototype/profile - mentor.jpg" width="250">
+<img src="./prototype/profile - mentor(1).jpg" width="250">
+</p>
+
+<a name="schedule-a-meeting"></a>
+## Schedule a Meeting
+
+Arrange a meeting with another language learner at the convenience 
+of both of you and practice speaking in a safe and conducive environment. 
+
+<p>
+<img src="./prototype/booking-preview.jpg" width="250">
+<img src="./prototype/booking-calendar.jpg" width="250">
+<img src="./prototype/booking-request.jpg" width="250">
 </p>
 
 <a name="connect-with-others"></a>
@@ -111,19 +137,7 @@ Find someone with similar learning goals to practice speaking with.
 <p>
 <img src="./prototype/messenger-preview.jpg" width="250">
 <img src="./prototype/messenger.jpg" width="250">
-<img src="./prototype/messenger-chat.jpg" width="250">
-</p>
-
-<a name="schedule-a-meeting"></a>
-## Schedule a meeting
-
-Arrange a meeting with a language learner near your location and practice
-speaking in a safe environment. 
-
-<p>
-<img src="./prototype/booking-preview.jpg" width="250">
-<img src="./prototype/booking-calendar.jpg" width="250">
-<img src="./prototype/booking-request.jpg" width="250">
+<img src="./prototype/messenger - learner.jpg" width="250">
 </p>
 
 <!--
