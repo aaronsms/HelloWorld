@@ -16,6 +16,7 @@ all around the world.
     * [View Mentors' Profile](#view-mentor-profile)
     * [Connect Offline](#connect-offline)
     * [Connect Online](#connect-online)
+* [Developers](#developers)
 
 <a name="motivation"></a>
 # Motivation
@@ -132,6 +133,11 @@ Find someone with similar learning goals to practice speaking with.
 <img src="./prototype/messenger.jpg" width="250">
 <img src="./prototype/messenger - learner.jpg" width="250">
 </p>
+
+<a name="developers"></a>
+## Developers
+
+This application is created by Amanda Ang and Aaron Saw from NUS School Of Computing, as part of Orbital 2020. 
 
 <!--
 ## Meetup online to practice speaking (KIV)
