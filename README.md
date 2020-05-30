@@ -20,19 +20,11 @@ all around the world.
 <a name="motivation"></a>
 # Motivation
 
-Our team has seen similar applications that aims to provide language learners
-a platform to be able to source credible tutors, like Italki. 
+The idea behind “HelloWorld<>!” came about when one of our members tried picking up Spanish online but struggled to do so due to the lack of interaction using this foreign language. 
 
-However, when we look into the forum, we see that there are a lot of users who 
-are looking for other users to practice speaking in the language they are
-trying to master. Looking for someone with the same language goals that can
-communicate in a comfortable language is not easy. Several users even included 
-video conference links like Skype to hopefully meet up with someone online to 
-practice the language together.
+Undoubtedly, language, being a vital tool of communication among people, can only be mastered through real life interactions with actual people. The lack of platforms providing such a solution thus inspired us to come up with this phone application that serves to match and connect individuals with similar language goals both online and offline. 
 
-Thus, our team hopes to provide a more integrative and seamless experience to
-many users who are looking for such alternatives, that is we wish to provide
-a platform where users can  
+With this application, we hope to build a positive peer-to-peer learning environment where language learners can stay engaged and motivated in their learning journey, accelerating their learning progress.
 
 <a name="technologies"></a>
 # Technologies
