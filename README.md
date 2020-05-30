@@ -126,7 +126,7 @@ of both of you and practice speaking in a safe and conducive environment.
 <a name="connect-online"></a>
 ## Connect Online
 
-Find someone with similar learning goals to practice speaking with.
+Find someone with similar learning goals to practice speaking with online, even when you're unable to meet-up.
 
 <p>
 <img src="./prototype/messenger-preview.jpg" width="250">
