@@ -118,7 +118,7 @@ and ratings.
 </p>
 
 <a name="schedule-a-meeting"></a>
-## Schedule a Meeting
+## Connect Offline
 
 Arrange a meeting with another language learner at the convenience 
 of both of you and practice speaking in a safe and conducive environment. 
@@ -130,7 +130,7 @@ of both of you and practice speaking in a safe and conducive environment.
 </p>
 
 <a name="connect-with-others"></a>
-## Connect with Others
+## Connect Online
 
 Find someone with similar learning goals to practice speaking with.
 
