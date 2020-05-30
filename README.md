@@ -21,7 +21,7 @@ all around the world.
 <a name="motivation"></a>
 # Motivation
 
-The idea behind “HelloWorld<>!” came about when one of our members tried picking up Spanish online but struggled to do so due to the lack of interaction using this foreign language. 
+The idea behind “HelloWorld<>!” came about when one of our members tried picking up Spanish online but struggled to do so due to the lack of interaction with people who use this language. 
 
 Undoubtedly, language, being a vital tool of communication among people, can only be mastered through real life interactions with actual people. The lack of platforms providing such a solution thus inspired us to come up with this phone application that serves to match and connect individuals with similar language goals both online and offline. 
 
@@ -31,7 +31,7 @@ With this application, we hope to build a positive peer-to-peer learning environ
 # Technologies
 
 Our team decided to use Flutter mainly due to its cross-platform compatibility 
-for both IOS and Android, as well as its great tooling and high performance. 
+for both iOS and Android, as well as its great tooling and high performance. 
 We also aim to leave our options open for web development by capitalizing on
 Flutter's web compatibility. 
 
@@ -137,7 +137,7 @@ Find someone with similar learning goals to practice speaking with.
 <a name="developers"></a>
 ## Developers
 
-This application is created by Amanda Ang and Aaron Saw from NUS School Of Computing, as part of Orbital 2020. 
+This application is created by Amanda Ang and Aaron Saw, for NUS School Of Computing's Orbital 2020. 
 
 <!--
 ## Meetup online to practice speaking (KIV)
