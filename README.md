@@ -10,11 +10,12 @@ all around the world.
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Features](#features)
-    * [Create an account](#create-an-account)
-    * [Hire a mentor](#hire-a-mentor)
-    * [View user profile](#view-user-profile)
-    * [Connect with others](#connect-with-others)
-    * [Schedule a meeting](#schedule-a-meeting)
+    * [Create an Account](#create-an-account)
+    * [Hire a Mentor](#hire-a-mentor)
+    * [View Learners' Profile](#view-learner-profile)
+    * [View Mentors' Profile](#view-mentor-profile)
+    * [Connect Offline](#connect-offline)
+    * [Connect Online](#connect-online)
 
 <a name="motivation"></a>
 # Motivation
@@ -96,7 +97,7 @@ needs at your preferred timing and location.
 <img src="./prototype/homepage - mentor.jpg" width="250">
 </p>
 
-<a name="view-user-profile"></a>
+<a name="view-learner-profile"></a>
 ## View Learner's Profile
 
 Check out other language learners' profile and learning goals.
@@ -117,7 +118,7 @@ and ratings.
 <img src="./prototype/profile - mentor (3).jpg" width="250">
 </p>
 
-<a name="schedule-a-meeting"></a>
+<a name="connect-offline"></a>
 ## Connect Offline
 
 Arrange a meeting with another language learner at the convenience 
@@ -129,7 +130,7 @@ of both of you and practice speaking in a safe and conducive environment.
 <img src="./prototype/booking-request.jpg" width="250">
 </p>
 
-<a name="connect-with-others"></a>
+<a name="connect-online"></a>
 ## Connect Online
 
 Find someone with similar learning goals to practice speaking with.
