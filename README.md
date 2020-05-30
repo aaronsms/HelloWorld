@@ -8,7 +8,7 @@ all around the world.
 
 * [Motivation](#motivation)
 * [Technologies](#technologies)
-* [Setup](#setup)
+* [Set-up](#setup)
 * [Features](#features)
     * [Create an Account](#create-an-account)
     * [Hire a Mentor](#hire-a-mentor)
@@ -44,7 +44,7 @@ migration-friendly. So we decided to go with MySQL for user information and
 MongoDB to store messages and conversations at scale. 
 
 <a name="setup"></a>
-# Setup
+# Set-up
 
 1. Download [Fluter SDK](https://flutter.dev/docs/get-started/install) from the
    official website.
@@ -137,7 +137,7 @@ Find someone with similar learning goals to practice speaking with.
 <a name="developers"></a>
 ## Developers
 
-This application is created by Amanda Ang and Aaron Saw, for NUS School Of Computing's Orbital 2020. 
+This application is created by Amanda Ang and Aaron Saw, for NUS School of Computing's Orbital 2020. 
 
 <!--
 ## Meetup online to practice speaking (KIV)
