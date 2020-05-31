@@ -8,36 +8,30 @@ all around the world.
 
 * [Motivation](#motivation)
 * [Technologies](#technologies)
-* [Setup](#setup)
+* [Set-up](#setup)
 * [Features](#features)
-    * [Create an account](#create-an-account)
-    * [Hire a mentor](#hire-a-mentor)
-    * [View user profile](#view-user-profile)
-    * [Connect with others](#connect-with-others)
-    * [Schedule a meeting](#schedule-a-meeting)
+    * [Create an Account](#create-an-account)
+    * [Hire a Mentor](#hire-a-mentor)
+    * [View Learners' Profile](#view-learner-profile)
+    * [View Mentors' Profile](#view-mentor-profile)
+    * [Connect Offline](#connect-offline)
+    * [Connect Online](#connect-online)
+* [Developers](#developers)
 
 <a name="motivation"></a>
 # Motivation
 
-Our team has seen similar applications that aims to provide language learners
-a platform to be able to source credible tutors, like Italki. 
+The idea behind “HelloWorld<>!” came about when one of our members tried picking up Spanish online but struggled to do so due to the lack of interaction with people who use this language. 
 
-However, when we look into the forum, we see that there are a lot of users who 
-are looking for other users to practice speaking in the language they are
-trying to master. Looking for someone with the same language goals that can
-communicate in a comfortable language is not easy. Several users even included 
-video conference links like Skype to hopefully meet up with someone online to 
-practice the language together.
+Undoubtedly, language, being a vital tool of communication among people, can only be mastered through real life interactions with actual people. The lack of platforms providing such a solution thus inspired us to come up with this phone application that serves to match and connect individuals with similar language goals both online and offline. 
 
-Thus, our team hopes to provide a more integrative and seamless experience to
-many users who are looking for such alternatives, that is we wish to provide
-a platform where users can schedule meetings with practice partners.
+With this application, we hope to build a positive peer-to-peer learning environment where language learners can stay engaged and motivated in their learning journey, accelerating their learning progress.
 
 <a name="technologies"></a>
 # Technologies
 
 Our team decided to use Flutter mainly due to its cross-platform compatibility 
-for both IOS and Android, as well as its great tooling and high performance. 
+for both iOS and Android, as well as its great tooling and high performance. 
 We also aim to leave our options open for web development by capitalizing on
 Flutter's web compatibility. 
 
@@ -50,7 +44,7 @@ migration-friendly. So we decided to go with MySQL for user information and
 MongoDB to store messages and conversations at scale. 
 
 <a name="setup"></a>
-# Setup
+# Set-up
 
 1. Download [Flutter SDK](https://flutter.dev/docs/get-started/install) from the
    official website.
@@ -75,56 +69,75 @@ $ flutter pub get
 # Features
 
 <a name="create-an-account"></a>
-## Create an account
+## Create an Account
 
-Sign-up as either a learner or a mentor hassle-free!
+Sign-up as a learner in 2 steps or a mentor in 3 steps, hassle-free!
 
 <p>
 <img src="./prototype/login.jpg" width="250">
 <img src="./prototype/sign-up.jpg" width="250">
-<img src="./prototype/sign-up-mentor.jpg" width="250">
+<img src="./prototype/sign up page - learner.jpg" width="250">
 </p>
 
 <a name="hire-a-mentor"></a>
-## Hire a mentor
+## Hire a Mentor
 
-Choose from our qualified pool of mentors to suit your learning needs and
-preferences.
+Book a mentor from our qualified pool of mentors to suit your learning
+needs at your preferred timing and location. 
 
+<p>
 <img src="./prototype/mentor-preview.jpg" width="250">
+<img src="./prototype/homepage - mentor.jpg" width="250">
+</p>
 
-<a name="view-user-profile"></a>
-## View user profile
+<a name="view-learner-profile"></a>
+## View Learner's Profile
 
-Check out other language learners' profile and learning progress.
+Check out other language learners' profile and learning goals.
 
 <p>
 <img src="./prototype/homepage.jpg" width="250">
-<img src="./prototype/profile-learner.jpg" width="250">
+<img src="./prototype/profile - learner (2).jpg" width="250">
 </p>
 
-<a name="connect-with-others"></a>
-## Connect with others
+<a name="view-mentor-profile"></a>
+## View Mentors' Profile
 
-Find someone with similar learning goals to practice speaking with.
+Look through mentors' profiles and their respective qualifications 
+and ratings. 
 
 <p>
-<img src="./prototype/messenger-preview.jpg" width="250">
-<img src="./prototype/messenger.jpg" width="250">
-<img src="./prototype/messenger-chat.jpg" width="250">
+<img src="./prototype/profile - mentor (2).jpg" width="250">
+<img src="./prototype/profile - mentor (3).jpg" width="250">
 </p>
 
-<a name="schedule-a-meeting"></a>
-## Schedule a meeting
+<a name="connect-offline"></a>
+## Connect Offline
 
-Arrange a meeting with a language learner near your location and practice
-speaking in a safe environment. 
+Arrange a meeting with another language learner at the convenience 
+of both of you and practice speaking in a safe and conducive environment. 
 
 <p>
 <img src="./prototype/booking-preview.jpg" width="250">
 <img src="./prototype/booking-calendar.jpg" width="250">
 <img src="./prototype/booking-request.jpg" width="250">
 </p>
+
+<a name="connect-online"></a>
+## Connect Online
+
+Find someone with similar learning goals to practice speaking with online, even when you're unable to meet-up.
+
+<p>
+<img src="./prototype/messenger-preview.jpg" width="250">
+<img src="./prototype/messenger.jpg" width="250">
+<img src="./prototype/messenger - learner.jpg" width="250">
+</p>
+
+<a name="developers"></a>
+## Developers
+
+This application is created by Amanda Ang and Aaron Saw, for NUS School of Computing's Orbital 2020. 
 
 <!--
 ## Meetup online to practice speaking (KIV)
