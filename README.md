@@ -46,7 +46,7 @@ MongoDB to store messages and conversations at scale.
 <a name="setup"></a>
 # Set-up
 
-1. Download [Fluter SDK](https://flutter.dev/docs/get-started/install) from the
+1. Download [Flutter SDK](https://flutter.dev/docs/get-started/install) from the
    official website.
 
 2. Clone into this repository.

@@ -1,18 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/presentation/core/app_root.dart';
 
 void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'HelloWorld!<>',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-    );
-  }
+  runApp(AppRoot());
 }
