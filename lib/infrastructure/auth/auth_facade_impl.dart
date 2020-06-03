@@ -5,12 +5,14 @@ import 'package:helloworld/domain/auth/email_address.dart';
 import 'package:helloworld/domain/auth/i_auth_facade.dart';
 import 'package:helloworld/domain/auth/password.dart';
 import 'package:helloworld/infrastructure/auth/i_auth_data_source.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton(as: IAuthFacade)
 class AuthFacadeImpl implements IAuthFacade {
-  final IAuthDataSource _authDataSource;
-  final GoogleSignIn _googleSignIn;
-
-  AuthFacadeImpl(this._authDataSource, this._googleSignIn);
+//  final IAuthDataSource _authDataSource;
+//  final GoogleSignIn _googleSignIn;
+//
+//  AuthFacadeImpl(this._authDataSource, this._googleSignIn);
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
@@ -28,11 +30,11 @@ class AuthFacadeImpl implements IAuthFacade {
 
   @override
   Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
-    final googleUser = await _googleSignIn.signIn();
-    if (googleUser == null) {
-      return left(const AuthFailure.cancelledByUser());
-    } else {
+//    final googleUser = await _googleSignIn.signIn();
+//    if (googleUser == null) {
+//      return left(const AuthFailure.cancelledByUser());
+//    } else {
       return right(unit);
-    }
+//    }
   }
 }

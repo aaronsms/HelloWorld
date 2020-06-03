@@ -7,10 +7,13 @@ import 'package:helloworld/domain/auth/auth_failure.dart';
 import 'package:helloworld/domain/auth/email_address.dart';
 import 'package:helloworld/domain/auth/i_auth_facade.dart';
 import 'package:helloworld/domain/auth/password.dart';
+import 'package:injectable/injectable.dart';
 import './bloc.dart';
 
+@injectable
 class SignInBloc extends Bloc<SignInEvent, SignInState> {
   final IAuthFacade _authFacade;
+
   SignInBloc(this._authFacade);
 
   @override
@@ -71,7 +74,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     }
     yield state.copyWith(
       isSubmitting: false,
-      showError: true,
+      showErrorMessage: true,
       authFailureOrSuccessOption: optionOf(failureOrSuccess),
     );
   }
