@@ -42,11 +42,12 @@ class BookingSystem extends StatelessWidget {
                 child: Image(
                   image: AssetImage('assets/images/bookingpreview.png'),
                 )),
+            new Spacer(),
             Container(
               padding: EdgeInsets.all(15.0),
               child: RichText(
                   text: TextSpan(
-                      text: 'The',
+                      text: '\nThe',
                       style: TextStyle(fontSize: 16.0),
                       children: <TextSpan>[
                     TextSpan(
@@ -68,7 +69,7 @@ class BookingSystem extends StatelessWidget {
                 Container(
                     padding: EdgeInsets.all(10.0),
                     child: Image(
-                        image: AssetImage('assets/images/previewbar.png'))),
+                        image: AssetImage('assets/images/previewbar2.png'))),
                 Container(
                     padding: EdgeInsets.all(10.0),
                     child: RaisedButton(

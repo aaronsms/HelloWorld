@@ -48,9 +48,12 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     # - assets/images/logo1.png
-    - assets/images/previewbar.png
-    - assets/images/hire.png
+    - assets/images/previewbar1.png
+    - assets/images/previewbar2.png
+    - assets/images/previewbar3.png
+    - assets/images/hirepreview.png
     - assets/images/bookingpreview.png
+    - assets/images/messengerpreview.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see
