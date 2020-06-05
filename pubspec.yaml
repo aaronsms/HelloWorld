@@ -26,12 +26,15 @@ dev_dependencies:
   injectable_generator: ^0.4.0
 
 flutter:
-
   uses-material-design: true
 
   assets:
-    - assets/images/logo.png
-
+    - assets/images/previewbar1.png
+    - assets/images/previewbar2.png
+    - assets/images/previewbar3.png
+    - assets/images/hirepreview.png
+    - assets/images/bookingpreview.png
+    - assets/images/messengerpreview.png
   fonts:
     - family: Gill Sans
       fonts:
