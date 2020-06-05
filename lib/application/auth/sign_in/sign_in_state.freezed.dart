@@ -16,13 +16,13 @@ class _$SignInStateTearOff {
       {@required EmailAddress emailAddress,
       @required Password password,
       @required bool isSubmitting,
-      @required bool showError,
+      @required bool showErrorMessage,
       @required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
     return _SignInState(
       emailAddress: emailAddress,
       password: password,
       isSubmitting: isSubmitting,
-      showError: showError,
+      showErrorMessage: showErrorMessage,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
   }
@@ -35,7 +35,7 @@ mixin _$SignInState {
   EmailAddress get emailAddress;
   Password get password;
   bool get isSubmitting;
-  bool get showError;
+  bool get showErrorMessage;
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
 
   $SignInStateCopyWith<SignInState> get copyWith;
@@ -49,7 +49,7 @@ abstract class $SignInStateCopyWith<$Res> {
       {EmailAddress emailAddress,
       Password password,
       bool isSubmitting,
-      bool showError,
+      bool showErrorMessage,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
@@ -65,7 +65,7 @@ class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
     Object emailAddress = freezed,
     Object password = freezed,
     Object isSubmitting = freezed,
-    Object showError = freezed,
+    Object showErrorMessage = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
@@ -75,7 +75,9 @@ class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
       password: password == freezed ? _value.password : password as Password,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
-      showError: showError == freezed ? _value.showError : showError as bool,
+      showErrorMessage: showErrorMessage == freezed
+          ? _value.showErrorMessage
+          : showErrorMessage as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption as Option<Either<AuthFailure, Unit>>,
@@ -93,7 +95,7 @@ abstract class _$SignInStateCopyWith<$Res>
       {EmailAddress emailAddress,
       Password password,
       bool isSubmitting,
-      bool showError,
+      bool showErrorMessage,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
@@ -111,7 +113,7 @@ class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
     Object emailAddress = freezed,
     Object password = freezed,
     Object isSubmitting = freezed,
-    Object showError = freezed,
+    Object showErrorMessage = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_SignInState(
@@ -121,7 +123,9 @@ class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
       password: password == freezed ? _value.password : password as Password,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
-      showError: showError == freezed ? _value.showError : showError as bool,
+      showErrorMessage: showErrorMessage == freezed
+          ? _value.showErrorMessage
+          : showErrorMessage as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption as Option<Either<AuthFailure, Unit>>,
@@ -134,12 +138,12 @@ class _$_SignInState implements _SignInState {
       {@required this.emailAddress,
       @required this.password,
       @required this.isSubmitting,
-      @required this.showError,
+      @required this.showErrorMessage,
       @required this.authFailureOrSuccessOption})
       : assert(emailAddress != null),
         assert(password != null),
         assert(isSubmitting != null),
-        assert(showError != null),
+        assert(showErrorMessage != null),
         assert(authFailureOrSuccessOption != null);
 
   @override
@@ -149,13 +153,13 @@ class _$_SignInState implements _SignInState {
   @override
   final bool isSubmitting;
   @override
-  final bool showError;
+  final bool showErrorMessage;
   @override
   final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'SignInState(emailAddress: $emailAddress, password: $password, isSubmitting: $isSubmitting, showError: $showError, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'SignInState(emailAddress: $emailAddress, password: $password, isSubmitting: $isSubmitting, showErrorMessage: $showErrorMessage, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -171,9 +175,9 @@ class _$_SignInState implements _SignInState {
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
-            (identical(other.showError, showError) ||
+            (identical(other.showErrorMessage, showErrorMessage) ||
                 const DeepCollectionEquality()
-                    .equals(other.showError, showError)) &&
+                    .equals(other.showErrorMessage, showErrorMessage)) &&
             (identical(other.authFailureOrSuccessOption,
                     authFailureOrSuccessOption) ||
                 const DeepCollectionEquality().equals(
@@ -187,7 +191,7 @@ class _$_SignInState implements _SignInState {
       const DeepCollectionEquality().hash(emailAddress) ^
       const DeepCollectionEquality().hash(password) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(showError) ^
+      const DeepCollectionEquality().hash(showErrorMessage) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
   @override
@@ -204,7 +208,7 @@ abstract class _SignInState implements SignInState {
           @required
               bool isSubmitting,
           @required
-              bool showError,
+              bool showErrorMessage,
           @required
               Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) =
       _$_SignInState;
@@ -216,7 +220,7 @@ abstract class _SignInState implements SignInState {
   @override
   bool get isSubmitting;
   @override
-  bool get showError;
+  bool get showErrorMessage;
   @override
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
   @override

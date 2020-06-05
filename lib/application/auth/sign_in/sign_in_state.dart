@@ -12,7 +12,7 @@ abstract class SignInState with _$SignInState {
     @required EmailAddress emailAddress,
     @required Password password,
     @required bool isSubmitting,
-    @required bool showError,
+    @required bool showErrorMessage,
     @required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
   }) = _SignInState;
 
@@ -20,6 +20,6 @@ abstract class SignInState with _$SignInState {
       emailAddress: EmailAddress(''),
       password: Password(''),
       isSubmitting: false,
-      showError: false,
+      showErrorMessage: false,
       authFailureOrSuccessOption: None());
 }
