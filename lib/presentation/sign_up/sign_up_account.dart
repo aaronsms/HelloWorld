@@ -7,7 +7,16 @@ class SignUpAccount extends StatefulWidget {
 }
 
 class _SignUpAccountState extends State<SignUpAccount> {
-  // int _currentStep = 0;
+  bool _obscureText = true;
+  String _password;
+
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
@@ -19,7 +28,7 @@ class _SignUpAccountState extends State<SignUpAccount> {
                 child: Text('Create Account',
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 30,
+                        fontSize: 26.0,
                         fontWeight: FontWeight.bold))),
             actions: <Widget>[
               Container(
@@ -27,111 +36,141 @@ class _SignUpAccountState extends State<SignUpAccount> {
                   child: Image(image: AssetImage('assets/images/logo.png')))
             ],
           )),
-      body: Column(children: <Widget>[
+      body: SizedBox(
+          child: Wrap(alignment: WrapAlignment.center, children: <Widget>[
         Container(
             padding: EdgeInsets.only(top: 15.0, bottom: 10.0),
             child: Image(
-              image: AssetImage('assets/images/learner_step2.png'),
-              height: 80,
-              width: 180,
+              image: AssetImage('assets/images/learner_step1.png'),
+              height: 100,
+              width: 200,
             )),
         Container(
-            child: TextField(
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.all(10.0),
-            labelText: " Name",
-          ),
-        )),
+            padding: EdgeInsets.all(10.0),
+            child: Theme(
+                data: ThemeData(
+                  primaryColor: Palette.primaryColor,
+                ),
+                child: TextFormField(
+                  style: TextStyle(color: Palette.primaryColor),
+                  decoration: InputDecoration(
+                    prefixIcon:
+                        Icon(Icons.perm_identity, color: Palette.primaryColor),
+                    border: new OutlineInputBorder(
+                      borderRadius: const BorderRadius.all(
+                        const Radius.circular(15.0),
+                      ),
+                    ),
+                    contentPadding: EdgeInsets.all(10.0),
+                    labelText: "Full Name",
+                    labelStyle: TextStyle(
+                        color: Palette.primaryColor,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ))),
         Container(
-            child: TextField(
-          obscureText: true,
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.all(10.0),
-            labelText: " Password",
-          ),
-        )),
+            padding: EdgeInsets.all(10.0),
+            child: Theme(
+                data: ThemeData(
+                  primaryColor: Palette.primaryColor,
+                ),
+                child: TextFormField(
+                  validator: (input) => input.length < 8
+                      ? "Password needs to be at least 8 characters."
+                      : null,
+                  onSaved: (input) => _password = input,
+                  obscureText: _obscureText,
+                  style: TextStyle(color: Palette.primaryColor),
+                  decoration: InputDecoration(
+                    prefixIcon: IconButton(
+                        onPressed: () => _toggle(),
+                        icon: Icon(_obscureText
+                            ? Icons.visibility_off
+                            : Icons.visibility),
+                        color: Palette.primaryColor),
+                    border: new OutlineInputBorder(
+                      borderRadius: const BorderRadius.all(
+                        const Radius.circular(15.0),
+                      ),
+                    ),
+                    contentPadding: EdgeInsets.all(10.0),
+                    labelText: "Password",
+                    labelStyle: TextStyle(
+                        color: Palette.primaryColor,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ))),
         Container(
-            child: TextField(
-          obscureText: true,
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Palette.primaryColor,
-            contentPadding: EdgeInsets.all(10.0),
-            labelText: " Confirm Password",
-          ),
-        )),
+            padding: EdgeInsets.all(10.0),
+            child: Theme(
+                data: ThemeData(
+                    primaryColor: Palette.primaryColor,
+                    hintColor: Palette.primaryColor),
+                child: TextFormField(
+                  obscureText: _obscureText,
+                  style: TextStyle(color: Palette.primaryColor),
+                  decoration: InputDecoration(
+                    prefixIcon: IconButton(
+                        onPressed: () => _toggle(),
+                        icon: Icon(_obscureText
+                            ? Icons.visibility_off
+                            : Icons.visibility),
+                        color: Palette.primaryColor),
+                    border: new OutlineInputBorder(
+                      borderRadius: const BorderRadius.all(
+                        const Radius.circular(15.0),
+                      ),
+                    ),
+                    contentPadding: EdgeInsets.all(10.0),
+                    labelText: "Confirm Password",
+                    labelStyle: TextStyle(
+                        color: Palette.primaryColor,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ))),
         Container(
-            child: TextField(
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.all(10.0),
-            labelText: " Email Address",
-          ),
-        )),
-      ]),
+            padding: EdgeInsets.all(10.0),
+            child: Theme(
+                data: ThemeData(
+                  primaryColor: Palette.primaryColor,
+                ),
+                child: TextFormField(
+                  style: TextStyle(color: Palette.primaryColor),
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(
+                      Icons.email,
+                      color: Palette.primaryColor,
+                    ),
+                    border: new OutlineInputBorder(
+                      borderRadius: const BorderRadius.all(
+                        const Radius.circular(15.0),
+                      ),
+                    ),
+                    contentPadding: EdgeInsets.all(10.0),
+                    labelText: "Email Address",
+                    labelStyle: TextStyle(
+                        color: Palette.primaryColor,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ))),
+        Container(
+            padding: EdgeInsets.only(top: 150.0),
+            child: RaisedButton(
+              color: Palette.primaryColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14.0),
+              ),
+              onPressed: () {},
+              child: Text(
+                'Next',
+                style: TextStyle(color: Colors.white),
+              ),
+            )),
+      ])),
     );
   }
 }
-
-// Column(children: <Widget>[
-//           Container(
-//               child: ConstrainedBox(
-//                   constraints: BoxConstraints.tightFor(height: 200),
-//                   child: Theme(
-//                       data: ThemeData(primaryColor: Palette.secondaryColor),
-//                       child: Stepper(
-//                         controlsBuilder: (BuildContext context,
-//                             {VoidCallback onStepContinue,
-//                             VoidCallback onStepCancel}) {
-//                           return Row(
-//                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//                               children: <Widget>[
-//                                 RaisedButton(
-//                                     color: Palette.primaryColor,
-//                                     onPressed: onStepContinue,
-//                                     child: Text('Next',
-//                                         style: TextStyle(color: Colors.white))),
-//                                 RaisedButton(
-//                                     color: Palette.primaryColor,
-//                                     onPressed: onStepCancel,
-//                                     child: Text('Cancel',
-//                                         style: TextStyle(color: Colors.white))),
-//                               ]);
-//                         },
-//                         type: StepperType.horizontal,
-//                         currentStep: this._currentStep,
-//                         steps: _mySteps(),
-//                         onStepContinue: () {
-//                           setState(() {
-//                             if (this._currentStep <
-//                                 this._mySteps().length - 1) {
-//                               this._currentStep = this._currentStep + 1;
-//                             } else {}
-//                           });
-//                         },
-//                         onStepCancel: () {
-//                           setState(() {
-//                             if (this._currentStep > 0) {
-//                               this._currentStep = this._currentStep - 1;
-//                             } else {
-//                               this._currentStep = 0;
-//                             }
-//                           });
-//                         },
-//                       )))),
-//         ])
-// List<Step> _mySteps() {
-//   List<Step> _steps = [
-//     Step(
-//       title: Text('Account Details',
-//           style: TextStyle(color: Palette.secondaryColor)),
-//       content: Text(''),
-//       isActive: _currentStep >= 0,
-//     ),
-//     Step(
-//       title: Text('Profile Details'),
-//       content: Text(''),
-//       isActive: _currentStep >= 1,
-//     )
-//   ];
-//   return _steps;
-// }
