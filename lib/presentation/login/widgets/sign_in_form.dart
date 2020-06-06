@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:helloworld/application/auth/sign_in/bloc.dart';
+import 'package:helloworld/application/auth/login/bloc.dart';
 import 'package:helloworld/presentation/core/palette.dart';
-import 'package:helloworld/presentation/sign_in/widgets/register_page.dart';
-import 'package:path/path.dart';
+import 'package:helloworld/presentation/login/widgets/register_page.dart';
 
 class SignInForm extends StatelessWidget {
   @override
@@ -11,7 +10,7 @@ class SignInForm extends StatelessWidget {
     return Container(
       color: Colors.white,
       height: 340,
-      child: BlocConsumer<SignInBloc, SignInState>(
+      child: BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state) {},
           builder: (context, state) {
             return Form(
@@ -46,10 +45,10 @@ class SignInForm extends StatelessWidget {
                           )),
                       autocorrect: false,
                       onChanged: (value) => context
-                          .bloc<SignInBloc>()
-                          .add(SignInEvent.emailChanged(value)),
+                          .bloc<LoginBloc>()
+                          .add(LoginEvent.emailChanged(value)),
                       validator: (_) => context
-                          .bloc<SignInBloc>()
+                          .bloc<LoginBloc>()
                           .state
                           .emailAddress
                           .value
@@ -91,10 +90,10 @@ class SignInForm extends StatelessWidget {
                       autocorrect: false,
                       obscureText: true,
                       onChanged: (value) => context
-                          .bloc<SignInBloc>()
-                          .add(SignInEvent.passwordChanged(value)),
+                          .bloc<LoginBloc>()
+                          .add(LoginEvent.passwordChanged(value)),
                       validator: (_) =>
-                          context.bloc<SignInBloc>().state.password.value.fold(
+                          context.bloc<LoginBloc>().state.password.value.fold(
                                 (f) => f.maybeMap(
                                   shortPassword: (_) => 'Short password',
                                   orElse: () => null,
@@ -112,9 +111,8 @@ class SignInForm extends StatelessWidget {
                           "Sign in",
                           style: TextStyle(color: Colors.white),
                         ),
-                        onPressed: () => context.bloc<SignInBloc>().add(
-                              const SignInEvent
-                                  .signInWithEmailAndPasswordPressed(),
+                        onPressed: () => context.bloc<LoginBloc>().add(
+                              const LoginEvent.signInWithEmailAndPasswordPressed(),
                             ),
                         color: Palette.primaryColor,
                         shape: RoundedRectangleBorder(
@@ -128,7 +126,7 @@ class SignInForm extends StatelessWidget {
                           style: TextStyle(color: Colors.white),
                         ),
                         onPressed: () {
-                          context.bloc<SignInBloc>().add(const SignInEvent
+                          context.bloc<LoginBloc>().add(const LoginEvent
                               .registerWithEmailAndPasswordPressed());
                           Navigator.push(context, MaterialPageRoute(builder: (_) => RegisterPage()));
                         },

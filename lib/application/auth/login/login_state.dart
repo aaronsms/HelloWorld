@@ -4,19 +4,19 @@ import 'package:helloworld/domain/auth/auth_failure.dart';
 import 'package:helloworld/domain/auth/email_address.dart';
 import 'package:helloworld/domain/auth/password.dart';
 
-part 'sign_in_state.freezed.dart';
+part 'login_state.freezed.dart';
 
 @freezed
-abstract class SignInState with _$SignInState {
-  const factory SignInState({
+abstract class LoginState with _$LoginState {
+  const factory LoginState({
     @required EmailAddress emailAddress,
     @required Password password,
     @required bool isSubmitting,
     @required bool showErrorMessage,
     @required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
-  }) = _SignInState;
+  }) = _LoginState;
 
-  factory SignInState.initial() => SignInState(
+  factory LoginState.initial() => LoginState(
       emailAddress: EmailAddress(''),
       password: Password(''),
       isSubmitting: false,

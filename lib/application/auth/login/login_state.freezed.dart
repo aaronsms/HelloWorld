@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
 
-part of 'sign_in_state.dart';
+part of 'login_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -9,16 +9,16 @@ part of 'sign_in_state.dart';
 
 T _$identity<T>(T value) => value;
 
-class _$SignInStateTearOff {
-  const _$SignInStateTearOff();
+class _$LoginStateTearOff {
+  const _$LoginStateTearOff();
 
-  _SignInState call(
+  _LoginState call(
       {@required EmailAddress emailAddress,
       @required Password password,
       @required bool isSubmitting,
       @required bool showErrorMessage,
       @required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
-    return _SignInState(
+    return _LoginState(
       emailAddress: emailAddress,
       password: password,
       isSubmitting: isSubmitting,
@@ -29,22 +29,22 @@ class _$SignInStateTearOff {
 }
 
 // ignore: unused_element
-const $SignInState = _$SignInStateTearOff();
+const $LoginState = _$LoginStateTearOff();
 
-mixin _$SignInState {
+mixin _$LoginState {
   EmailAddress get emailAddress;
   Password get password;
   bool get isSubmitting;
   bool get showErrorMessage;
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
 
-  $SignInStateCopyWith<SignInState> get copyWith;
+  $LoginStateCopyWith<LoginState> get copyWith;
 }
 
-abstract class $SignInStateCopyWith<$Res> {
-  factory $SignInStateCopyWith(
-          SignInState value, $Res Function(SignInState) then) =
-      _$SignInStateCopyWithImpl<$Res>;
+abstract class $LoginStateCopyWith<$Res> {
+  factory $LoginStateCopyWith(
+          LoginState value, $Res Function(LoginState) then) =
+      _$LoginStateCopyWithImpl<$Res>;
   $Res call(
       {EmailAddress emailAddress,
       Password password,
@@ -53,12 +53,12 @@ abstract class $SignInStateCopyWith<$Res> {
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
-class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
-  _$SignInStateCopyWithImpl(this._value, this._then);
+class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
+  _$LoginStateCopyWithImpl(this._value, this._then);
 
-  final SignInState _value;
+  final LoginState _value;
   // ignore: unused_field
-  final $Res Function(SignInState) _then;
+  final $Res Function(LoginState) _then;
 
   @override
   $Res call({
@@ -85,11 +85,10 @@ class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
   }
 }
 
-abstract class _$SignInStateCopyWith<$Res>
-    implements $SignInStateCopyWith<$Res> {
-  factory _$SignInStateCopyWith(
-          _SignInState value, $Res Function(_SignInState) then) =
-      __$SignInStateCopyWithImpl<$Res>;
+abstract class _$LoginStateCopyWith<$Res> implements $LoginStateCopyWith<$Res> {
+  factory _$LoginStateCopyWith(
+          _LoginState value, $Res Function(_LoginState) then) =
+      __$LoginStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {EmailAddress emailAddress,
@@ -99,14 +98,14 @@ abstract class _$SignInStateCopyWith<$Res>
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
-class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
-    implements _$SignInStateCopyWith<$Res> {
-  __$SignInStateCopyWithImpl(
-      _SignInState _value, $Res Function(_SignInState) _then)
-      : super(_value, (v) => _then(v as _SignInState));
+class __$LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
+    implements _$LoginStateCopyWith<$Res> {
+  __$LoginStateCopyWithImpl(
+      _LoginState _value, $Res Function(_LoginState) _then)
+      : super(_value, (v) => _then(v as _LoginState));
 
   @override
-  _SignInState get _value => super._value as _SignInState;
+  _LoginState get _value => super._value as _LoginState;
 
   @override
   $Res call({
@@ -116,7 +115,7 @@ class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
     Object showErrorMessage = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
-    return _then(_SignInState(
+    return _then(_LoginState(
       emailAddress: emailAddress == freezed
           ? _value.emailAddress
           : emailAddress as EmailAddress,
@@ -133,8 +132,8 @@ class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
   }
 }
 
-class _$_SignInState implements _SignInState {
-  const _$_SignInState(
+class _$_LoginState implements _LoginState {
+  const _$_LoginState(
       {@required this.emailAddress,
       @required this.password,
       @required this.isSubmitting,
@@ -159,13 +158,13 @@ class _$_SignInState implements _SignInState {
 
   @override
   String toString() {
-    return 'SignInState(emailAddress: $emailAddress, password: $password, isSubmitting: $isSubmitting, showErrorMessage: $showErrorMessage, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'LoginState(emailAddress: $emailAddress, password: $password, isSubmitting: $isSubmitting, showErrorMessage: $showErrorMessage, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SignInState &&
+        (other is _LoginState &&
             (identical(other.emailAddress, emailAddress) ||
                 const DeepCollectionEquality()
                     .equals(other.emailAddress, emailAddress)) &&
@@ -195,12 +194,12 @@ class _$_SignInState implements _SignInState {
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
   @override
-  _$SignInStateCopyWith<_SignInState> get copyWith =>
-      __$SignInStateCopyWithImpl<_SignInState>(this, _$identity);
+  _$LoginStateCopyWith<_LoginState> get copyWith =>
+      __$LoginStateCopyWithImpl<_LoginState>(this, _$identity);
 }
 
-abstract class _SignInState implements SignInState {
-  const factory _SignInState(
+abstract class _LoginState implements LoginState {
+  const factory _LoginState(
           {@required
               EmailAddress emailAddress,
           @required
@@ -211,7 +210,7 @@ abstract class _SignInState implements SignInState {
               bool showErrorMessage,
           @required
               Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) =
-      _$_SignInState;
+      _$_LoginState;
 
   @override
   EmailAddress get emailAddress;
@@ -224,5 +223,5 @@ abstract class _SignInState implements SignInState {
   @override
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
   @override
-  _$SignInStateCopyWith<_SignInState> get copyWith;
+  _$LoginStateCopyWith<_LoginState> get copyWith;
 }

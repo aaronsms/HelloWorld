@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
-import 'package:helloworld/application/auth/sign_in/sign_in_state.dart';
+import 'package:helloworld/application/auth/login/login_state.dart';
 import 'package:helloworld/domain/auth/auth_failure.dart';
 import 'package:helloworld/domain/auth/email_address.dart';
 import 'package:helloworld/domain/auth/i_auth_facade.dart';
@@ -11,17 +11,17 @@ import 'package:injectable/injectable.dart';
 import './bloc.dart';
 
 @injectable
-class SignInBloc extends Bloc<SignInEvent, SignInState> {
+class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final IAuthFacade _authFacade;
 
-  SignInBloc(this._authFacade);
+  LoginBloc(this._authFacade);
 
   @override
-  SignInState get initialState => SignInState.initial();
+  LoginState get initialState => LoginState.initial();
 
   @override
-  Stream<SignInState> mapEventToState(
-    SignInEvent event,
+  Stream<LoginState> mapEventToState(
+    LoginEvent event,
   ) async* {
     yield* event.map(
       emailChanged: (event) async* {
@@ -54,7 +54,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     );
   }
 
-  Stream<SignInState> _performActionOnAuthFacadeWithEmailAndPassword(
+  Stream<LoginState> _performActionOnAuthFacadeWithEmailAndPassword(
       Future<Either<AuthFailure, Unit>> Function(
               {@required EmailAddress emailAddress,
               @required Password password})
