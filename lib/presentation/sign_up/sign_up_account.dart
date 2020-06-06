@@ -8,7 +8,21 @@ class SignUpAccount extends StatefulWidget {
 
 class _SignUpAccountState extends State<SignUpAccount> {
   bool _obscureText = true;
-  String _password;
+  final _name = TextEditingController();
+  final _password = TextEditingController();
+  final _confirm = TextEditingController();
+  final _email = TextEditingController();
+  bool _validateName = false;
+  bool _validatePassword = false;
+  bool _validateConfirm = false;
+  bool _validateEmail = false;
+  // String _password;
+
+  @override
+  void dispose() {
+    _name.dispose();
+    super.dispose();
+  }
 
   void _toggle() {
     setState(() {
@@ -52,11 +66,22 @@ class _SignUpAccountState extends State<SignUpAccount> {
                   primaryColor: Palette.primaryColor,
                 ),
                 child: TextFormField(
+                  controller: _name,
                   style: TextStyle(color: Palette.primaryColor),
                   decoration: InputDecoration(
+                    errorText: _validateName ? 'Field cannot be empty!' : null,
                     prefixIcon:
                         Icon(Icons.perm_identity, color: Palette.primaryColor),
-                    border: new OutlineInputBorder(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius:
+                          const BorderRadius.all(const Radius.circular(15.0)),
+                      borderSide: BorderSide(
+                          color:
+                              _validateName ? Colors.red : Palette.primaryColor,
+                          style: BorderStyle.solid,
+                          width: 2),
+                    ),
+                    border: OutlineInputBorder(
                       borderRadius: const BorderRadius.all(
                         const Radius.circular(15.0),
                       ),
@@ -76,19 +101,32 @@ class _SignUpAccountState extends State<SignUpAccount> {
                   primaryColor: Palette.primaryColor,
                 ),
                 child: TextFormField(
+                  controller: _password,
                   validator: (input) => input.length < 8
                       ? "Password needs to be at least 8 characters."
                       : null,
-                  onSaved: (input) => _password = input,
+                  // onSaved: (input) => _password = input,
                   obscureText: _obscureText,
                   style: TextStyle(color: Palette.primaryColor),
                   decoration: InputDecoration(
+                    errorText:
+                        _validatePassword ? 'Field cannot be empty!' : null,
                     prefixIcon: IconButton(
                         onPressed: () => _toggle(),
                         icon: Icon(_obscureText
                             ? Icons.visibility_off
                             : Icons.visibility),
                         color: Palette.primaryColor),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius:
+                          const BorderRadius.all(const Radius.circular(15.0)),
+                      borderSide: BorderSide(
+                          color: _validatePassword
+                              ? Colors.red
+                              : Palette.primaryColor,
+                          style: BorderStyle.solid,
+                          width: 2),
+                    ),
                     border: new OutlineInputBorder(
                       borderRadius: const BorderRadius.all(
                         const Radius.circular(15.0),
@@ -109,15 +147,28 @@ class _SignUpAccountState extends State<SignUpAccount> {
                     primaryColor: Palette.primaryColor,
                     hintColor: Palette.primaryColor),
                 child: TextFormField(
+                  controller: _confirm,
                   obscureText: _obscureText,
                   style: TextStyle(color: Palette.primaryColor),
                   decoration: InputDecoration(
+                    errorText:
+                        _validateConfirm ? 'Field cannot be empty!' : null,
                     prefixIcon: IconButton(
                         onPressed: () => _toggle(),
                         icon: Icon(_obscureText
                             ? Icons.visibility_off
                             : Icons.visibility),
                         color: Palette.primaryColor),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius:
+                          const BorderRadius.all(const Radius.circular(15.0)),
+                      borderSide: BorderSide(
+                          color: _validateConfirm
+                              ? Colors.red
+                              : Palette.primaryColor,
+                          style: BorderStyle.solid,
+                          width: 2),
+                    ),
                     border: new OutlineInputBorder(
                       borderRadius: const BorderRadius.all(
                         const Radius.circular(15.0),
@@ -138,11 +189,23 @@ class _SignUpAccountState extends State<SignUpAccount> {
                   primaryColor: Palette.primaryColor,
                 ),
                 child: TextFormField(
+                  controller: _email,
                   style: TextStyle(color: Palette.primaryColor),
                   decoration: InputDecoration(
+                    errorText: _validateEmail ? 'Field cannot be empty!' : null,
                     prefixIcon: Icon(
                       Icons.email,
                       color: Palette.primaryColor,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius:
+                          const BorderRadius.all(const Radius.circular(15.0)),
+                      borderSide: BorderSide(
+                          color: _validateEmail
+                              ? Colors.red
+                              : Palette.primaryColor,
+                          style: BorderStyle.solid,
+                          width: 2),
                     ),
                     border: new OutlineInputBorder(
                       borderRadius: const BorderRadius.all(
@@ -158,13 +221,28 @@ class _SignUpAccountState extends State<SignUpAccount> {
                   ),
                 ))),
         Container(
-            padding: EdgeInsets.only(top: 150.0),
+            padding: EdgeInsets.only(top: 20.0),
             child: RaisedButton(
               color: Palette.primaryColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(14.0),
               ),
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  _name.text.isEmpty
+                      ? _validateName = true
+                      : _validateName = false;
+                  _password.text.isEmpty
+                      ? _validatePassword = true
+                      : _validatePassword = false;
+                  _confirm.text.isEmpty
+                      ? _validateConfirm = true
+                      : _validateConfirm = false;
+                  _email.text.isEmpty
+                      ? _validateEmail = true
+                      : _validateEmail = false;
+                });
+              },
               child: Text(
                 'Next',
                 style: TextStyle(color: Colors.white),
