@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
+import 'package:helloworld/presentation/sign_up/header.dart';
 
 class SignUpAccount extends StatefulWidget {
   @override
@@ -33,23 +34,8 @@ class _SignUpAccountState extends State<SignUpAccount> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: Size.fromHeight(80.0),
-          child: AppBar(
-            backgroundColor: Palette.primaryColor,
-            title: Container(
-                margin: EdgeInsets.only(left: 10.0),
-                child: Text('Create Account',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 26.0,
-                        fontWeight: FontWeight.bold))),
-            actions: <Widget>[
-              Container(
-                  margin: EdgeInsets.only(right: 20.0),
-                  child: Image(image: AssetImage('assets/images/logo.png')))
-            ],
-          )),
+      appBar:
+          PreferredSize(preferredSize: Size.fromHeight(80.0), child: Header()),
       body: SizedBox(
           child: Wrap(alignment: WrapAlignment.center, children: <Widget>[
         Container(
