@@ -93,19 +93,6 @@ class _LanguageSelectState extends State<LanguageSelect> {
                                           selectProficiency = value;
                                         });
                                       }))),
-                          Container(
-                              padding: EdgeInsets.only(left: 25.0),
-                              child: RaisedButton(
-                                color: Palette.primaryColor,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12)),
-                                onPressed: () {},
-                                child: Text('Add',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontFamily: 'Gill Sans',
-                                        fontWeight: FontWeight.bold)),
-                              ))
                         ])))),
           ],
         ));

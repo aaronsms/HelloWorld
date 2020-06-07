@@ -25,6 +25,20 @@ class _LanguageSpeakState extends State<LanguageSpeak> {
                     fontWeight: FontWeight.w600,
                     fontFamily: 'Martel Sans')),
           ),
+          Divider(color: Colors.white),
+          ListTile(
+            leading: Icon(Icons.language, color: Palette.primaryColor),
+            title: Text('Mandarin (Chinese)',
+                style: TextStyle(
+                    color: Palette.primaryColor,
+                    fontWeight: FontWeight.w900,
+                    fontFamily: 'Martel Sans')),
+            subtitle: Text('C6: Proficient',
+                style: TextStyle(
+                    color: Palette.primaryColor,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'Martel Sans')),
+          ),
         ]));
   }
 }

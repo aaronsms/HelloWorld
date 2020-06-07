@@ -9,12 +9,70 @@ import 'package:helloworld/presentation/sign_up/biography.dart';
 import 'package:helloworld/presentation/sign_up/locationpreferred.dart';
 import 'package:helloworld/presentation/sign_up/locationselect.dart';
 
-class SignUpProfileOne extends StatefulWidget {
+class SignUpProfileLearner extends StatefulWidget {
   @override
-  _SignUpProfileOneState createState() => _SignUpProfileOneState();
+  _SignUpProfileLearnerState createState() => _SignUpProfileLearnerState();
 }
 
-class _SignUpProfileOneState extends State<SignUpProfileOne> {
+class _SignUpProfileLearnerState extends State<SignUpProfileLearner> {
+  createLanguageAlertDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Select a language"),
+            content: LanguageSelect(),
+            actions: <Widget>[
+              ButtonBar(children: <Widget>[
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text("Cancel"),
+                  color: Palette.primaryColor,
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text("Add"),
+                  color: Palette.primaryColor,
+                ),
+              ])
+            ],
+          );
+        });
+  }
+
+  createLocationAlertDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Select a location"),
+            content: LocationSelect(),
+            actions: <Widget>[
+              ButtonBar(children: <Widget>[
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text("Cancel"),
+                  color: Palette.primaryColor,
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text("Add"),
+                  color: Palette.primaryColor,
+                ),
+              ])
+            ],
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,9 +119,17 @@ class _SignUpProfileOneState extends State<SignUpProfileOne> {
                             padding: EdgeInsets.all(10.0),
                             child: LanguageLearning()),
                         Container(
-                          padding: EdgeInsets.all(5.0),
-                          child: LanguageSelect(),
-                        )
+                            padding: EdgeInsets.only(bottom: 10.0),
+                            child: GestureDetector(
+                              child: Icon(
+                                Icons.add_circle,
+                                color: Palette.primaryColor,
+                                size: 30.0,
+                              ),
+                              onTap: () {
+                                createLanguageAlertDialog(context);
+                              },
+                            ))
                       ],
                     ))),
             Container(
@@ -85,9 +151,17 @@ class _SignUpProfileOneState extends State<SignUpProfileOne> {
                             padding: EdgeInsets.all(10.0),
                             child: LanguageSpeak()),
                         Container(
-                          padding: EdgeInsets.all(5.0),
-                          child: LanguageSelect(),
-                        )
+                            padding: EdgeInsets.only(bottom: 10.0),
+                            child: GestureDetector(
+                              child: Icon(
+                                Icons.add_circle,
+                                color: Palette.primaryColor,
+                                size: 30.0,
+                              ),
+                              onTap: () {
+                                createLanguageAlertDialog(context);
+                              },
+                            ))
                       ],
                     ))),
             Container(
@@ -109,9 +183,17 @@ class _SignUpProfileOneState extends State<SignUpProfileOne> {
                             padding: EdgeInsets.all(10.0),
                             child: LocationPreferred()),
                         Container(
-                          padding: EdgeInsets.all(5.0),
-                          child: LocationSelect(),
-                        )
+                            padding: EdgeInsets.only(bottom: 10.0),
+                            child: GestureDetector(
+                              child: Icon(
+                                Icons.add_circle,
+                                color: Palette.primaryColor,
+                                size: 30.0,
+                              ),
+                              onTap: () {
+                                createLocationAlertDialog(context);
+                              },
+                            ))
                       ],
                     ))),
             Container(
