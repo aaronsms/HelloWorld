@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:helloworld/application/auth/login/bloc.dart';
-import 'package:helloworld/presentation/core/palette.dart';
+import 'package:helloworld/application/identity_access/login/bloc.dart';
+import 'package:helloworld/presentation/common/palette.dart';
 import 'package:helloworld/presentation/login/widgets/register_page.dart';
 
 class SignInForm extends StatelessWidget {
@@ -112,7 +112,7 @@ class SignInForm extends StatelessWidget {
                           style: TextStyle(color: Colors.white),
                         ),
                         onPressed: () => context.bloc<LoginBloc>().add(
-                              const LoginEvent.signInWithEmailAndPasswordPressed(),
+                              const LoginEvent.loginUserWithEmailAndPassword(),
                             ),
                         color: Palette.primaryColor,
                         shape: RoundedRectangleBorder(
@@ -127,7 +127,7 @@ class SignInForm extends StatelessWidget {
                         ),
                         onPressed: () {
                           context.bloc<LoginBloc>().add(const LoginEvent
-                              .registerWithEmailAndPasswordPressed());
+                              .registerUserWithEmailAndPassword());
                           Navigator.push(context, MaterialPageRoute(builder: (_) => RegisterPage()));
                         },
                         color: Palette.primaryColor,
