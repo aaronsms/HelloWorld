@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:dropdownfield/dropdownfield.dart';
 
-class LanguageSelect extends StatefulWidget {
+class LanguageTeachSelect extends StatefulWidget {
   @override
-  _LanguageSelectState createState() => _LanguageSelectState();
+  _LanguageTeachSelectState createState() => _LanguageTeachSelectState();
 }
 
-class _LanguageSelectState extends State<LanguageSelect> {
+class _LanguageTeachSelectState extends State<LanguageTeachSelect> {
   String selectLanguage = "";
   String selectProficiency;
+  final _rates = TextEditingController();
+  bool _validateRates = false;
 
   List<String> languages = [
     "Please type in a language",
@@ -39,11 +41,9 @@ class _LanguageSelectState extends State<LanguageSelect> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 232.0,
+        height: 250.0,
         width: 400.0,
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Wrap(
           children: <Widget>[
             Flexible(
                 child: Container(
@@ -94,6 +94,45 @@ class _LanguageSelectState extends State<LanguageSelect> {
                                         });
                                       }))),
                         ])))),
+            Container(
+                padding: EdgeInsets.all(10.0),
+                width: 220.0,
+                child: TextFormField(
+                  cursorColor: Palette.primaryColor,
+                  controller: _rates,
+                  style: TextStyle(color: Palette.primaryColor),
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(
+                      Icons.attach_money,
+                      color: Palette.primaryColor,
+                    ),
+                    errorText: _validateRates ? 'Field cannot be empty!' : null,
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Palette.primaryColor,
+                            style: BorderStyle.solid,
+                            width: 2)),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: _validateRates
+                              ? Colors.red
+                              : Colors.grey.withOpacity(0.7),
+                          style: BorderStyle.solid,
+                          width: 2),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: const BorderRadius.all(
+                        const Radius.circular(15.0),
+                      ),
+                    ),
+                    contentPadding: EdgeInsets.all(10.0),
+                    labelText: "Hourly Rate (SGD)",
+                    labelStyle: TextStyle(
+                        color: Palette.primaryColor,
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )),
           ],
         ));
   }

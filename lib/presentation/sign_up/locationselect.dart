@@ -18,15 +18,15 @@ class _LocationSelectState extends State<LocationSelect> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 300.0,
+        height: 100.0,
         width: 400.0,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Wrap(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Flexible(
                 child: Container(
-                    padding: EdgeInsets.all(10.0),
+                    padding: EdgeInsets.only(bottom: 10.0),
                     child: DropDownField(
                         value: selectLocation,
                         controller: TextEditingController(),
@@ -37,25 +37,6 @@ class _LocationSelectState extends State<LocationSelect> {
                         setter: (dynamic value) {
                           selectLocation = value;
                         }))),
-            Flexible(
-                child: Container(
-                    padding: EdgeInsets.only(left: 10.0),
-                    child: Theme(
-                        data: Theme.of(context).copyWith(
-                          canvasColor: Color(0xFFF5F5F5),
-                        ),
-                        child: Container(
-                            child: RaisedButton(
-                          color: Palette.primaryColor,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12)),
-                          onPressed: () {},
-                          child: Text('Add',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'Gill Sans',
-                                  fontWeight: FontWeight.bold)),
-                        ))))),
           ],
         ));
   }

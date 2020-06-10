@@ -4,7 +4,7 @@ import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/sign_up/header.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:helloworld/presentation/sign_up/verified_email.dart';
+import 'package:helloworld/presentation/sign_up/verified_email_learner.dart';
 
 class VerifyEmail extends StatefulWidget {
   @override
@@ -18,8 +18,8 @@ class _VerifyEmailState extends State<VerifyEmail> {
     ..text = "address@u.nus.edu";
 
   Future navigateVerified(context) async {
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => VerifiedEmail()));
+    Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (context) => VerifiedEmailLearner()));
   }
 
   @override

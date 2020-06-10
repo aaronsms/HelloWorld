@@ -20,6 +20,7 @@ class _SignUpAccountMentorState extends State<SignUpAccountMentor> {
   bool _validateConfirm = false;
   bool _validateEmail = false;
   bool _validateAge = false;
+  bool _invalidAge = false;
   // String _password;
 
   @override
@@ -223,7 +224,11 @@ class _SignUpAccountMentorState extends State<SignUpAccountMentor> {
                   ],
                   style: TextStyle(color: Palette.primaryColor),
                   decoration: InputDecoration(
-                    errorText: _validateAge ? 'Field cannot be empty!' : null,
+                    errorText: _validateAge
+                        ? 'Field cannot be empty!'
+                        : _invalidAge
+                            ? 'You need to be AT LEAST 18 years of age to apply as a Mentor!'
+                            : null,
                     prefixIcon: Icon(
                       Icons.calendar_today,
                       color: Palette.primaryColor,
@@ -282,6 +287,12 @@ class _SignUpAccountMentorState extends State<SignUpAccountMentor> {
                   _email.text.isEmpty
                       ? _validateEmail = true
                       : _validateEmail = false;
+                  _age.text.isEmpty
+                      ? _validateAge = true
+                      : _validateAge = false;
+                  _age.text.compareTo('18') < 1
+                      ? _invalidAge = true
+                      : _invalidAge = false;
                 });
               },
               child: Text(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/sign_up/header.dart';
 
-class VerifiedEmail extends StatelessWidget {
+class VerifiedEmailMentor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +13,7 @@ class VerifiedEmail extends StatelessWidget {
             Container(
                 padding: EdgeInsets.only(top: 35.0, bottom: 45.0),
                 child: Image(
-                  image: AssetImage('assets/images/verifiedemail.png'),
+                  image: AssetImage('assets/images/applicationmentor.png'),
                   height: 225,
                 )),
             Text("Your email has been verified.",
@@ -26,8 +26,9 @@ class VerifiedEmail extends StatelessWidget {
             Container(
                 padding: EdgeInsets.only(left: 15.0),
                 child: Text(
-                  "You may now start matching up and connecting with a mentor or a learner!",
+                  "Your application as a mentor has been successfully received by our team. By next week, you should have received the outcome of your application in your email.",
                   style: TextStyle(
+                      height: 1.5,
                       color: Colors.grey,
                       fontFamily: 'Martel Sans',
                       fontWeight: FontWeight.w300,
@@ -41,7 +42,7 @@ class VerifiedEmail extends StatelessWidget {
                     borderRadius: BorderRadius.circular(14.0),
                   ),
                   child: Text(
-                    "Go to Homepage",
+                    "Back to Login",
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 
-class LocationPreferred extends StatefulWidget {
+class Qualification extends StatefulWidget {
   @override
-  _LocationPreferredState createState() => _LocationPreferredState();
+  _QualificationState createState() => _QualificationState();
 }
 
-class _LocationPreferredState extends State<LocationPreferred> {
+class _QualificationState extends State<Qualification> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -14,7 +14,7 @@ class _LocationPreferredState extends State<LocationPreferred> {
         child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
           ListTile(
             leading: Icon(
-              Icons.location_city,
+              Icons.school,
               color: Palette.primaryColor,
             ),
             trailing: Icon(
@@ -22,14 +22,17 @@ class _LocationPreferredState extends State<LocationPreferred> {
               color: Color(0xFFF1FAEE),
               /** ONTAP DELETE */
             ),
-            title: Text('Starbucks @Hillion',
+            title: Container(
+                padding: EdgeInsets.only(top: 10.0),
+                child: Text('Attained Grade "A" in GCSE O-Level Spanish',
+                    style: TextStyle(
+                        height: 1.4,
+                        color: Palette.primaryColor,
+                        fontWeight: FontWeight.w900,
+                        fontFamily: 'Martel Sans'))),
+            subtitle: Text('certificate_example.pdf',
                 style: TextStyle(
-                    color: Palette.primaryColor,
-                    fontWeight: FontWeight.w900,
-                    fontFamily: 'Martel Sans')),
-            subtitle: Text(
-                '900 South Woodlands Drive, Woodlands Civic Centre, #01-03, Singapore 730900',
-                style: TextStyle(
+                    decoration: TextDecoration.underline,
                     color: Palette.primaryColor,
                     fontWeight: FontWeight.w600,
                     fontFamily: 'Martel Sans')),

@@ -24,6 +24,11 @@ class _LanguageLearningState extends State<LanguageLearning> {
                     color: Palette.primaryColor,
                     fontWeight: FontWeight.w600,
                     fontFamily: 'Martel Sans')),
+            trailing: Icon(
+              Icons.delete_sweep,
+              color: Color(0xFFF1FAEE),
+              /** ONTAP DELETE */
+            ),
           ),
         ]));
   }

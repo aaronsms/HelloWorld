@@ -41,6 +41,7 @@ flutter:
     - assets/images/mentor_step3.png
     - assets/images/verifyemail.png
     - assets/images/verifiedemail.png
+    - assets/images/applicationmentor.png
 
   fonts:
     - family: Gill Sans

@@ -24,6 +24,11 @@ class _LanguageSpeakState extends State<LanguageSpeak> {
                     color: Palette.primaryColor,
                     fontWeight: FontWeight.w600,
                     fontFamily: 'Martel Sans')),
+            trailing: Icon(
+              Icons.delete_sweep,
+              color: Color(0xFFF1FAEE),
+              /** ONTAP DELETE */
+            ),
           ),
           Divider(color: Colors.white),
           ListTile(
@@ -38,6 +43,11 @@ class _LanguageSpeakState extends State<LanguageSpeak> {
                     color: Palette.primaryColor,
                     fontWeight: FontWeight.w600,
                     fontFamily: 'Martel Sans')),
+            trailing: Icon(
+              Icons.delete_sweep,
+              color: Color(0xFFF1FAEE),
+              /** ONTAP DELETE */
+            ),
           ),
         ]));
   }
