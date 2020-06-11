@@ -1,7 +1,7 @@
 name: helloworld
 description: A platform for all language learners.
 
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
@@ -36,6 +36,8 @@ flutter:
     - assets/images/hirepreview.png
     - assets/images/bookingpreview.png
     - assets/images/messengerpreview.png
+    - assets/images/logo.png
+
   fonts:
     - family: Gill Sans
       fonts:
