@@ -13,6 +13,7 @@ dependencies:
   dartz: ^0.9.1
   freezed_annotation: ^0.7.1
   provider: ^4.1.2
+  pin_code_fields: ^3.0.1
   flutter_bloc: ^4.0.0
   postgres: ^2.1.1
   google_sign_in: ^4.5.1
@@ -37,6 +38,7 @@ flutter:
     - assets/images/bookingpreview.png
     - assets/images/messengerpreview.png
     - assets/images/logo.png
+    - assets/images/password_reset.png
 
   fonts:
     - family: Gill Sans
