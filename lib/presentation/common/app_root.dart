@@ -12,7 +12,7 @@ class AppRoot extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'HelloWorld!<>',
-      home: RegisterPage(),
+      home: SubmitEmail(),
       theme: ThemeData(),
     );
   }
