@@ -23,6 +23,7 @@ dependencies:
   path: ^1.7.0
   get_it: ^4.0.2
   injectable: ^0.4.0+1
+  uuid: ^2.0.4
 
 dev_dependencies:
   build_runner:
@@ -33,6 +34,12 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/images/previewbar1.png
+    - assets/images/previewbar2.png
+    - assets/images/previewbar3.png
+    - assets/images/hirepreview.png
+    - assets/images/bookingpreview.png
+    - assets/images/messengerpreview.png
     - assets/images/logo.png
     - assets/images/learner_step2.png
     - assets/images/learner_step1.png
