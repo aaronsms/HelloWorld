@@ -6,7 +6,7 @@ import 'package:helloworld/injection.dart';
 import 'package:helloworld/presentation/login/widgets/sign_in_banner.dart';
 import 'package:helloworld/presentation/login/widgets/sign_in_form.dart';
 
-class SignInPage extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

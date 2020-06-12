@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:helloworld/application/identity_access/login/bloc.dart';
 import 'package:helloworld/presentation/common/palette.dart';
-import 'package:helloworld/presentation/login/widgets/register_page.dart';
+import 'package:helloworld/presentation/register/register_page.dart';
 
 class SignInForm extends StatelessWidget {
   @override

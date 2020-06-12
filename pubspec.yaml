@@ -36,6 +36,7 @@ flutter:
     - assets/images/hirepreview.png
     - assets/images/bookingpreview.png
     - assets/images/messengerpreview.png
+    - assets/images/logo.png
   fonts:
     - family: Gill Sans
       fonts:
