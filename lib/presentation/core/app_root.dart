@@ -10,6 +10,8 @@ import 'package:helloworld/presentation/sign_up/sign_up_account_mentor.dart';
 import 'package:helloworld/presentation/sign_up/qualification_addition.dart';
 import 'package:helloworld/presentation/sign_up/sign_up_qualifications.dart';
 import 'package:helloworld/presentation/sign_up/verified_email_mentor.dart';
+// import 'package:helloworld/presentation/homepage/learner_display.dart';
+import 'package:helloworld/presentation/homepage/landing_page.dart';
 
 class AppRoot extends StatelessWidget {
   @override
@@ -17,7 +19,7 @@ class AppRoot extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'HelloWorld!<>',
-      home: VerifiedEmailMentor(),
+      home: LandingPage(),
       theme: ThemeData(),
     );
   }

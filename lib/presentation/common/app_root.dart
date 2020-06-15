@@ -5,6 +5,10 @@ import 'package:helloworld/presentation/preview/messenger.dart';
 import 'package:helloworld/presentation/preview/rent_mentor.dart';
 import 'package:helloworld/presentation/register/register_page.dart';
 import 'package:helloworld/presentation/passwordreset/submitemail.dart';
+// import 'package:helloworld/presentation/homepage/learner_display.dart';
+import 'package:helloworld/presentation/homepage/landing_page.dart';
+import 'package:helloworld/presentation/homepage/widgets/search_profile_filters.dart';
+import 'package:helloworld/presentation/homepage/widgets/search_bar.dart';
 
 class AppRoot extends StatelessWidget {
   @override
@@ -12,7 +16,7 @@ class AppRoot extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'HelloWorld!<>',
-      home: SubmitEmail(),
+      home: LandingPage(),
       theme: ThemeData(),
     );
   }
