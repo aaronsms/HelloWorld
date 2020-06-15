@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helloworld/presentation/common/palette.dart';
+import 'package:helloworld/presentation/core/palette.dart';
 
 class NextButton extends StatelessWidget {
   @override

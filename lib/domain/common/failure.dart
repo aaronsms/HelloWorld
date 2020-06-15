@@ -10,4 +10,5 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
       _ShortPassword<T>;
   const factory ValueFailure.invalidAge({@required int failedValue}) =
       _InvalidAge<T>;
+  const factory ValueFailure.emptyField() = _EmptyField<T>;
 }

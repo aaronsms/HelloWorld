@@ -29,6 +29,10 @@ class _$ValueFailureTearOff {
       failedValue: failedValue,
     );
   }
+
+  _EmptyField<T> emptyField<T>() {
+    return _EmptyField<T>();
+  }
 }
 
 // ignore: unused_element
@@ -40,12 +44,14 @@ mixin _$ValueFailure<T> {
     @required Result invalidEmail(String failedValue),
     @required Result shortPassword(String failedValue),
     @required Result invalidAge(int failedValue),
+    @required Result emptyField(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result invalidEmail(String failedValue),
     Result shortPassword(String failedValue),
     Result invalidAge(int failedValue),
+    Result emptyField(),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -53,12 +59,14 @@ mixin _$ValueFailure<T> {
     @required Result invalidEmail(_InvalidEmail<T> value),
     @required Result shortPassword(_ShortPassword<T> value),
     @required Result invalidAge(_InvalidAge<T> value),
+    @required Result emptyField(_EmptyField<T> value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result invalidEmail(_InvalidEmail<T> value),
     Result shortPassword(_ShortPassword<T> value),
     Result invalidAge(_InvalidAge<T> value),
+    Result emptyField(_EmptyField<T> value),
     @required Result orElse(),
   });
 }
@@ -141,10 +149,12 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     @required Result invalidEmail(String failedValue),
     @required Result shortPassword(String failedValue),
     @required Result invalidAge(int failedValue),
+    @required Result emptyField(),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
+    assert(emptyField != null);
     return invalidEmail(failedValue);
   }
 
@@ -154,6 +164,7 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     Result invalidEmail(String failedValue),
     Result shortPassword(String failedValue),
     Result invalidAge(int failedValue),
+    Result emptyField(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -169,10 +180,12 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     @required Result invalidEmail(_InvalidEmail<T> value),
     @required Result shortPassword(_ShortPassword<T> value),
     @required Result invalidAge(_InvalidAge<T> value),
+    @required Result emptyField(_EmptyField<T> value),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
+    assert(emptyField != null);
     return invalidEmail(this);
   }
 
@@ -182,6 +195,7 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     Result invalidEmail(_InvalidEmail<T> value),
     Result shortPassword(_ShortPassword<T> value),
     Result invalidAge(_InvalidAge<T> value),
+    Result emptyField(_EmptyField<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -263,10 +277,12 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     @required Result invalidEmail(String failedValue),
     @required Result shortPassword(String failedValue),
     @required Result invalidAge(int failedValue),
+    @required Result emptyField(),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
+    assert(emptyField != null);
     return shortPassword(failedValue);
   }
 
@@ -276,6 +292,7 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     Result invalidEmail(String failedValue),
     Result shortPassword(String failedValue),
     Result invalidAge(int failedValue),
+    Result emptyField(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -291,10 +308,12 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     @required Result invalidEmail(_InvalidEmail<T> value),
     @required Result shortPassword(_ShortPassword<T> value),
     @required Result invalidAge(_InvalidAge<T> value),
+    @required Result emptyField(_EmptyField<T> value),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
+    assert(emptyField != null);
     return shortPassword(this);
   }
 
@@ -304,6 +323,7 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     Result invalidEmail(_InvalidEmail<T> value),
     Result shortPassword(_ShortPassword<T> value),
     Result invalidAge(_InvalidAge<T> value),
+    Result emptyField(_EmptyField<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -385,10 +405,12 @@ class _$_InvalidAge<T> implements _InvalidAge<T> {
     @required Result invalidEmail(String failedValue),
     @required Result shortPassword(String failedValue),
     @required Result invalidAge(int failedValue),
+    @required Result emptyField(),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
+    assert(emptyField != null);
     return invalidAge(failedValue);
   }
 
@@ -398,6 +420,7 @@ class _$_InvalidAge<T> implements _InvalidAge<T> {
     Result invalidEmail(String failedValue),
     Result shortPassword(String failedValue),
     Result invalidAge(int failedValue),
+    Result emptyField(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -413,10 +436,12 @@ class _$_InvalidAge<T> implements _InvalidAge<T> {
     @required Result invalidEmail(_InvalidEmail<T> value),
     @required Result shortPassword(_ShortPassword<T> value),
     @required Result invalidAge(_InvalidAge<T> value),
+    @required Result emptyField(_EmptyField<T> value),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
+    assert(emptyField != null);
     return invalidAge(this);
   }
 
@@ -426,6 +451,7 @@ class _$_InvalidAge<T> implements _InvalidAge<T> {
     Result invalidEmail(_InvalidEmail<T> value),
     Result shortPassword(_ShortPassword<T> value),
     Result invalidAge(_InvalidAge<T> value),
+    Result emptyField(_EmptyField<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -441,4 +467,104 @@ abstract class _InvalidAge<T> implements ValueFailure<T> {
 
   int get failedValue;
   _$InvalidAgeCopyWith<T, _InvalidAge<T>> get copyWith;
+}
+
+abstract class _$EmptyFieldCopyWith<T, $Res> {
+  factory _$EmptyFieldCopyWith(
+          _EmptyField<T> value, $Res Function(_EmptyField<T>) then) =
+      __$EmptyFieldCopyWithImpl<T, $Res>;
+}
+
+class __$EmptyFieldCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$EmptyFieldCopyWith<T, $Res> {
+  __$EmptyFieldCopyWithImpl(
+      _EmptyField<T> _value, $Res Function(_EmptyField<T>) _then)
+      : super(_value, (v) => _then(v as _EmptyField<T>));
+
+  @override
+  _EmptyField<T> get _value => super._value as _EmptyField<T>;
+}
+
+class _$_EmptyField<T> implements _EmptyField<T> {
+  const _$_EmptyField();
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.emptyField()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _EmptyField<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result invalidEmail(String failedValue),
+    @required Result shortPassword(String failedValue),
+    @required Result invalidAge(int failedValue),
+    @required Result emptyField(),
+  }) {
+    assert(invalidEmail != null);
+    assert(shortPassword != null);
+    assert(invalidAge != null);
+    assert(emptyField != null);
+    return emptyField();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result invalidEmail(String failedValue),
+    Result shortPassword(String failedValue),
+    Result invalidAge(int failedValue),
+    Result emptyField(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (emptyField != null) {
+      return emptyField();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result invalidEmail(_InvalidEmail<T> value),
+    @required Result shortPassword(_ShortPassword<T> value),
+    @required Result invalidAge(_InvalidAge<T> value),
+    @required Result emptyField(_EmptyField<T> value),
+  }) {
+    assert(invalidEmail != null);
+    assert(shortPassword != null);
+    assert(invalidAge != null);
+    assert(emptyField != null);
+    return emptyField(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result invalidEmail(_InvalidEmail<T> value),
+    Result shortPassword(_ShortPassword<T> value),
+    Result invalidAge(_InvalidAge<T> value),
+    Result emptyField(_EmptyField<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (emptyField != null) {
+      return emptyField(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EmptyField<T> implements ValueFailure<T> {
+  const factory _EmptyField() = _$_EmptyField<T>;
 }

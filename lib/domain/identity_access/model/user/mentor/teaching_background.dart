@@ -4,7 +4,7 @@ import '../language_proficiency.dart';
 import '../speaking_language.dart';
 import 'teaching_language.dart';
 
-class TeachingBackground extends Entity {
+class TeachingBackground implements Entity {
   final TeachingBackgroundId id;
   final Map<SpeakingLanguage, LanguageProficiency> speakingLanguages;
   final Map<TeachingLanguage, LanguageProficiency> teachingLanguages;

@@ -2,17 +2,18 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
-import 'package:helloworld/domain/auth/auth_failure.dart';
-import 'package:helloworld/domain/auth/email_address.dart';
-import 'package:helloworld/domain/auth/i_auth_facade.dart';
-import 'package:helloworld/domain/auth/password.dart';
+import 'package:helloworld/domain/identity_access/model/user/email_address.dart';
+import 'package:helloworld/domain/identity_access/model/user/password.dart';
+import 'package:helloworld/domain/identity_access/service/authentication_failure.dart';
+import 'package:helloworld/domain/identity_access/service/i_authentication_facade.dart';
 import 'package:injectable/injectable.dart';
+
 import 'login_event.dart';
 import 'login_state.dart';
 
 @injectable
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  final IAuthFacade _authFacade;
+  final IAuthenticationFacade _authFacade;
 
   LoginBloc(this._authFacade);
 
@@ -34,32 +35,19 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             password: Password(event.passwordStr),
             authFailureOrSuccessOption: none());
       },
-      registerUserWithEmailAndPassword: (event) async* {
-        yield* _performActionOnAuthFacadeWithEmailAndPassword(
-            _authFacade.registerWithEmailAndPassword);
-      },
       loginUserWithEmailAndPassword: (event) async* {
         yield* _performActionOnAuthFacadeWithEmailAndPassword(
-            _authFacade.signInWithEmailAndPassword);
-      },
-      signInWithGoogle: (event) async* {
-        yield state.copyWith(
-            isSubmitting: true, authFailureOrSuccessOption: none());
-        final failureOrSuccess = await _authFacade.signInWithGoogle();
-        yield state.copyWith(
-          isSubmitting: false,
-          authFailureOrSuccessOption: some(failureOrSuccess),
-        );
+            _authFacade.loginUserWithEmailAndPassword);
       },
     );
   }
 
   Stream<LoginState> _performActionOnAuthFacadeWithEmailAndPassword(
-      Future<Either<AuthFailure, Unit>> Function(
+      Future<Either<AuthenticationFailure, Unit>> Function(
               {@required EmailAddress emailAddress,
               @required Password password})
           forwardedCall) async* {
-    Either<AuthFailure, Unit> failureOrSuccess;
+    Either<AuthenticationFailure, Unit> failureOrSuccess;
 
     final isEmailValid = state.emailAddress.isValid();
     final isPasswordValid = state.password.isValid();

@@ -1,5 +1,6 @@
 import 'package:helloworld/domain/common/identity.dart';
 
 class LearnerId extends Identity {
-  factory LearnerId.fromUuid() => Identity.fromUuid();
+  LearnerId() : super.fromUuid();
+  LearnerId.fromUniqueId(String uniqueId) : super.fromUniqueId(uniqueId);
 }
