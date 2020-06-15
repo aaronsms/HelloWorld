@@ -1,13 +1,16 @@
 import 'package:helloworld/domain/common/entity.dart';
 
+import 'email_address.dart';
+import 'name.dart';
+import 'password.dart';
 import 'user_id.dart';
-import 'credential.dart';
-import 'role.dart';
 
-class User extends Entity {
+class User implements Entity {
+  @override
   final UserId id;
-  final Role role;
-  final Credential credential;
+  final Name name;
+  final EmailAddress emailAddress;
+  final Password password;
 
-  const User({this.id, this.role, this.credential});
+  const User({this.id, this.name, this.emailAddress, this.password});
 }

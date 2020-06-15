@@ -1,17 +1,20 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:helloworld/domain/common/entity.dart';
 
-import '../user_id.dart';
 import '../gender.dart';
-import 'learning_background.dart';
-import 'learner_id.dart';
 import '../location.dart';
+import '../user_id.dart';
+import 'learner_id.dart';
+import 'learning_background.dart';
 
-class Learner extends Entity {
-  final LearnerId id;
-  final UserId userId;
-  final LearningBackground languageBackground;
-  final Location location;
-  final Gender gender;
+part 'learner.freezed.dart';
 
-  const Learner(this.id, this.userId, this.languageBackground, this.location, this.gender);
+@freezed
+abstract class Learner with _$Learner implements Entity {
+  const factory Learner._(
+      {@required LearnerId id,
+      @required UserId userId,
+      @required LearningBackground languageBackground,
+      @required Location location,
+      @required Gender gender}) = _Learner;
 }

@@ -1,17 +1,21 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:helloworld/domain/common/entity.dart';
-import 'package:helloworld/domain/identity_access/model/user/mentor/teaching_background.dart';
 
+import 'teaching_background.dart';
 import '../gender.dart';
 import '../location.dart';
 import '../user_id.dart';
 import 'mentor_id.dart';
 
-class Mentor extends Entity {
-  final MentorId id;
-  final UserId userId;
-  final TeachingBackground languageBackground;
-  final Location location;
-  final Gender gender;
+part 'mentor.freezed.dart';
 
-  Mentor(this.id, this.userId, this.languageBackground, this.location, this.gender);
+@freezed
+abstract class Mentor with _$Mentor implements Entity {
+  const factory Mentor({
+    @required MentorId id,
+    @required UserId userId,
+    @required TeachingBackground languageBackground,
+    @required Location location,
+    @required Gender gender
+  }) = _Mentor;
 }

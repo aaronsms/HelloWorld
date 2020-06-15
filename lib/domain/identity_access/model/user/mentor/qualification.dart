@@ -3,7 +3,7 @@ import 'package:helloworld/domain/common/languages.dart';
 
 import 'qualification_id.dart';
 
-class Qualification extends Entity {
+class Qualification implements Entity {
   @override
   final QualificationId id;
   final Language language;

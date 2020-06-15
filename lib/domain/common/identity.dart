@@ -1,18 +1,16 @@
 import 'package:uuid/uuid.dart';
+import 'package:dartz/dartz.dart';
 import 'failure.dart';
 import 'value_objects.dart';
-import 'package:dartz/dartz.dart';
 
-class Identity extends ValueObject<String> {
+abstract class Identity extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  factory Identity.fromUuid() => Identity._(right(Uuid().v1()));
+  Identity.fromUniqueId(String uniqueId) :
+    assert(uniqueId != null),
+    value = right(uniqueId);
 
-  factory Identity.fromUniqueId(String uniqueId) {
-    assert(uniqueId != null);
-    return Identity._(right(uniqueId));
-  }
-
-  const Identity._(this.value);
+  Identity.fromUuid() :
+    value = right(Uuid().v1());
 }

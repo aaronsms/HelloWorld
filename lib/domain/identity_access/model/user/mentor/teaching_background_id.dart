@@ -1,5 +1,6 @@
 import 'package:helloworld/domain/common/identity.dart';
 
 class TeachingBackgroundId extends Identity {
-  factory TeachingBackgroundId.fromUuid() => Identity.fromUuid();
+  TeachingBackgroundId() : super.fromUuid();
+  TeachingBackgroundId.fromUniqueId(String uniqueId) : super.fromUniqueId(uniqueId);
 }

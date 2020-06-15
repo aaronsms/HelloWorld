@@ -1,5 +1,6 @@
 import 'package:helloworld/domain/common/identity.dart';
 
 class MentorId extends Identity {
-  factory MentorId.fromUuid() => Identity.fromUuid();
+  MentorId() : super.fromUuid();
+  MentorId.fromUniqueId(String uniqueId) : super.fromUniqueId(uniqueId);
 }
