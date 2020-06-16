@@ -22,6 +22,25 @@ class _SearchProfileFiltersState extends State<SearchProfileFilters> {
               padding: EdgeInsets.only(left: 15),
               alignment: Alignment.bottomLeft,
               child: Text(
+                "Languages Teaching",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    height: 0.1,
+                    fontFamily: 'Martel Sans',
+                    fontWeight: FontWeight.w900),
+              )),
+          LanguageFilter(),
+          new Divider(
+            color: Colors.white,
+            thickness: 1,
+            indent: 10,
+            endIndent: 10,
+          ),
+          Container(
+              padding: EdgeInsets.only(left: 15, top: 30),
+              alignment: Alignment.bottomLeft,
+              child: Text(
                 "Languages Learning",
                 style: TextStyle(
                     color: Colors.white,

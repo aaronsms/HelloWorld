@@ -7,7 +7,7 @@ class ViewBy extends StatefulWidget {
 }
 
 class _ViewByState extends State<ViewBy> {
-  String _viewBy = 'Learners';
+  static String viewBy = 'Learners';
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class _ViewByState extends State<ViewBy> {
               ),
               child: DropdownButton(
                 underline: SizedBox(),
-                value: _viewBy,
+                value: viewBy,
                 items: <DropdownMenuItem<String>>[
                   DropdownMenuItem(
                       child: Text(
@@ -46,7 +46,7 @@ class _ViewByState extends State<ViewBy> {
                 ],
                 onChanged: (String value) {
                   setState(() {
-                    _viewBy = value;
+                    viewBy = value;
                   });
                 },
               )),

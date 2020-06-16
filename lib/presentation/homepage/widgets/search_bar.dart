@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/homepage/widgets/search_profile_filters.dart';
+import 'package:helloworld/presentation/common/custom_dialog.dart'
+    as customDialog;
 
 class SearchBar extends StatefulWidget {
   @override
@@ -15,7 +17,10 @@ class _SearchBarState extends State<SearchBar> {
         context: context,
         builder: (context) {
           return SingleChildScrollView(
-              child: AlertDialog(
+              child: customDialog.AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(14.0),
+            ),
             backgroundColor: Palette.secondaryColor,
             title: Text(""),
             content: SearchProfileFilters(),
@@ -89,8 +94,8 @@ class _SearchBarState extends State<SearchBar> {
                       hintStyle: TextStyle(
                           fontStyle: FontStyle.italic,
                           fontFamily: 'Martel Sans',
-                          fontSize: 12,
-                          color: Palette.secondaryColor,
+                          fontSize: 11,
+                          color: Colors.grey,
                           fontWeight: FontWeight.w700),
                       contentPadding: EdgeInsets.all(10),
                       filled: true,
