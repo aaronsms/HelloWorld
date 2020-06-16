@@ -13,7 +13,7 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  String viewBy = "Learners";
+  String viewBy = "Mentors";
 
   @override
   Widget build(BuildContext context) {

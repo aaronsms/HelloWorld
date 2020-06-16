@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/homepage/widgets/proficiency_bar.dart';
+import 'package:helloworld/presentation/homepage/widgets/language_set.dart';
 
-class LearnerDisplay extends StatefulWidget {
-  @override
-  _LearnerDisplayState createState() => _LearnerDisplayState();
-}
+class LearnerDisplay extends StatelessWidget {
+  final String name;
+  final int active;
+  final double distance;
+  final List<LanguageSet> common;
+  final List<LanguageSet> learning;
+  final Image display;
 
-class _LearnerDisplayState extends State<LearnerDisplay> {
+  const LearnerDisplay({
+    Key key,
+    @required this.name,
+    @required this.active,
+    @required this.distance,
+    @required this.common,
+    @required this.learning,
+    this.display,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -29,7 +42,7 @@ class _LearnerDisplayState extends State<LearnerDisplay> {
                   ),
                 ),
               ),
-              title: Text('Sample Name',
+              title: Text(name,
                   style: TextStyle(
                       color: Palette.primaryColor,
                       fontSize: 20,
@@ -38,7 +51,7 @@ class _LearnerDisplayState extends State<LearnerDisplay> {
               subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('Active 5 days ago',
+                    Text('Active ' + active.toString() + ' days ago',
                         style: TextStyle(
                             height: 1.2,
                             color: Colors.grey,
@@ -51,7 +64,9 @@ class _LearnerDisplayState extends State<LearnerDisplay> {
                           Icons.location_on,
                           color: Palette.primaryColor,
                         ),
-                        Text("0.6km from your preferred location",
+                        Text(
+                            distance.toString() +
+                                "km from your preferred location",
                             style: TextStyle(
                                 color: Palette.primaryColor,
                                 fontWeight: FontWeight.w700,
@@ -61,63 +76,43 @@ class _LearnerDisplayState extends State<LearnerDisplay> {
                     Row(children: <Widget>[
                       RichText(
                         text: TextSpan(
-                            text: 'LEARNING',
-                            style: TextStyle(
-                                color: Palette.secondaryColor,
-                                fontWeight: FontWeight.w600),
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: '  Spanish',
-                                  style: TextStyle(
-                                    color: Palette.primaryColor,
-                                    fontWeight: FontWeight.w800,
-                                  )),
-                            ]),
+                          text: 'LEARNING',
+                          style: TextStyle(
+                              color: Palette.secondaryColor,
+                              fontWeight: FontWeight.w600),
+                        ),
                       ),
-                      ProficiencyBar(),
                     ]),
+                    Column(
+                      children: learning,
+                    ),
                     Row(children: <Widget>[
                       RichText(
                         text: TextSpan(
-                            text: 'ALSO SPEAKS',
-                            style: TextStyle(
-                                color: Palette.secondaryColor,
-                                fontWeight: FontWeight.w600),
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: '  English',
-                                  style: TextStyle(
-                                    color: Palette.primaryColor,
-                                    fontWeight: FontWeight.w800,
-                                  )),
-                            ]),
+                          text: 'ALSO SPEAKS',
+                          style: TextStyle(
+                              color: Palette.secondaryColor,
+                              fontWeight: FontWeight.w600),
+                        ),
                       ),
-                      ProficiencyBar(),
                     ]),
-                    Row(children: <Widget>[
-                      RichText(
-                          text: TextSpan(
-                        text: 'Mandarin (Chinese)',
-                        style: TextStyle(
-                            color: Palette.primaryColor,
-                            fontWeight: FontWeight.w600),
-                      )),
-                      ProficiencyBar(),
-                    ]),
-                  ])),
-          Container(
-              padding: EdgeInsets.only(left: 260),
-              child: RaisedButton(
-                color: Palette.secondaryColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(14.0),
-                ),
-                onPressed: () {},
-                child: Text(
-                  'View Profile',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ))
+                    Column(children: common),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          RaisedButton(
+                            color: Palette.secondaryColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(14.0),
+                            ),
+                            onPressed: () {},
+                            child: Text(
+                              'View Profile',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          )
+                        ])
+                  ]))
         ]));
   }
 }

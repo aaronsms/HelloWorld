@@ -1,13 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
-import 'package:helloworld/presentation/homepage/widgets/proficiency_bar.dart';
+import 'package:helloworld/presentation/homepage/widgets/language_set.dart';
 
-class MentorDisplay extends StatefulWidget {
-  @override
-  _MentorDisplayState createState() => _MentorDisplayState();
-}
+class MentorDisplay extends StatelessWidget {
+  final String name;
+  final double rates;
+  final int active;
+  final Image display;
+  final double distance;
+  final List<LanguageSet> common;
+  final List<LanguageSet> teaching;
 
-class _MentorDisplayState extends State<MentorDisplay> {
+  const MentorDisplay({
+    Key key,
+    @required this.name,
+    @required this.rates,
+    @required this.active,
+    @required this.distance,
+    @required this.common,
+    @required this.teaching,
+    this.display,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -29,7 +43,7 @@ class _MentorDisplayState extends State<MentorDisplay> {
                   ),
                 ),
               ),
-              title: Text('Sample Name',
+              title: Text(name,
                   style: TextStyle(
                       color: Palette.primaryColor,
                       fontSize: 20,
@@ -38,7 +52,7 @@ class _MentorDisplayState extends State<MentorDisplay> {
               subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('Active 5 days ago',
+                    Text('Active ' + active.toString() + ' days ago',
                         style: TextStyle(
                             height: 1.2,
                             color: Colors.grey,
@@ -51,7 +65,9 @@ class _MentorDisplayState extends State<MentorDisplay> {
                           Icons.location_on,
                           color: Palette.primaryColor,
                         ),
-                        Text("0.6km from your preferred location",
+                        Text(
+                            distance.toString() +
+                                "km from your preferred location",
                             style: TextStyle(
                                 color: Palette.primaryColor,
                                 fontWeight: FontWeight.w700,
@@ -61,81 +77,57 @@ class _MentorDisplayState extends State<MentorDisplay> {
                     Row(children: <Widget>[
                       RichText(
                         text: TextSpan(
-                            text: 'TEACHING',
-                            style: TextStyle(
-                                color: Palette.secondaryColor,
-                                fontWeight: FontWeight.w600),
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: '  Spanish',
-                                  style: TextStyle(
-                                    color: Palette.primaryColor,
-                                    fontWeight: FontWeight.w800,
-                                  )),
-                            ]),
+                          text: 'TEACHING',
+                          style: TextStyle(
+                              color: Palette.secondaryColor,
+                              fontWeight: FontWeight.w600),
+                        ),
                       ),
-                      ProficiencyBar(),
                     ]),
+                    Column(
+                      children: teaching,
+                    ),
                     Row(children: <Widget>[
                       RichText(
                         text: TextSpan(
-                            text: 'ALSO SPEAKS',
-                            style: TextStyle(
-                                color: Palette.secondaryColor,
-                                fontWeight: FontWeight.w600),
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: '  English',
-                                  style: TextStyle(
-                                    color: Palette.primaryColor,
-                                    fontWeight: FontWeight.w800,
-                                  )),
-                            ]),
+                          text: 'ALSO SPEAKS',
+                          style: TextStyle(
+                              color: Palette.secondaryColor,
+                              fontWeight: FontWeight.w600),
+                        ),
                       ),
-                      ProficiencyBar(),
                     ]),
-                    Row(children: <Widget>[
-                      RichText(
+                    Column(children: common),
+                    Container(
+                      child: RichText(
                           text: TextSpan(
-                        text: 'Mandarin (Chinese)',
+                        text: 'RATES',
                         style: TextStyle(
-                            color: Palette.primaryColor,
+                            color: Palette.secondaryColor,
                             fontWeight: FontWeight.w600),
                       )),
-                      ProficiencyBar(),
-                    ]),
-                  ])),
-          Container(
-            padding: EdgeInsets.only(right: 95),
-            child: RichText(
-              text: TextSpan(
-                  text: 'RATES',
-                  style: TextStyle(
-                      color: Palette.secondaryColor,
-                      fontWeight: FontWeight.w600),
-                  children: <TextSpan>[
-                    TextSpan(
-                        text: '  10SGD/HR',
+                    ),
+                    Text('  ' + rates.toString() + 'SGD/HR',
                         style: TextStyle(
                           color: Palette.primaryColor,
                           fontWeight: FontWeight.w800,
                         )),
-                  ]),
-            ),
-          ),
-          Container(
-              padding: EdgeInsets.only(left: 260),
-              child: RaisedButton(
-                color: Palette.secondaryColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(14.0),
-                ),
-                onPressed: () {},
-                child: Text(
-                  'View Profile',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ))
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          RaisedButton(
+                            color: Palette.secondaryColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(14.0),
+                            ),
+                            onPressed: () {},
+                            child: Text(
+                              'View Profile',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          )
+                        ])
+                  ])),
         ]));
   }
 }
