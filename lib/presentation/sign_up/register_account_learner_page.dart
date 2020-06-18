@@ -14,10 +14,10 @@ class RegisterAccountLearnerPage extends StatelessWidget {
     return Scaffold(
       appBar: Header(),
       body: BlocProvider(
-        create: (context) => getIt<RegisterLearnerAccountBloc>(),
+        create: (context) => getIt<RegisterAccountBloc>(param1: false),
         child: SingleChildScrollView(
-          child: BlocBuilder<RegisterLearnerAccountBloc,
-              RegisterLearnerAccountState>(builder: (context, state) {
+          child: BlocBuilder<RegisterAccountBloc, RegisterAccountState>(
+              builder: (context, state) {
             return Form(
               autovalidate: state.showErrorMessage,
               child: Column(
@@ -31,10 +31,10 @@ class RegisterAccountLearnerPage extends StatelessWidget {
                     icon: Icons.perm_identity,
                     labelText: 'Full Name',
                     onChanged: (value) => context
-                        .bloc<RegisterLearnerAccountBloc>()
-                        .add(RegisterLearnerAccountEvent.nameChanged(value)),
+                        .bloc<RegisterAccountBloc>()
+                        .add(RegisterAccountEvent.nameChanged(value)),
                     validator: (_) => context
-                        .bloc<RegisterLearnerAccountBloc>()
+                        .bloc<RegisterAccountBloc>()
                         .state
                         .name
                         .value
@@ -48,16 +48,14 @@ class RegisterAccountLearnerPage extends StatelessWidget {
                   RegisterAccountForm(
                     icon: Icons.visibility,
                     iconOnPressed: () => context
-                        .bloc<RegisterLearnerAccountBloc>()
-                        .add(const RegisterLearnerAccountEvent
-                        .obscureTextClicked()),
+                        .bloc<RegisterAccountBloc>()
+                        .add(const RegisterAccountEvent.obscureTextClicked()),
                     labelText: 'Password',
                     onChanged: (value) => context
-                        .bloc<RegisterLearnerAccountBloc>()
-                        .add(
-                            RegisterLearnerAccountEvent.passwordChanged(value)),
+                        .bloc<RegisterAccountBloc>()
+                        .add(RegisterAccountEvent.passwordChanged(value)),
                     validator: (_) => context
-                        .bloc<RegisterLearnerAccountBloc>()
+                        .bloc<RegisterAccountBloc>()
                         .state
                         .password
                         .value
@@ -74,26 +72,25 @@ class RegisterAccountLearnerPage extends StatelessWidget {
                   RegisterAccountForm(
                     icon: Icons.visibility,
                     iconOnPressed: () => context
-                        .bloc<RegisterLearnerAccountBloc>()
-                        .add(const RegisterLearnerAccountEvent
-                        .obscureTextClicked()),
+                        .bloc<RegisterAccountBloc>()
+                        .add(const RegisterAccountEvent.obscureTextClicked()),
                     labelText: 'Confirm Password',
                     onChanged: (value) => context
-                        .bloc<RegisterLearnerAccountBloc>()
-                        .add(RegisterLearnerAccountEvent.confirmPasswordChanged(
-                            value)),
+                        .bloc<RegisterAccountBloc>()
+                        .add(
+                            RegisterAccountEvent.confirmPasswordChanged(value)),
                     validator: (_) {
                       final currState =
-                          context.bloc<RegisterLearnerAccountBloc>().state;
+                          context.bloc<RegisterAccountBloc>().state;
                       final String mismatchText =
-                      currState.confirmPassword != currState.password
-                          ? 'Password does not match.'
-                          : null;
+                          currState.confirmPassword != currState.password
+                              ? 'Password does not match.'
+                              : null;
                       return currState.confirmPassword.value.fold(
-                            (fail) => fail.maybeMap(
+                        (fail) => fail.maybeMap(
                             emptyField: (_) => 'Field cannot be empty.',
                             orElse: () => mismatchText),
-                            (_) => mismatchText,
+                        (_) => mismatchText,
                       );
                     },
                     obscureText: state.obscureText,
@@ -101,13 +98,11 @@ class RegisterAccountLearnerPage extends StatelessWidget {
                   RegisterAccountForm(
                     icon: Icons.email,
                     labelText: 'Email Address',
-                    onChanged: (value) {
-                      context
-                          .bloc<RegisterLearnerAccountBloc>()
-                          .add(RegisterLearnerAccountEvent.emailChanged(value));
-                    },
+                    onChanged: (value) => context
+                        .bloc<RegisterAccountBloc>()
+                        .add(RegisterAccountEvent.emailChanged(value)),
                     validator: (_) => context
-                        .bloc<RegisterLearnerAccountBloc>()
+                        .bloc<RegisterAccountBloc>()
                         .state
                         .emailAddress
                         .value

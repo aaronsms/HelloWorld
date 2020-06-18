@@ -11,4 +11,8 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.invalidAge({@required int failedValue}) =
       _InvalidAge<T>;
   const factory ValueFailure.emptyField() = _EmptyField<T>;
+  const factory ValueFailure.badFilePath({@required String failedValue}) =
+      _BadFilePath<T>;
+  const factory ValueFailure.invalidProficiency({@required String failedValue}) =
+      _InvalidProficiency<T>;
 }

@@ -7,5 +7,11 @@ class SpeakingLanguage extends ValueObject<Language>{
   @override
   final Either<ValueFailure<Language>, Language> value;
 
-  const SpeakingLanguage(this.value);
+  SpeakingLanguage(Language language) : value = right(language);
+
+  @override
+  String toString() => value.fold(
+        (l) => '',
+        (r) => languageToString(r),
+  );
 }

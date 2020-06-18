@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:helloworld/application/identity_access/register/bloc.dart';
-import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/sign_up/widgets/header.dart';
 import 'package:helloworld/presentation/sign_up/widgets/next_button_to_profile.dart';
 import 'package:helloworld/presentation/sign_up/widgets/register_account_form.dart';
@@ -16,10 +15,10 @@ class RegisterAccountMentorPage extends StatelessWidget {
     return Scaffold(
       appBar: Header(),
       body: BlocProvider(
-        create: (context) => getIt<RegisterLearnerAccountBloc>(),
+        create: (context) => getIt<RegisterAccountBloc>(param1: true),
         child: SingleChildScrollView(
-          child: BlocBuilder<RegisterLearnerAccountBloc,
-              RegisterLearnerAccountState>(builder: (context, state) {
+          child: BlocBuilder<RegisterAccountBloc, RegisterAccountState>(
+              builder: (context, state) {
             return Form(
               autovalidate: state.showErrorMessage,
               child: Column(
@@ -33,10 +32,10 @@ class RegisterAccountMentorPage extends StatelessWidget {
                     icon: Icons.perm_identity,
                     labelText: 'Full Name',
                     onChanged: (value) => context
-                        .bloc<RegisterLearnerAccountBloc>()
-                        .add(RegisterLearnerAccountEvent.nameChanged(value)),
+                        .bloc<RegisterAccountBloc>()
+                        .add(RegisterAccountEvent.nameChanged(value)),
                     validator: (_) => context
-                        .bloc<RegisterLearnerAccountBloc>()
+                        .bloc<RegisterAccountBloc>()
                         .state
                         .name
                         .value
@@ -46,20 +45,20 @@ class RegisterAccountMentorPage extends StatelessWidget {
                               orElse: () => null),
                           (_) => null,
                         ),
+                    initialField: 'Aaron Saw',
                   ),
                   RegisterAccountForm(
+                    initialField: 'Aaron Saw',
                     icon: Icons.visibility,
                     iconOnPressed: () => context
-                        .bloc<RegisterLearnerAccountBloc>()
-                        .add(const RegisterLearnerAccountEvent
-                            .obscureTextClicked()),
+                        .bloc<RegisterAccountBloc>()
+                        .add(const RegisterAccountEvent.obscureTextClicked()),
                     labelText: 'Password',
                     onChanged: (value) => context
-                        .bloc<RegisterLearnerAccountBloc>()
-                        .add(
-                            RegisterLearnerAccountEvent.passwordChanged(value)),
+                        .bloc<RegisterAccountBloc>()
+                        .add(RegisterAccountEvent.passwordChanged(value)),
                     validator: (_) => context
-                        .bloc<RegisterLearnerAccountBloc>()
+                        .bloc<RegisterAccountBloc>()
                         .state
                         .password
                         .value
@@ -74,19 +73,19 @@ class RegisterAccountMentorPage extends StatelessWidget {
                     obscureText: state.obscureText,
                   ),
                   RegisterAccountForm(
+                    initialField: 'Aaron Saw',
                     icon: Icons.visibility,
                     iconOnPressed: () => context
-                        .bloc<RegisterLearnerAccountBloc>()
-                        .add(const RegisterLearnerAccountEvent
-                            .obscureTextClicked()),
+                        .bloc<RegisterAccountBloc>()
+                        .add(const RegisterAccountEvent.obscureTextClicked()),
                     labelText: 'Confirm Password',
                     onChanged: (value) => context
-                        .bloc<RegisterLearnerAccountBloc>()
-                        .add(RegisterLearnerAccountEvent.confirmPasswordChanged(
-                            value)),
+                        .bloc<RegisterAccountBloc>()
+                        .add(
+                            RegisterAccountEvent.confirmPasswordChanged(value)),
                     validator: (_) {
                       final currState =
-                          context.bloc<RegisterLearnerAccountBloc>().state;
+                          context.bloc<RegisterAccountBloc>().state;
                       final String mismatchText =
                           currState.confirmPassword != currState.password
                               ? 'Password does not match.'
@@ -101,15 +100,14 @@ class RegisterAccountMentorPage extends StatelessWidget {
                     obscureText: state.obscureText,
                   ),
                   RegisterAccountForm(
+                    initialField: 'aaronsaw78@gmail.com',
                     icon: Icons.email,
                     labelText: 'Email Address',
-                    onChanged: (value) {
-                      context
-                          .bloc<RegisterLearnerAccountBloc>()
-                          .add(RegisterLearnerAccountEvent.emailChanged(value));
-                    },
+                    onChanged: (value) => context
+                        .bloc<RegisterAccountBloc>()
+                        .add(RegisterAccountEvent.emailChanged(value)),
                     validator: (_) => context
-                        .bloc<RegisterLearnerAccountBloc>()
+                        .bloc<RegisterAccountBloc>()
                         .state
                         .emailAddress
                         .value
@@ -123,19 +121,18 @@ class RegisterAccountMentorPage extends StatelessWidget {
                         ),
                   ),
                   RegisterAccountForm(
+                    initialField: '19',
                     icon: Icons.calendar_today,
                     labelText: 'Age',
                     textInputType: TextInputType.number,
                     inputFormatters: <TextInputFormatter>[
                       WhitelistingTextInputFormatter.digitsOnly
                     ],
-                    onChanged: (value) {
-                      context
-                          .bloc<RegisterLearnerAccountBloc>()
-                          .add(RegisterLearnerAccountEvent.ageChanged(value));
-                    },
+                    onChanged: (value) => context
+                        .bloc<RegisterAccountBloc>()
+                        .add(RegisterAccountEvent.ageChanged(value)),
                     validator: (_) => context
-                        .bloc<RegisterLearnerAccountBloc>()
+                        .bloc<RegisterAccountBloc>()
                         .state
                         .age
                         .value

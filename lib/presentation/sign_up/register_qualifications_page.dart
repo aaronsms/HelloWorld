@@ -7,10 +7,12 @@ import 'package:helloworld/presentation/sign_up/widgets/qualification_addition.d
 
 class RegisterQualificationsPage extends StatefulWidget {
   @override
-  _RegisterQualificationsPageState createState() => _RegisterQualificationsPageState();
+  _RegisterQualificationsPageState createState() =>
+      _RegisterQualificationsPageState();
 }
 
-class _RegisterQualificationsPageState extends State<RegisterQualificationsPage> {
+class _RegisterQualificationsPageState
+    extends State<RegisterQualificationsPage> {
   bool _firstChecked = false;
   bool _secondChecked = false;
 
@@ -55,8 +57,7 @@ class _RegisterQualificationsPageState extends State<RegisterQualificationsPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          PreferredSize(preferredSize: Size.fromHeight(80.0), child: Header()),
+      appBar: Header(),
       body: SingleChildScrollView(
         child: SizedBox(
           child: Column(children: <Widget>[
@@ -193,7 +194,7 @@ class _RegisterQualificationsPageState extends State<RegisterQualificationsPage>
                   borderRadius: BorderRadius.circular(14.0),
                 ),
                 onPressed: () {
-                  Routes.sailor('/register/verify');
+                  Routes.sailor(Routes.verifyEmail);
                 },
                 child: Text(
                   'Done',

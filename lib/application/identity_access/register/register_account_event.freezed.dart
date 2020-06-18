@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
 
-part of 'register_learner_account_event.dart';
+part of 'register_account_event.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -9,8 +9,8 @@ part of 'register_learner_account_event.dart';
 
 T _$identity<T>(T value) => value;
 
-class _$RegisterLearnerAccountEventTearOff {
-  const _$RegisterLearnerAccountEventTearOff();
+class _$RegisterAccountEventTearOff {
+  const _$RegisterAccountEventTearOff();
 
   NameChanged nameChanged(String nameStr) {
     return NameChanged(
@@ -52,9 +52,9 @@ class _$RegisterLearnerAccountEventTearOff {
 }
 
 // ignore: unused_element
-const $RegisterLearnerAccountEvent = _$RegisterLearnerAccountEventTearOff();
+const $RegisterAccountEvent = _$RegisterAccountEventTearOff();
 
-mixin _$RegisterLearnerAccountEvent {
+mixin _$RegisterAccountEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result nameChanged(String nameStr),
@@ -99,20 +99,19 @@ mixin _$RegisterLearnerAccountEvent {
   });
 }
 
-abstract class $RegisterLearnerAccountEventCopyWith<$Res> {
-  factory $RegisterLearnerAccountEventCopyWith(
-          RegisterLearnerAccountEvent value,
-          $Res Function(RegisterLearnerAccountEvent) then) =
-      _$RegisterLearnerAccountEventCopyWithImpl<$Res>;
+abstract class $RegisterAccountEventCopyWith<$Res> {
+  factory $RegisterAccountEventCopyWith(RegisterAccountEvent value,
+          $Res Function(RegisterAccountEvent) then) =
+      _$RegisterAccountEventCopyWithImpl<$Res>;
 }
 
-class _$RegisterLearnerAccountEventCopyWithImpl<$Res>
-    implements $RegisterLearnerAccountEventCopyWith<$Res> {
-  _$RegisterLearnerAccountEventCopyWithImpl(this._value, this._then);
+class _$RegisterAccountEventCopyWithImpl<$Res>
+    implements $RegisterAccountEventCopyWith<$Res> {
+  _$RegisterAccountEventCopyWithImpl(this._value, this._then);
 
-  final RegisterLearnerAccountEvent _value;
+  final RegisterAccountEvent _value;
   // ignore: unused_field
-  final $Res Function(RegisterLearnerAccountEvent) _then;
+  final $Res Function(RegisterAccountEvent) _then;
 }
 
 abstract class $NameChangedCopyWith<$Res> {
@@ -123,7 +122,7 @@ abstract class $NameChangedCopyWith<$Res> {
 }
 
 class _$NameChangedCopyWithImpl<$Res>
-    extends _$RegisterLearnerAccountEventCopyWithImpl<$Res>
+    extends _$RegisterAccountEventCopyWithImpl<$Res>
     implements $NameChangedCopyWith<$Res> {
   _$NameChangedCopyWithImpl(
       NameChanged _value, $Res Function(NameChanged) _then)
@@ -150,7 +149,7 @@ class _$NameChanged implements NameChanged {
 
   @override
   String toString() {
-    return 'RegisterLearnerAccountEvent.nameChanged(nameStr: $nameStr)';
+    return 'RegisterAccountEvent.nameChanged(nameStr: $nameStr)';
   }
 
   @override
@@ -250,7 +249,7 @@ class _$NameChanged implements NameChanged {
   }
 }
 
-abstract class NameChanged implements RegisterLearnerAccountEvent {
+abstract class NameChanged implements RegisterAccountEvent {
   const factory NameChanged(String nameStr) = _$NameChanged;
 
   String get nameStr;
@@ -265,7 +264,7 @@ abstract class $PasswordChangedCopyWith<$Res> {
 }
 
 class _$PasswordChangedCopyWithImpl<$Res>
-    extends _$RegisterLearnerAccountEventCopyWithImpl<$Res>
+    extends _$RegisterAccountEventCopyWithImpl<$Res>
     implements $PasswordChangedCopyWith<$Res> {
   _$PasswordChangedCopyWithImpl(
       PasswordChanged _value, $Res Function(PasswordChanged) _then)
@@ -292,7 +291,7 @@ class _$PasswordChanged implements PasswordChanged {
 
   @override
   String toString() {
-    return 'RegisterLearnerAccountEvent.passwordChanged(passwordStr: $passwordStr)';
+    return 'RegisterAccountEvent.passwordChanged(passwordStr: $passwordStr)';
   }
 
   @override
@@ -393,7 +392,7 @@ class _$PasswordChanged implements PasswordChanged {
   }
 }
 
-abstract class PasswordChanged implements RegisterLearnerAccountEvent {
+abstract class PasswordChanged implements RegisterAccountEvent {
   const factory PasswordChanged(String passwordStr) = _$PasswordChanged;
 
   String get passwordStr;
@@ -408,7 +407,7 @@ abstract class $ConfirmPasswordChangedCopyWith<$Res> {
 }
 
 class _$ConfirmPasswordChangedCopyWithImpl<$Res>
-    extends _$RegisterLearnerAccountEventCopyWithImpl<$Res>
+    extends _$RegisterAccountEventCopyWithImpl<$Res>
     implements $ConfirmPasswordChangedCopyWith<$Res> {
   _$ConfirmPasswordChangedCopyWithImpl(ConfirmPasswordChanged _value,
       $Res Function(ConfirmPasswordChanged) _then)
@@ -438,7 +437,7 @@ class _$ConfirmPasswordChanged implements ConfirmPasswordChanged {
 
   @override
   String toString() {
-    return 'RegisterLearnerAccountEvent.confirmPasswordChanged(confirmPasswordStr: $confirmPasswordStr)';
+    return 'RegisterAccountEvent.confirmPasswordChanged(confirmPasswordStr: $confirmPasswordStr)';
   }
 
   @override
@@ -541,7 +540,7 @@ class _$ConfirmPasswordChanged implements ConfirmPasswordChanged {
   }
 }
 
-abstract class ConfirmPasswordChanged implements RegisterLearnerAccountEvent {
+abstract class ConfirmPasswordChanged implements RegisterAccountEvent {
   const factory ConfirmPasswordChanged(String confirmPasswordStr) =
       _$ConfirmPasswordChanged;
 
@@ -557,7 +556,7 @@ abstract class $EmailChangedCopyWith<$Res> {
 }
 
 class _$EmailChangedCopyWithImpl<$Res>
-    extends _$RegisterLearnerAccountEventCopyWithImpl<$Res>
+    extends _$RegisterAccountEventCopyWithImpl<$Res>
     implements $EmailChangedCopyWith<$Res> {
   _$EmailChangedCopyWithImpl(
       EmailChanged _value, $Res Function(EmailChanged) _then)
@@ -584,7 +583,7 @@ class _$EmailChanged implements EmailChanged {
 
   @override
   String toString() {
-    return 'RegisterLearnerAccountEvent.emailChanged(emailStr: $emailStr)';
+    return 'RegisterAccountEvent.emailChanged(emailStr: $emailStr)';
   }
 
   @override
@@ -685,7 +684,7 @@ class _$EmailChanged implements EmailChanged {
   }
 }
 
-abstract class EmailChanged implements RegisterLearnerAccountEvent {
+abstract class EmailChanged implements RegisterAccountEvent {
   const factory EmailChanged(String emailStr) = _$EmailChanged;
 
   String get emailStr;
@@ -700,7 +699,7 @@ abstract class $AgeChangedCopyWith<$Res> {
 }
 
 class _$AgeChangedCopyWithImpl<$Res>
-    extends _$RegisterLearnerAccountEventCopyWithImpl<$Res>
+    extends _$RegisterAccountEventCopyWithImpl<$Res>
     implements $AgeChangedCopyWith<$Res> {
   _$AgeChangedCopyWithImpl(AgeChanged _value, $Res Function(AgeChanged) _then)
       : super(_value, (v) => _then(v as AgeChanged));
@@ -726,7 +725,7 @@ class _$AgeChanged implements AgeChanged {
 
   @override
   String toString() {
-    return 'RegisterLearnerAccountEvent.ageChanged(ageStr: $ageStr)';
+    return 'RegisterAccountEvent.ageChanged(ageStr: $ageStr)';
   }
 
   @override
@@ -826,7 +825,7 @@ class _$AgeChanged implements AgeChanged {
   }
 }
 
-abstract class AgeChanged implements RegisterLearnerAccountEvent {
+abstract class AgeChanged implements RegisterAccountEvent {
   const factory AgeChanged(String ageStr) = _$AgeChanged;
 
   String get ageStr;
@@ -840,7 +839,7 @@ abstract class $NextClickedCopyWith<$Res> {
 }
 
 class _$NextClickedCopyWithImpl<$Res>
-    extends _$RegisterLearnerAccountEventCopyWithImpl<$Res>
+    extends _$RegisterAccountEventCopyWithImpl<$Res>
     implements $NextClickedCopyWith<$Res> {
   _$NextClickedCopyWithImpl(
       NextClicked _value, $Res Function(NextClicked) _then)
@@ -855,7 +854,7 @@ class _$NextClicked implements NextClicked {
 
   @override
   String toString() {
-    return 'RegisterLearnerAccountEvent.nextClicked()';
+    return 'RegisterAccountEvent.nextClicked()';
   }
 
   @override
@@ -947,7 +946,7 @@ class _$NextClicked implements NextClicked {
   }
 }
 
-abstract class NextClicked implements RegisterLearnerAccountEvent {
+abstract class NextClicked implements RegisterAccountEvent {
   const factory NextClicked() = _$NextClicked;
 }
 
@@ -958,7 +957,7 @@ abstract class $ObscureTextClickedCopyWith<$Res> {
 }
 
 class _$ObscureTextClickedCopyWithImpl<$Res>
-    extends _$RegisterLearnerAccountEventCopyWithImpl<$Res>
+    extends _$RegisterAccountEventCopyWithImpl<$Res>
     implements $ObscureTextClickedCopyWith<$Res> {
   _$ObscureTextClickedCopyWithImpl(
       ObscureTextClicked _value, $Res Function(ObscureTextClicked) _then)
@@ -973,7 +972,7 @@ class _$ObscureTextClicked implements ObscureTextClicked {
 
   @override
   String toString() {
-    return 'RegisterLearnerAccountEvent.obscureTextClicked()';
+    return 'RegisterAccountEvent.obscureTextClicked()';
   }
 
   @override
@@ -1065,6 +1064,6 @@ class _$ObscureTextClicked implements ObscureTextClicked {
   }
 }
 
-abstract class ObscureTextClicked implements RegisterLearnerAccountEvent {
+abstract class ObscureTextClicked implements RegisterAccountEvent {
   const factory ObscureTextClicked() = _$ObscureTextClicked;
 }

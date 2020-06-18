@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
 
-part of 'register_learner_account_state.dart';
+part of 'register_account_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -9,10 +9,10 @@ part of 'register_learner_account_state.dart';
 
 T _$identity<T>(T value) => value;
 
-class _$RegisterLearnerAccountStateTearOff {
-  const _$RegisterLearnerAccountStateTearOff();
+class _$RegisterAccountStateTearOff {
+  const _$RegisterAccountStateTearOff();
 
-  _RegisterLearnerAccountState call(
+  _RegisterAccountState call(
       {@required Name name,
       @required Password password,
       @required Password confirmPassword,
@@ -20,7 +20,7 @@ class _$RegisterLearnerAccountStateTearOff {
       @required Age age,
       @required bool showErrorMessage,
       @required bool obscureText}) {
-    return _RegisterLearnerAccountState(
+    return _RegisterAccountState(
       name: name,
       password: password,
       confirmPassword: confirmPassword,
@@ -33,9 +33,9 @@ class _$RegisterLearnerAccountStateTearOff {
 }
 
 // ignore: unused_element
-const $RegisterLearnerAccountState = _$RegisterLearnerAccountStateTearOff();
+const $RegisterAccountState = _$RegisterAccountStateTearOff();
 
-mixin _$RegisterLearnerAccountState {
+mixin _$RegisterAccountState {
   Name get name;
   Password get password;
   Password get confirmPassword;
@@ -44,15 +44,13 @@ mixin _$RegisterLearnerAccountState {
   bool get showErrorMessage;
   bool get obscureText;
 
-  $RegisterLearnerAccountStateCopyWith<RegisterLearnerAccountState>
-      get copyWith;
+  $RegisterAccountStateCopyWith<RegisterAccountState> get copyWith;
 }
 
-abstract class $RegisterLearnerAccountStateCopyWith<$Res> {
-  factory $RegisterLearnerAccountStateCopyWith(
-          RegisterLearnerAccountState value,
-          $Res Function(RegisterLearnerAccountState) then) =
-      _$RegisterLearnerAccountStateCopyWithImpl<$Res>;
+abstract class $RegisterAccountStateCopyWith<$Res> {
+  factory $RegisterAccountStateCopyWith(RegisterAccountState value,
+          $Res Function(RegisterAccountState) then) =
+      _$RegisterAccountStateCopyWithImpl<$Res>;
   $Res call(
       {Name name,
       Password password,
@@ -63,13 +61,13 @@ abstract class $RegisterLearnerAccountStateCopyWith<$Res> {
       bool obscureText});
 }
 
-class _$RegisterLearnerAccountStateCopyWithImpl<$Res>
-    implements $RegisterLearnerAccountStateCopyWith<$Res> {
-  _$RegisterLearnerAccountStateCopyWithImpl(this._value, this._then);
+class _$RegisterAccountStateCopyWithImpl<$Res>
+    implements $RegisterAccountStateCopyWith<$Res> {
+  _$RegisterAccountStateCopyWithImpl(this._value, this._then);
 
-  final RegisterLearnerAccountState _value;
+  final RegisterAccountState _value;
   // ignore: unused_field
-  final $Res Function(RegisterLearnerAccountState) _then;
+  final $Res Function(RegisterAccountState) _then;
 
   @override
   $Res call({
@@ -100,12 +98,11 @@ class _$RegisterLearnerAccountStateCopyWithImpl<$Res>
   }
 }
 
-abstract class _$RegisterLearnerAccountStateCopyWith<$Res>
-    implements $RegisterLearnerAccountStateCopyWith<$Res> {
-  factory _$RegisterLearnerAccountStateCopyWith(
-          _RegisterLearnerAccountState value,
-          $Res Function(_RegisterLearnerAccountState) then) =
-      __$RegisterLearnerAccountStateCopyWithImpl<$Res>;
+abstract class _$RegisterAccountStateCopyWith<$Res>
+    implements $RegisterAccountStateCopyWith<$Res> {
+  factory _$RegisterAccountStateCopyWith(_RegisterAccountState value,
+          $Res Function(_RegisterAccountState) then) =
+      __$RegisterAccountStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {Name name,
@@ -117,17 +114,15 @@ abstract class _$RegisterLearnerAccountStateCopyWith<$Res>
       bool obscureText});
 }
 
-class __$RegisterLearnerAccountStateCopyWithImpl<$Res>
-    extends _$RegisterLearnerAccountStateCopyWithImpl<$Res>
-    implements _$RegisterLearnerAccountStateCopyWith<$Res> {
-  __$RegisterLearnerAccountStateCopyWithImpl(
-      _RegisterLearnerAccountState _value,
-      $Res Function(_RegisterLearnerAccountState) _then)
-      : super(_value, (v) => _then(v as _RegisterLearnerAccountState));
+class __$RegisterAccountStateCopyWithImpl<$Res>
+    extends _$RegisterAccountStateCopyWithImpl<$Res>
+    implements _$RegisterAccountStateCopyWith<$Res> {
+  __$RegisterAccountStateCopyWithImpl(
+      _RegisterAccountState _value, $Res Function(_RegisterAccountState) _then)
+      : super(_value, (v) => _then(v as _RegisterAccountState));
 
   @override
-  _RegisterLearnerAccountState get _value =>
-      super._value as _RegisterLearnerAccountState;
+  _RegisterAccountState get _value => super._value as _RegisterAccountState;
 
   @override
   $Res call({
@@ -139,7 +134,7 @@ class __$RegisterLearnerAccountStateCopyWithImpl<$Res>
     Object showErrorMessage = freezed,
     Object obscureText = freezed,
   }) {
-    return _then(_RegisterLearnerAccountState(
+    return _then(_RegisterAccountState(
       name: name == freezed ? _value.name : name as Name,
       password: password == freezed ? _value.password : password as Password,
       confirmPassword: confirmPassword == freezed
@@ -158,8 +153,8 @@ class __$RegisterLearnerAccountStateCopyWithImpl<$Res>
   }
 }
 
-class _$_RegisterLearnerAccountState implements _RegisterLearnerAccountState {
-  const _$_RegisterLearnerAccountState(
+class _$_RegisterAccountState implements _RegisterAccountState {
+  const _$_RegisterAccountState(
       {@required this.name,
       @required this.password,
       @required this.confirmPassword,
@@ -192,13 +187,13 @@ class _$_RegisterLearnerAccountState implements _RegisterLearnerAccountState {
 
   @override
   String toString() {
-    return 'RegisterLearnerAccountState(name: $name, password: $password, confirmPassword: $confirmPassword, emailAddress: $emailAddress, age: $age, showErrorMessage: $showErrorMessage, obscureText: $obscureText)';
+    return 'RegisterAccountState(name: $name, password: $password, confirmPassword: $confirmPassword, emailAddress: $emailAddress, age: $age, showErrorMessage: $showErrorMessage, obscureText: $obscureText)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _RegisterLearnerAccountState &&
+        (other is _RegisterAccountState &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.password, password) ||
@@ -232,21 +227,20 @@ class _$_RegisterLearnerAccountState implements _RegisterLearnerAccountState {
       const DeepCollectionEquality().hash(obscureText);
 
   @override
-  _$RegisterLearnerAccountStateCopyWith<_RegisterLearnerAccountState>
-      get copyWith => __$RegisterLearnerAccountStateCopyWithImpl<
-          _RegisterLearnerAccountState>(this, _$identity);
+  _$RegisterAccountStateCopyWith<_RegisterAccountState> get copyWith =>
+      __$RegisterAccountStateCopyWithImpl<_RegisterAccountState>(
+          this, _$identity);
 }
 
-abstract class _RegisterLearnerAccountState
-    implements RegisterLearnerAccountState {
-  const factory _RegisterLearnerAccountState(
+abstract class _RegisterAccountState implements RegisterAccountState {
+  const factory _RegisterAccountState(
       {@required Name name,
       @required Password password,
       @required Password confirmPassword,
       @required EmailAddress emailAddress,
       @required Age age,
       @required bool showErrorMessage,
-      @required bool obscureText}) = _$_RegisterLearnerAccountState;
+      @required bool obscureText}) = _$_RegisterAccountState;
 
   @override
   Name get name;
@@ -263,6 +257,5 @@ abstract class _RegisterLearnerAccountState
   @override
   bool get obscureText;
   @override
-  _$RegisterLearnerAccountStateCopyWith<_RegisterLearnerAccountState>
-      get copyWith;
+  _$RegisterAccountStateCopyWith<_RegisterAccountState> get copyWith;
 }

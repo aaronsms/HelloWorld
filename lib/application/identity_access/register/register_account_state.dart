@@ -4,11 +4,11 @@ import 'package:helloworld/domain/identity_access/model/user/mentor/age.dart';
 import 'package:helloworld/domain/identity_access/model/user/name.dart';
 import 'package:helloworld/domain/identity_access/model/user/password.dart';
 
-part 'register_learner_account_state.freezed.dart';
+part 'register_account_state.freezed.dart';
 
 @freezed
-abstract class RegisterLearnerAccountState with _$RegisterLearnerAccountState {
-  const factory RegisterLearnerAccountState({
+abstract class RegisterAccountState with _$RegisterAccountState {
+  const factory RegisterAccountState({
     @required Name name,
     @required Password password,
     @required Password confirmPassword,
@@ -16,10 +16,10 @@ abstract class RegisterLearnerAccountState with _$RegisterLearnerAccountState {
     @required Age age,
     @required bool showErrorMessage,
     @required bool obscureText,
-  }) = _RegisterLearnerAccountState;
+  }) = _RegisterAccountState;
 
-  factory RegisterLearnerAccountState.initial() {
-    return RegisterLearnerAccountState(
+  factory RegisterAccountState.initial() {
+    return RegisterAccountState(
       name: Name(''),
       password: Password(''),
       confirmPassword: Password(''),

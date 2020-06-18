@@ -10,8 +10,11 @@ class _LocationPreferredState extends State<LocationPreferred> {
   @override
   Widget build(BuildContext context) {
     return Card(
-        color: Palette.secondaryColor,
-        child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+      margin: const EdgeInsets.all(10.0),
+      color: Palette.secondaryColor,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
           ListTile(
             leading: Icon(
               Icons.location_city,
@@ -34,6 +37,8 @@ class _LocationPreferredState extends State<LocationPreferred> {
                     fontWeight: FontWeight.w600,
                     fontFamily: 'Martel Sans')),
           ),
-        ]));
+        ],
+      ),
+    );
   }
 }

@@ -9,6 +9,7 @@ class RegisterAccountForm extends StatelessWidget {
   final TextInputType textInputType;
   final List<TextInputFormatter> inputFormatters;
   final String Function(String input) validator;
+  final String initialField;
   final void Function(String input) onChanged;
   final void Function() iconOnPressed;
 
@@ -21,12 +22,12 @@ class RegisterAccountForm extends StatelessWidget {
       this.onChanged,
       this.iconOnPressed,
       this.textInputType,
-      this.inputFormatters})
+      this.inputFormatters, this.initialField})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Padding(
       padding: const EdgeInsets.all(10.0),
       child: TextFormField(
         validator: validator,
@@ -34,6 +35,7 @@ class RegisterAccountForm extends StatelessWidget {
         onChanged: onChanged,
         keyboardType: textInputType,
         inputFormatters: inputFormatters,
+        initialValue: initialField,
         decoration: InputDecoration(
           prefixIcon: IconButton(
             onPressed: iconOnPressed,

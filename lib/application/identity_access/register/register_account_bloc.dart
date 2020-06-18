@@ -9,15 +9,18 @@ import 'package:injectable/injectable.dart';
 import './bloc.dart';
 
 @injectable
-class RegisterLearnerAccountBloc
-    extends Bloc<RegisterLearnerAccountEvent, RegisterLearnerAccountState> {
-  @override
-  RegisterLearnerAccountState get initialState =>
-      RegisterLearnerAccountState.initial();
+class RegisterAccountBloc
+    extends Bloc<RegisterAccountEvent, RegisterAccountState> {
+
+  final bool isMentorOrLearner;
+  RegisterAccountBloc({@factoryParam this.isMentorOrLearner});
 
   @override
-  Stream<RegisterLearnerAccountState> mapEventToState(
-    RegisterLearnerAccountEvent event,
+  RegisterAccountState get initialState => RegisterAccountState.initial();
+
+  @override
+  Stream<RegisterAccountState> mapEventToState(
+    RegisterAccountEvent event,
   ) async* {
     yield* event.map(
       nameChanged: (event) async* {
@@ -43,15 +46,25 @@ class RegisterLearnerAccountBloc
         yield state.copyWith(
           showErrorMessage: true,
         );
+
         if (state.name.isValid() &&
             state.emailAddress.isValid() &&
             state.password.isValid() &&
             state.password == state.confirmPassword) {
-          Routes.sailor(Routes.learnerProfile, params: {
-            'name': state.name,
-            'email': state.emailAddress,
-            'password': state.password,
-          });
+          if (isMentorOrLearner && state.age.isValid()) {
+            Routes.sailor(Routes.mentorProfile, params: {
+              'name': state.name,
+              'email': state.emailAddress,
+              'password': state.password,
+              'age': state.age
+            });
+          } else {
+            Routes.sailor(Routes.learnerProfile, params: {
+              'name': state.name,
+              'email': state.emailAddress,
+              'password': state.password,
+            });
+          }
         }
       },
     );

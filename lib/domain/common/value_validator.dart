@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
+import 'package:helloworld/domain/identity_access/model/user/language_proficiency.dart';
 import 'failure.dart';
 
 Either<ValueFailure<String>, String> validateEmailAddress(String input) {
@@ -34,4 +37,18 @@ Either<ValueFailure<String>, String> validateInput(String input) {
   return input.isEmpty
       ? const Left(ValueFailure.emptyField())
       : Right(input);
+}
+
+Either<ValueFailure<File>, File> validateFilePath(String input) {
+  try {
+    return Right(File(input));
+  } on FileSystemException {
+    return Left(ValueFailure.badFilePath(failedValue: input));
+  }
+}
+
+Either<ValueFailure<String>, String> validateProficiency(String str) {
+  return LanguageProficiency.proficiencies.contains(str)
+      ? right(str)
+      : left(ValueFailure.invalidProficiency(failedValue: str));
 }

@@ -1,3 +1,11 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:helloworld/application/identity_access/register/profile/register_profile_bloc.dart';
+import 'package:helloworld/application/identity_access/register/register_account_bloc.dart';
+import 'package:helloworld/domain/identity_access/model/user/email_address.dart';
+import 'package:helloworld/domain/identity_access/model/user/mentor/age.dart';
+import 'package:helloworld/domain/identity_access/model/user/name.dart';
+import 'package:helloworld/domain/identity_access/model/user/password.dart';
+import 'package:helloworld/injection.dart';
 import 'package:helloworld/presentation/login/login_page.dart';
 import 'package:helloworld/presentation/password_reset/submit_email_page.dart';
 import 'package:helloworld/presentation/sign_up/register_account_learner_page.dart';
@@ -19,12 +27,12 @@ class Routes {
   static const String register = '/register';
   static const String resetPassword = '/password';
   static const String learnerAccount = '/register/learner/account';
-  static const String learnerProfile = '/register/mentor/profile';
+  static const String learnerProfile = '/register/learner/profile';
   static const String mentorAccount = '/register/mentor/account';
   static const String mentorProfile = '/register/mentor/profile';
   static const String mentorQualification = '/register/mentor/qualification';
   static const String verifyEmail = '/register/verify';
-  static const String verifiedLearner = '/register/mentor/verified';
+  static const String verifiedLearner = '/register/learner/verified';
   static const String verifiedMentor = '/register/mentor/verified';
 
   static void createRoutes() {
@@ -56,13 +64,27 @@ class Routes {
       SailorRoute(
         name: mentorProfile,
         builder: (context, args, params) {
-          return RegisterProfileMentorPage();
+
+          return MultiBlocProvider(
+            providers: [
+//              BlocProvider.value(
+//                value: BlocProvider.of<RegisterAccountBloc>(context),
+//              ),
+              BlocProvider<RegisterProfileBloc>(
+                lazy: false,
+                create: (_) {
+                  return RegisterProfileBloc();
+                },
+              ),
+            ],
+            child: RegisterProfileMentorPage(),
+          );
         },
         params: [
-          SailorParam<String>(name: 'name', isRequired: true),
-          SailorParam<String>(name: 'email', isRequired: true),
-          SailorParam<String>(name: 'password', isRequired: true),
-          SailorParam<int>(name: 'age', isRequired: true),
+          SailorParam<Name>(name: 'name', isRequired: true),
+          SailorParam<EmailAddress>(name: 'email', isRequired: true),
+          SailorParam<Password>(name: 'password', isRequired: true),
+          SailorParam<Age>(name: 'age', isRequired: true),
         ],
       ),
       SailorRoute(
@@ -80,12 +102,23 @@ class Routes {
       SailorRoute(
         name: learnerProfile,
         builder: (context, args, params) {
-          return RegisterProfileLearnerPage();
+          return MultiBlocProvider(
+            providers: [
+//              BlocProvider.value(
+//                value: BlocProvider.of<RegisterAccountBloc>(context),
+//              ),
+              BlocProvider<RegisterProfileBloc>(
+                lazy: false,
+                create: (context) => RegisterProfileBloc(),
+              ),
+            ],
+            child: RegisterProfileLearnerPage(),
+          );
         },
         params: [
-          SailorParam<String>(name: 'name', isRequired: true),
-          SailorParam<String>(name: 'email', isRequired: true),
-          SailorParam<String>(name: 'password', isRequired: true),
+          SailorParam<Name>(name: 'name', isRequired: true),
+          SailorParam<EmailAddress>(name: 'email', isRequired: true),
+          SailorParam<Password>(name: 'password', isRequired: true),
         ],
       ),
       SailorRoute(
