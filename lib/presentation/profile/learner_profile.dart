@@ -5,6 +5,8 @@ import 'package:helloworld/presentation/profile/widgets/language_set.dart';
 import 'package:helloworld/presentation/profile/widgets/location.dart';
 import 'package:helloworld/presentation/profile/widgets/name_tag.dart';
 import 'package:helloworld/presentation/profile/widgets/biography.dart';
+// import 'package:helloworld/presentation/sign_up/widgets/profilepicture.dart';
+import 'package:helloworld/presentation/profile/widgets/user_menu.dart';
 
 class LearnerProfile extends StatelessWidget {
   @override
@@ -13,6 +15,40 @@ class LearnerProfile extends StatelessWidget {
         backgroundColor: Palette.backgroundColor,
         body: SingleChildScrollView(
             child: Column(children: <Widget>[
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                IconButton(
+                    icon: Icon(Icons.keyboard_arrow_left,
+                        color: Palette.primaryColor),
+                    onPressed: () {}),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    GestureDetector(
+                        onTap: () {},
+                        child: const Image(
+                            image: AssetImage('assets/images/message.png'))),
+                    UserMenu()
+                  ],
+                )
+              ]),
+          Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Container(
+                width: 105,
+                height: 105,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: Palette.primaryColor,
+                    width: 3.0,
+                  ),
+                ),
+                child: const CircleAvatar(
+                  backgroundImage: AssetImage('assets/images/avatar.png'),
+                ),
+              )),
           const NameTag(name: "James Tan", type: "LEARNER"),
           const Biography(
               bio: "Hello there! I am learning Japanese and French."),

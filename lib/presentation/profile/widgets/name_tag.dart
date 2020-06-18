@@ -21,12 +21,13 @@ class NameTag extends StatelessWidget {
                 color: Palette.primaryColor,
                 fontFamily: 'Martel Sans',
                 fontSize: 20,
+                height: 2.5,
                 fontWeight: FontWeight.w900)),
         Container(
             padding: const EdgeInsets.only(left: 5),
             child: Container(
               alignment: Alignment.center,
-              width: 65,
+              width: 60,
               height: 25,
               decoration: BoxDecoration(
                   color: Palette.secondaryColor,
@@ -37,6 +38,7 @@ class NameTag extends StatelessWidget {
                       color: Colors.white,
                       fontFamily: 'Martel Sans',
                       fontSize: 8,
+                      height: 2,
                       fontWeight: FontWeight.w500)),
             ))
       ],
