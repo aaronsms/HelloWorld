@@ -2,18 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/profile/widgets/language_set.dart';
 import 'package:helloworld/presentation/profile/widgets/location.dart';
+import 'package:helloworld/presentation/profile/widgets/portfolio.dart';
+import 'package:helloworld/presentation/profile/widgets/charge.dart';
 
 class ProfileForm extends StatelessWidget {
   final String title;
   final List<LanguageSet> languages;
   final List<Location> locations;
+  final List<Portfolio> qualifications;
+  final List<Charge> charges;
 
-  const ProfileForm({
-    Key key,
-    @required this.title,
-    this.languages,
-    this.locations,
-  }) : super(key: key);
+  const ProfileForm(
+      {Key key,
+      @required this.title,
+      this.languages,
+      this.locations,
+      this.qualifications,
+      this.charges})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +47,8 @@ class ProfileForm extends StatelessWidget {
               Container(
                   padding: const EdgeInsets.only(bottom: 10, left: 10),
                   child: Column(
-                    children: languages ?? locations,
+                    children:
+                        qualifications ?? languages ?? locations ?? charges,
                   )),
             ],
           ),

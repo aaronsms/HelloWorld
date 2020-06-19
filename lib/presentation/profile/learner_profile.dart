@@ -49,7 +49,7 @@ class LearnerProfile extends StatelessWidget {
                   backgroundImage: AssetImage('assets/images/avatar.png'),
                 ),
               )),
-          const NameTag(name: "James Tan", type: "LEARNER"),
+          const NameTag(name: "Learner Name", type: "LEARNER"),
           const Biography(
               bio: "Hello there! I am learning Japanese and French."),
           Divider(
