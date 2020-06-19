@@ -12,7 +12,7 @@ class Header extends StatelessWidget with PreferredSizeWidget {
               style: TextStyle(
                   color: Colors.white,
                   fontFamily: 'Martel Sans',
-                  fontSize: 28,
+                  fontSize: 22,
                   fontWeight: FontWeight.w900))),
       actions: <Widget>[
         Container(

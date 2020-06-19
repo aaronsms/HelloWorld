@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
-import 'package:helloworld/presentation/sign_up/widgets/header.dart';
-import 'package:helloworld/presentation/sign_up/widgets/language_selection_dashboard.dart';
-import 'package:helloworld/presentation/sign_up/widgets/profile_picture.dart';
-import 'package:helloworld/presentation/sign_up/widgets/biography.dart';
-import 'package:helloworld/presentation/sign_up/widgets/locationpreferred.dart';
-import 'package:helloworld/presentation/sign_up/widgets/register_steps_indicator.dart';
+import 'package:helloworld/presentation/register/widgets/header.dart';
+import 'package:helloworld/presentation/register/widgets/language_selection_dashboard.dart';
+import 'package:helloworld/presentation/register/widgets/profile_picture.dart';
+import 'package:helloworld/presentation/register/widgets/biography.dart';
+import 'package:helloworld/presentation/register/widgets/locationpreferred.dart';
+import 'package:helloworld/presentation/register/widgets/register_steps_indicator.dart';
 
 class RegisterProfileLearnerPage extends StatelessWidget {
   @override

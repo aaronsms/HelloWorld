@@ -71,39 +71,27 @@ class RegisterProfileBloc
       speakingLanguageDeleted: (event) async* {
         final SpeakingLanguage language =
             SpeakingLanguage(parseLanguage(event.language));
-//        final LanguageProficiency proficiency =
-//            LanguageProficiency(event.proficiency);
         final currList = state.speakingLanguages;
 
         yield state.copyWith(isChangingItem: true);
         currList.removeWhere((tuple) => tuple.value1 == language);
-//        currList.remove(Tuple2(language, proficiency));
         yield state.copyWith(isChangingItem: false);
       },
       learningLanguageDeleted: (event) async* {
         final LearningLanguage language =
             LearningLanguage(parseLanguage(event.language));
-//        final LanguageProficiency proficiency =
-//            LanguageProficiency(event.proficiency);
         final currList = state.learningLanguages;
 
         yield state.copyWith(isChangingItem: true);
         currList.removeWhere((tuple) => tuple.value1 == language);
-//        currList.remove(Tuple2(language, proficiency));
         yield state.copyWith(isChangingItem: false);
       },
       teachingLanguageDeleted: (event) async* {
         final TeachingLanguage language =
             TeachingLanguage(parseLanguage(event.language));
-//        final LanguageProficiency proficiency =
-//            LanguageProficiency(event.proficiency);
         final currList = state.teachingLanguages;
-        print(language);
-        print(currList);
         yield state.copyWith(isChangingItem: true);
         currList.removeWhere((tuple) => tuple.value1 == language);
-        print(currList);
-//        currList.remove(Tuple2(language, proficiency));
         yield state.copyWith(isChangingItem: false);
       },
       orElse: () async* {

@@ -50,7 +50,6 @@ class _SubmitEmailPageState extends State<SubmitEmailPage> {
                               color: _validateEmail
                                   ? Colors.red
                                   : Palette.primaryColor,
-                              style: BorderStyle.solid,
                               width: 2),
                         ),
                         border: const OutlineInputBorder(

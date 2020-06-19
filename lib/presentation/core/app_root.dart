@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
-import 'package:helloworld/presentation/core/test_page.dart';
 import 'package:helloworld/presentation/login/login_page.dart';
-import 'package:helloworld/presentation/sign_up/register_account_mentor_page.dart';
-import 'package:helloworld/presentation/sign_up/register_profile_mentor_page.dart';
 
 import 'routes.dart';
 

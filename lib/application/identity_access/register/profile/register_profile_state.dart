@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:helloworld/domain/common/languages.dart';
 import 'package:helloworld/domain/identity_access/model/user/language_proficiency.dart';
 import 'package:helloworld/domain/identity_access/model/user/learner/learning_language.dart';
 import 'package:helloworld/domain/identity_access/model/user/location.dart';
@@ -30,7 +29,7 @@ abstract class RegisterProfileState with _$RegisterProfileState {
       biography: '',
       learningLanguages: [],
       speakingLanguages: [],
-      teachingLanguages: [Tuple2(TeachingLanguage(Language.Spanish), LanguageProficiency.b2())],
+      teachingLanguages: [],
       preferredLocations: [],
       isSubmitting: false,
       isChangingItem: false,

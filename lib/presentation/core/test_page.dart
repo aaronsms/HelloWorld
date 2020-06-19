@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:helloworld/presentation/core/palette.dart';
-import 'package:helloworld/presentation/sign_up/widgets/proficiency_dialog.dart';
 import 'package:provider/provider.dart';
-import 'package:helloworld/presentation/sign_up/widgets/language_dialog.dart';
+import 'package:helloworld/presentation/core/palette.dart';
+import 'package:helloworld/presentation/register/widgets/proficiency_dialog.dart';
+import 'package:helloworld/presentation/register/widgets/language_dialog.dart';
 
 class TestPage extends StatefulWidget {
   @override
@@ -34,8 +34,6 @@ class _TestPageState extends State<TestPage> {
               initialValue: '',
             );
 
-            print(language);
-            print(proficiency);
             if (res != null && proficiency != null) {
               setState(() {
                 language = res;

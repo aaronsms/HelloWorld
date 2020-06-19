@@ -1,22 +1,20 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:helloworld/application/identity_access/register/profile/register_profile_bloc.dart';
-import 'package:helloworld/application/identity_access/register/register_account_bloc.dart';
 import 'package:helloworld/domain/identity_access/model/user/email_address.dart';
 import 'package:helloworld/domain/identity_access/model/user/mentor/age.dart';
 import 'package:helloworld/domain/identity_access/model/user/name.dart';
 import 'package:helloworld/domain/identity_access/model/user/password.dart';
-import 'package:helloworld/injection.dart';
 import 'package:helloworld/presentation/login/login_page.dart';
 import 'package:helloworld/presentation/password_reset/submit_email_page.dart';
-import 'package:helloworld/presentation/sign_up/register_account_learner_page.dart';
-import 'package:helloworld/presentation/sign_up/register_account_mentor_page.dart';
-import 'package:helloworld/presentation/sign_up/register_pre_page.dart';
-import 'package:helloworld/presentation/sign_up/register_profile_learner_page.dart';
-import 'package:helloworld/presentation/sign_up/register_profile_mentor_page.dart';
-import 'package:helloworld/presentation/sign_up/register_qualifications_page.dart';
-import 'package:helloworld/presentation/sign_up/verified_email_learner_page.dart';
-import 'package:helloworld/presentation/sign_up/verified_email_mentor_page.dart';
-import 'package:helloworld/presentation/sign_up/verify_email_page.dart';
+import 'package:helloworld/presentation/register/register_account_learner_page.dart';
+import 'package:helloworld/presentation/register/register_account_mentor_page.dart';
+import 'package:helloworld/presentation/register/register_pre_page.dart';
+import 'package:helloworld/presentation/register/register_profile_learner_page.dart';
+import 'package:helloworld/presentation/register/register_profile_mentor_page.dart';
+import 'package:helloworld/presentation/register/register_qualifications_page.dart';
+import 'package:helloworld/presentation/register/verified_email_learner_page.dart';
+import 'package:helloworld/presentation/register/verified_email_mentor_page.dart';
+import 'package:helloworld/presentation/register/verify_email_page.dart';
 import 'package:sailor/sailor.dart';
 
 // ignore: avoid_classes_with_only_static_members

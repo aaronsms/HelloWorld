@@ -6,7 +6,7 @@ import 'package:helloworld/domain/identity_access/model/user/name.dart';
 import 'package:helloworld/domain/identity_access/model/user/password.dart';
 import 'package:helloworld/presentation/core/routes.dart';
 import 'package:injectable/injectable.dart';
-import './bloc.dart';
+import 'bloc.dart';
 
 @injectable
 class RegisterAccountBloc
@@ -51,14 +51,14 @@ class RegisterAccountBloc
             state.emailAddress.isValid() &&
             state.password.isValid() &&
             state.password == state.confirmPassword) {
-          if (isMentorOrLearner && state.age.isValid()) {
+          if (state.age.isValid() && isMentorOrLearner) {
             Routes.sailor(Routes.mentorProfile, params: {
               'name': state.name,
               'email': state.emailAddress,
               'password': state.password,
               'age': state.age
             });
-          } else {
+          } else if (!isMentorOrLearner) {
             Routes.sailor(Routes.learnerProfile, params: {
               'name': state.name,
               'email': state.emailAddress,

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
-import 'package:helloworld/presentation/sign_up/widgets/header.dart';
+import 'package:helloworld/presentation/register/widgets/header.dart';
 
 class VerifiedEmailMentorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: PreferredSize(
-            preferredSize: Size.fromHeight(80.0), child: Header()),
+        appBar: Header(),
         body: Column(
           children: <Widget>[
             Container(

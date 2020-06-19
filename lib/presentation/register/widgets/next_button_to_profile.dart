@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:helloworld/application/identity_access/register/register_account_bloc.dart';
-import 'package:helloworld/application/identity_access/register/register_account_event.dart';
+import 'package:helloworld/application/identity_access/register/account/register_account_bloc.dart';
+import 'package:helloworld/application/identity_access/register/account/register_account_event.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 
 class NextButtonToProfile extends StatelessWidget {

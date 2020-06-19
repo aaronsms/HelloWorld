@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:helloworld/application/identity_access/register/bloc.dart';
-import 'package:helloworld/presentation/sign_up/widgets/header.dart';
-import 'package:helloworld/presentation/sign_up/widgets/next_button_to_profile.dart';
-import 'package:helloworld/presentation/sign_up/widgets/register_account_form.dart';
-import 'package:helloworld/presentation/sign_up/widgets/register_steps_indicator.dart';
+import 'package:helloworld/application/identity_access/register/account/bloc.dart';
+import 'package:helloworld/presentation/register/widgets/header.dart';
+import 'package:helloworld/presentation/register/widgets/next_button_to_profile.dart';
+import 'package:helloworld/presentation/register/widgets/register_account_form.dart';
+import 'package:helloworld/presentation/register/widgets/register_steps_indicator.dart';
 
 import '../../injection.dart';
 
-class RegisterAccountMentorPage extends StatelessWidget {
+class RegisterAccountLearnerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Header(),
       body: BlocProvider(
-        create: (context) => getIt<RegisterAccountBloc>(param1: true),
+        create: (context) => getIt<RegisterAccountBloc>(param1: false),
         child: SingleChildScrollView(
           child: BlocBuilder<RegisterAccountBloc, RegisterAccountState>(
               builder: (context, state) {
@@ -24,9 +23,9 @@ class RegisterAccountMentorPage extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   const RegisterStepsIndicator(
-                    imagePath: 'assets/images/mentor_step1.png',
+                    imagePath: 'assets/images/learner_step1.png',
                     height: 100,
-                    width: 300,
+                    width: 200,
                   ),
                   RegisterAccountForm(
                     icon: Icons.perm_identity,
@@ -45,10 +44,8 @@ class RegisterAccountMentorPage extends StatelessWidget {
                               orElse: () => null),
                           (_) => null,
                         ),
-                    initialField: 'Aaron Saw',
                   ),
                   RegisterAccountForm(
-                    initialField: 'Aaron Saw',
                     icon: Icons.visibility,
                     iconOnPressed: () => context
                         .bloc<RegisterAccountBloc>()
@@ -73,7 +70,6 @@ class RegisterAccountMentorPage extends StatelessWidget {
                     obscureText: state.obscureText,
                   ),
                   RegisterAccountForm(
-                    initialField: 'Aaron Saw',
                     icon: Icons.visibility,
                     iconOnPressed: () => context
                         .bloc<RegisterAccountBloc>()
@@ -100,7 +96,6 @@ class RegisterAccountMentorPage extends StatelessWidget {
                     obscureText: state.obscureText,
                   ),
                   RegisterAccountForm(
-                    initialField: 'aaronsaw78@gmail.com',
                     icon: Icons.email,
                     labelText: 'Email Address',
                     onChanged: (value) => context
@@ -119,41 +114,6 @@ class RegisterAccountMentorPage extends StatelessWidget {
                           ),
                           (_) => null,
                         ),
-                  ),
-                  RegisterAccountForm(
-                    initialField: '19',
-                    icon: Icons.calendar_today,
-                    labelText: 'Age',
-                    textInputType: TextInputType.number,
-                    inputFormatters: <TextInputFormatter>[
-                      WhitelistingTextInputFormatter.digitsOnly
-                    ],
-                    onChanged: (value) => context
-                        .bloc<RegisterAccountBloc>()
-                        .add(RegisterAccountEvent.ageChanged(value)),
-                    validator: (_) => context
-                        .bloc<RegisterAccountBloc>()
-                        .state
-                        .age
-                        .value
-                        .fold(
-                          (f) => f.maybeMap(
-                            invalidAge: (_) => 'You need to be at least 18.',
-                            emptyField: (_) => 'Field cannot be empty.',
-                            orElse: () => null,
-                          ),
-                          (_) => null,
-                        ),
-                  ),
-                  const Text(
-                    "Note: To be a mentor, you need to be at least 18 years old!",
-                    style: TextStyle(
-                      height: 1.2,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w800,
-                      fontFamily: 'Martel Sans',
-                      fontSize: 12,
-                    ),
                   ),
                   const NextButtonToProfile(),
                 ],

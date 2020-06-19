@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/core/routes.dart';
+import 'package:helloworld/presentation/register/widgets/header.dart';
 
 class RegisterPrePage extends StatefulWidget {
   @override
   RegisterPrePageState createState() => RegisterPrePageState();
 }
-
 class RegisterPrePageState extends State<RegisterPrePage> {
   bool _isLearner = false;
   bool _isMentor = false;
@@ -14,30 +14,7 @@ class RegisterPrePageState extends State<RegisterPrePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80.0),
-        child: AppBar(
-          backgroundColor: Palette.primaryColor,
-          title: Container(
-            margin: const EdgeInsets.only(left: 10.0),
-            child: Text(
-              'Create Account',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-          actions: <Widget>[
-            Container(
-              margin: const EdgeInsets.only(right: 20.0),
-              child: const Image(
-                image: AssetImage('assets/images/logo.png'),
-              ),
-            ),
-          ],
-        ),
-      ),
+      appBar: Header(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[

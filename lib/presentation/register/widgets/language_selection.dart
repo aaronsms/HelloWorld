@@ -21,7 +21,7 @@ class LanguageSelection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: const EdgeInsets.all(10.0),
-      color: Colors.white,
+      color: Palette.secondaryColor,
       child: BlocBuilder<RegisterProfileBloc, RegisterProfileState>(
         builder: (context, state) {
           final list = isTeach

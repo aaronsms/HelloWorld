@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/core/routes.dart';
-import 'package:helloworld/presentation/sign_up/widgets/header.dart';
-import 'package:helloworld/presentation/sign_up/widgets/qualification.dart';
-import 'package:helloworld/presentation/sign_up/widgets/qualification_addition.dart';
+import 'package:helloworld/presentation/register/widgets/header.dart';
+import 'package:helloworld/presentation/register/widgets/qualification.dart';
+import 'package:helloworld/presentation/register/widgets/qualification_addition.dart';
 
 class RegisterQualificationsPage extends StatefulWidget {
   @override

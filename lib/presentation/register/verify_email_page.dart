@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/core/routes.dart';
-import 'package:helloworld/presentation/sign_up/widgets/header.dart';
+import 'package:helloworld/presentation/register/widgets/header.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class VerifyEmailPage extends StatefulWidget {

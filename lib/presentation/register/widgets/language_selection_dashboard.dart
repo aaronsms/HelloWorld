@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
+import 'package:helloworld/presentation/register/widgets/proficiency_dialog.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:helloworld/application/identity_access/register/profile/bloc.dart';
 import 'package:helloworld/application/identity_access/register/profile/register_profile_event.dart';
 import 'package:helloworld/domain/identity_access/model/user/language_proficiency.dart';
-import 'package:helloworld/presentation/sign_up/widgets/proficiency_dialog.dart';
-import 'package:helloworld/presentation/sign_up/widgets/language_dialog.dart';
 
+import 'language_dialog.dart';
 import 'language_selection.dart';
 
 class LanguageSelectionDashboard extends StatelessWidget {
@@ -67,7 +67,6 @@ class LanguageSelectionDashboard extends StatelessWidget {
       title: 'Please select your language',
     );
 
-    print(languageStr);
     if (languageStr != null) {
       final proficiencyStr = await _buildDialog(
         context,
@@ -75,9 +74,7 @@ class LanguageSelectionDashboard extends StatelessWidget {
         dialog: () => ProficiencyDialog(),
         initialValue: LanguageProficiency.A1,
       );
-      print(proficiencyStr);
       if (proficiencyStr != null) {
-        print('$languageStr $proficiencyStr');
         if (isTeach) {
           context.bloc<RegisterProfileBloc>().add(
               RegisterProfileEvent.teachingLanguageAdded(
