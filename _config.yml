@@ -4,9 +4,8 @@ email: aaronsms@u.nus.edu
 header_pages: 
   - developer_guide.md
   - about.md
-
-baseurl: "" 
-url: ""
+ 
+url: "https://aaronsms.github.io/HelloWorld/"
 
 # Build settings
 theme: minima
