@@ -21,6 +21,7 @@ dependencies:
   dropdownfield: ^1.0.3
   url_launcher: ^5.4.10
   pin_code_fields: ^3.0.1
+  flutter_rating_bar: ^3.0.1+1
   google_sign_in: ^4.5.1
   path: ^1.7.0
   get_it: ^4.0.2
@@ -59,6 +60,7 @@ flutter:
     - assets/images/verifiedemail.png
     - assets/images/applicationmentor.png
     - assets/images/avatar.png
+    - assets/images/message.png
 
   fonts:
     - family: Gill Sans

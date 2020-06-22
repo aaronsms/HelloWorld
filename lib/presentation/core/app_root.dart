@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/login/login_page.dart';
+import 'package:helloworld/presentation/profile/learner_profile.dart';
+import 'package:helloworld/presentation/profile/mentor_profile.dart';
 
 import 'routes.dart';
 
@@ -11,7 +13,7 @@ class AppRoot extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 //      debugShowMaterialGrid: true,
       title: 'HelloWorld!<>',
-      home: LoginPage(),
+      home: MentorProfile(),
       theme: ThemeData(
         primaryColor: Palette.primaryColor,
         accentColor: Palette.secondaryColor,
