@@ -1,0 +1,20 @@
+I"ò<ul id="markdown-toc">
+  <li><a href="#set-up" id="markdown-toc-set-up"><strong>Set-up</strong></a></li>
+  <li><a href="#design" id="markdown-toc-design"><strong>Design</strong></a>    <ul>
+      <li><a href="#architecture" id="markdown-toc-architecture">Architecture</a></li>
+      <li><a href="#presentation" id="markdown-toc-presentation">Presentation</a></li>
+      <li><a href="#application" id="markdown-toc-application">Application</a></li>
+      <li><a href="#domain" id="markdown-toc-domain">Domain</a></li>
+      <li><a href="#infrastructure" id="markdown-toc-infrastructure">Infrastructure</a></li>
+    </ul>
+  </li>
+  <li><a href="#implementation" id="markdown-toc-implementation"><strong>Implementation</strong></a>    <ul>
+      <li><a href="#booking-system-core" id="markdown-toc-booking-system-core">Booking system [Core]</a></li>
+      <li><a href="#messaging-platform" id="markdown-toc-messaging-platform">Messaging platform</a></li>
+      <li><a href="#discussion-forum" id="markdown-toc-discussion-forum">Discussion forum</a></li>
+    </ul>
+  </li>
+  <li><a href="#documentation" id="markdown-toc-documentation"><strong>Documentation</strong></a></li>
+  <li><a href="#appendix" id="markdown-toc-appendix"><strong>Appendix</strong></a></li>
+</ul>
+:ET

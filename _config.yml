@@ -1,0 +1,14 @@
+title: HelloWorld!<>
+email: aaronsms@u.nus.edu
+
+header_pages: 
+  - developer_guide.md
+  - about.md
+
+baseurl: "" 
+url: ""
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed

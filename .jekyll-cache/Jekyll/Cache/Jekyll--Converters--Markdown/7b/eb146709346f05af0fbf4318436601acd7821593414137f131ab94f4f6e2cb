@@ -1,0 +1,57 @@
+I"…<ul id="markdown-toc">
+  <li><a href="#set-up" id="markdown-toc-set-up"><strong>Set-up</strong></a></li>
+  <li><a href="#design" id="markdown-toc-design"><strong>Design</strong></a>    <ul>
+      <li><a href="#architecture" id="markdown-toc-architecture">Architecture</a></li>
+      <li><a href="#presentation" id="markdown-toc-presentation">Presentation</a></li>
+      <li><a href="#application" id="markdown-toc-application">Application</a></li>
+      <li><a href="#domain" id="markdown-toc-domain">Domain</a></li>
+      <li><a href="#infrastructure" id="markdown-toc-infrastructure">Infrastructure</a></li>
+    </ul>
+  </li>
+  <li><a href="#implementation" id="markdown-toc-implementation"><strong>Implementation</strong></a>    <ul>
+      <li><a href="#booking-system-core" id="markdown-toc-booking-system-core">Booking system [Core]</a></li>
+      <li><a href="#messaging-platform" id="markdown-toc-messaging-platform">Messaging platform</a></li>
+      <li><a href="#discussion-forum" id="markdown-toc-discussion-forum">Discussion forum</a></li>
+    </ul>
+  </li>
+  <li><a href="#documentation" id="markdown-toc-documentation"><strong>Documentation</strong></a></li>
+  <li><a href="#appendix" id="markdown-toc-appendix"><strong>Appendix</strong></a></li>
+</ul>
+
+<hr />
+
+<h2 id="set-up"><strong>Set-up</strong></h2>
+
+<hr />
+
+<h2 id="design"><strong>Design</strong></h2>
+
+<h3 id="architecture">Architecture</h3>
+
+<h3 id="presentation">Presentation</h3>
+
+<h3 id="application">Application</h3>
+
+<h3 id="domain">Domain</h3>
+
+<h3 id="infrastructure">Infrastructure</h3>
+
+<hr />
+
+<h2 id="implementation"><strong>Implementation</strong></h2>
+
+<h3 id="booking-system-core">Booking system [Core]</h3>
+
+<h3 id="messaging-platform">Messaging platform</h3>
+
+<h3 id="discussion-forum">Discussion forum</h3>
+
+<hr />
+
+<h2 id="documentation"><strong>Documentation</strong></h2>
+
+<hr />
+
+<h2 id="appendix"><strong>Appendix</strong></h2>
+
+:ET
