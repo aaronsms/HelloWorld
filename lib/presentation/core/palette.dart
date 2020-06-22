@@ -7,5 +7,4 @@ class Palette {
   static const Color quaternaryColor = Color(0xFF087CA7);
   static const Color disabledColor = Color(0xFFB8B7B6);
   static const Color backgroundColor = Color(0xFFF1FAEE);
-  static const Color backgroundColor = Color(0XFFF1FAEE);
 }
