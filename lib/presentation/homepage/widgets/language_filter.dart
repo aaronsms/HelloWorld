@@ -66,7 +66,7 @@ class _LanguageFilterState extends State<LanguageFilter> {
               onSaved: (value) {
                 if (value == null) return;
                 setState(() {
-                  _goals = value;
+                  _goals = value as List;
                 });
               },
             ),

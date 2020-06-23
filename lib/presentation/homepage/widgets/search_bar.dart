@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/homepage/widgets/search_profile_filters.dart';
-import 'package:helloworld/presentation/common/custom_dialog.dart'
+import 'package:helloworld/presentation/core/custom_dialog.dart'
     as customDialog;
 
 class SearchBar extends StatefulWidget {
