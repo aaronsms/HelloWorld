@@ -19,8 +19,9 @@ class NextButtonToProfile extends StatelessWidget {
           borderRadius: BorderRadius.circular(14.0),
         ),
         onPressed: () {
-          context.bloc<RegisterAccountBloc>().add(
-              const RegisterAccountEvent.nextClicked());
+          context
+              .bloc<RegisterAccountBloc>()
+              .add(RegisterAccountEvent.nextClicked(context));
         },
         child: Text(
           'Next',

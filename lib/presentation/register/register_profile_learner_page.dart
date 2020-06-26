@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:helloworld/application/identity_access/register/account/register_account_bloc.dart';
+import 'package:helloworld/application/identity_access/register/profile/bloc.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/register/widgets/header.dart';
 import 'package:helloworld/presentation/register/widgets/language_selection_dashboard.dart';
@@ -77,10 +80,15 @@ class RegisterProfileLearnerPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(14.0),
               ),
               onPressed: () {
-//                  BlocProvider.of<RegisterProfileBloc>(context).add(
-//                      RegisterProfileEvent.teachingLanguageAdded(
-//                          Language.spanish, LanguageProficiency.b2()));
-//                    Routes.sailor(Routes.mentorQualification);
+                final state = context.bloc<RegisterAccountBloc>().state;
+                context
+                    .bloc<RegisterProfileBloc>()
+                    .add(RegisterProfileEvent.doneClicked(
+                      name: state.name,
+                      password: state.password,
+                      emailAddress: state.emailAddress,
+                      isMentorOrLearner: false,
+                    ));
               },
               child: Text(
                 'Done',

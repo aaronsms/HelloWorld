@@ -66,8 +66,17 @@ class _$RegisterProfileEventTearOff {
     );
   }
 
-  DoneClicked doneClicked() {
-    return const DoneClicked();
+  DoneClicked doneClicked(
+      {Name name,
+      EmailAddress emailAddress,
+      Password password,
+      bool isMentorOrLearner}) {
+    return DoneClicked(
+      name: name,
+      emailAddress: emailAddress,
+      password: password,
+      isMentorOrLearner: isMentorOrLearner,
+    );
   }
 }
 
@@ -85,7 +94,9 @@ mixin _$RegisterProfileEvent {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
-    @required Result doneClicked(),
+    @required
+        Result doneClicked(Name name, EmailAddress emailAddress,
+            Password password, bool isMentorOrLearner),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -97,7 +108,8 @@ mixin _$RegisterProfileEvent {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
-    Result doneClicked(),
+    Result doneClicked(Name name, EmailAddress emailAddress, Password password,
+        bool isMentorOrLearner),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -205,7 +217,9 @@ class _$ImageSet implements ImageSet {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
-    @required Result doneClicked(),
+    @required
+        Result doneClicked(Name name, EmailAddress emailAddress,
+            Password password, bool isMentorOrLearner),
   }) {
     assert(imageSet != null);
     assert(bioChanged != null);
@@ -230,7 +244,8 @@ class _$ImageSet implements ImageSet {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
-    Result doneClicked(),
+    Result doneClicked(Name name, EmailAddress emailAddress, Password password,
+        bool isMentorOrLearner),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -358,7 +373,9 @@ class _$BioChanged implements BioChanged {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
-    @required Result doneClicked(),
+    @required
+        Result doneClicked(Name name, EmailAddress emailAddress,
+            Password password, bool isMentorOrLearner),
   }) {
     assert(imageSet != null);
     assert(bioChanged != null);
@@ -383,7 +400,8 @@ class _$BioChanged implements BioChanged {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
-    Result doneClicked(),
+    Result doneClicked(Name name, EmailAddress emailAddress, Password password,
+        bool isMentorOrLearner),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -524,7 +542,9 @@ class _$LearningLanguageAdded implements LearningLanguageAdded {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
-    @required Result doneClicked(),
+    @required
+        Result doneClicked(Name name, EmailAddress emailAddress,
+            Password password, bool isMentorOrLearner),
   }) {
     assert(imageSet != null);
     assert(bioChanged != null);
@@ -549,7 +569,8 @@ class _$LearningLanguageAdded implements LearningLanguageAdded {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
-    Result doneClicked(),
+    Result doneClicked(Name name, EmailAddress emailAddress, Password password,
+        bool isMentorOrLearner),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -692,7 +713,9 @@ class _$SpeakingLanguageAdded implements SpeakingLanguageAdded {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
-    @required Result doneClicked(),
+    @required
+        Result doneClicked(Name name, EmailAddress emailAddress,
+            Password password, bool isMentorOrLearner),
   }) {
     assert(imageSet != null);
     assert(bioChanged != null);
@@ -717,7 +740,8 @@ class _$SpeakingLanguageAdded implements SpeakingLanguageAdded {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
-    Result doneClicked(),
+    Result doneClicked(Name name, EmailAddress emailAddress, Password password,
+        bool isMentorOrLearner),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -860,7 +884,9 @@ class _$TeachingLanguageAdded implements TeachingLanguageAdded {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
-    @required Result doneClicked(),
+    @required
+        Result doneClicked(Name name, EmailAddress emailAddress,
+            Password password, bool isMentorOrLearner),
   }) {
     assert(imageSet != null);
     assert(bioChanged != null);
@@ -885,7 +911,8 @@ class _$TeachingLanguageAdded implements TeachingLanguageAdded {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
-    Result doneClicked(),
+    Result doneClicked(Name name, EmailAddress emailAddress, Password password,
+        bool isMentorOrLearner),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1018,7 +1045,9 @@ class _$LearningLanguageDeleted implements LearningLanguageDeleted {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
-    @required Result doneClicked(),
+    @required
+        Result doneClicked(Name name, EmailAddress emailAddress,
+            Password password, bool isMentorOrLearner),
   }) {
     assert(imageSet != null);
     assert(bioChanged != null);
@@ -1043,7 +1072,8 @@ class _$LearningLanguageDeleted implements LearningLanguageDeleted {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
-    Result doneClicked(),
+    Result doneClicked(Name name, EmailAddress emailAddress, Password password,
+        bool isMentorOrLearner),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1175,7 +1205,9 @@ class _$SpeakingLanguageDeleted implements SpeakingLanguageDeleted {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
-    @required Result doneClicked(),
+    @required
+        Result doneClicked(Name name, EmailAddress emailAddress,
+            Password password, bool isMentorOrLearner),
   }) {
     assert(imageSet != null);
     assert(bioChanged != null);
@@ -1200,7 +1232,8 @@ class _$SpeakingLanguageDeleted implements SpeakingLanguageDeleted {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
-    Result doneClicked(),
+    Result doneClicked(Name name, EmailAddress emailAddress, Password password,
+        bool isMentorOrLearner),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1332,7 +1365,9 @@ class _$TeachingLanguageDeleted implements TeachingLanguageDeleted {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
-    @required Result doneClicked(),
+    @required
+        Result doneClicked(Name name, EmailAddress emailAddress,
+            Password password, bool isMentorOrLearner),
   }) {
     assert(imageSet != null);
     assert(bioChanged != null);
@@ -1357,7 +1392,8 @@ class _$TeachingLanguageDeleted implements TeachingLanguageDeleted {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
-    Result doneClicked(),
+    Result doneClicked(Name name, EmailAddress emailAddress, Password password,
+        bool isMentorOrLearner),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1426,6 +1462,11 @@ abstract class $DoneClickedCopyWith<$Res> {
   factory $DoneClickedCopyWith(
           DoneClicked value, $Res Function(DoneClicked) then) =
       _$DoneClickedCopyWithImpl<$Res>;
+  $Res call(
+      {Name name,
+      EmailAddress emailAddress,
+      Password password,
+      bool isMentorOrLearner});
 }
 
 class _$DoneClickedCopyWithImpl<$Res>
@@ -1437,23 +1478,73 @@ class _$DoneClickedCopyWithImpl<$Res>
 
   @override
   DoneClicked get _value => super._value as DoneClicked;
+
+  @override
+  $Res call({
+    Object name = freezed,
+    Object emailAddress = freezed,
+    Object password = freezed,
+    Object isMentorOrLearner = freezed,
+  }) {
+    return _then(DoneClicked(
+      name: name == freezed ? _value.name : name as Name,
+      emailAddress: emailAddress == freezed
+          ? _value.emailAddress
+          : emailAddress as EmailAddress,
+      password: password == freezed ? _value.password : password as Password,
+      isMentorOrLearner: isMentorOrLearner == freezed
+          ? _value.isMentorOrLearner
+          : isMentorOrLearner as bool,
+    ));
+  }
 }
 
 class _$DoneClicked implements DoneClicked {
-  const _$DoneClicked();
+  const _$DoneClicked(
+      {this.name, this.emailAddress, this.password, this.isMentorOrLearner});
+
+  @override
+  final Name name;
+  @override
+  final EmailAddress emailAddress;
+  @override
+  final Password password;
+  @override
+  final bool isMentorOrLearner;
 
   @override
   String toString() {
-    return 'RegisterProfileEvent.doneClicked()';
+    return 'RegisterProfileEvent.doneClicked(name: $name, emailAddress: $emailAddress, password: $password, isMentorOrLearner: $isMentorOrLearner)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is DoneClicked);
+    return identical(this, other) ||
+        (other is DoneClicked &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.emailAddress, emailAddress) ||
+                const DeepCollectionEquality()
+                    .equals(other.emailAddress, emailAddress)) &&
+            (identical(other.password, password) ||
+                const DeepCollectionEquality()
+                    .equals(other.password, password)) &&
+            (identical(other.isMentorOrLearner, isMentorOrLearner) ||
+                const DeepCollectionEquality()
+                    .equals(other.isMentorOrLearner, isMentorOrLearner)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(emailAddress) ^
+      const DeepCollectionEquality().hash(password) ^
+      const DeepCollectionEquality().hash(isMentorOrLearner);
+
+  @override
+  $DoneClickedCopyWith<DoneClicked> get copyWith =>
+      _$DoneClickedCopyWithImpl<DoneClicked>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1466,7 +1557,9 @@ class _$DoneClicked implements DoneClicked {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
-    @required Result doneClicked(),
+    @required
+        Result doneClicked(Name name, EmailAddress emailAddress,
+            Password password, bool isMentorOrLearner),
   }) {
     assert(imageSet != null);
     assert(bioChanged != null);
@@ -1477,7 +1570,7 @@ class _$DoneClicked implements DoneClicked {
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
     assert(doneClicked != null);
-    return doneClicked();
+    return doneClicked(name, emailAddress, password, isMentorOrLearner);
   }
 
   @override
@@ -1491,12 +1584,13 @@ class _$DoneClicked implements DoneClicked {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
-    Result doneClicked(),
+    Result doneClicked(Name name, EmailAddress emailAddress, Password password,
+        bool isMentorOrLearner),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (doneClicked != null) {
-      return doneClicked();
+      return doneClicked(name, emailAddress, password, isMentorOrLearner);
     }
     return orElse();
   }
@@ -1549,5 +1643,15 @@ class _$DoneClicked implements DoneClicked {
 }
 
 abstract class DoneClicked implements RegisterProfileEvent {
-  const factory DoneClicked() = _$DoneClicked;
+  const factory DoneClicked(
+      {Name name,
+      EmailAddress emailAddress,
+      Password password,
+      bool isMentorOrLearner}) = _$DoneClicked;
+
+  Name get name;
+  EmailAddress get emailAddress;
+  Password get password;
+  bool get isMentorOrLearner;
+  $DoneClickedCopyWith<DoneClicked> get copyWith;
 }

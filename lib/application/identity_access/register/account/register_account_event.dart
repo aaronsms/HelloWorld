@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'register_account_event.freezed.dart';
@@ -14,6 +16,6 @@ abstract class RegisterAccountEvent with _$RegisterAccountEvent {
       EmailChanged;
   const factory RegisterAccountEvent.ageChanged(String ageStr) =
       AgeChanged;
-  const factory RegisterAccountEvent.nextClicked() = NextClicked;
+  const factory RegisterAccountEvent.nextClicked(BuildContext context) = NextClicked;
   const factory RegisterAccountEvent.obscureTextClicked() = ObscureTextClicked;
 }

@@ -6,25 +6,32 @@ import 'package:helloworld/presentation/homepage/widgets/language_set.dart';
 class MentorDisplayView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(mainAxisAlignment: MainAxisAlignment.end, children: <Widget>[
-      Text(
-        "Recommended Mentors For You",
-        style: TextStyle(
-            color: Palette.primaryColor,
-            fontFamily: 'Martel Sans',
-            fontSize: 22,
-            fontWeight: FontWeight.w700),
-      ),
-      SizedBox(
-          height: 500,
-          child: SingleChildScrollView(
-              child: Card(
-            elevation: 0,
-            color: Palette.backgroundColor,
-            child: Column(
-              children: <Widget>[
-                MentorDisplay(
-                    name: "Sample Mentor 1",
+    return Expanded(
+      child: Column(
+        children: <Widget>[
+          Text(
+            "Recommended Mentors For You",
+            style: TextStyle(
+                color: Palette.primaryColor,
+                fontFamily: 'Martel Sans',
+                fontSize: 22,
+                fontWeight: FontWeight.w700),
+          ),
+          Expanded(
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ListView.separated(
+                padding: const EdgeInsets.all(12.0),
+                physics: const BouncingScrollPhysics(),
+                itemCount: 3,
+                separatorBuilder: (_, index) =>
+                    const Divider(thickness: 1.5, indent: 15, endIndent: 15),
+                itemBuilder: (_, index) => const MentorDisplay(
+                    name: "Jack Ma",
                     rates: 10,
                     active: 2,
                     distance: 1.0,
@@ -36,47 +43,11 @@ class MentorDisplayView extends StatelessWidget {
                       LanguageSet(
                           language: "Mandarin (Chinese)", proficiency: 5)
                     ]),
-                MentorDisplay(
-                    name: "Sample Mentor 2",
-                    rates: 8.50,
-                    active: 1,
-                    distance: 0.2,
-                    teaching: [
-                      LanguageSet(language: "Korean", proficiency: 5)
-                    ],
-                    common: [
-                      LanguageSet(language: "English", proficiency: 5),
-                      LanguageSet(language: "Malay", proficiency: 4)
-                    ]),
-                MentorDisplay(
-                    name: "Sample Mentor 3",
-                    rates: 9,
-                    active: 5,
-                    distance: 0.3,
-                    teaching: [
-                      LanguageSet(language: "French", proficiency: 5)
-                    ],
-                    common: [
-                      LanguageSet(language: "English", proficiency: 5),
-                      LanguageSet(
-                          language: "Mandarin (Chinese)", proficiency: 5)
-                    ]),
-                MentorDisplay(
-                    name: "Sample Mentor 4",
-                    rates: 7,
-                    active: 3,
-                    distance: 0.8,
-                    teaching: [
-                      LanguageSet(language: "Japanese", proficiency: 5)
-                    ],
-                    common: [
-                      LanguageSet(language: "English", proficiency: 5),
-                      LanguageSet(
-                          language: "Mandarin (Chinese)", proficiency: 5)
-                    ]),
-              ],
+              ),
             ),
-          )))
-    ]);
+          ),
+        ],
+      ),
+    );
   }
 }

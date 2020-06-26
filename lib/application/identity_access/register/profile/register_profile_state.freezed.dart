@@ -16,7 +16,7 @@ class _$RegisterProfileStateTearOff {
       {@required
           ProfilePicture profilePicture,
       @required
-          String biography,
+          Biography biography,
       @required
           List<Tuple2<LearningLanguage, LanguageProficiency>> learningLanguages,
       @required
@@ -50,7 +50,7 @@ const $RegisterProfileState = _$RegisterProfileStateTearOff();
 
 mixin _$RegisterProfileState {
   ProfilePicture get profilePicture;
-  String get biography;
+  Biography get biography;
   List<Tuple2<LearningLanguage, LanguageProficiency>> get learningLanguages;
   List<Tuple2<SpeakingLanguage, LanguageProficiency>> get speakingLanguages;
   List<Tuple2<TeachingLanguage, LanguageProficiency>> get teachingLanguages;
@@ -68,7 +68,7 @@ abstract class $RegisterProfileStateCopyWith<$Res> {
       _$RegisterProfileStateCopyWithImpl<$Res>;
   $Res call(
       {ProfilePicture profilePicture,
-      String biography,
+      Biography biography,
       List<Tuple2<LearningLanguage, LanguageProficiency>> learningLanguages,
       List<Tuple2<SpeakingLanguage, LanguageProficiency>> speakingLanguages,
       List<Tuple2<TeachingLanguage, LanguageProficiency>> teachingLanguages,
@@ -102,7 +102,8 @@ class _$RegisterProfileStateCopyWithImpl<$Res>
       profilePicture: profilePicture == freezed
           ? _value.profilePicture
           : profilePicture as ProfilePicture,
-      biography: biography == freezed ? _value.biography : biography as String,
+      biography:
+          biography == freezed ? _value.biography : biography as Biography,
       learningLanguages: learningLanguages == freezed
           ? _value.learningLanguages
           : learningLanguages
@@ -139,7 +140,7 @@ abstract class _$RegisterProfileStateCopyWith<$Res>
   @override
   $Res call(
       {ProfilePicture profilePicture,
-      String biography,
+      Biography biography,
       List<Tuple2<LearningLanguage, LanguageProficiency>> learningLanguages,
       List<Tuple2<SpeakingLanguage, LanguageProficiency>> speakingLanguages,
       List<Tuple2<TeachingLanguage, LanguageProficiency>> teachingLanguages,
@@ -175,7 +176,8 @@ class __$RegisterProfileStateCopyWithImpl<$Res>
       profilePicture: profilePicture == freezed
           ? _value.profilePicture
           : profilePicture as ProfilePicture,
-      biography: biography == freezed ? _value.biography : biography as String,
+      biography:
+          biography == freezed ? _value.biography : biography as Biography,
       learningLanguages: learningLanguages == freezed
           ? _value.learningLanguages
           : learningLanguages
@@ -228,7 +230,7 @@ class _$_RegisterProfileState implements _RegisterProfileState {
   @override
   final ProfilePicture profilePicture;
   @override
-  final String biography;
+  final Biography biography;
   @override
   final List<Tuple2<LearningLanguage, LanguageProficiency>> learningLanguages;
   @override
@@ -308,7 +310,7 @@ abstract class _RegisterProfileState implements RegisterProfileState {
       {@required
           ProfilePicture profilePicture,
       @required
-          String biography,
+          Biography biography,
       @required
           List<Tuple2<LearningLanguage, LanguageProficiency>> learningLanguages,
       @required
@@ -328,7 +330,7 @@ abstract class _RegisterProfileState implements RegisterProfileState {
   @override
   ProfilePicture get profilePicture;
   @override
-  String get biography;
+  Biography get biography;
   @override
   List<Tuple2<LearningLanguage, LanguageProficiency>> get learningLanguages;
   @override

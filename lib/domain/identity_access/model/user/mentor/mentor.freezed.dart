@@ -12,18 +12,20 @@ T _$identity<T>(T value) => value;
 class _$MentorTearOff {
   const _$MentorTearOff();
 
-  _Mentor call(
+  _Mentor _(
       {@required MentorId id,
       @required UserId userId,
+      @required ProfilePicture profilePicture,
+      @required Biography biography,
       @required TeachingBackground languageBackground,
-      @required Location location,
-      @required Gender gender}) {
+      @required List<Location> location}) {
     return _Mentor(
       id: id,
       userId: userId,
+      profilePicture: profilePicture,
+      biography: biography,
       languageBackground: languageBackground,
       location: location,
-      gender: gender,
     );
   }
 }
@@ -34,9 +36,10 @@ const $Mentor = _$MentorTearOff();
 mixin _$Mentor {
   MentorId get id;
   UserId get userId;
+  ProfilePicture get profilePicture;
+  Biography get biography;
   TeachingBackground get languageBackground;
-  Location get location;
-  Gender get gender;
+  List<Location> get location;
 
   $MentorCopyWith<Mentor> get copyWith;
 }
@@ -47,9 +50,10 @@ abstract class $MentorCopyWith<$Res> {
   $Res call(
       {MentorId id,
       UserId userId,
+      ProfilePicture profilePicture,
+      Biography biography,
       TeachingBackground languageBackground,
-      Location location,
-      Gender gender});
+      List<Location> location});
 }
 
 class _$MentorCopyWithImpl<$Res> implements $MentorCopyWith<$Res> {
@@ -63,18 +67,24 @@ class _$MentorCopyWithImpl<$Res> implements $MentorCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object userId = freezed,
+    Object profilePicture = freezed,
+    Object biography = freezed,
     Object languageBackground = freezed,
     Object location = freezed,
-    Object gender = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as MentorId,
       userId: userId == freezed ? _value.userId : userId as UserId,
+      profilePicture: profilePicture == freezed
+          ? _value.profilePicture
+          : profilePicture as ProfilePicture,
+      biography:
+          biography == freezed ? _value.biography : biography as Biography,
       languageBackground: languageBackground == freezed
           ? _value.languageBackground
           : languageBackground as TeachingBackground,
-      location: location == freezed ? _value.location : location as Location,
-      gender: gender == freezed ? _value.gender : gender as Gender,
+      location:
+          location == freezed ? _value.location : location as List<Location>,
     ));
   }
 }
@@ -86,9 +96,10 @@ abstract class _$MentorCopyWith<$Res> implements $MentorCopyWith<$Res> {
   $Res call(
       {MentorId id,
       UserId userId,
+      ProfilePicture profilePicture,
+      Biography biography,
       TeachingBackground languageBackground,
-      Location location,
-      Gender gender});
+      List<Location> location});
 }
 
 class __$MentorCopyWithImpl<$Res> extends _$MentorCopyWithImpl<$Res>
@@ -103,18 +114,24 @@ class __$MentorCopyWithImpl<$Res> extends _$MentorCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object userId = freezed,
+    Object profilePicture = freezed,
+    Object biography = freezed,
     Object languageBackground = freezed,
     Object location = freezed,
-    Object gender = freezed,
   }) {
     return _then(_Mentor(
       id: id == freezed ? _value.id : id as MentorId,
       userId: userId == freezed ? _value.userId : userId as UserId,
+      profilePicture: profilePicture == freezed
+          ? _value.profilePicture
+          : profilePicture as ProfilePicture,
+      biography:
+          biography == freezed ? _value.biography : biography as Biography,
       languageBackground: languageBackground == freezed
           ? _value.languageBackground
           : languageBackground as TeachingBackground,
-      location: location == freezed ? _value.location : location as Location,
-      gender: gender == freezed ? _value.gender : gender as Gender,
+      location:
+          location == freezed ? _value.location : location as List<Location>,
     ));
   }
 }
@@ -123,29 +140,33 @@ class _$_Mentor implements _Mentor {
   const _$_Mentor(
       {@required this.id,
       @required this.userId,
+      @required this.profilePicture,
+      @required this.biography,
       @required this.languageBackground,
-      @required this.location,
-      @required this.gender})
+      @required this.location})
       : assert(id != null),
         assert(userId != null),
+        assert(profilePicture != null),
+        assert(biography != null),
         assert(languageBackground != null),
-        assert(location != null),
-        assert(gender != null);
+        assert(location != null);
 
   @override
   final MentorId id;
   @override
   final UserId userId;
   @override
+  final ProfilePicture profilePicture;
+  @override
+  final Biography biography;
+  @override
   final TeachingBackground languageBackground;
   @override
-  final Location location;
-  @override
-  final Gender gender;
+  final List<Location> location;
 
   @override
   String toString() {
-    return 'Mentor(id: $id, userId: $userId, languageBackground: $languageBackground, location: $location, gender: $gender)';
+    return 'Mentor._(id: $id, userId: $userId, profilePicture: $profilePicture, biography: $biography, languageBackground: $languageBackground, location: $location)';
   }
 
   @override
@@ -156,14 +177,18 @@ class _$_Mentor implements _Mentor {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.userId, userId) ||
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.profilePicture, profilePicture) ||
+                const DeepCollectionEquality()
+                    .equals(other.profilePicture, profilePicture)) &&
+            (identical(other.biography, biography) ||
+                const DeepCollectionEquality()
+                    .equals(other.biography, biography)) &&
             (identical(other.languageBackground, languageBackground) ||
                 const DeepCollectionEquality()
                     .equals(other.languageBackground, languageBackground)) &&
             (identical(other.location, location) ||
                 const DeepCollectionEquality()
-                    .equals(other.location, location)) &&
-            (identical(other.gender, gender) ||
-                const DeepCollectionEquality().equals(other.gender, gender)));
+                    .equals(other.location, location)));
   }
 
   @override
@@ -171,9 +196,10 @@ class _$_Mentor implements _Mentor {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(profilePicture) ^
+      const DeepCollectionEquality().hash(biography) ^
       const DeepCollectionEquality().hash(languageBackground) ^
-      const DeepCollectionEquality().hash(location) ^
-      const DeepCollectionEquality().hash(gender);
+      const DeepCollectionEquality().hash(location);
 
   @override
   _$MentorCopyWith<_Mentor> get copyWith =>
@@ -184,20 +210,23 @@ abstract class _Mentor implements Mentor {
   const factory _Mentor(
       {@required MentorId id,
       @required UserId userId,
+      @required ProfilePicture profilePicture,
+      @required Biography biography,
       @required TeachingBackground languageBackground,
-      @required Location location,
-      @required Gender gender}) = _$_Mentor;
+      @required List<Location> location}) = _$_Mentor;
 
   @override
   MentorId get id;
   @override
   UserId get userId;
   @override
+  ProfilePicture get profilePicture;
+  @override
+  Biography get biography;
+  @override
   TeachingBackground get languageBackground;
   @override
-  Location get location;
-  @override
-  Gender get gender;
+  List<Location> get location;
   @override
   _$MentorCopyWith<_Mentor> get copyWith;
 }

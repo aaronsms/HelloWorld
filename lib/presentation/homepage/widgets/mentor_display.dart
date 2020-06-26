@@ -26,21 +26,23 @@ class MentorDisplay extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         color: Colors.white,
+        elevation: 0.0,
+        margin: const EdgeInsets.all(0.0),
         child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
           ListTile(
               onTap: () {/** NAVIGATES TO USER'S PROFILE */},
               leading: Container(
                 width: 50,
                 height: 50,
-                child: CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/avatar.png'),
-                ),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: Palette.primaryColor,
                     width: 3.0,
                   ),
+                ),
+                child: const CircleAvatar(
+                  backgroundImage: AssetImage('assets/images/avatar.png'),
                 ),
               ),
               title: Text(name,
@@ -52,7 +54,7 @@ class MentorDisplay extends StatelessWidget {
               subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('Active ' + active.toString() + ' days ago',
+                    Text('Active $active days ago',
                         style: TextStyle(
                             height: 1.2,
                             color: Colors.grey,
@@ -66,8 +68,7 @@ class MentorDisplay extends StatelessWidget {
                           color: Palette.primaryColor,
                         ),
                         Text(
-                            distance.toString() +
-                                "km from your preferred location",
+                            '${distance}km from your preferred location',
                             style: TextStyle(
                                 color: Palette.primaryColor,
                                 fontWeight: FontWeight.w700,
@@ -98,15 +99,13 @@ class MentorDisplay extends StatelessWidget {
                       ),
                     ]),
                     Column(children: common),
-                    Container(
-                      child: RichText(
-                          text: TextSpan(
-                        text: 'RATES',
-                        style: TextStyle(
-                            color: Palette.secondaryColor,
-                            fontWeight: FontWeight.w600),
-                      )),
-                    ),
+                    RichText(
+                        text: TextSpan(
+                      text: 'RATES',
+                      style: TextStyle(
+                          color: Palette.secondaryColor,
+                          fontWeight: FontWeight.w600),
+                    )),
                     Text('  ' + rates.toString() + 'SGD/HR',
                         style: TextStyle(
                           color: Palette.primaryColor,

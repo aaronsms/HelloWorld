@@ -6,7 +6,9 @@ import 'package:helloworld/domain/identity_access/model/user/email_address.dart'
 import 'package:helloworld/domain/identity_access/model/user/password.dart';
 import 'package:helloworld/domain/identity_access/service/authentication_failure.dart';
 import 'package:helloworld/domain/identity_access/service/i_authentication_facade.dart';
+import 'package:helloworld/presentation/core/routes.dart';
 import 'package:injectable/injectable.dart';
+import 'package:sailor/sailor.dart';
 
 import 'login_event.dart';
 import 'login_state.dart';
@@ -65,5 +67,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       showErrorMessage: true,
       authFailureOrSuccessOption: optionOf(failureOrSuccess),
     );
+    // Development Only:
+    Routes.sailor(Routes.homepage, navigationType: NavigationType.pushReplace);
   }
 }

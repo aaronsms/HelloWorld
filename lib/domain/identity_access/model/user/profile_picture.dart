@@ -20,7 +20,7 @@ class ProfilePicture extends ValueObject<File> {
   }
 
   factory ProfilePicture.empty() {
-    return ProfilePicture._(left(const ValueFailure.emptyField()));
+    return ProfilePicture._(left(const ValueFailure.empty()));
   }
 
   const ProfilePicture._(this.value);

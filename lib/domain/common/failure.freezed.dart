@@ -30,7 +30,7 @@ class _$ValueFailureTearOff {
     );
   }
 
-  _EmptyField<T> emptyField<T>() {
+  _EmptyField<T> empty<T>() {
     return _EmptyField<T>();
   }
 
@@ -56,7 +56,7 @@ mixin _$ValueFailure<T> {
     @required Result invalidEmail(String failedValue),
     @required Result shortPassword(String failedValue),
     @required Result invalidAge(int failedValue),
-    @required Result emptyField(),
+    @required Result empty(),
     @required Result badFilePath(String failedValue),
     @required Result invalidProficiency(String failedValue),
   });
@@ -65,7 +65,7 @@ mixin _$ValueFailure<T> {
     Result invalidEmail(String failedValue),
     Result shortPassword(String failedValue),
     Result invalidAge(int failedValue),
-    Result emptyField(),
+    Result empty(),
     Result badFilePath(String failedValue),
     Result invalidProficiency(String failedValue),
     @required Result orElse(),
@@ -75,7 +75,7 @@ mixin _$ValueFailure<T> {
     @required Result invalidEmail(_InvalidEmail<T> value),
     @required Result shortPassword(_ShortPassword<T> value),
     @required Result invalidAge(_InvalidAge<T> value),
-    @required Result emptyField(_EmptyField<T> value),
+    @required Result empty(_EmptyField<T> value),
     @required Result badFilePath(_BadFilePath<T> value),
     @required Result invalidProficiency(_InvalidProficiency<T> value),
   });
@@ -84,7 +84,7 @@ mixin _$ValueFailure<T> {
     Result invalidEmail(_InvalidEmail<T> value),
     Result shortPassword(_ShortPassword<T> value),
     Result invalidAge(_InvalidAge<T> value),
-    Result emptyField(_EmptyField<T> value),
+    Result empty(_EmptyField<T> value),
     Result badFilePath(_BadFilePath<T> value),
     Result invalidProficiency(_InvalidProficiency<T> value),
     @required Result orElse(),
@@ -169,14 +169,14 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     @required Result invalidEmail(String failedValue),
     @required Result shortPassword(String failedValue),
     @required Result invalidAge(int failedValue),
-    @required Result emptyField(),
+    @required Result empty(),
     @required Result badFilePath(String failedValue),
     @required Result invalidProficiency(String failedValue),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
-    assert(emptyField != null);
+    assert(empty != null);
     assert(badFilePath != null);
     assert(invalidProficiency != null);
     return invalidEmail(failedValue);
@@ -188,7 +188,7 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     Result invalidEmail(String failedValue),
     Result shortPassword(String failedValue),
     Result invalidAge(int failedValue),
-    Result emptyField(),
+    Result empty(),
     Result badFilePath(String failedValue),
     Result invalidProficiency(String failedValue),
     @required Result orElse(),
@@ -206,14 +206,14 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     @required Result invalidEmail(_InvalidEmail<T> value),
     @required Result shortPassword(_ShortPassword<T> value),
     @required Result invalidAge(_InvalidAge<T> value),
-    @required Result emptyField(_EmptyField<T> value),
+    @required Result empty(_EmptyField<T> value),
     @required Result badFilePath(_BadFilePath<T> value),
     @required Result invalidProficiency(_InvalidProficiency<T> value),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
-    assert(emptyField != null);
+    assert(empty != null);
     assert(badFilePath != null);
     assert(invalidProficiency != null);
     return invalidEmail(this);
@@ -225,7 +225,7 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     Result invalidEmail(_InvalidEmail<T> value),
     Result shortPassword(_ShortPassword<T> value),
     Result invalidAge(_InvalidAge<T> value),
-    Result emptyField(_EmptyField<T> value),
+    Result empty(_EmptyField<T> value),
     Result badFilePath(_BadFilePath<T> value),
     Result invalidProficiency(_InvalidProficiency<T> value),
     @required Result orElse(),
@@ -309,14 +309,14 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     @required Result invalidEmail(String failedValue),
     @required Result shortPassword(String failedValue),
     @required Result invalidAge(int failedValue),
-    @required Result emptyField(),
+    @required Result empty(),
     @required Result badFilePath(String failedValue),
     @required Result invalidProficiency(String failedValue),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
-    assert(emptyField != null);
+    assert(empty != null);
     assert(badFilePath != null);
     assert(invalidProficiency != null);
     return shortPassword(failedValue);
@@ -328,7 +328,7 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     Result invalidEmail(String failedValue),
     Result shortPassword(String failedValue),
     Result invalidAge(int failedValue),
-    Result emptyField(),
+    Result empty(),
     Result badFilePath(String failedValue),
     Result invalidProficiency(String failedValue),
     @required Result orElse(),
@@ -346,14 +346,14 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     @required Result invalidEmail(_InvalidEmail<T> value),
     @required Result shortPassword(_ShortPassword<T> value),
     @required Result invalidAge(_InvalidAge<T> value),
-    @required Result emptyField(_EmptyField<T> value),
+    @required Result empty(_EmptyField<T> value),
     @required Result badFilePath(_BadFilePath<T> value),
     @required Result invalidProficiency(_InvalidProficiency<T> value),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
-    assert(emptyField != null);
+    assert(empty != null);
     assert(badFilePath != null);
     assert(invalidProficiency != null);
     return shortPassword(this);
@@ -365,7 +365,7 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     Result invalidEmail(_InvalidEmail<T> value),
     Result shortPassword(_ShortPassword<T> value),
     Result invalidAge(_InvalidAge<T> value),
-    Result emptyField(_EmptyField<T> value),
+    Result empty(_EmptyField<T> value),
     Result badFilePath(_BadFilePath<T> value),
     Result invalidProficiency(_InvalidProficiency<T> value),
     @required Result orElse(),
@@ -449,14 +449,14 @@ class _$_InvalidAge<T> implements _InvalidAge<T> {
     @required Result invalidEmail(String failedValue),
     @required Result shortPassword(String failedValue),
     @required Result invalidAge(int failedValue),
-    @required Result emptyField(),
+    @required Result empty(),
     @required Result badFilePath(String failedValue),
     @required Result invalidProficiency(String failedValue),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
-    assert(emptyField != null);
+    assert(empty != null);
     assert(badFilePath != null);
     assert(invalidProficiency != null);
     return invalidAge(failedValue);
@@ -468,7 +468,7 @@ class _$_InvalidAge<T> implements _InvalidAge<T> {
     Result invalidEmail(String failedValue),
     Result shortPassword(String failedValue),
     Result invalidAge(int failedValue),
-    Result emptyField(),
+    Result empty(),
     Result badFilePath(String failedValue),
     Result invalidProficiency(String failedValue),
     @required Result orElse(),
@@ -486,14 +486,14 @@ class _$_InvalidAge<T> implements _InvalidAge<T> {
     @required Result invalidEmail(_InvalidEmail<T> value),
     @required Result shortPassword(_ShortPassword<T> value),
     @required Result invalidAge(_InvalidAge<T> value),
-    @required Result emptyField(_EmptyField<T> value),
+    @required Result empty(_EmptyField<T> value),
     @required Result badFilePath(_BadFilePath<T> value),
     @required Result invalidProficiency(_InvalidProficiency<T> value),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
-    assert(emptyField != null);
+    assert(empty != null);
     assert(badFilePath != null);
     assert(invalidProficiency != null);
     return invalidAge(this);
@@ -505,7 +505,7 @@ class _$_InvalidAge<T> implements _InvalidAge<T> {
     Result invalidEmail(_InvalidEmail<T> value),
     Result shortPassword(_ShortPassword<T> value),
     Result invalidAge(_InvalidAge<T> value),
-    Result emptyField(_EmptyField<T> value),
+    Result empty(_EmptyField<T> value),
     Result badFilePath(_BadFilePath<T> value),
     Result invalidProficiency(_InvalidProficiency<T> value),
     @required Result orElse(),
@@ -547,7 +547,7 @@ class _$_EmptyField<T> implements _EmptyField<T> {
 
   @override
   String toString() {
-    return 'ValueFailure<$T>.emptyField()';
+    return 'ValueFailure<$T>.empty()';
   }
 
   @override
@@ -564,17 +564,17 @@ class _$_EmptyField<T> implements _EmptyField<T> {
     @required Result invalidEmail(String failedValue),
     @required Result shortPassword(String failedValue),
     @required Result invalidAge(int failedValue),
-    @required Result emptyField(),
+    @required Result empty(),
     @required Result badFilePath(String failedValue),
     @required Result invalidProficiency(String failedValue),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
-    assert(emptyField != null);
+    assert(empty != null);
     assert(badFilePath != null);
     assert(invalidProficiency != null);
-    return emptyField();
+    return empty();
   }
 
   @override
@@ -583,14 +583,14 @@ class _$_EmptyField<T> implements _EmptyField<T> {
     Result invalidEmail(String failedValue),
     Result shortPassword(String failedValue),
     Result invalidAge(int failedValue),
-    Result emptyField(),
+    Result empty(),
     Result badFilePath(String failedValue),
     Result invalidProficiency(String failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (emptyField != null) {
-      return emptyField();
+    if (empty != null) {
+      return empty();
     }
     return orElse();
   }
@@ -601,17 +601,17 @@ class _$_EmptyField<T> implements _EmptyField<T> {
     @required Result invalidEmail(_InvalidEmail<T> value),
     @required Result shortPassword(_ShortPassword<T> value),
     @required Result invalidAge(_InvalidAge<T> value),
-    @required Result emptyField(_EmptyField<T> value),
+    @required Result empty(_EmptyField<T> value),
     @required Result badFilePath(_BadFilePath<T> value),
     @required Result invalidProficiency(_InvalidProficiency<T> value),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
-    assert(emptyField != null);
+    assert(empty != null);
     assert(badFilePath != null);
     assert(invalidProficiency != null);
-    return emptyField(this);
+    return empty(this);
   }
 
   @override
@@ -620,14 +620,14 @@ class _$_EmptyField<T> implements _EmptyField<T> {
     Result invalidEmail(_InvalidEmail<T> value),
     Result shortPassword(_ShortPassword<T> value),
     Result invalidAge(_InvalidAge<T> value),
-    Result emptyField(_EmptyField<T> value),
+    Result empty(_EmptyField<T> value),
     Result badFilePath(_BadFilePath<T> value),
     Result invalidProficiency(_InvalidProficiency<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (emptyField != null) {
-      return emptyField(this);
+    if (empty != null) {
+      return empty(this);
     }
     return orElse();
   }
@@ -700,14 +700,14 @@ class _$_BadFilePath<T> implements _BadFilePath<T> {
     @required Result invalidEmail(String failedValue),
     @required Result shortPassword(String failedValue),
     @required Result invalidAge(int failedValue),
-    @required Result emptyField(),
+    @required Result empty(),
     @required Result badFilePath(String failedValue),
     @required Result invalidProficiency(String failedValue),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
-    assert(emptyField != null);
+    assert(empty != null);
     assert(badFilePath != null);
     assert(invalidProficiency != null);
     return badFilePath(failedValue);
@@ -719,7 +719,7 @@ class _$_BadFilePath<T> implements _BadFilePath<T> {
     Result invalidEmail(String failedValue),
     Result shortPassword(String failedValue),
     Result invalidAge(int failedValue),
-    Result emptyField(),
+    Result empty(),
     Result badFilePath(String failedValue),
     Result invalidProficiency(String failedValue),
     @required Result orElse(),
@@ -737,14 +737,14 @@ class _$_BadFilePath<T> implements _BadFilePath<T> {
     @required Result invalidEmail(_InvalidEmail<T> value),
     @required Result shortPassword(_ShortPassword<T> value),
     @required Result invalidAge(_InvalidAge<T> value),
-    @required Result emptyField(_EmptyField<T> value),
+    @required Result empty(_EmptyField<T> value),
     @required Result badFilePath(_BadFilePath<T> value),
     @required Result invalidProficiency(_InvalidProficiency<T> value),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
-    assert(emptyField != null);
+    assert(empty != null);
     assert(badFilePath != null);
     assert(invalidProficiency != null);
     return badFilePath(this);
@@ -756,7 +756,7 @@ class _$_BadFilePath<T> implements _BadFilePath<T> {
     Result invalidEmail(_InvalidEmail<T> value),
     Result shortPassword(_ShortPassword<T> value),
     Result invalidAge(_InvalidAge<T> value),
-    Result emptyField(_EmptyField<T> value),
+    Result empty(_EmptyField<T> value),
     Result badFilePath(_BadFilePath<T> value),
     Result invalidProficiency(_InvalidProficiency<T> value),
     @required Result orElse(),
@@ -841,14 +841,14 @@ class _$_InvalidProficiency<T> implements _InvalidProficiency<T> {
     @required Result invalidEmail(String failedValue),
     @required Result shortPassword(String failedValue),
     @required Result invalidAge(int failedValue),
-    @required Result emptyField(),
+    @required Result empty(),
     @required Result badFilePath(String failedValue),
     @required Result invalidProficiency(String failedValue),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
-    assert(emptyField != null);
+    assert(empty != null);
     assert(badFilePath != null);
     assert(invalidProficiency != null);
     return invalidProficiency(failedValue);
@@ -860,7 +860,7 @@ class _$_InvalidProficiency<T> implements _InvalidProficiency<T> {
     Result invalidEmail(String failedValue),
     Result shortPassword(String failedValue),
     Result invalidAge(int failedValue),
-    Result emptyField(),
+    Result empty(),
     Result badFilePath(String failedValue),
     Result invalidProficiency(String failedValue),
     @required Result orElse(),
@@ -878,14 +878,14 @@ class _$_InvalidProficiency<T> implements _InvalidProficiency<T> {
     @required Result invalidEmail(_InvalidEmail<T> value),
     @required Result shortPassword(_ShortPassword<T> value),
     @required Result invalidAge(_InvalidAge<T> value),
-    @required Result emptyField(_EmptyField<T> value),
+    @required Result empty(_EmptyField<T> value),
     @required Result badFilePath(_BadFilePath<T> value),
     @required Result invalidProficiency(_InvalidProficiency<T> value),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
-    assert(emptyField != null);
+    assert(empty != null);
     assert(badFilePath != null);
     assert(invalidProficiency != null);
     return invalidProficiency(this);
@@ -897,7 +897,7 @@ class _$_InvalidProficiency<T> implements _InvalidProficiency<T> {
     Result invalidEmail(_InvalidEmail<T> value),
     Result shortPassword(_ShortPassword<T> value),
     Result invalidAge(_InvalidAge<T> value),
-    Result emptyField(_EmptyField<T> value),
+    Result empty(_EmptyField<T> value),
     Result badFilePath(_BadFilePath<T> value),
     Result invalidProficiency(_InvalidProficiency<T> value),
     @required Result orElse(),

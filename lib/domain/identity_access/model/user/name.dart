@@ -9,7 +9,7 @@ class Name extends ValueObject<String> {
 
   factory Name(String input) {
     assert(input != null);
-    return Name._(validateInput(input));
+    return Name._(validateStringNotEmpty(input));
   }
 
   const Name._(this.value);

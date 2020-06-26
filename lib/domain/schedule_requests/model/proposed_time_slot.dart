@@ -2,9 +2,9 @@ import 'package:dartz/dartz.dart';
 import 'package:helloworld/domain/common/failure.dart';
 import 'package:helloworld/domain/common/value_objects.dart';
 
-class Location extends ValueObject<String> {
+class ProposedTimeSlot extends ValueObject<DateTime> {
   @override
-  final Either<ValueFailure<String>, String> value;
+  final Either<ValueFailure<DateTime>, DateTime> value;
 
-  const Location(this.value);
+  const ProposedTimeSlot(this.value);
 }

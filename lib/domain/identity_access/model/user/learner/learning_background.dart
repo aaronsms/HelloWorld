@@ -10,5 +10,9 @@ class LearningBackground implements Entity {
   final Map<SpeakingLanguage, LanguageProficiency> speakingLanguages;
   final Map<LearningLanguage, LanguageProficiency> learningLanguages;
 
-  const LearningBackground(this.id, this.learningLanguages, this.speakingLanguages);
+  const LearningBackground({
+    this.id,
+    this.learningLanguages,
+    this.speakingLanguages,
+  });
 }

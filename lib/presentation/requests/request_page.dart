@@ -54,7 +54,7 @@ class _RequestPageState extends State<RequestPage> {
     return Scaffold(
         backgroundColor: Palette.backgroundColor,
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
                 alignment: Alignment.topLeft,

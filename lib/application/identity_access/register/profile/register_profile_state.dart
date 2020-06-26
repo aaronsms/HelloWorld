@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:helloworld/domain/identity_access/model/user/biography.dart';
 import 'package:helloworld/domain/identity_access/model/user/language_proficiency.dart';
 import 'package:helloworld/domain/identity_access/model/user/learner/learning_language.dart';
 import 'package:helloworld/domain/identity_access/model/user/location.dart';
@@ -13,7 +14,7 @@ part 'register_profile_state.freezed.dart';
 abstract class RegisterProfileState with _$RegisterProfileState {
   const factory RegisterProfileState({
     @required ProfilePicture profilePicture,
-    @required String biography,
+    @required Biography biography,
     @required List<Tuple2<LearningLanguage, LanguageProficiency>> learningLanguages,
     @required List<Tuple2<SpeakingLanguage, LanguageProficiency>> speakingLanguages,
     @required List<Tuple2<TeachingLanguage, LanguageProficiency>> teachingLanguages,
@@ -26,7 +27,7 @@ abstract class RegisterProfileState with _$RegisterProfileState {
   factory RegisterProfileState.initial() {
     return RegisterProfileState(
       profilePicture: ProfilePicture.empty(),
-      biography: '',
+      biography: Biography(''),
       learningLanguages: [],
       speakingLanguages: [],
       teachingLanguages: [],

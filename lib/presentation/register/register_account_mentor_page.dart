@@ -41,7 +41,7 @@ class RegisterAccountMentorPage extends StatelessWidget {
                         .value
                         .fold(
                           (fail) => fail.maybeMap(
-                              emptyField: (_) => 'Field cannot be empty.',
+                              empty: (_) => 'Field cannot be empty.',
                               orElse: () => null),
                           (_) => null,
                         ),
@@ -64,7 +64,7 @@ class RegisterAccountMentorPage extends StatelessWidget {
                           (fail) => fail.maybeMap(
                               shortPassword: (_) =>
                                   'Password must be at least 8 characters.',
-                              emptyField: (_) => 'Field cannot be empty.',
+                              empty: (_) => 'Field cannot be empty.',
                               orElse: () => null),
                           (_) => null,
                         ),
@@ -89,7 +89,7 @@ class RegisterAccountMentorPage extends StatelessWidget {
                               : null;
                       return currState.confirmPassword.value.fold(
                         (fail) => fail.maybeMap(
-                            emptyField: (_) => 'Field cannot be empty.',
+                            empty: (_) => 'Field cannot be empty.',
                             orElse: () => mismatchText),
                         (_) => mismatchText,
                       );
@@ -110,7 +110,7 @@ class RegisterAccountMentorPage extends StatelessWidget {
                         .fold(
                           (f) => f.maybeMap(
                             invalidEmail: (_) => 'Invalid email',
-                            emptyField: (_) => 'Field cannot be empty.',
+                            empty: (_) => 'Field cannot be empty.',
                             orElse: () => null,
                           ),
                           (_) => null,
@@ -134,7 +134,7 @@ class RegisterAccountMentorPage extends StatelessWidget {
                         .fold(
                           (f) => f.maybeMap(
                             invalidAge: (_) => 'You need to be at least 18.',
-                            emptyField: (_) => 'Field cannot be empty.',
+                            empty: (_) => 'Field cannot be empty.',
                             orElse: () => null,
                           ),
                           (_) => null,

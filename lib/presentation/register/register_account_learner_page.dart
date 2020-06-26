@@ -40,7 +40,7 @@ class RegisterAccountLearnerPage extends StatelessWidget {
                         .value
                         .fold(
                           (fail) => fail.maybeMap(
-                              emptyField: (_) => 'Field cannot be empty.',
+                              empty: (_) => 'Field cannot be empty.',
                               orElse: () => null),
                           (_) => null,
                         ),
@@ -63,7 +63,7 @@ class RegisterAccountLearnerPage extends StatelessWidget {
                           (fail) => fail.maybeMap(
                               shortPassword: (_) =>
                                   'Password must be at least 8 characters.',
-                              emptyField: (_) => 'Field cannot be empty.',
+                              empty: (_) => 'Field cannot be empty.',
                               orElse: () => null),
                           (_) => null,
                         ),
@@ -88,7 +88,7 @@ class RegisterAccountLearnerPage extends StatelessWidget {
                               : null;
                       return currState.confirmPassword.value.fold(
                         (fail) => fail.maybeMap(
-                            emptyField: (_) => 'Field cannot be empty.',
+                            empty: (_) => 'Field cannot be empty.',
                             orElse: () => mismatchText),
                         (_) => mismatchText,
                       );
@@ -109,7 +109,7 @@ class RegisterAccountLearnerPage extends StatelessWidget {
                         .fold(
                           (f) => f.maybeMap(
                             invalidEmail: (_) => 'Invalid email',
-                            emptyField: (_) => 'Field cannot be empty.',
+                            empty: (_) => 'Field cannot be empty.',
                             orElse: () => null,
                           ),
                           (_) => null,

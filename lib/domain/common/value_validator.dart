@@ -11,7 +11,7 @@ Either<ValueFailure<String>, String> validateEmailAddress(String input) {
     return Right(input);
   }
   return input.isEmpty
-      ? const Left(ValueFailure.emptyField())
+      ? const Left(ValueFailure.empty())
       : Left(ValueFailure.invalidEmail(failedValue: input));
 }
 
@@ -20,7 +20,7 @@ Either<ValueFailure<String>, String> validatePassword(String input) {
     return Right(input);
   }
   return input.isEmpty
-      ? const Left(ValueFailure.emptyField())
+      ? const Left(ValueFailure.empty())
       : Left(ValueFailure.shortPassword(failedValue: input));
 }
 
@@ -29,13 +29,13 @@ Either<ValueFailure<int>, int> validateAge(int input) {
     return Right(input);
   }
   return input == -1
-      ? const Left(ValueFailure.emptyField())
+      ? const Left(ValueFailure.empty())
       : Left(ValueFailure.invalidAge(failedValue: input));
 }
 
-Either<ValueFailure<String>, String> validateInput(String input) {
+Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
   return input.isEmpty
-      ? const Left(ValueFailure.emptyField())
+      ? const Left(ValueFailure.empty())
       : Right(input);
 }
 

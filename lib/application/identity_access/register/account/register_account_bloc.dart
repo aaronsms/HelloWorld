@@ -56,13 +56,15 @@ class RegisterAccountBloc
               'name': state.name,
               'email': state.emailAddress,
               'password': state.password,
-              'age': state.age
+              'age': state.age,
+              'context': event.context,
             });
           } else if (!isMentorOrLearner) {
             Routes.sailor(Routes.learnerProfile, params: {
               'name': state.name,
               'email': state.emailAddress,
               'password': state.password,
+              'context': event.context,
             });
           }
         }

@@ -42,8 +42,10 @@ class _$RegisterAccountEventTearOff {
     );
   }
 
-  NextClicked nextClicked() {
-    return const NextClicked();
+  NextClicked nextClicked(BuildContext context) {
+    return NextClicked(
+      context,
+    );
   }
 
   ObscureTextClicked obscureTextClicked() {
@@ -62,7 +64,7 @@ mixin _$RegisterAccountEvent {
     @required Result confirmPasswordChanged(String confirmPasswordStr),
     @required Result emailChanged(String emailStr),
     @required Result ageChanged(String ageStr),
-    @required Result nextClicked(),
+    @required Result nextClicked(BuildContext context),
     @required Result obscureTextClicked(),
   });
   @optionalTypeArgs
@@ -72,7 +74,7 @@ mixin _$RegisterAccountEvent {
     Result confirmPasswordChanged(String confirmPasswordStr),
     Result emailChanged(String emailStr),
     Result ageChanged(String ageStr),
-    Result nextClicked(),
+    Result nextClicked(BuildContext context),
     Result obscureTextClicked(),
     @required Result orElse(),
   });
@@ -141,15 +143,23 @@ class _$NameChangedCopyWithImpl<$Res>
   }
 }
 
-class _$NameChanged implements NameChanged {
+class _$NameChanged with DiagnosticableTreeMixin implements NameChanged {
   const _$NameChanged(this.nameStr) : assert(nameStr != null);
 
   @override
   final String nameStr;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RegisterAccountEvent.nameChanged(nameStr: $nameStr)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RegisterAccountEvent.nameChanged'))
+      ..add(DiagnosticsProperty('nameStr', nameStr));
   }
 
   @override
@@ -176,7 +186,7 @@ class _$NameChanged implements NameChanged {
     @required Result confirmPasswordChanged(String confirmPasswordStr),
     @required Result emailChanged(String emailStr),
     @required Result ageChanged(String ageStr),
-    @required Result nextClicked(),
+    @required Result nextClicked(BuildContext context),
     @required Result obscureTextClicked(),
   }) {
     assert(nameChanged != null);
@@ -197,7 +207,7 @@ class _$NameChanged implements NameChanged {
     Result confirmPasswordChanged(String confirmPasswordStr),
     Result emailChanged(String emailStr),
     Result ageChanged(String ageStr),
-    Result nextClicked(),
+    Result nextClicked(BuildContext context),
     Result obscureTextClicked(),
     @required Result orElse(),
   }) {
@@ -283,15 +293,25 @@ class _$PasswordChangedCopyWithImpl<$Res>
   }
 }
 
-class _$PasswordChanged implements PasswordChanged {
+class _$PasswordChanged
+    with DiagnosticableTreeMixin
+    implements PasswordChanged {
   const _$PasswordChanged(this.passwordStr) : assert(passwordStr != null);
 
   @override
   final String passwordStr;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RegisterAccountEvent.passwordChanged(passwordStr: $passwordStr)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RegisterAccountEvent.passwordChanged'))
+      ..add(DiagnosticsProperty('passwordStr', passwordStr));
   }
 
   @override
@@ -319,7 +339,7 @@ class _$PasswordChanged implements PasswordChanged {
     @required Result confirmPasswordChanged(String confirmPasswordStr),
     @required Result emailChanged(String emailStr),
     @required Result ageChanged(String ageStr),
-    @required Result nextClicked(),
+    @required Result nextClicked(BuildContext context),
     @required Result obscureTextClicked(),
   }) {
     assert(nameChanged != null);
@@ -340,7 +360,7 @@ class _$PasswordChanged implements PasswordChanged {
     Result confirmPasswordChanged(String confirmPasswordStr),
     Result emailChanged(String emailStr),
     Result ageChanged(String ageStr),
-    Result nextClicked(),
+    Result nextClicked(BuildContext context),
     Result obscureTextClicked(),
     @required Result orElse(),
   }) {
@@ -428,7 +448,9 @@ class _$ConfirmPasswordChangedCopyWithImpl<$Res>
   }
 }
 
-class _$ConfirmPasswordChanged implements ConfirmPasswordChanged {
+class _$ConfirmPasswordChanged
+    with DiagnosticableTreeMixin
+    implements ConfirmPasswordChanged {
   const _$ConfirmPasswordChanged(this.confirmPasswordStr)
       : assert(confirmPasswordStr != null);
 
@@ -436,8 +458,17 @@ class _$ConfirmPasswordChanged implements ConfirmPasswordChanged {
   final String confirmPasswordStr;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RegisterAccountEvent.confirmPasswordChanged(confirmPasswordStr: $confirmPasswordStr)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'RegisterAccountEvent.confirmPasswordChanged'))
+      ..add(DiagnosticsProperty('confirmPasswordStr', confirmPasswordStr));
   }
 
   @override
@@ -467,7 +498,7 @@ class _$ConfirmPasswordChanged implements ConfirmPasswordChanged {
     @required Result confirmPasswordChanged(String confirmPasswordStr),
     @required Result emailChanged(String emailStr),
     @required Result ageChanged(String ageStr),
-    @required Result nextClicked(),
+    @required Result nextClicked(BuildContext context),
     @required Result obscureTextClicked(),
   }) {
     assert(nameChanged != null);
@@ -488,7 +519,7 @@ class _$ConfirmPasswordChanged implements ConfirmPasswordChanged {
     Result confirmPasswordChanged(String confirmPasswordStr),
     Result emailChanged(String emailStr),
     Result ageChanged(String ageStr),
-    Result nextClicked(),
+    Result nextClicked(BuildContext context),
     Result obscureTextClicked(),
     @required Result orElse(),
   }) {
@@ -575,15 +606,23 @@ class _$EmailChangedCopyWithImpl<$Res>
   }
 }
 
-class _$EmailChanged implements EmailChanged {
+class _$EmailChanged with DiagnosticableTreeMixin implements EmailChanged {
   const _$EmailChanged(this.emailStr) : assert(emailStr != null);
 
   @override
   final String emailStr;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RegisterAccountEvent.emailChanged(emailStr: $emailStr)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RegisterAccountEvent.emailChanged'))
+      ..add(DiagnosticsProperty('emailStr', emailStr));
   }
 
   @override
@@ -611,7 +650,7 @@ class _$EmailChanged implements EmailChanged {
     @required Result confirmPasswordChanged(String confirmPasswordStr),
     @required Result emailChanged(String emailStr),
     @required Result ageChanged(String ageStr),
-    @required Result nextClicked(),
+    @required Result nextClicked(BuildContext context),
     @required Result obscureTextClicked(),
   }) {
     assert(nameChanged != null);
@@ -632,7 +671,7 @@ class _$EmailChanged implements EmailChanged {
     Result confirmPasswordChanged(String confirmPasswordStr),
     Result emailChanged(String emailStr),
     Result ageChanged(String ageStr),
-    Result nextClicked(),
+    Result nextClicked(BuildContext context),
     Result obscureTextClicked(),
     @required Result orElse(),
   }) {
@@ -717,15 +756,23 @@ class _$AgeChangedCopyWithImpl<$Res>
   }
 }
 
-class _$AgeChanged implements AgeChanged {
+class _$AgeChanged with DiagnosticableTreeMixin implements AgeChanged {
   const _$AgeChanged(this.ageStr) : assert(ageStr != null);
 
   @override
   final String ageStr;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RegisterAccountEvent.ageChanged(ageStr: $ageStr)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RegisterAccountEvent.ageChanged'))
+      ..add(DiagnosticsProperty('ageStr', ageStr));
   }
 
   @override
@@ -752,7 +799,7 @@ class _$AgeChanged implements AgeChanged {
     @required Result confirmPasswordChanged(String confirmPasswordStr),
     @required Result emailChanged(String emailStr),
     @required Result ageChanged(String ageStr),
-    @required Result nextClicked(),
+    @required Result nextClicked(BuildContext context),
     @required Result obscureTextClicked(),
   }) {
     assert(nameChanged != null);
@@ -773,7 +820,7 @@ class _$AgeChanged implements AgeChanged {
     Result confirmPasswordChanged(String confirmPasswordStr),
     Result emailChanged(String emailStr),
     Result ageChanged(String ageStr),
-    Result nextClicked(),
+    Result nextClicked(BuildContext context),
     Result obscureTextClicked(),
     @required Result orElse(),
   }) {
@@ -836,6 +883,7 @@ abstract class $NextClickedCopyWith<$Res> {
   factory $NextClickedCopyWith(
           NextClicked value, $Res Function(NextClicked) then) =
       _$NextClickedCopyWithImpl<$Res>;
+  $Res call({BuildContext context});
 }
 
 class _$NextClickedCopyWithImpl<$Res>
@@ -847,23 +895,51 @@ class _$NextClickedCopyWithImpl<$Res>
 
   @override
   NextClicked get _value => super._value as NextClicked;
-}
-
-class _$NextClicked implements NextClicked {
-  const _$NextClicked();
 
   @override
-  String toString() {
-    return 'RegisterAccountEvent.nextClicked()';
+  $Res call({
+    Object context = freezed,
+  }) {
+    return _then(NextClicked(
+      context == freezed ? _value.context : context as BuildContext,
+    ));
+  }
+}
+
+class _$NextClicked with DiagnosticableTreeMixin implements NextClicked {
+  const _$NextClicked(this.context) : assert(context != null);
+
+  @override
+  final BuildContext context;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'RegisterAccountEvent.nextClicked(context: $context)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RegisterAccountEvent.nextClicked'))
+      ..add(DiagnosticsProperty('context', context));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is NextClicked);
+    return identical(this, other) ||
+        (other is NextClicked &&
+            (identical(other.context, context) ||
+                const DeepCollectionEquality().equals(other.context, context)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(context);
+
+  @override
+  $NextClickedCopyWith<NextClicked> get copyWith =>
+      _$NextClickedCopyWithImpl<NextClicked>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -873,7 +949,7 @@ class _$NextClicked implements NextClicked {
     @required Result confirmPasswordChanged(String confirmPasswordStr),
     @required Result emailChanged(String emailStr),
     @required Result ageChanged(String ageStr),
-    @required Result nextClicked(),
+    @required Result nextClicked(BuildContext context),
     @required Result obscureTextClicked(),
   }) {
     assert(nameChanged != null);
@@ -883,7 +959,7 @@ class _$NextClicked implements NextClicked {
     assert(ageChanged != null);
     assert(nextClicked != null);
     assert(obscureTextClicked != null);
-    return nextClicked();
+    return nextClicked(context);
   }
 
   @override
@@ -894,13 +970,13 @@ class _$NextClicked implements NextClicked {
     Result confirmPasswordChanged(String confirmPasswordStr),
     Result emailChanged(String emailStr),
     Result ageChanged(String ageStr),
-    Result nextClicked(),
+    Result nextClicked(BuildContext context),
     Result obscureTextClicked(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (nextClicked != null) {
-      return nextClicked();
+      return nextClicked(context);
     }
     return orElse();
   }
@@ -947,7 +1023,10 @@ class _$NextClicked implements NextClicked {
 }
 
 abstract class NextClicked implements RegisterAccountEvent {
-  const factory NextClicked() = _$NextClicked;
+  const factory NextClicked(BuildContext context) = _$NextClicked;
+
+  BuildContext get context;
+  $NextClickedCopyWith<NextClicked> get copyWith;
 }
 
 abstract class $ObscureTextClickedCopyWith<$Res> {
@@ -967,12 +1046,22 @@ class _$ObscureTextClickedCopyWithImpl<$Res>
   ObscureTextClicked get _value => super._value as ObscureTextClicked;
 }
 
-class _$ObscureTextClicked implements ObscureTextClicked {
+class _$ObscureTextClicked
+    with DiagnosticableTreeMixin
+    implements ObscureTextClicked {
   const _$ObscureTextClicked();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RegisterAccountEvent.obscureTextClicked()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'RegisterAccountEvent.obscureTextClicked'));
   }
 
   @override
@@ -991,7 +1080,7 @@ class _$ObscureTextClicked implements ObscureTextClicked {
     @required Result confirmPasswordChanged(String confirmPasswordStr),
     @required Result emailChanged(String emailStr),
     @required Result ageChanged(String ageStr),
-    @required Result nextClicked(),
+    @required Result nextClicked(BuildContext context),
     @required Result obscureTextClicked(),
   }) {
     assert(nameChanged != null);
@@ -1012,7 +1101,7 @@ class _$ObscureTextClicked implements ObscureTextClicked {
     Result confirmPasswordChanged(String confirmPasswordStr),
     Result emailChanged(String emailStr),
     Result ageChanged(String ageStr),
-    Result nextClicked(),
+    Result nextClicked(BuildContext context),
     Result obscureTextClicked(),
     @required Result orElse(),
   }) {
