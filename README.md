@@ -1,8 +1,10 @@
 # helloworld!<>
 
-helloworld!<> is a cross-platform mobile app created with Flutter, Dart, MySQL
-and MongoDB. It provides a platform to connect all language learners and tutors
-all around the world. 
+helloworld!<> is a cross-platform mobile app created with Flutter, Dart, Node.js and PostgresQL. 
+It provides a platform to connect all language learners and tutors all around the world.
+
+[Check out the project documentation here.](https://aaronsms.github.io/HelloWorld/)
+[Visit the prototyping page on Figma here.](https://www.figma.com/file/1frbSEL5SntI8UFomeSfOj/helloworld?node-id=0%3A1)
 
 ## Table of Contents
 
@@ -21,11 +23,19 @@ all around the world.
 <a name="motivation"></a>
 # Motivation
 
-The idea behind “HelloWorld<>!” came about when one of our members tried picking up Spanish online but struggled to do so due to the lack of interaction with people who use this language. 
+The idea behind "HelloWorld!<>" came about when one of our members tried 
+picking up Spanish online but struggled to do so due to the lack of interaction 
+with people who use this language. 
 
-Undoubtedly, language, being a vital tool of communication among people, can only be mastered through real life interactions with actual people. The lack of platforms providing such a solution thus inspired us to come up with this phone application that serves to match and connect individuals with similar language goals both online and offline. 
+Undoubtedly, language, being a vital tool of communication among people, 
+can only be mastered through real life interactions with actual people. 
+The lack of platforms providing such a solution thus inspired us to come up 
+with this phone application that serves to match and connect individuals 
+with similar language goals both online and offline. 
 
-With this application, we hope to build a positive peer-to-peer learning environment where language learners can stay engaged and motivated in their learning journey, accelerating their learning progress.
+With this application, we hope to build a positive peer-to-peer learning 
+environment where language learners can stay engaged and motivated in their 
+learning journey, accelerating their learning progress.
 
 <a name="technologies"></a>
 # Technologies
@@ -40,7 +50,7 @@ the business logic and orchestrate the backend component.
 
 We chose not to use Firebase as we value scalability and customizability.
 Despite being a convenient solution, we want our app to remain flexible and
-migration-friendly. So we decided to go with MySQL for user information and
+migration-friendly. So we decided to go with PostgresQL for user information
 MongoDB to store messages and conversations at scale. 
 
 <a name="setup"></a>
@@ -51,7 +61,7 @@ MongoDB to store messages and conversations at scale.
 
 2. Clone into this repository.
 ```
-$ git clone https://github.com/Aaronsms78/HelloWorld.git
+$ git clone https://github.com/aaronsms/HelloWorld.git
 ```
 
 3. Fetch dependencies specified in the pubspec.yaml file. 
@@ -59,9 +69,12 @@ $ git clone https://github.com/Aaronsms78/HelloWorld.git
 $ flutter pub get
 ```
 
-4. (Optional) Download [MongoDB](https://www.mongodb.com/download-center/community) 
-   or/and [MySQL](https://dev.mysql.com/downloads/) to test on your local
-   machine.
+4. Clone into the server repository to test on your local machine.
+```
+$ git clone https://github.com/aaronsms/HelloWorldServer.git
+$ cd HelloWorldServer
+$ docker-compose up
+```
 
 5. You're good to go!
 
@@ -138,11 +151,4 @@ Find someone with similar learning goals to practice speaking with online, even 
 ## Developers
 
 This application is created by Amanda Ang and Aaron Saw, for NUS School of Computing's Orbital 2020. 
-
-<!--
-## Meetup online to practice speaking (KIV)
-
-Use our platform to randomly pair up with other language learner who is just as
-committed as you to practice speaking and accelerate your learning progress!
--->
 
