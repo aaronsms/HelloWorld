@@ -8,6 +8,8 @@ class RequestButton extends StatefulWidget {
 
 class _RequestButtonState extends State<RequestButton> {
   String _outcome = "";
+  bool bothAvailable = true;
+  bool isDisabled = false;
 
   void showAlertDialog(BuildContext context) {
     AlertDialog alert = AlertDialog(
@@ -15,7 +17,9 @@ class _RequestButtonState extends State<RequestButton> {
       content: Text(
           (_outcome == "ACCEPT")
               ? "You’ve accepted user’s request. The stated timing(s) will be blocked off from your schedule."
-              : "You’ve rejected user’s request.",
+              : _outcome == "REJECT"
+                  ? "You’ve rejected user’s request."
+                  : "The system has detected that one or more parties are unavailable at the stipulated time slot(s). Hence, this request cannot be accepted.",
           style: TextStyle(
               color: Colors.white,
               fontFamily: 'Martel Sans',
@@ -31,7 +35,9 @@ class _RequestButtonState extends State<RequestButton> {
             ),
             color: Colors.white,
             child: Text(
-              "OK",
+              _outcome == "ACCEPT" || _outcome == "REJECT"
+                  ? "OK"
+                  : "REJECT REQUEST",
               style: TextStyle(
                   color: Palette.secondaryColor,
                   fontFamily: 'Martel Sans',
@@ -51,40 +57,70 @@ class _RequestButtonState extends State<RequestButton> {
   Widget build(BuildContext context) {
     return ButtonBar(
       children: <Widget>[
-        RaisedButton(
-          color: _outcome == "ACCEPT" ? const Color(0xFF4DB97F) : Colors.white,
+        FlatButton(
+          disabledColor: Colors.white,
+          color: Colors.white,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0),
-              side: const BorderSide(width: 2, color: Color(0xFF4DB97F))),
-          onPressed: () {
-            setState(() {
-              _outcome = "ACCEPT";
-            });
-            showAlertDialog(context);
-          },
+              side: BorderSide(
+                  width: 2,
+                  color: _outcome == "ACCEPT" ||
+                          _outcome == "REJECT" ||
+                          _outcome == "ERROR"
+                      ? Colors.white
+                      : const Color(0xFF4DB97F))),
+          onPressed:
+              /** CHECK IF BOTH PARTIES ARE AVAILABLE (default bothAvailable = true) */
+              isDisabled
+                  ? null
+                  : () {
+                      setState(() {
+                        isDisabled = true;
+                        _outcome = bothAvailable ? "ACCEPT" : "ERROR";
+                      });
+                      showAlertDialog(context);
+                    },
+          disabledTextColor: Colors.white,
           child: Text("ACCEPT",
               style: TextStyle(
-                color: _outcome == "ACCEPT"
+                color: _outcome == "ACCEPT" ||
+                        _outcome == "REJECT" ||
+                        _outcome == "ERROR"
                     ? Colors.white
                     : const Color(0xFF4DB97F),
                 fontFamily: 'Martel Sans',
                 fontWeight: FontWeight.w900,
               )),
         ),
-        RaisedButton(
-          color: _outcome == "REJECT" ? const Color(0xFFD06161) : Colors.white,
+        FlatButton(
+          color: Colors.white,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0),
-              side: const BorderSide(width: 2, color: Color(0xFFD06161))),
-          onPressed: () {
-            setState(() {
-              _outcome = "REJECT";
-            });
-            showAlertDialog(context);
-          },
-          child: Text("REJECT",
+              side: BorderSide(
+                  width: 2,
+                  color: (_outcome == "ACCEPT")
+                      ? const Color(0xFF4DB97F)
+                      : const Color(0xFFD06161))),
+          disabledColor: _outcome == "REJECT" || _outcome == "ERROR"
+              ? const Color(0xFFD06161)
+              : _outcome == "ACCEPT" ? const Color(0xFF4DB97F) : Colors.white,
+          onPressed: isDisabled
+              ? null
+              : () {
+                  setState(() {
+                    isDisabled = true;
+                    _outcome = "REJECT";
+                  });
+                  showAlertDialog(context);
+                },
+          child: Text(
+              _outcome == "REJECT" || _outcome == "ERROR"
+                  ? "REJECTED"
+                  : _outcome == "ACCEPT" ? "ACCEPTED" : "REJECT",
               style: TextStyle(
-                color: _outcome == "REJECT"
+                color: _outcome == "REJECT" ||
+                        _outcome == "ACCEPT" ||
+                        _outcome == "ERROR"
                     ? Colors.white
                     : const Color(0xFFD06161),
                 fontFamily: 'Martel Sans',
