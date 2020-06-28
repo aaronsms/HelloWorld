@@ -19,6 +19,7 @@ all around the world.
     * [Connect Online](#connect-online)
     * [View Past & Present Requests](#requests)
 * [Timeline](#timeline)
+* [User Guide](#user-guide)
 * [Developers](#developers)
 
 <a name="motivation"></a>
@@ -174,6 +175,12 @@ View the history of all requests received from and sent to others, and accept/re
 <li>Sign Out</li>
 </p>
 <i>Note: The booking system is made up of two parts, namely the request and scheduling systems.</i> 
+
+<a name="user-guide"></a>
+## User Guide
+<p>
+<img src="./prototype/helloworld__! flowchart.png">
+</p>
 
 <a name="developers"></a>
 ## Developers
