@@ -33,9 +33,9 @@ With this application, we hope to build a positive peer-to-peer learning environ
 <a name="user-stories"></a>
 # User Stories
 
-<li>As a student who wants to pick up a new language/dialect, I want to find another learner of the same language/dialect to practice conversing in that language/dialect.</li>
-<li>As a student who has questions and problems with a new language/dialect, I want to find a mentor to converse with and guide me as soon as possible, to accelerate my learning.</li>
-<li>As a student seeking for another learner/partner to practice speaking the new language/dialect, I need to have a view of the other party’s schedule in order to arrange a mutually convenient timing.</li> 
+<li>As a student who wants to pick up a new language, I want to find another learner of the same language/dialect to practice conversing in that language/dialect.</li>
+<li>As a student who has questions and problems with a new language, I want to find a mentor to converse with and guide me as soon as possible, to accelerate my learning.</li>
+<li>As a student seeking for another learner/partner to practice speaking the new language, I need to have a view of the other party’s schedule in order to arrange a mutually convenient timing.</li> 
 <li>As students who want to converse with other students or mentors wish to help students at inconvenient timings, I want to be able to communicate on an online messaging built-in feature.</li>
 <li>As an administrator who wants to prevent abuse of the system, I want to be able to identify abusers, warn them and ban them if they continue to cause problems.</li>
 
