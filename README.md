@@ -137,19 +137,20 @@ Find someone with similar learning goals to practice speaking with online, even 
 
 <a name="timeline"></a>
 ## Timeline
-
+<p>
 <b>Features to be completed by Milestone 2:</b>
 <li>Login</li>
 <li>Sign In</li>
 <li>Homepage</li>
 <li>Request System</li>
 <li>Student/Mentor Profiles</li>
-
-
+</p>
+<p>
 <b>Features to be completed by Milestone 3:</b>
 <li>Scheduling System</li>
 <li>Messenger</li>
 <li>Sign Out</li>
+</p>
 <i>Note: The booking system is made up of two parts, namely the request and scheduling systems.</i> 
 
 <a name="developers"></a>
