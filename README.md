@@ -16,6 +16,7 @@ all around the world.
     * [View Mentors' Profile](#view-mentor-profile)
     * [Connect Offline](#connect-offline)
     * [Connect Online](#connect-online)
+    * [View Past & Present Requests](#requests)
 * [Timeline](#timeline)
 * [Developers](#developers)
 
@@ -133,6 +134,17 @@ Find someone with similar learning goals to practice speaking with online, even 
 <img src="./prototype/messenger-preview.jpg" width="250">
 <img src="./prototype/messenger.jpg" width="250">
 <img src="./prototype/messenger - learner.jpg" width="250">
+</p>
+
+<a name="requests"></a>
+## View Past & Present Requests
+
+View the history of all requests received from and sent to others, and accept/reject pending requests.
+
+<p>
+<img src="./prototype/requests (1).jpg" width="250">
+<img src="./prototype/requests (2).jpg" width="250">
+<img src="./prototype/requests (3).jpg" width="250">
 </p>
 
 <a name="timeline"></a>
