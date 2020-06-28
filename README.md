@@ -16,6 +16,7 @@ all around the world.
     * [View Mentors' Profile](#view-mentor-profile)
     * [Connect Offline](#connect-offline)
     * [Connect Online](#connect-online)
+* [Timeline](#timeline)
 * [Developers](#developers)
 
 <a name="motivation"></a>
@@ -133,6 +134,22 @@ Find someone with similar learning goals to practice speaking with online, even 
 <img src="./prototype/messenger.jpg" width="250">
 <img src="./prototype/messenger - learner.jpg" width="250">
 </p>
+
+<a name="timeline"></a>
+## Timeline
+
+<b>Features to be completed by Milestone 2:</b>
+<li>Login</li>
+<li>Sign In</li>
+<li>Homepage</li>
+<li>Request System</li>
+<li>Student/Mentor Profiles</li>
+
+<b>Features to be completed by Milestone 3:</b>
+<li>Scheduling System</li>
+<li>Messenger</li>
+<li>Sign Out</li>
+<i>Note: The booking system is made up of two parts, namely the request and scheduling systems.</i> 
 
 <a name="developers"></a>
 ## Developers
