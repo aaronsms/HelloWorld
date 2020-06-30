@@ -15,7 +15,7 @@ part 'learner.freezed.dart';
 
 @freezed
 abstract class Learner with _$Learner implements Entity {
-  factory Learner({
+  factory Learner.create({
     UserId userId,
     ProfilePicture profilePicture,
     Biography bio,
@@ -28,7 +28,7 @@ abstract class Learner with _$Learner implements Entity {
       speakingLanguages: speakingLanguages,
     );
 
-    return Learner._(
+    return Learner(
       id: LearnerId(),
       userId: userId,
       profilePicture: profilePicture,
@@ -38,7 +38,7 @@ abstract class Learner with _$Learner implements Entity {
     );
   }
 
-  const factory Learner._({
+  const factory Learner({
     @required LearnerId id,
     @required UserId userId,
     @required ProfilePicture profilePicture,

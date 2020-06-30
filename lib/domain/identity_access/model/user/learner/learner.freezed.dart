@@ -12,7 +12,7 @@ T _$identity<T>(T value) => value;
 class _$LearnerTearOff {
   const _$LearnerTearOff();
 
-  _Learner _(
+  _Learner call(
       {@required LearnerId id,
       @required UserId userId,
       @required ProfilePicture profilePicture,
@@ -166,7 +166,7 @@ class _$_Learner implements _Learner {
 
   @override
   String toString() {
-    return 'Learner._(id: $id, userId: $userId, profilePicture: $profilePicture, biography: $biography, languageBackground: $languageBackground, location: $location)';
+    return 'Learner(id: $id, userId: $userId, profilePicture: $profilePicture, biography: $biography, languageBackground: $languageBackground, location: $location)';
   }
 
   @override

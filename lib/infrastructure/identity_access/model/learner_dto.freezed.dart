@@ -155,7 +155,7 @@ class __$LearnerDtoCopyWithImpl<$Res> extends _$LearnerDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-class _$_LearnerDto implements _LearnerDto {
+class _$_LearnerDto extends _LearnerDto {
   const _$_LearnerDto(
       {this.id,
       this.userId,
@@ -163,7 +163,8 @@ class _$_LearnerDto implements _LearnerDto {
       this.biography,
       this.locations,
       this.learningLanguages,
-      this.speakingLanguages});
+      this.speakingLanguages})
+      : super._();
 
   factory _$_LearnerDto.fromJson(Map<String, dynamic> json) =>
       _$_$_LearnerDtoFromJson(json);
@@ -234,7 +235,8 @@ class _$_LearnerDto implements _LearnerDto {
   }
 }
 
-abstract class _LearnerDto implements LearnerDto {
+abstract class _LearnerDto extends LearnerDto {
+  const _LearnerDto._() : super._();
   const factory _LearnerDto(
       {String id,
       String userId,

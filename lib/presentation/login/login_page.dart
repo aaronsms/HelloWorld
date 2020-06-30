@@ -13,13 +13,21 @@ class LoginPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: BlocProvider(
         create: (context) => getIt<LoginBloc>(),
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              LoginBanner(),
-              LoginForm(),
-            ],
-          ),
+        child: BlocBuilder<LoginBloc, LoginState>(
+          builder: (context, state) {
+            if (state.isSubmitting) {
+              return const Center(child: CircularProgressIndicator());
+            }
+
+            return SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  LoginBanner(),
+                  LoginForm(),
+                ],
+              ),
+            );
+          },
         ),
       ),
     );

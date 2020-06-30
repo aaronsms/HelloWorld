@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/homepage/widgets/learner_display_view.dart';
 import 'package:helloworld/presentation/homepage/widgets/navigation_bar.dart';
-
+import 'package:helloworld/application/schedule_requests/display_bloc.dart';
 import 'package:helloworld/presentation/homepage/widgets/search_bar.dart';
 import 'package:helloworld/presentation/homepage/widgets/mentor_display_view.dart';
 import 'package:helloworld/presentation/homepage/widgets/menu.dart';
@@ -13,7 +14,7 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  String viewBy = "Mentors";
+  String viewBy = "Learners";
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +70,7 @@ class _LandingPageState extends State<LandingPage> {
                             onChanged: (String value) {
                               setState(() {
                                 viewBy = value;
+                                context.bloc<DisplayBloc>().add(const DisplayEvent.switchProfileDisplay());
                               });
                             },
                           )),

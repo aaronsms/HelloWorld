@@ -166,7 +166,7 @@ class __$MentorDtoCopyWithImpl<$Res> extends _$MentorDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-class _$_MentorDto implements _MentorDto {
+class _$_MentorDto extends _MentorDto {
   const _$_MentorDto(
       {this.id,
       this.userId,
@@ -175,7 +175,8 @@ class _$_MentorDto implements _MentorDto {
       this.locations,
       this.learningLanguages,
       this.speakingLanguages,
-      this.teachingLanguages});
+      this.teachingLanguages})
+      : super._();
 
   factory _$_MentorDto.fromJson(Map<String, dynamic> json) =>
       _$_$_MentorDtoFromJson(json);
@@ -252,7 +253,8 @@ class _$_MentorDto implements _MentorDto {
   }
 }
 
-abstract class _MentorDto implements MentorDto {
+abstract class _MentorDto extends MentorDto {
+  const _MentorDto._() : super._();
   const factory _MentorDto(
       {String id,
       String userId,

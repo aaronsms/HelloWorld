@@ -16,7 +16,7 @@ part 'mentor.freezed.dart';
 
 @freezed
 abstract class Mentor with _$Mentor implements Entity {
-  factory Mentor({
+  factory Mentor.create({
     UserId userId,
     ProfilePicture profilePicture,
     Biography bio,
@@ -31,7 +31,7 @@ abstract class Mentor with _$Mentor implements Entity {
       teachingLanguages: teachingLanguages,
     );
 
-    return Mentor._(
+    return Mentor(
       id: MentorId(),
       userId: userId,
       profilePicture: profilePicture,
@@ -41,7 +41,8 @@ abstract class Mentor with _$Mentor implements Entity {
     );
   }
 
-  const factory Mentor._({
+  // ignore: sort_unnamed_constructors_first
+  const factory Mentor({
     @required MentorId id,
     @required UserId userId,
     @required ProfilePicture profilePicture,

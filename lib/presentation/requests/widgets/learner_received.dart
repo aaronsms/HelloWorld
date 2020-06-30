@@ -15,7 +15,7 @@ class LearnerReceived extends StatelessWidget {
           child: Column(
             children: <Widget>[
               const LearnerReceivedPreview(
-                name: "Sample Name 1",
+                name: "Learner 1",
                 booked: [
                   Slots(slot: "Tue, 4 May 08:00 - 08:30"),
                   Slots(slot: "Wed, 5 May 08:00 - 08:30")

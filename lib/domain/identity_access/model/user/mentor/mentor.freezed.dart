@@ -12,7 +12,7 @@ T _$identity<T>(T value) => value;
 class _$MentorTearOff {
   const _$MentorTearOff();
 
-  _Mentor _(
+  _Mentor call(
       {@required MentorId id,
       @required UserId userId,
       @required ProfilePicture profilePicture,
@@ -166,7 +166,7 @@ class _$_Mentor implements _Mentor {
 
   @override
   String toString() {
-    return 'Mentor._(id: $id, userId: $userId, profilePicture: $profilePicture, biography: $biography, languageBackground: $languageBackground, location: $location)';
+    return 'Mentor(id: $id, userId: $userId, profilePicture: $profilePicture, biography: $biography, languageBackground: $languageBackground, location: $location)';
   }
 
   @override
