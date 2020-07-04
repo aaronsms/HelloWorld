@@ -60,7 +60,9 @@ class _RequestPageState extends State<RequestPage> {
                 alignment: Alignment.topLeft,
                 child: IconButton(
                   icon: Icon(Icons.keyboard_arrow_left),
-                  onPressed: () {},
+                  onPressed: () {
+                    /** NAVIGATES TO HOMEPAGE */
+                  },
                   color: Palette.primaryColor,
                 )),
             Container(
