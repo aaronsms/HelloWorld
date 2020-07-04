@@ -4,6 +4,7 @@ import 'package:helloworld/domain/common/entity.dart';
 import '../biography.dart';
 import '../language_proficiency.dart';
 import '../location.dart';
+import '../name.dart';
 import '../profile_picture.dart';
 import '../speaking_language.dart';
 import '../user_id.dart';
@@ -17,6 +18,7 @@ part 'learner.freezed.dart';
 abstract class Learner with _$Learner implements Entity {
   factory Learner.create({
     UserId userId,
+    Name name,
     ProfilePicture profilePicture,
     Biography bio,
     List<Location> location,
@@ -31,6 +33,7 @@ abstract class Learner with _$Learner implements Entity {
     return Learner(
       id: LearnerId(),
       userId: userId,
+      name: name,
       profilePicture: profilePicture,
       biography: bio,
       location: location,
@@ -38,9 +41,11 @@ abstract class Learner with _$Learner implements Entity {
     );
   }
 
+  // ignore: sort_unnamed_constructors_first
   const factory Learner({
     @required LearnerId id,
     @required UserId userId,
+    @required Name name,
     @required ProfilePicture profilePicture,
     @required Biography biography,
     @required LearningBackground languageBackground,

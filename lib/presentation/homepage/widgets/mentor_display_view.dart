@@ -72,7 +72,7 @@ class MentorDisplayView extends StatelessWidget {
                                 ),
                               );
                           return MentorDisplay(
-                            name: 'Mentor ${index + 1}',
+                            name: listMentors[index].name.getOrCrash(),
                             active: 2,
                             distance: 1.0,
                             rates: 10,

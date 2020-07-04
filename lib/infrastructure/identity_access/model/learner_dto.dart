@@ -11,10 +11,13 @@ import 'package:helloworld/domain/identity_access/model/user/learner/learner_id.
 import 'package:helloworld/domain/identity_access/model/user/learner/learning_background.dart';
 import 'package:helloworld/domain/identity_access/model/user/learner/learning_background_id.dart';
 import 'package:helloworld/domain/identity_access/model/user/learner/learning_language.dart';
+import 'package:helloworld/domain/identity_access/model/user/name.dart';
 import 'package:helloworld/domain/identity_access/model/user/speaking_language.dart';
 import 'package:helloworld/domain/identity_access/model/user/user_id.dart';
 import 'package:helloworld/domain/identity_access/model/user/location.dart';
 import 'package:helloworld/domain/identity_access/model/user/profile_picture.dart';
+import 'package:helloworld/infrastructure/common/io_utils.dart';
+import 'package:path_provider/path_provider.dart';
 
 part 'learner_dto.freezed.dart';
 
@@ -26,13 +29,14 @@ abstract class LearnerDto implements _$LearnerDto {
 
   // ignore: sort_unnamed_constructors_first
   const factory LearnerDto({
-    String id,
-    String userId,
+    @required String id,
+    @required String name,
+    @required String userId,
     String profilePicture,
     String biography,
-    List<String> locations,
-    Map<String, String> learningLanguages,
-    Map<String, String> speakingLanguages,
+    @required List<String> locations,
+    @required Map<String, String> learningLanguages,
+    @required Map<String, String> speakingLanguages,
   }) = _LearnerDto;
 
   factory LearnerDto.fromDomain(Learner learner) {
@@ -46,6 +50,7 @@ abstract class LearnerDto implements _$LearnerDto {
 
     return LearnerDto(
       id: learner.id.getOrCrash(),
+      name: learner.name.getOrCrash(),
       userId: learner.userId.getOrCrash(),
       profilePicture:
           base64Encode(learner.profilePicture.getOrCrash().readAsBytesSync()),
@@ -56,19 +61,26 @@ abstract class LearnerDto implements _$LearnerDto {
     );
   }
 
-  Learner toDomain() {
+  Future<Learner> toDomain() async {
     final learning = learningLanguages.map((key, value) => MapEntry(
         LearningLanguage(parseLanguage(key)), LanguageProficiency(value)));
     final speaking = speakingLanguages.map((key, value) => MapEntry(
         SpeakingLanguage(parseLanguage(key)), LanguageProficiency(value)));
 
+    final appDirectory = await localPath;
+    final file = File('$appDirectory/$id.jpg');
+    if (profilePicture != null) {
+      file.writeAsBytesSync(base64Decode(profilePicture));
+    }
+
     return Learner(
       id: LearnerId.fromUniqueId(id),
       userId: UserId.fromUniqueId(userId),
-      biography: Biography(biography),
+      name: Name(name ?? ''),
+      biography: Biography(biography ?? ''),
       location: locations.map((e) => Location(dartz.right(e))).toList(),
       profilePicture: profilePicture != null
-          ? ProfilePicture(File.fromRawPath(base64Decode(profilePicture)))
+          ? ProfilePicture(file)
           : ProfilePicture.empty(),
       languageBackground: LearningBackground(
         id: LearningBackgroundId.fromUniqueId("test"),

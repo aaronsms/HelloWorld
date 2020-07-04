@@ -9,6 +9,7 @@ import 'package:helloworld/domain/identity_access/model/user/language_proficienc
 import 'package:helloworld/domain/identity_access/model/user/learner/learning_language.dart';
 import 'package:helloworld/domain/identity_access/model/user/mentor/teaching_background.dart';
 import 'package:helloworld/domain/identity_access/model/user/mentor/teaching_background_id.dart';
+import 'package:helloworld/domain/identity_access/model/user/name.dart';
 import 'package:helloworld/domain/identity_access/model/user/speaking_language.dart';
 import 'package:helloworld/domain/identity_access/model/user/mentor/teaching_language.dart';
 import 'package:helloworld/domain/identity_access/model/user/location.dart';
@@ -16,6 +17,7 @@ import 'package:helloworld/domain/identity_access/model/user/mentor/mentor.dart'
 import 'package:helloworld/domain/identity_access/model/user/mentor/mentor_id.dart';
 import 'package:helloworld/domain/identity_access/model/user/profile_picture.dart';
 import 'package:helloworld/domain/identity_access/model/user/user_id.dart';
+import 'package:helloworld/infrastructure/common/io_utils.dart';
 
 part 'mentor_dto.freezed.dart';
 
@@ -27,14 +29,15 @@ abstract class MentorDto implements _$MentorDto {
 
   // ignore: sort_unnamed_constructors_first
   const factory MentorDto({
-    String id,
-    String userId,
+    @required String id,
+    @required String userId,
+    String name,
     String biography,
-    String profilePicture,
-    List<String> locations,
-    Map<String, String> learningLanguages,
-    Map<String, String> speakingLanguages,
-    Map<String, String> teachingLanguages,
+    @required String profilePicture,
+    @required List<String> locations,
+    @required Map<String, String> learningLanguages,
+    @required Map<String, String> speakingLanguages,
+    @required Map<String, String> teachingLanguages,
   }) = _MentorDto;
 
   factory MentorDto.fromDomain(Mentor mentor) {
@@ -52,6 +55,7 @@ abstract class MentorDto implements _$MentorDto {
     return MentorDto(
       id: mentor.id.getOrCrash(),
       userId: mentor.userId.getOrCrash(),
+      name: mentor.name.getOrCrash(),
       profilePicture:
           base64Encode(mentor.profilePicture.getOrCrash().readAsBytesSync()),
       biography: mentor.biography.getOrCrash(),
@@ -62,7 +66,7 @@ abstract class MentorDto implements _$MentorDto {
     );
   }
 
-  Mentor toDomain() {
+  Future<Mentor> toDomain() async {
     final learning = learningLanguages.map((key, value) => MapEntry(
         LearningLanguage(parseLanguage(key)), LanguageProficiency(value)));
     final speaking = speakingLanguages.map((key, value) => MapEntry(
@@ -70,13 +74,20 @@ abstract class MentorDto implements _$MentorDto {
     final teaching = teachingLanguages.map((key, value) => MapEntry(
         TeachingLanguage(parseLanguage(key)), LanguageProficiency(value)));
 
+    final appDirectory = await localPath;
+    final file = File('$appDirectory/$id.jpg');
+    if (profilePicture != null) {
+      file.writeAsBytesSync(base64Decode(profilePicture));
+    }
+
     return Mentor(
       id: MentorId.fromUniqueId(id),
       userId: UserId.fromUniqueId(userId),
-      biography: Biography(biography),
+      name: Name(name ?? ''),
+      biography: Biography(biography ?? ''),
       location: locations.map((e) => Location(dartz.right(e))).toList(),
       profilePicture: profilePicture != null
-          ? ProfilePicture(File.fromRawPath(base64Decode(profilePicture)))
+          ? ProfilePicture(file)
           : ProfilePicture.empty(),
       languageBackground: TeachingBackground(
         id: TeachingBackgroundId.fromUniqueId("test"),

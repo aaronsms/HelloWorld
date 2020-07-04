@@ -34,17 +34,13 @@ class DisplayBloc extends Bloc<DisplayEvent, DisplayState> {
         if (state.isLearnerOrMentor) {
           final eitherProfileFailureOrList1 =
               await _profileRepository.watchAllLearners();
-          print('loaded');
-          print(eitherProfileFailureOrList1);
           yield* eitherProfileFailureOrList1.fold(
             (l) async* {
-              print('failed');
               yield DisplayState.loadFailure(
                   profileFailure: l,
                   isLearnerOrMentor: state.isLearnerOrMentor);
             },
             (r) async* {
-              print('success');
               yield DisplayState.loadSuccess(
                   listOfLearner: r, isLearnerOrMentor: state.isLearnerOrMentor);
             },
@@ -52,16 +48,13 @@ class DisplayBloc extends Bloc<DisplayEvent, DisplayState> {
         } else {
           final eitherProfileFailureOrList =
               await _profileRepository.watchAllMentors();
-          print('loaded');
           yield* eitherProfileFailureOrList.fold(
             (l) async* {
-              print('failed');
               yield DisplayState.loadFailure(
                   profileFailure: l,
                   isLearnerOrMentor: state.isLearnerOrMentor);
             },
             (r) async* {
-              print('success');
               yield DisplayState.loadSuccess(
                   listOfMentor: r,
                   isLearnerOrMentor: state.isLearnerOrMentor);

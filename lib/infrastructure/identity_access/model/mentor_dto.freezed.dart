@@ -16,17 +16,19 @@ class _$MentorDtoTearOff {
   const _$MentorDtoTearOff();
 
   _MentorDto call(
-      {String id,
-      String userId,
+      {@required String id,
+      @required String userId,
+      String name,
       String biography,
-      String profilePicture,
-      List<String> locations,
-      Map<String, String> learningLanguages,
-      Map<String, String> speakingLanguages,
-      Map<String, String> teachingLanguages}) {
+      @required String profilePicture,
+      @required List<String> locations,
+      @required Map<String, String> learningLanguages,
+      @required Map<String, String> speakingLanguages,
+      @required Map<String, String> teachingLanguages}) {
     return _MentorDto(
       id: id,
       userId: userId,
+      name: name,
       biography: biography,
       profilePicture: profilePicture,
       locations: locations,
@@ -43,6 +45,7 @@ const $MentorDto = _$MentorDtoTearOff();
 mixin _$MentorDto {
   String get id;
   String get userId;
+  String get name;
   String get biography;
   String get profilePicture;
   List<String> get locations;
@@ -60,6 +63,7 @@ abstract class $MentorDtoCopyWith<$Res> {
   $Res call(
       {String id,
       String userId,
+      String name,
       String biography,
       String profilePicture,
       List<String> locations,
@@ -79,6 +83,7 @@ class _$MentorDtoCopyWithImpl<$Res> implements $MentorDtoCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object userId = freezed,
+    Object name = freezed,
     Object biography = freezed,
     Object profilePicture = freezed,
     Object locations = freezed,
@@ -89,6 +94,7 @@ class _$MentorDtoCopyWithImpl<$Res> implements $MentorDtoCopyWith<$Res> {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
       userId: userId == freezed ? _value.userId : userId as String,
+      name: name == freezed ? _value.name : name as String,
       biography: biography == freezed ? _value.biography : biography as String,
       profilePicture: profilePicture == freezed
           ? _value.profilePicture
@@ -116,6 +122,7 @@ abstract class _$MentorDtoCopyWith<$Res> implements $MentorDtoCopyWith<$Res> {
   $Res call(
       {String id,
       String userId,
+      String name,
       String biography,
       String profilePicture,
       List<String> locations,
@@ -136,6 +143,7 @@ class __$MentorDtoCopyWithImpl<$Res> extends _$MentorDtoCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object userId = freezed,
+    Object name = freezed,
     Object biography = freezed,
     Object profilePicture = freezed,
     Object locations = freezed,
@@ -146,6 +154,7 @@ class __$MentorDtoCopyWithImpl<$Res> extends _$MentorDtoCopyWithImpl<$Res>
     return _then(_MentorDto(
       id: id == freezed ? _value.id : id as String,
       userId: userId == freezed ? _value.userId : userId as String,
+      name: name == freezed ? _value.name : name as String,
       biography: biography == freezed ? _value.biography : biography as String,
       profilePicture: profilePicture == freezed
           ? _value.profilePicture
@@ -168,15 +177,23 @@ class __$MentorDtoCopyWithImpl<$Res> extends _$MentorDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_MentorDto extends _MentorDto {
   const _$_MentorDto(
-      {this.id,
-      this.userId,
+      {@required this.id,
+      @required this.userId,
+      this.name,
       this.biography,
-      this.profilePicture,
-      this.locations,
-      this.learningLanguages,
-      this.speakingLanguages,
-      this.teachingLanguages})
-      : super._();
+      @required this.profilePicture,
+      @required this.locations,
+      @required this.learningLanguages,
+      @required this.speakingLanguages,
+      @required this.teachingLanguages})
+      : assert(id != null),
+        assert(userId != null),
+        assert(profilePicture != null),
+        assert(locations != null),
+        assert(learningLanguages != null),
+        assert(speakingLanguages != null),
+        assert(teachingLanguages != null),
+        super._();
 
   factory _$_MentorDto.fromJson(Map<String, dynamic> json) =>
       _$_$_MentorDtoFromJson(json);
@@ -185,6 +202,8 @@ class _$_MentorDto extends _MentorDto {
   final String id;
   @override
   final String userId;
+  @override
+  final String name;
   @override
   final String biography;
   @override
@@ -200,7 +219,7 @@ class _$_MentorDto extends _MentorDto {
 
   @override
   String toString() {
-    return 'MentorDto(id: $id, userId: $userId, biography: $biography, profilePicture: $profilePicture, locations: $locations, learningLanguages: $learningLanguages, speakingLanguages: $speakingLanguages, teachingLanguages: $teachingLanguages)';
+    return 'MentorDto(id: $id, userId: $userId, name: $name, biography: $biography, profilePicture: $profilePicture, locations: $locations, learningLanguages: $learningLanguages, speakingLanguages: $speakingLanguages, teachingLanguages: $teachingLanguages)';
   }
 
   @override
@@ -211,6 +230,8 @@ class _$_MentorDto extends _MentorDto {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.userId, userId) ||
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.biography, biography) ||
                 const DeepCollectionEquality()
                     .equals(other.biography, biography)) &&
@@ -236,6 +257,7 @@ class _$_MentorDto extends _MentorDto {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(biography) ^
       const DeepCollectionEquality().hash(profilePicture) ^
       const DeepCollectionEquality().hash(locations) ^
@@ -256,14 +278,15 @@ class _$_MentorDto extends _MentorDto {
 abstract class _MentorDto extends MentorDto {
   const _MentorDto._() : super._();
   const factory _MentorDto(
-      {String id,
-      String userId,
+      {@required String id,
+      @required String userId,
+      String name,
       String biography,
-      String profilePicture,
-      List<String> locations,
-      Map<String, String> learningLanguages,
-      Map<String, String> speakingLanguages,
-      Map<String, String> teachingLanguages}) = _$_MentorDto;
+      @required String profilePicture,
+      @required List<String> locations,
+      @required Map<String, String> learningLanguages,
+      @required Map<String, String> speakingLanguages,
+      @required Map<String, String> teachingLanguages}) = _$_MentorDto;
 
   factory _MentorDto.fromJson(Map<String, dynamic> json) =
       _$_MentorDto.fromJson;
@@ -272,6 +295,8 @@ abstract class _MentorDto extends MentorDto {
   String get id;
   @override
   String get userId;
+  @override
+  String get name;
   @override
   String get biography;
   @override
