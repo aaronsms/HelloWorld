@@ -64,6 +64,8 @@ flutter:
     - assets/images/applicationmentor.png
     - assets/images/avatar.png
     - assets/images/message.png
+    - assets/images/booking_done.png
+    - assets/images/booking_confirmation.png
 
   fonts:
     - family: Gill Sans

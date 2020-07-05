@@ -7,7 +7,8 @@ import 'package:helloworld/presentation/profile/learner_profile.dart';
 import 'package:helloworld/presentation/profile/mentor_profile.dart';
 import 'package:helloworld/presentation/profile/widgets/review_page.dart';
 import 'package:helloworld/presentation/scheduling/schedule_page.dart';
-
+import 'package:helloworld/presentation/scheduling/confirmation_page.dart';
+import 'package:helloworld/presentation/scheduling/confirmed_page.dart';
 import 'routes.dart';
 
 class AppRoot extends StatelessWidget {
@@ -17,7 +18,7 @@ class AppRoot extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 //      debugShowMaterialGrid: true,
       title: 'HelloWorld!<>',
-      home: SchedulePage(),
+      home: ConfirmationPage(),
       theme: ThemeData(
         primaryColor: Palette.primaryColor,
         accentColor: Palette.secondaryColor,
