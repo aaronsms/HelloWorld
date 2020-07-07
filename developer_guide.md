@@ -19,6 +19,10 @@ permalink: /developer-guide/
 
 ### Architecture
 
+<img src="../assets/images/Domain-Architecture.png" alt="DDD Architecture" width="400">
+
+To follow 
+
 ### Presentation
 
 ### Application
