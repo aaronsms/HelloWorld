@@ -7,14 +7,13 @@ class SlotPicker extends StatefulWidget {
   _SlotPickerState createState() => _SlotPickerState();
 }
 
-/** RESOLVE ERROR WHEN "TO" TIME IS PICKED FIRST */
-/** ADJUST POSITIONING */
-
 class _SlotPickerState extends State<SlotPicker> {
   TimeRangeResult _timeRange;
 
   @override
   Widget build(BuildContext context) {
+    if (_timeRange != null) print("${_timeRange.end.hhmm()}");
+
     return Scaffold(
       backgroundColor: Palette.quaternaryColor,
       body: Column(
@@ -58,6 +57,7 @@ class _SlotPickerState extends State<SlotPicker> {
             timeBlock: 30,
             onRangeCompleted: (range) => setState(() => _timeRange = range),
           ),
+
           // const SizedBox(height: 30),
           // if (_timeRange != null)
           //   Padding(
