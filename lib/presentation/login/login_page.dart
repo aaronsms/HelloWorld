@@ -3,23 +3,31 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:helloworld/application/identity_access/login/bloc.dart';
 import 'package:helloworld/injection.dart';
-import 'package:helloworld/presentation/login/widgets/sign_in_banner.dart';
-import 'package:helloworld/presentation/login/widgets/sign_in_form.dart';
+import 'package:helloworld/presentation/login/widgets/login_banner.dart';
+import 'package:helloworld/presentation/login/widgets/login_form.dart';
 
-class SignInPage extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: BlocProvider(
         create: (context) => getIt<LoginBloc>(),
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              SignInBanner(),
-              SignInForm(),
-            ],
-          ),
+        child: BlocBuilder<LoginBloc, LoginState>(
+          builder: (context, state) {
+            if (state.isSubmitting) {
+              return const Center(child: CircularProgressIndicator());
+            }
+
+            return SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  LoginBanner(),
+                  LoginForm(),
+                ],
+              ),
+            );
+          },
         ),
       ),
     );

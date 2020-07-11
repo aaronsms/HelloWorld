@@ -1,12 +1,15 @@
 # helloworld!<>
 
-helloworld!<> is a cross-platform mobile app created with Flutter, Dart, MySQL
-and MongoDB. It provides a platform to connect all language learners and tutors
-all around the world. 
+helloworld!<> is a cross-platform mobile app created with Flutter, Dart, Node.js and PostgresQL. 
+It provides a platform to connect all language learners and tutors all around the world.
+
+[Check out the project documentation here.](https://aaronsms.github.io/HelloWorld/)
+[Visit the prototyping page on Figma here.](https://www.figma.com/file/1frbSEL5SntI8UFomeSfOj/helloworld?node-id=0%3A1)
 
 ## Table of Contents
 
 * [Motivation](#motivation)
+* [User Stories](#user-stories)
 * [Technologies](#technologies)
 * [Set-up](#setup)
 * [Features](#features)
@@ -16,16 +19,36 @@ all around the world.
     * [View Mentors' Profile](#view-mentor-profile)
     * [Connect Offline](#connect-offline)
     * [Connect Online](#connect-online)
+    * [View Past & Present Requests](#requests)
+* [Timeline](#timeline)
+* [User Guide](#user-guide)
 * [Developers](#developers)
 
 <a name="motivation"></a>
 # Motivation
 
-The idea behind “HelloWorld<>!” came about when one of our members tried picking up Spanish online but struggled to do so due to the lack of interaction with people who use this language. 
+The idea behind "HelloWorld!<>" came about when one of our members tried 
+picking up Spanish online but struggled to do so due to the lack of interaction 
+with people who use this language. 
 
-Undoubtedly, language, being a vital tool of communication among people, can only be mastered through real life interactions with actual people. The lack of platforms providing such a solution thus inspired us to come up with this phone application that serves to match and connect individuals with similar language goals both online and offline. 
+Undoubtedly, language, being a vital tool of communication among people, 
+can only be mastered through real life interactions with actual people. 
+The lack of platforms providing such a solution thus inspired us to come up 
+with this phone application that serves to match and connect individuals 
+with similar language goals both online and offline. 
 
-With this application, we hope to build a positive peer-to-peer learning environment where language learners can stay engaged and motivated in their learning journey, accelerating their learning progress.
+With this application, we hope to build a positive peer-to-peer learning 
+environment where language learners can stay engaged and motivated in their 
+learning journey, accelerating their learning progress.
+
+<a name="user-stories"></a>
+# User Stories
+
+<li>As a student who wants to pick up a new language, I want to find another learner of the same language/dialect to practice conversing in that language/dialect.</li>
+<li>As a student who has questions and problems with a new language, I want to find a mentor to converse with and guide me as soon as possible, to accelerate my learning.</li>
+<li>As a student seeking for another learner/partner to practice speaking the new language, I need to have a view of the other party’s schedule in order to arrange a mutually convenient timing.</li> 
+<li>As students who want to converse with other students or mentors wish to help students at inconvenient timings, I want to be able to communicate on an online messaging built-in feature.</li>
+<li>As an administrator who wants to prevent abuse of the system, I want to be able to identify abusers, warn them and ban them if they continue to cause problems.</li>
 
 <a name="technologies"></a>
 # Technologies
@@ -40,7 +63,7 @@ the business logic and orchestrate the backend component.
 
 We chose not to use Firebase as we value scalability and customizability.
 Despite being a convenient solution, we want our app to remain flexible and
-migration-friendly. So we decided to go with MySQL for user information and
+migration-friendly. So we decided to go with PostgresQL for user information
 MongoDB to store messages and conversations at scale. 
 
 <a name="setup"></a>
@@ -51,7 +74,7 @@ MongoDB to store messages and conversations at scale.
 
 2. Clone into this repository.
 ```
-$ git clone https://github.com/Aaronsms78/HelloWorld.git
+$ git clone https://github.com/aaronsms/HelloWorld.git
 ```
 
 3. Fetch dependencies specified in the pubspec.yaml file. 
@@ -59,9 +82,12 @@ $ git clone https://github.com/Aaronsms78/HelloWorld.git
 $ flutter pub get
 ```
 
-4. (Optional) Download [MongoDB](https://www.mongodb.com/download-center/community) 
-   or/and [MySQL](https://dev.mysql.com/downloads/) to test on your local
-   machine.
+4. Clone into the server repository to test on your local machine.
+```
+$ git clone https://github.com/aaronsms/HelloWorldServer.git
+$ cd HelloWorldServer
+$ docker-compose up
+```
 
 5. You're good to go!
 
@@ -134,15 +160,43 @@ Find someone with similar learning goals to practice speaking with online, even 
 <img src="./prototype/messenger - learner.jpg" width="250">
 </p>
 
+<a name="requests"></a>
+## View Past & Present Requests
+
+View the history of all requests received from and sent to others, and accept/reject pending requests.
+
+<p>
+<img src="./prototype/requests (1).jpg" width="250">
+<img src="./prototype/requests (2).jpg" width="250">
+<img src="./prototype/requests (3).jpg" width="250">
+</p>
+
+<a name="timeline"></a>
+## Timeline
+<p>
+<b>Features to be completed by Milestone 2:</b>
+<li>Login</li>
+<li>Sign In</li>
+<li>Homepage</li>
+<li>Request System</li>
+<li>Student/Mentor Profiles</li>
+</p>
+<p>
+<b>Features to be completed by Milestone 3:</b>
+<li>Scheduling System</li>
+<li>Messenger</li>
+<li>Sign Out</li>
+</p>
+<i>Note: The booking system is made up of two parts, namely the request and scheduling systems.</i> 
+
+<a name="user-guide"></a>
+## User Guide
+<p>
+<img src="./prototype/helloworld__! flowchart.png">
+</p>
+
 <a name="developers"></a>
 ## Developers
 
 This application is created by Amanda Ang and Aaron Saw, for NUS School of Computing's Orbital 2020. 
-
-<!--
-## Meetup online to practice speaking (KIV)
-
-Use our platform to randomly pair up with other language learner who is just as
-committed as you to practice speaking and accelerate your learning progress!
--->
 

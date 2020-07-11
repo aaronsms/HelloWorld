@@ -6,7 +6,6 @@ part 'authentication_failure.freezed.dart';
 abstract class AuthenticationFailure with _$AuthenticationFailure {
   const factory AuthenticationFailure.cancelledByUser() = CancelledByUser;
   const factory AuthenticationFailure.serverError() = ServerError;
-  const factory AuthenticationFailure.emailAlreadyInUse() = EmailAlreadyInUse;
   const factory AuthenticationFailure.invalidEmailAndPasswordCombination() =
       InvalidEmailAndPasswordCombination;
 }

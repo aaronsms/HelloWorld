@@ -29,6 +29,22 @@ class _$ValueFailureTearOff {
       failedValue: failedValue,
     );
   }
+
+  _EmptyField<T> empty<T>() {
+    return _EmptyField<T>();
+  }
+
+  _BadFilePath<T> badFilePath<T>({@required String failedValue}) {
+    return _BadFilePath<T>(
+      failedValue: failedValue,
+    );
+  }
+
+  _InvalidProficiency<T> invalidProficiency<T>({@required String failedValue}) {
+    return _InvalidProficiency<T>(
+      failedValue: failedValue,
+    );
+  }
 }
 
 // ignore: unused_element
@@ -40,12 +56,18 @@ mixin _$ValueFailure<T> {
     @required Result invalidEmail(String failedValue),
     @required Result shortPassword(String failedValue),
     @required Result invalidAge(int failedValue),
+    @required Result empty(),
+    @required Result badFilePath(String failedValue),
+    @required Result invalidProficiency(String failedValue),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result invalidEmail(String failedValue),
     Result shortPassword(String failedValue),
     Result invalidAge(int failedValue),
+    Result empty(),
+    Result badFilePath(String failedValue),
+    Result invalidProficiency(String failedValue),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -53,12 +75,18 @@ mixin _$ValueFailure<T> {
     @required Result invalidEmail(_InvalidEmail<T> value),
     @required Result shortPassword(_ShortPassword<T> value),
     @required Result invalidAge(_InvalidAge<T> value),
+    @required Result empty(_EmptyField<T> value),
+    @required Result badFilePath(_BadFilePath<T> value),
+    @required Result invalidProficiency(_InvalidProficiency<T> value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result invalidEmail(_InvalidEmail<T> value),
     Result shortPassword(_ShortPassword<T> value),
     Result invalidAge(_InvalidAge<T> value),
+    Result empty(_EmptyField<T> value),
+    Result badFilePath(_BadFilePath<T> value),
+    Result invalidProficiency(_InvalidProficiency<T> value),
     @required Result orElse(),
   });
 }
@@ -141,10 +169,16 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     @required Result invalidEmail(String failedValue),
     @required Result shortPassword(String failedValue),
     @required Result invalidAge(int failedValue),
+    @required Result empty(),
+    @required Result badFilePath(String failedValue),
+    @required Result invalidProficiency(String failedValue),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
+    assert(empty != null);
+    assert(badFilePath != null);
+    assert(invalidProficiency != null);
     return invalidEmail(failedValue);
   }
 
@@ -154,6 +188,9 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     Result invalidEmail(String failedValue),
     Result shortPassword(String failedValue),
     Result invalidAge(int failedValue),
+    Result empty(),
+    Result badFilePath(String failedValue),
+    Result invalidProficiency(String failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -169,10 +206,16 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     @required Result invalidEmail(_InvalidEmail<T> value),
     @required Result shortPassword(_ShortPassword<T> value),
     @required Result invalidAge(_InvalidAge<T> value),
+    @required Result empty(_EmptyField<T> value),
+    @required Result badFilePath(_BadFilePath<T> value),
+    @required Result invalidProficiency(_InvalidProficiency<T> value),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
+    assert(empty != null);
+    assert(badFilePath != null);
+    assert(invalidProficiency != null);
     return invalidEmail(this);
   }
 
@@ -182,6 +225,9 @@ class _$_InvalidEmail<T> implements _InvalidEmail<T> {
     Result invalidEmail(_InvalidEmail<T> value),
     Result shortPassword(_ShortPassword<T> value),
     Result invalidAge(_InvalidAge<T> value),
+    Result empty(_EmptyField<T> value),
+    Result badFilePath(_BadFilePath<T> value),
+    Result invalidProficiency(_InvalidProficiency<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -263,10 +309,16 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     @required Result invalidEmail(String failedValue),
     @required Result shortPassword(String failedValue),
     @required Result invalidAge(int failedValue),
+    @required Result empty(),
+    @required Result badFilePath(String failedValue),
+    @required Result invalidProficiency(String failedValue),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
+    assert(empty != null);
+    assert(badFilePath != null);
+    assert(invalidProficiency != null);
     return shortPassword(failedValue);
   }
 
@@ -276,6 +328,9 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     Result invalidEmail(String failedValue),
     Result shortPassword(String failedValue),
     Result invalidAge(int failedValue),
+    Result empty(),
+    Result badFilePath(String failedValue),
+    Result invalidProficiency(String failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -291,10 +346,16 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     @required Result invalidEmail(_InvalidEmail<T> value),
     @required Result shortPassword(_ShortPassword<T> value),
     @required Result invalidAge(_InvalidAge<T> value),
+    @required Result empty(_EmptyField<T> value),
+    @required Result badFilePath(_BadFilePath<T> value),
+    @required Result invalidProficiency(_InvalidProficiency<T> value),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
+    assert(empty != null);
+    assert(badFilePath != null);
+    assert(invalidProficiency != null);
     return shortPassword(this);
   }
 
@@ -304,6 +365,9 @@ class _$_ShortPassword<T> implements _ShortPassword<T> {
     Result invalidEmail(_InvalidEmail<T> value),
     Result shortPassword(_ShortPassword<T> value),
     Result invalidAge(_InvalidAge<T> value),
+    Result empty(_EmptyField<T> value),
+    Result badFilePath(_BadFilePath<T> value),
+    Result invalidProficiency(_InvalidProficiency<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -385,10 +449,16 @@ class _$_InvalidAge<T> implements _InvalidAge<T> {
     @required Result invalidEmail(String failedValue),
     @required Result shortPassword(String failedValue),
     @required Result invalidAge(int failedValue),
+    @required Result empty(),
+    @required Result badFilePath(String failedValue),
+    @required Result invalidProficiency(String failedValue),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
+    assert(empty != null);
+    assert(badFilePath != null);
+    assert(invalidProficiency != null);
     return invalidAge(failedValue);
   }
 
@@ -398,6 +468,9 @@ class _$_InvalidAge<T> implements _InvalidAge<T> {
     Result invalidEmail(String failedValue),
     Result shortPassword(String failedValue),
     Result invalidAge(int failedValue),
+    Result empty(),
+    Result badFilePath(String failedValue),
+    Result invalidProficiency(String failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -413,10 +486,16 @@ class _$_InvalidAge<T> implements _InvalidAge<T> {
     @required Result invalidEmail(_InvalidEmail<T> value),
     @required Result shortPassword(_ShortPassword<T> value),
     @required Result invalidAge(_InvalidAge<T> value),
+    @required Result empty(_EmptyField<T> value),
+    @required Result badFilePath(_BadFilePath<T> value),
+    @required Result invalidProficiency(_InvalidProficiency<T> value),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
     assert(invalidAge != null);
+    assert(empty != null);
+    assert(badFilePath != null);
+    assert(invalidProficiency != null);
     return invalidAge(this);
   }
 
@@ -426,6 +505,9 @@ class _$_InvalidAge<T> implements _InvalidAge<T> {
     Result invalidEmail(_InvalidEmail<T> value),
     Result shortPassword(_ShortPassword<T> value),
     Result invalidAge(_InvalidAge<T> value),
+    Result empty(_EmptyField<T> value),
+    Result badFilePath(_BadFilePath<T> value),
+    Result invalidProficiency(_InvalidProficiency<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -441,4 +523,397 @@ abstract class _InvalidAge<T> implements ValueFailure<T> {
 
   int get failedValue;
   _$InvalidAgeCopyWith<T, _InvalidAge<T>> get copyWith;
+}
+
+abstract class _$EmptyFieldCopyWith<T, $Res> {
+  factory _$EmptyFieldCopyWith(
+          _EmptyField<T> value, $Res Function(_EmptyField<T>) then) =
+      __$EmptyFieldCopyWithImpl<T, $Res>;
+}
+
+class __$EmptyFieldCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$EmptyFieldCopyWith<T, $Res> {
+  __$EmptyFieldCopyWithImpl(
+      _EmptyField<T> _value, $Res Function(_EmptyField<T>) _then)
+      : super(_value, (v) => _then(v as _EmptyField<T>));
+
+  @override
+  _EmptyField<T> get _value => super._value as _EmptyField<T>;
+}
+
+class _$_EmptyField<T> implements _EmptyField<T> {
+  const _$_EmptyField();
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.empty()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _EmptyField<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result invalidEmail(String failedValue),
+    @required Result shortPassword(String failedValue),
+    @required Result invalidAge(int failedValue),
+    @required Result empty(),
+    @required Result badFilePath(String failedValue),
+    @required Result invalidProficiency(String failedValue),
+  }) {
+    assert(invalidEmail != null);
+    assert(shortPassword != null);
+    assert(invalidAge != null);
+    assert(empty != null);
+    assert(badFilePath != null);
+    assert(invalidProficiency != null);
+    return empty();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result invalidEmail(String failedValue),
+    Result shortPassword(String failedValue),
+    Result invalidAge(int failedValue),
+    Result empty(),
+    Result badFilePath(String failedValue),
+    Result invalidProficiency(String failedValue),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (empty != null) {
+      return empty();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result invalidEmail(_InvalidEmail<T> value),
+    @required Result shortPassword(_ShortPassword<T> value),
+    @required Result invalidAge(_InvalidAge<T> value),
+    @required Result empty(_EmptyField<T> value),
+    @required Result badFilePath(_BadFilePath<T> value),
+    @required Result invalidProficiency(_InvalidProficiency<T> value),
+  }) {
+    assert(invalidEmail != null);
+    assert(shortPassword != null);
+    assert(invalidAge != null);
+    assert(empty != null);
+    assert(badFilePath != null);
+    assert(invalidProficiency != null);
+    return empty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result invalidEmail(_InvalidEmail<T> value),
+    Result shortPassword(_ShortPassword<T> value),
+    Result invalidAge(_InvalidAge<T> value),
+    Result empty(_EmptyField<T> value),
+    Result badFilePath(_BadFilePath<T> value),
+    Result invalidProficiency(_InvalidProficiency<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (empty != null) {
+      return empty(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EmptyField<T> implements ValueFailure<T> {
+  const factory _EmptyField() = _$_EmptyField<T>;
+}
+
+abstract class _$BadFilePathCopyWith<T, $Res> {
+  factory _$BadFilePathCopyWith(
+          _BadFilePath<T> value, $Res Function(_BadFilePath<T>) then) =
+      __$BadFilePathCopyWithImpl<T, $Res>;
+  $Res call({String failedValue});
+}
+
+class __$BadFilePathCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$BadFilePathCopyWith<T, $Res> {
+  __$BadFilePathCopyWithImpl(
+      _BadFilePath<T> _value, $Res Function(_BadFilePath<T>) _then)
+      : super(_value, (v) => _then(v as _BadFilePath<T>));
+
+  @override
+  _BadFilePath<T> get _value => super._value as _BadFilePath<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(_BadFilePath<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as String,
+    ));
+  }
+}
+
+class _$_BadFilePath<T> implements _BadFilePath<T> {
+  const _$_BadFilePath({@required this.failedValue})
+      : assert(failedValue != null);
+
+  @override
+  final String failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.badFilePath(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _BadFilePath<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @override
+  _$BadFilePathCopyWith<T, _BadFilePath<T>> get copyWith =>
+      __$BadFilePathCopyWithImpl<T, _BadFilePath<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result invalidEmail(String failedValue),
+    @required Result shortPassword(String failedValue),
+    @required Result invalidAge(int failedValue),
+    @required Result empty(),
+    @required Result badFilePath(String failedValue),
+    @required Result invalidProficiency(String failedValue),
+  }) {
+    assert(invalidEmail != null);
+    assert(shortPassword != null);
+    assert(invalidAge != null);
+    assert(empty != null);
+    assert(badFilePath != null);
+    assert(invalidProficiency != null);
+    return badFilePath(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result invalidEmail(String failedValue),
+    Result shortPassword(String failedValue),
+    Result invalidAge(int failedValue),
+    Result empty(),
+    Result badFilePath(String failedValue),
+    Result invalidProficiency(String failedValue),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (badFilePath != null) {
+      return badFilePath(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result invalidEmail(_InvalidEmail<T> value),
+    @required Result shortPassword(_ShortPassword<T> value),
+    @required Result invalidAge(_InvalidAge<T> value),
+    @required Result empty(_EmptyField<T> value),
+    @required Result badFilePath(_BadFilePath<T> value),
+    @required Result invalidProficiency(_InvalidProficiency<T> value),
+  }) {
+    assert(invalidEmail != null);
+    assert(shortPassword != null);
+    assert(invalidAge != null);
+    assert(empty != null);
+    assert(badFilePath != null);
+    assert(invalidProficiency != null);
+    return badFilePath(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result invalidEmail(_InvalidEmail<T> value),
+    Result shortPassword(_ShortPassword<T> value),
+    Result invalidAge(_InvalidAge<T> value),
+    Result empty(_EmptyField<T> value),
+    Result badFilePath(_BadFilePath<T> value),
+    Result invalidProficiency(_InvalidProficiency<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (badFilePath != null) {
+      return badFilePath(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _BadFilePath<T> implements ValueFailure<T> {
+  const factory _BadFilePath({@required String failedValue}) =
+      _$_BadFilePath<T>;
+
+  String get failedValue;
+  _$BadFilePathCopyWith<T, _BadFilePath<T>> get copyWith;
+}
+
+abstract class _$InvalidProficiencyCopyWith<T, $Res> {
+  factory _$InvalidProficiencyCopyWith(_InvalidProficiency<T> value,
+          $Res Function(_InvalidProficiency<T>) then) =
+      __$InvalidProficiencyCopyWithImpl<T, $Res>;
+  $Res call({String failedValue});
+}
+
+class __$InvalidProficiencyCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$InvalidProficiencyCopyWith<T, $Res> {
+  __$InvalidProficiencyCopyWithImpl(_InvalidProficiency<T> _value,
+      $Res Function(_InvalidProficiency<T>) _then)
+      : super(_value, (v) => _then(v as _InvalidProficiency<T>));
+
+  @override
+  _InvalidProficiency<T> get _value => super._value as _InvalidProficiency<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(_InvalidProficiency<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as String,
+    ));
+  }
+}
+
+class _$_InvalidProficiency<T> implements _InvalidProficiency<T> {
+  const _$_InvalidProficiency({@required this.failedValue})
+      : assert(failedValue != null);
+
+  @override
+  final String failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.invalidProficiency(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _InvalidProficiency<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @override
+  _$InvalidProficiencyCopyWith<T, _InvalidProficiency<T>> get copyWith =>
+      __$InvalidProficiencyCopyWithImpl<T, _InvalidProficiency<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result invalidEmail(String failedValue),
+    @required Result shortPassword(String failedValue),
+    @required Result invalidAge(int failedValue),
+    @required Result empty(),
+    @required Result badFilePath(String failedValue),
+    @required Result invalidProficiency(String failedValue),
+  }) {
+    assert(invalidEmail != null);
+    assert(shortPassword != null);
+    assert(invalidAge != null);
+    assert(empty != null);
+    assert(badFilePath != null);
+    assert(invalidProficiency != null);
+    return invalidProficiency(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result invalidEmail(String failedValue),
+    Result shortPassword(String failedValue),
+    Result invalidAge(int failedValue),
+    Result empty(),
+    Result badFilePath(String failedValue),
+    Result invalidProficiency(String failedValue),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidProficiency != null) {
+      return invalidProficiency(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result invalidEmail(_InvalidEmail<T> value),
+    @required Result shortPassword(_ShortPassword<T> value),
+    @required Result invalidAge(_InvalidAge<T> value),
+    @required Result empty(_EmptyField<T> value),
+    @required Result badFilePath(_BadFilePath<T> value),
+    @required Result invalidProficiency(_InvalidProficiency<T> value),
+  }) {
+    assert(invalidEmail != null);
+    assert(shortPassword != null);
+    assert(invalidAge != null);
+    assert(empty != null);
+    assert(badFilePath != null);
+    assert(invalidProficiency != null);
+    return invalidProficiency(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result invalidEmail(_InvalidEmail<T> value),
+    Result shortPassword(_ShortPassword<T> value),
+    Result invalidAge(_InvalidAge<T> value),
+    Result empty(_EmptyField<T> value),
+    Result badFilePath(_BadFilePath<T> value),
+    Result invalidProficiency(_InvalidProficiency<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidProficiency != null) {
+      return invalidProficiency(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InvalidProficiency<T> implements ValueFailure<T> {
+  const factory _InvalidProficiency({@required String failedValue}) =
+      _$_InvalidProficiency<T>;
+
+  String get failedValue;
+  _$InvalidProficiencyCopyWith<T, _InvalidProficiency<T>> get copyWith;
 }

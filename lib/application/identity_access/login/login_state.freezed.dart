@@ -13,11 +13,17 @@ class _$LoginStateTearOff {
   const _$LoginStateTearOff();
 
   _LoginState call(
-      {@required EmailAddress emailAddress,
-      @required Password password,
-      @required bool isSubmitting,
-      @required bool showErrorMessage,
-      @required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
+      {@required
+          EmailAddress emailAddress,
+      @required
+          Password password,
+      @required
+          bool isSubmitting,
+      @required
+          bool showErrorMessage,
+      @required
+          Option<Either<AuthenticationFailure, Unit>>
+              authFailureOrSuccessOption}) {
     return _LoginState(
       emailAddress: emailAddress,
       password: password,
@@ -36,7 +42,7 @@ mixin _$LoginState {
   Password get password;
   bool get isSubmitting;
   bool get showErrorMessage;
-  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
+  Option<Either<AuthenticationFailure, Unit>> get authFailureOrSuccessOption;
 
   $LoginStateCopyWith<LoginState> get copyWith;
 }
@@ -50,7 +56,7 @@ abstract class $LoginStateCopyWith<$Res> {
       Password password,
       bool isSubmitting,
       bool showErrorMessage,
-      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
+      Option<Either<AuthenticationFailure, Unit>> authFailureOrSuccessOption});
 }
 
 class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
@@ -80,7 +86,8 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
           : showErrorMessage as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
-          : authFailureOrSuccessOption as Option<Either<AuthFailure, Unit>>,
+          : authFailureOrSuccessOption
+              as Option<Either<AuthenticationFailure, Unit>>,
     ));
   }
 }
@@ -95,7 +102,7 @@ abstract class _$LoginStateCopyWith<$Res> implements $LoginStateCopyWith<$Res> {
       Password password,
       bool isSubmitting,
       bool showErrorMessage,
-      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
+      Option<Either<AuthenticationFailure, Unit>> authFailureOrSuccessOption});
 }
 
 class __$LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
@@ -127,7 +134,8 @@ class __$LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
           : showErrorMessage as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
-          : authFailureOrSuccessOption as Option<Either<AuthFailure, Unit>>,
+          : authFailureOrSuccessOption
+              as Option<Either<AuthenticationFailure, Unit>>,
     ));
   }
 }
@@ -154,7 +162,7 @@ class _$_LoginState implements _LoginState {
   @override
   final bool showErrorMessage;
   @override
-  final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
+  final Option<Either<AuthenticationFailure, Unit>> authFailureOrSuccessOption;
 
   @override
   String toString() {
@@ -200,17 +208,17 @@ class _$_LoginState implements _LoginState {
 
 abstract class _LoginState implements LoginState {
   const factory _LoginState(
-          {@required
-              EmailAddress emailAddress,
-          @required
-              Password password,
-          @required
-              bool isSubmitting,
-          @required
-              bool showErrorMessage,
-          @required
-              Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) =
-      _$_LoginState;
+      {@required
+          EmailAddress emailAddress,
+      @required
+          Password password,
+      @required
+          bool isSubmitting,
+      @required
+          bool showErrorMessage,
+      @required
+          Option<Either<AuthenticationFailure, Unit>>
+              authFailureOrSuccessOption}) = _$_LoginState;
 
   @override
   EmailAddress get emailAddress;
@@ -221,7 +229,7 @@ abstract class _LoginState implements LoginState {
   @override
   bool get showErrorMessage;
   @override
-  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
+  Option<Either<AuthenticationFailure, Unit>> get authFailureOrSuccessOption;
   @override
   _$LoginStateCopyWith<_LoginState> get copyWith;
 }

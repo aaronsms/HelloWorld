@@ -6,5 +6,5 @@ class Location extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  Location(this.value);
+  const Location(this.value);
 }

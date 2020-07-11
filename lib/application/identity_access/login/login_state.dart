@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:helloworld/domain/auth/auth_failure.dart';
-import 'package:helloworld/domain/auth/email_address.dart';
-import 'package:helloworld/domain/auth/password.dart';
+import 'package:helloworld/domain/identity_access/model/user/email_address.dart';
+import 'package:helloworld/domain/identity_access/model/user/password.dart';
+import 'package:helloworld/domain/identity_access/service/authentication_failure.dart';
 
 part 'login_state.freezed.dart';
 
@@ -13,7 +13,8 @@ abstract class LoginState with _$LoginState {
     @required Password password,
     @required bool isSubmitting,
     @required bool showErrorMessage,
-    @required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+    @required
+        Option<Either<AuthenticationFailure, Unit>> authFailureOrSuccessOption,
   }) = _LoginState;
 
   factory LoginState.initial() => LoginState(
@@ -21,5 +22,5 @@ abstract class LoginState with _$LoginState {
       password: Password(''),
       isSubmitting: false,
       showErrorMessage: false,
-      authFailureOrSuccessOption: None());
+      authFailureOrSuccessOption: const None());
 }

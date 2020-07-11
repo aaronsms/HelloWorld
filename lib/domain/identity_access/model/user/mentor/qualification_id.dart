@@ -1,5 +1,6 @@
 import 'package:helloworld/domain/common/identity.dart';
 
 class QualificationId extends Identity {
-  factory QualificationId.fromUuid() => Identity.fromUuid();
+  QualificationId() : super.fromUuid();
+  QualificationId.fromUniqueId(String uniqueId) : super.fromUniqueId(uniqueId);
 }
