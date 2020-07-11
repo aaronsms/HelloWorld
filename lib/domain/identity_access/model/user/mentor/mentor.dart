@@ -6,6 +6,7 @@ import 'package:helloworld/domain/identity_access/model/user/mentor/teaching_lan
 import '../biography.dart';
 import '../language_proficiency.dart';
 import '../location.dart';
+import '../name.dart';
 import '../profile_picture.dart';
 import '../speaking_language.dart';
 import '../user_id.dart';
@@ -16,8 +17,9 @@ part 'mentor.freezed.dart';
 
 @freezed
 abstract class Mentor with _$Mentor implements Entity {
-  factory Mentor({
+  factory Mentor.create({
     UserId userId,
+    Name name,
     ProfilePicture profilePicture,
     Biography bio,
     List<Location> location,
@@ -31,8 +33,9 @@ abstract class Mentor with _$Mentor implements Entity {
       teachingLanguages: teachingLanguages,
     );
 
-    return Mentor._(
+    return Mentor(
       id: MentorId(),
+      name: name,
       userId: userId,
       profilePicture: profilePicture,
       biography: bio,
@@ -41,9 +44,11 @@ abstract class Mentor with _$Mentor implements Entity {
     );
   }
 
-  const factory Mentor._({
+  // ignore: sort_unnamed_constructors_first
+  const factory Mentor({
     @required MentorId id,
     @required UserId userId,
+    @required Name name,
     @required ProfilePicture profilePicture,
     @required Biography biography,
     @required TeachingBackground languageBackground,

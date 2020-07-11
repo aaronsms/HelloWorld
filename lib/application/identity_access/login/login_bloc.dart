@@ -61,13 +61,19 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       );
       failureOrSuccess = await forwardedCall(
           emailAddress: state.emailAddress, password: state.password);
+
+      // Development Only:
+      failureOrSuccess.fold((l) => null, (r) async {
+        await Future.delayed(const Duration(milliseconds: 100));
+        Routes.sailor(Routes.homepage,
+            navigationType: NavigationType.pushReplace,
+            removeUntilPredicate: (route) => route.isFirst);
+      });
     }
     yield state.copyWith(
       isSubmitting: false,
       showErrorMessage: true,
       authFailureOrSuccessOption: optionOf(failureOrSuccess),
     );
-    // Development Only:
-    Routes.sailor(Routes.homepage, navigationType: NavigationType.pushReplace);
   }
 }
