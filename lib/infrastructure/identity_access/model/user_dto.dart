@@ -17,7 +17,7 @@ abstract class UserDto with _$UserDto {
     return UserDto(
       id: user.id.getOrCrash(),
       name: user.name.getOrCrash(),
-      email: user.name.getOrCrash(),
+      email: user.emailAddress.getOrCrash(),
       password: user.password.getOrCrash(),
     );
   }

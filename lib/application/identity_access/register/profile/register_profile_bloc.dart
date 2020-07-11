@@ -9,7 +9,9 @@ import 'package:helloworld/domain/identity_access/model/user/mentor/teaching_lan
 import 'package:helloworld/domain/identity_access/model/user/profile_picture.dart';
 import 'package:helloworld/domain/identity_access/model/user/speaking_language.dart';
 import 'package:helloworld/domain/identity_access/service/i_registration_service.dart';
+import 'package:helloworld/presentation/core/routes.dart';
 import 'package:injectable/injectable.dart';
+import 'package:sailor/sailor.dart';
 import './bloc.dart';
 
 @injectable
@@ -88,11 +90,17 @@ class RegisterProfileBloc
       final TeachingLanguage language =
           TeachingLanguage(parseLanguage(event.language));
       final currList = state.teachingLanguages;
+
       yield state.copyWith(isChangingItem: true);
       currList.removeWhere((tuple) => tuple.value1 == language);
       yield state.copyWith(isChangingItem: false);
     }, doneClicked: (event) async* {
-      _registrationService.registerUser(
+      yield state.copyWith(
+        isSubmitting: true,
+        createAccountSuccessOrFailureOption: none(),
+      );
+
+      final response = await _registrationService.registerUser(
         isMentorOrLearner: event.isMentorOrLearner,
         name: event.name,
         emailAddress: event.emailAddress,
@@ -103,6 +111,21 @@ class RegisterProfileBloc
         speakingLanguages: state.speakingLanguages,
         teachingLanguages: state.teachingLanguages,
         learningLanguages: state.learningLanguages,
+      );
+
+      yield state.copyWith(
+        isSubmitting: false,
+        createAccountSuccessOrFailureOption: optionOf(response),
+      );
+
+      // Development Only:
+      response.fold(
+        (l) => null, // ShowDialog to register again
+        (r) => Routes.sailor(
+          Routes.login,
+          navigationType: NavigationType.pushReplace,
+          removeUntilPredicate: (route) => route.isFirst,
+        ),
       );
     });
   }

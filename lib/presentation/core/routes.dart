@@ -1,11 +1,13 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:helloworld/application/schedule_requests/display_bloc.dart';
 import 'package:helloworld/application/identity_access/register/account/register_account_bloc.dart';
 import 'package:helloworld/application/identity_access/register/profile/register_profile_bloc.dart';
 import 'package:helloworld/domain/identity_access/model/user/email_address.dart';
 import 'package:helloworld/domain/identity_access/model/user/mentor/age.dart';
 import 'package:helloworld/domain/identity_access/model/user/name.dart';
 import 'package:helloworld/domain/identity_access/model/user/password.dart';
+import 'package:helloworld/infrastructure/identity_access/profile_repository.dart';
 import 'package:helloworld/presentation/homepage/landing_page.dart';
 import 'package:helloworld/presentation/login/login_page.dart';
 import 'package:helloworld/presentation/password_reset/submit_email_page.dart';
@@ -153,7 +155,11 @@ class Routes {
       SailorRoute(
         name: homepage,
         builder: (context, args, params) {
-          return LandingPage();
+          return BlocProvider(
+              create: (_) => DisplayBloc(ProfileRepository())
+                ..add(const DisplayEvent.watchAllStarted()),
+              child: LandingPage()
+          );
         },
       ),
       SailorRoute(

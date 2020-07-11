@@ -47,8 +47,9 @@ class RegistrationService implements IRegistrationService {
     final User newUser =
         User(name: name, emailAddress: emailAddress, password: password);
     if (isMentorOrLearner) {
-      final Mentor newMentor = Mentor(
+      final Mentor newMentor = Mentor.create(
         userId: newUser.id,
+        name: name,
         speakingLanguages: _listTupleToMap(speakingLanguages)
             .cast<SpeakingLanguage, LanguageProficiency>(),
         teachingLanguages: _listTupleToMap(teachingLanguages)
@@ -62,8 +63,9 @@ class RegistrationService implements IRegistrationService {
 
       return _userRepository.addMentor(user: newUser, mentor: newMentor);
     } else {
-      final Learner newLearner = Learner(
+      final Learner newLearner = Learner.create(
         userId: newUser.id,
+        name: name,
         speakingLanguages: _listTupleToMap(speakingLanguages)
             .cast<SpeakingLanguage, LanguageProficiency>(),
         learningLanguages: _listTupleToMap(learningLanguages)
