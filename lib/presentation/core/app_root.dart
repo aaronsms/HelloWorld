@@ -3,6 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:helloworld/application/identity_access/auth/auth_bloc.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/login/login_page.dart';
+import 'package:helloworld/presentation/requests/request_page.dart';
+import 'package:helloworld/presentation/profile/learner_profile.dart';
+import 'package:helloworld/presentation/profile/mentor_profile.dart';
+import 'package:helloworld/presentation/profile/widgets/review_page.dart';
+import 'package:helloworld/presentation/messenger/messenger_main.dart';
 
 import 'routes.dart';
 
