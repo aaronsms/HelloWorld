@@ -12,9 +12,10 @@ T _$identity<T>(T value) => value;
 class _$LearnerTearOff {
   const _$LearnerTearOff();
 
-  _Learner _(
+  _Learner call(
       {@required LearnerId id,
       @required UserId userId,
+      @required Name name,
       @required ProfilePicture profilePicture,
       @required Biography biography,
       @required LearningBackground languageBackground,
@@ -22,6 +23,7 @@ class _$LearnerTearOff {
     return _Learner(
       id: id,
       userId: userId,
+      name: name,
       profilePicture: profilePicture,
       biography: biography,
       languageBackground: languageBackground,
@@ -36,6 +38,7 @@ const $Learner = _$LearnerTearOff();
 mixin _$Learner {
   LearnerId get id;
   UserId get userId;
+  Name get name;
   ProfilePicture get profilePicture;
   Biography get biography;
   LearningBackground get languageBackground;
@@ -50,6 +53,7 @@ abstract class $LearnerCopyWith<$Res> {
   $Res call(
       {LearnerId id,
       UserId userId,
+      Name name,
       ProfilePicture profilePicture,
       Biography biography,
       LearningBackground languageBackground,
@@ -67,6 +71,7 @@ class _$LearnerCopyWithImpl<$Res> implements $LearnerCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object userId = freezed,
+    Object name = freezed,
     Object profilePicture = freezed,
     Object biography = freezed,
     Object languageBackground = freezed,
@@ -75,6 +80,7 @@ class _$LearnerCopyWithImpl<$Res> implements $LearnerCopyWith<$Res> {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as LearnerId,
       userId: userId == freezed ? _value.userId : userId as UserId,
+      name: name == freezed ? _value.name : name as Name,
       profilePicture: profilePicture == freezed
           ? _value.profilePicture
           : profilePicture as ProfilePicture,
@@ -96,6 +102,7 @@ abstract class _$LearnerCopyWith<$Res> implements $LearnerCopyWith<$Res> {
   $Res call(
       {LearnerId id,
       UserId userId,
+      Name name,
       ProfilePicture profilePicture,
       Biography biography,
       LearningBackground languageBackground,
@@ -114,6 +121,7 @@ class __$LearnerCopyWithImpl<$Res> extends _$LearnerCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object userId = freezed,
+    Object name = freezed,
     Object profilePicture = freezed,
     Object biography = freezed,
     Object languageBackground = freezed,
@@ -122,6 +130,7 @@ class __$LearnerCopyWithImpl<$Res> extends _$LearnerCopyWithImpl<$Res>
     return _then(_Learner(
       id: id == freezed ? _value.id : id as LearnerId,
       userId: userId == freezed ? _value.userId : userId as UserId,
+      name: name == freezed ? _value.name : name as Name,
       profilePicture: profilePicture == freezed
           ? _value.profilePicture
           : profilePicture as ProfilePicture,
@@ -140,12 +149,14 @@ class _$_Learner implements _Learner {
   const _$_Learner(
       {@required this.id,
       @required this.userId,
+      @required this.name,
       @required this.profilePicture,
       @required this.biography,
       @required this.languageBackground,
       @required this.location})
       : assert(id != null),
         assert(userId != null),
+        assert(name != null),
         assert(profilePicture != null),
         assert(biography != null),
         assert(languageBackground != null),
@@ -155,6 +166,8 @@ class _$_Learner implements _Learner {
   final LearnerId id;
   @override
   final UserId userId;
+  @override
+  final Name name;
   @override
   final ProfilePicture profilePicture;
   @override
@@ -166,7 +179,7 @@ class _$_Learner implements _Learner {
 
   @override
   String toString() {
-    return 'Learner._(id: $id, userId: $userId, profilePicture: $profilePicture, biography: $biography, languageBackground: $languageBackground, location: $location)';
+    return 'Learner(id: $id, userId: $userId, name: $name, profilePicture: $profilePicture, biography: $biography, languageBackground: $languageBackground, location: $location)';
   }
 
   @override
@@ -177,6 +190,8 @@ class _$_Learner implements _Learner {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.userId, userId) ||
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.profilePicture, profilePicture) ||
                 const DeepCollectionEquality()
                     .equals(other.profilePicture, profilePicture)) &&
@@ -196,6 +211,7 @@ class _$_Learner implements _Learner {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(profilePicture) ^
       const DeepCollectionEquality().hash(biography) ^
       const DeepCollectionEquality().hash(languageBackground) ^
@@ -210,6 +226,7 @@ abstract class _Learner implements Learner {
   const factory _Learner(
       {@required LearnerId id,
       @required UserId userId,
+      @required Name name,
       @required ProfilePicture profilePicture,
       @required Biography biography,
       @required LearningBackground languageBackground,
@@ -219,6 +236,8 @@ abstract class _Learner implements Learner {
   LearnerId get id;
   @override
   UserId get userId;
+  @override
+  Name get name;
   @override
   ProfilePicture get profilePicture;
   @override

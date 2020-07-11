@@ -10,6 +10,7 @@ _$_MentorDto _$_$_MentorDtoFromJson(Map<String, dynamic> json) {
   return _$_MentorDto(
     id: json['id'] as String,
     userId: json['userId'] as String,
+    name: json['name'] as String,
     biography: json['biography'] as String,
     profilePicture: json['profilePicture'] as String,
     locations: (json['locations'] as List)?.map((e) => e as String)?.toList(),
@@ -29,6 +30,7 @@ Map<String, dynamic> _$_$_MentorDtoToJson(_$_MentorDto instance) =>
     <String, dynamic>{
       'id': instance.id,
       'userId': instance.userId,
+      'name': instance.name,
       'biography': instance.biography,
       'profilePicture': instance.profilePicture,
       'locations': instance.locations,

@@ -5,7 +5,7 @@ import 'package:helloworld/application/identity_access/register/profile/bloc.dar
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/register/widgets/header.dart';
 import 'package:helloworld/presentation/register/widgets/language_selection_dashboard.dart';
-import 'package:helloworld/presentation/register/widgets/profile_picture.dart';
+import 'package:helloworld/presentation/register/widgets/profile_picture_avatar.dart';
 import 'package:helloworld/presentation/register/widgets/biography.dart';
 import 'package:helloworld/presentation/register/widgets/locationpreferred.dart';
 import 'package:helloworld/presentation/register/widgets/register_steps_indicator.dart';
