@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
+import 'package:helloworld/presentation/scheduling/widgets/add_time_slot.dart';
 import 'package:helloworld/presentation/scheduling/widgets/slot_picker.dart';
+import 'package:helloworld/presentation/scheduling/widgets/slot_info.dart';
+import 'package:provider/provider.dart';
+import 'package:time_range/time_range.dart';
 
 class EditTimeSlot extends StatefulWidget {
   final String range;
@@ -14,49 +18,6 @@ class EditTimeSlot extends StatefulWidget {
 }
 
 class _EditTimeSlotState extends State<EditTimeSlot> {
-  // bool isDeleted = false;
-  void _showTimePicker() {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(14.0),
-            ),
-            backgroundColor: Palette.quaternaryColor,
-            content: SizedBox(height: 180, child: SlotPicker()),
-            actions: <Widget>[
-              ButtonBar(
-                children: <Widget>[
-                  RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14.0),
-                      ),
-                      color: Palette.secondaryColor,
-                      onPressed: () {},
-                      child: const Text("CANCEL",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Martel Sans',
-                              fontWeight: FontWeight.w800))),
-                  RaisedButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14.0),
-                      ),
-                      color: Palette.secondaryColor,
-                      onPressed: () {},
-                      child: const Text("ADD",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Martel Sans',
-                              fontWeight: FontWeight.w800))),
-                ],
-              )
-            ],
-          );
-        });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -64,24 +25,18 @@ class _EditTimeSlotState extends State<EditTimeSlot> {
           ? Palette.quaternaryColor
           : Palette.secondaryColor,
       child: widget.range == "+"
-          ? Center(
-              child: InkWell(
-                  onTap: () {
-                    /** POP-UP TIME PICKER */
-                    _showTimePicker();
-                  },
-                  child: Text(widget.range,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Martel Sans',
-                          fontSize: 30,
-                          fontWeight: FontWeight.w600))))
+          ? AddTimeSlot(range: widget.range)
           : Column(children: <Widget>[
               Align(
                 alignment: Alignment.topRight,
                 child: IconButton(
                   onPressed: () {
-                    /** DELETE SLOT */
+                    /** DELETE ITEM FROM LIST */
+                    var slotInfo =
+                        Provider.of<SlotInfo>(context, listen: false);
+                    final List<String> newSlots = slotInfo.slots;
+                    slotInfo.slots.removeWhere((slot) => slot == widget.range);
+                    slotInfo.edit = newSlots;
                   },
                   icon: Icon(Icons.close),
                   color: Colors.white,
