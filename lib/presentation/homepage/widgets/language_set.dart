@@ -3,7 +3,7 @@ import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/homepage/widgets/proficiency_bar.dart';
 
 class LanguageSet extends StatelessWidget {
-  final double proficiency;
+  final String proficiency;
   final String language;
 
   const LanguageSet({
@@ -17,14 +17,14 @@ class LanguageSet extends StatelessWidget {
     return Row(children: <Widget>[
       RichText(
           text: TextSpan(
-              text: "  " + language,
+              text: "  $language",
               style: TextStyle(
                   color: Palette.primaryColor,
                   fontWeight: FontWeight.w600,
                   height: 1.4),
               children: <TextSpan>[
             TextSpan(
-                text: " (" + proficiency.toString() + "/5.0)",
+                text: "  $proficiency",
                 style: TextStyle(
                     fontFamily: 'Martel Sans',
                     fontWeight: FontWeight.w600,

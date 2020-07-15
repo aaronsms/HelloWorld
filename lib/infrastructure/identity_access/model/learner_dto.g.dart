@@ -9,6 +9,7 @@ part of 'learner_dto.dart';
 _$_LearnerDto _$_$_LearnerDtoFromJson(Map<String, dynamic> json) {
   return _$_LearnerDto(
     id: json['id'] as String,
+    name: json['name'] as String,
     userId: json['userId'] as String,
     profilePicture: json['profilePicture'] as String,
     biography: json['biography'] as String,
@@ -25,6 +26,7 @@ _$_LearnerDto _$_$_LearnerDtoFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$_$_LearnerDtoToJson(_$_LearnerDto instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'name': instance.name,
       'userId': instance.userId,
       'profilePicture': instance.profilePicture,
       'biography': instance.biography,

@@ -6,7 +6,7 @@ class MentorDisplay extends StatelessWidget {
   final String name;
   final double rates;
   final int active;
-  final Image display;
+  final ImageProvider display;
   final double distance;
   final List<LanguageSet> common;
   final List<LanguageSet> teaching;
@@ -30,7 +30,9 @@ class MentorDisplay extends StatelessWidget {
         margin: const EdgeInsets.all(0.0),
         child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
           ListTile(
-              onTap: () {/** NAVIGATES TO USER'S PROFILE */},
+              onTap: () {
+                /** NAVIGATES TO USER'S PROFILE */
+              },
               leading: Container(
                 width: 50,
                 height: 50,
@@ -41,8 +43,8 @@ class MentorDisplay extends StatelessWidget {
                     width: 3.0,
                   ),
                 ),
-                child: const CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/avatar.png'),
+                child: CircleAvatar(
+                  backgroundImage: display,
                 ),
               ),
               title: Text(name,
@@ -67,10 +69,10 @@ class MentorDisplay extends StatelessWidget {
                           Icons.location_on,
                           color: Palette.primaryColor,
                         ),
-                        Text(
-                            '${distance}km from your preferred location',
+                        Text('${distance}km from your preferred location',
                             style: TextStyle(
                                 color: Palette.primaryColor,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w700,
                                 fontFamily: 'Martel Sans'))
                       ],
@@ -99,21 +101,28 @@ class MentorDisplay extends StatelessWidget {
                       ),
                     ]),
                     Column(children: common),
-                    RichText(
-                        text: TextSpan(
-                      text: 'RATES',
-                      style: TextStyle(
-                          color: Palette.secondaryColor,
-                          fontWeight: FontWeight.w600),
-                    )),
-                    Text('  ' + rates.toString() + 'SGD/HR',
-                        style: TextStyle(
-                          color: Palette.primaryColor,
-                          fontWeight: FontWeight.w800,
-                        )),
                     Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
+                          RichText(
+                            text: TextSpan(
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text: 'RATES',
+                                  style: TextStyle(
+                                      color: Palette.secondaryColor,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                TextSpan(
+                                  text: ' ${rates}SGD/HR',
+                                  style: TextStyle(
+                                    color: Palette.primaryColor,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                           RaisedButton(
                             color: Palette.secondaryColor,
                             shape: RoundedRectangleBorder(

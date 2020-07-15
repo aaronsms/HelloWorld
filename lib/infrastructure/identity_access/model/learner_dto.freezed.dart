@@ -16,15 +16,17 @@ class _$LearnerDtoTearOff {
   const _$LearnerDtoTearOff();
 
   _LearnerDto call(
-      {String id,
-      String userId,
+      {@required String id,
+      @required String name,
+      @required String userId,
       String profilePicture,
       String biography,
-      List<String> locations,
-      Map<String, String> learningLanguages,
-      Map<String, String> speakingLanguages}) {
+      @required List<String> locations,
+      @required Map<String, String> learningLanguages,
+      @required Map<String, String> speakingLanguages}) {
     return _LearnerDto(
       id: id,
+      name: name,
       userId: userId,
       profilePicture: profilePicture,
       biography: biography,
@@ -40,6 +42,7 @@ const $LearnerDto = _$LearnerDtoTearOff();
 
 mixin _$LearnerDto {
   String get id;
+  String get name;
   String get userId;
   String get profilePicture;
   String get biography;
@@ -57,6 +60,7 @@ abstract class $LearnerDtoCopyWith<$Res> {
       _$LearnerDtoCopyWithImpl<$Res>;
   $Res call(
       {String id,
+      String name,
       String userId,
       String profilePicture,
       String biography,
@@ -75,6 +79,7 @@ class _$LearnerDtoCopyWithImpl<$Res> implements $LearnerDtoCopyWith<$Res> {
   @override
   $Res call({
     Object id = freezed,
+    Object name = freezed,
     Object userId = freezed,
     Object profilePicture = freezed,
     Object biography = freezed,
@@ -84,6 +89,7 @@ class _$LearnerDtoCopyWithImpl<$Res> implements $LearnerDtoCopyWith<$Res> {
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
+      name: name == freezed ? _value.name : name as String,
       userId: userId == freezed ? _value.userId : userId as String,
       profilePicture: profilePicture == freezed
           ? _value.profilePicture
@@ -108,6 +114,7 @@ abstract class _$LearnerDtoCopyWith<$Res> implements $LearnerDtoCopyWith<$Res> {
   @override
   $Res call(
       {String id,
+      String name,
       String userId,
       String profilePicture,
       String biography,
@@ -128,6 +135,7 @@ class __$LearnerDtoCopyWithImpl<$Res> extends _$LearnerDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object id = freezed,
+    Object name = freezed,
     Object userId = freezed,
     Object profilePicture = freezed,
     Object biography = freezed,
@@ -137,6 +145,7 @@ class __$LearnerDtoCopyWithImpl<$Res> extends _$LearnerDtoCopyWithImpl<$Res>
   }) {
     return _then(_LearnerDto(
       id: id == freezed ? _value.id : id as String,
+      name: name == freezed ? _value.name : name as String,
       userId: userId == freezed ? _value.userId : userId as String,
       profilePicture: profilePicture == freezed
           ? _value.profilePicture
@@ -155,21 +164,31 @@ class __$LearnerDtoCopyWithImpl<$Res> extends _$LearnerDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-class _$_LearnerDto implements _LearnerDto {
+class _$_LearnerDto extends _LearnerDto {
   const _$_LearnerDto(
-      {this.id,
-      this.userId,
+      {@required this.id,
+      @required this.name,
+      @required this.userId,
       this.profilePicture,
       this.biography,
-      this.locations,
-      this.learningLanguages,
-      this.speakingLanguages});
+      @required this.locations,
+      @required this.learningLanguages,
+      @required this.speakingLanguages})
+      : assert(id != null),
+        assert(name != null),
+        assert(userId != null),
+        assert(locations != null),
+        assert(learningLanguages != null),
+        assert(speakingLanguages != null),
+        super._();
 
   factory _$_LearnerDto.fromJson(Map<String, dynamic> json) =>
       _$_$_LearnerDtoFromJson(json);
 
   @override
   final String id;
+  @override
+  final String name;
   @override
   final String userId;
   @override
@@ -185,7 +204,7 @@ class _$_LearnerDto implements _LearnerDto {
 
   @override
   String toString() {
-    return 'LearnerDto(id: $id, userId: $userId, profilePicture: $profilePicture, biography: $biography, locations: $locations, learningLanguages: $learningLanguages, speakingLanguages: $speakingLanguages)';
+    return 'LearnerDto(id: $id, name: $name, userId: $userId, profilePicture: $profilePicture, biography: $biography, locations: $locations, learningLanguages: $learningLanguages, speakingLanguages: $speakingLanguages)';
   }
 
   @override
@@ -194,6 +213,8 @@ class _$_LearnerDto implements _LearnerDto {
         (other is _LearnerDto &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.userId, userId) ||
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
             (identical(other.profilePicture, profilePicture) ||
@@ -217,6 +238,7 @@ class _$_LearnerDto implements _LearnerDto {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(userId) ^
       const DeepCollectionEquality().hash(profilePicture) ^
       const DeepCollectionEquality().hash(biography) ^
@@ -234,21 +256,25 @@ class _$_LearnerDto implements _LearnerDto {
   }
 }
 
-abstract class _LearnerDto implements LearnerDto {
+abstract class _LearnerDto extends LearnerDto {
+  const _LearnerDto._() : super._();
   const factory _LearnerDto(
-      {String id,
-      String userId,
+      {@required String id,
+      @required String name,
+      @required String userId,
       String profilePicture,
       String biography,
-      List<String> locations,
-      Map<String, String> learningLanguages,
-      Map<String, String> speakingLanguages}) = _$_LearnerDto;
+      @required List<String> locations,
+      @required Map<String, String> learningLanguages,
+      @required Map<String, String> speakingLanguages}) = _$_LearnerDto;
 
   factory _LearnerDto.fromJson(Map<String, dynamic> json) =
       _$_LearnerDto.fromJson;
 
   @override
   String get id;
+  @override
+  String get name;
   @override
   String get userId;
   @override

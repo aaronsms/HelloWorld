@@ -34,6 +34,7 @@ class LearnerReceivedPreview extends StatelessWidget {
                 ),
               ),
               title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(name,
                       style: TextStyle(

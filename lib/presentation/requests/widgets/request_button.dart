@@ -12,7 +12,7 @@ class _RequestButtonState extends State<RequestButton> {
   bool isDisabled = false;
 
   void showAlertDialog(BuildContext context) {
-    AlertDialog alert = AlertDialog(
+    final alert = AlertDialog(
       backgroundColor: Palette.secondaryColor,
       content: Text(
           (_outcome == "ACCEPT")

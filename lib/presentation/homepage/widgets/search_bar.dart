@@ -12,19 +12,19 @@ class SearchBar extends StatefulWidget {
 class _SearchBarState extends State<SearchBar> {
   final _search = TextEditingController();
 
-  createFilterAlertDialog(BuildContext context) {
-    return showDialog(
-        context: context,
-        builder: (context) {
-          return SingleChildScrollView(
-              child: customDialog.AlertDialog(
+  Future<void> createFilterAlertDialog(BuildContext context) async {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return SingleChildScrollView(
+          child: customDialog.AlertDialog(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(14.0),
             ),
             backgroundColor: Palette.secondaryColor,
-            title: Text(""),
+            title: const Text(""),
             content: SearchProfileFilters(),
-            contentPadding: EdgeInsets.all(0),
+            contentPadding: const EdgeInsets.all(0),
             actions: <Widget>[
               ButtonBar(
                 children: <Widget>[
@@ -61,12 +61,14 @@ class _SearchBarState extends State<SearchBar> {
                           fontSize: 16,
                           fontWeight: FontWeight.w900),
                     ),
-                  )
+                  ),
                 ],
               )
             ],
-          ));
-        });
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -74,53 +76,49 @@ class _SearchBarState extends State<SearchBar> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: SizedBox(
-          width: double.infinity,
-          height: 50,
-          child: TextFormField(
-            onTap: () {
-              createFilterAlertDialog(context);
-            },
-            style: TextStyle(
-                color: Palette.secondaryColor,
+        width: double.infinity,
+        height: 50,
+        child: TextFormField(
+          onTap: () {
+            createFilterAlertDialog(context);
+          },
+          style: TextStyle(
+              color: Palette.secondaryColor,
+              fontFamily: 'Martel Sans',
+              fontWeight: FontWeight.w800),
+          controller: _search,
+          cursorColor: Palette.secondaryColor,
+          decoration: InputDecoration(
+            hintText: "Input user's name or filter by user profile...",
+            hintStyle: TextStyle(
+                fontStyle: FontStyle.italic,
                 fontFamily: 'Martel Sans',
-                fontWeight: FontWeight.w800),
-            controller: _search,
-            cursorColor: Palette.secondaryColor,
-            decoration: InputDecoration(
-                hintText:
-                    "Input user's name or filter by user profile...",
-                hintStyle: TextStyle(
-                    fontStyle: FontStyle.italic,
-                    fontFamily: 'Martel Sans',
-                    fontSize: 11,
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w700),
-                contentPadding: EdgeInsets.all(10),
-                filled: true,
-                fillColor: Colors.white,
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: const BorderRadius.all(
-                        const Radius.circular(15.0)),
-                    borderSide: BorderSide(
-                        color: Palette.secondaryColor, width: 2)),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius:
-                      const BorderRadius.all(const Radius.circular(15.0)),
-                  borderSide: BorderSide(
-                      color: Colors.white,
-                      style: BorderStyle.solid,
-                      width: 0),
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(
-                    const Radius.circular(15.0),
-                  ),
-                ),
-                suffixIcon: Icon(
-                  Icons.search,
-                  color: Palette.secondaryColor,
-                )),
-          )),
+                fontSize: 11,
+                color: Colors.grey,
+                fontWeight: FontWeight.w700),
+            contentPadding: EdgeInsets.all(10),
+            filled: true,
+            fillColor: Colors.white,
+            focusedBorder: OutlineInputBorder(
+                borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+                borderSide:
+                    BorderSide(color: Palette.secondaryColor, width: 2)),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+              borderSide: BorderSide(color: Colors.white, width: 0),
+            ),
+            border: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(15.0),
+              ),
+            ),
+            suffixIcon: Icon(
+              Icons.search,
+              color: Palette.secondaryColor,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

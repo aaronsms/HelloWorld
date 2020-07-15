@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
-import 'package:helloworld/presentation/homepage/widgets/proficiency_bar.dart';
 import 'package:helloworld/presentation/homepage/widgets/language_set.dart';
 
 class LearnerDisplay extends StatelessWidget {
@@ -9,7 +8,7 @@ class LearnerDisplay extends StatelessWidget {
   final double distance;
   final List<LanguageSet> common;
   final List<LanguageSet> learning;
-  final Image display;
+  final ImageProvider display;
 
   const LearnerDisplay({
     Key key,
@@ -25,21 +24,25 @@ class LearnerDisplay extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         color: Colors.white,
+        elevation: 0.0,
+        margin: const EdgeInsets.all(0.0),
         child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
           ListTile(
-              onTap: () {/** NAVIGATES TO USER'S PROFILE */},
+              onTap: () {
+                /** NAVIGATES TO USER'S PROFILE */
+              },
               leading: Container(
                 width: 50,
                 height: 50,
-                child: CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/avatar.png'),
-                ),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: Palette.primaryColor,
                     width: 3.0,
                   ),
+                ),
+                child: CircleAvatar(
+                  backgroundImage: display,
                 ),
               ),
               title: Text(name,
@@ -69,6 +72,7 @@ class LearnerDisplay extends StatelessWidget {
                                 "km from your preferred location",
                             style: TextStyle(
                                 color: Palette.primaryColor,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w700,
                                 fontFamily: 'Martel Sans'))
                       ],
