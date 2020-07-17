@@ -1,28 +1,51 @@
+import 'package:tuple/tuple.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:time_range/time_range.dart';
 
 class SlotInfo with ChangeNotifier {
-  List<String> _slots = [
-    "08:00 - 09:00",
-    "09:00 - 09:30",
-    "10:00 - 11:00",
-    "13:00 - 14:00",
-    "14:00 - 14:30",
-    "20:00 - 20:30",
-    "20:30 - 21:00",
-    "21:00 - 21:30",
-    "+"
+  // List<Tuple2<TimeOfDay, TimeOfDay>> _slots = [
+  //   const Tuple2<TimeOfDay, TimeOfDay>(
+  //       TimeOfDay(hour: 8, minute: 00), TimeOfDay(hour: 9, minute: 00)),
+  //   const Tuple2<TimeOfDay, TimeOfDay>(
+  //       TimeOfDay(hour: 9, minute: 00), TimeOfDay(hour: 9, minute: 30)),
+  //   const Tuple2<TimeOfDay, TimeOfDay>(
+  //       TimeOfDay(hour: 10, minute: 00), TimeOfDay(hour: 11, minute: 00)),
+  //   const Tuple2<TimeOfDay, TimeOfDay>(
+  //       TimeOfDay(hour: 13, minute: 00), TimeOfDay(hour: 14, minute: 00)),
+  //   const Tuple2<TimeOfDay, TimeOfDay>(
+  //       TimeOfDay(hour: 14, minute: 00), TimeOfDay(hour: 14, minute: 30)),
+  //   const Tuple2<TimeOfDay, TimeOfDay>(
+  //       TimeOfDay(hour: 20, minute: 00), TimeOfDay(hour: 20, minute: 30)),
+  //   const Tuple2<TimeOfDay, TimeOfDay>(
+  //       TimeOfDay(hour: 21, minute: 00), TimeOfDay(hour: 21, minute: 30)),
+  // ];
+
+  List<TimeRangeResult> _slots = [
+    TimeRangeResult(const TimeOfDay(hour: 8, minute: 00),
+        const TimeOfDay(hour: 9, minute: 00)),
+    TimeRangeResult(const TimeOfDay(hour: 9, minute: 00),
+        const TimeOfDay(hour: 9, minute: 30)),
+    TimeRangeResult(const TimeOfDay(hour: 10, minute: 00),
+        const TimeOfDay(hour: 11, minute: 00)),
+    TimeRangeResult(const TimeOfDay(hour: 13, minute: 00),
+        const TimeOfDay(hour: 14, minute: 00)),
+    TimeRangeResult(const TimeOfDay(hour: 14, minute: 00),
+        const TimeOfDay(hour: 14, minute: 30)),
+    TimeRangeResult(const TimeOfDay(hour: 20, minute: 00),
+        const TimeOfDay(hour: 20, minute: 30)),
+    TimeRangeResult(const TimeOfDay(hour: 21, minute: 00),
+        const TimeOfDay(hour: 21, minute: 30)),
   ];
 
-  TimeRangeResult _slot = TimeRangeResult(
-      TimeOfDay(hour: 8, minute: 00), TimeOfDay(hour: 8, minute: 30));
+  TimeRangeResult _slot = TimeRangeResult(const TimeOfDay(hour: 8, minute: 00),
+      const TimeOfDay(hour: 8, minute: 30));
 
-  List<String> get slots => _slots;
+  List<TimeRangeResult> get slots => _slots;
   TimeRangeResult get slot => _slot;
 
   // ignore: avoid_setters_without_getters
-  set edit(List<String> newSlots) {
+  set edit(List<TimeRangeResult> newSlots) {
     _slots = newSlots;
     notifyListeners();
   }

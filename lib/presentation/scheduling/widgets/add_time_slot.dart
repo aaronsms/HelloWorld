@@ -17,6 +17,18 @@ class AddTimeSlot extends StatefulWidget {
 }
 
 class _AddTimeSlotState extends State<AddTimeSlot> {
+  /// Returns true if firstTiming is before secondTiming */
+  bool isBefore(TimeOfDay firstTiming, TimeOfDay secondTiming) {
+    return firstTiming.hour < secondTiming.hour ||
+        (firstTiming.hour == secondTiming.hour &&
+            firstTiming.minute < secondTiming.minute);
+  }
+
+  bool isEqual(TimeOfDay firstTiming, TimeOfDay secondTiming) {
+    return firstTiming.hour == secondTiming.hour &&
+        firstTiming.minute == secondTiming.minute;
+  }
+
   void _showTimePicker() {
     showDialog(
         context: context,
@@ -52,14 +64,26 @@ class _AddTimeSlotState extends State<AddTimeSlot> {
                       color: Palette.secondaryColor,
                       onPressed: () {
                         /** ADD TO LIST */
-                        final String stringifiedSlot =
-                            "${slotInfo.slot.start.hhmm()} - ${slotInfo.slot.end.hhmm()}";
-                        final List<String> newSlots = slotInfo.slots;
-                        if (!newSlots.contains(stringifiedSlot)) {
-                          newSlots.removeWhere((slot) => slot == "+");
-                          newSlots.add(stringifiedSlot);
-                          newSlots.add("+");
+                        final TimeRangeResult addSlot = slotInfo.slot;
+                        final List<TimeRangeResult> newSlots = slotInfo.slots;
+                        final int length = slotInfo.slots.length;
+                        int counter = 0;
+                        for (int index = 0; index < length; index++) {
+                          final TimeRangeResult existingSlot =
+                              slotInfo.slots[index];
+                          if (isBefore(addSlot.start, existingSlot.start) &&
+                              isBefore(addSlot.end, existingSlot.start)) {
+                            counter++;
+                          } else if (isBefore(
+                              existingSlot.end, addSlot.start)) {
+                            counter++;
+                          }
                         }
+
+                        if (counter == length) {
+                          newSlots.add(addSlot);
+                        }
+
                         slotInfo.edit = newSlots;
                         Navigator.pop(context);
                       },

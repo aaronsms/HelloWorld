@@ -15,7 +15,7 @@ class _SlotPickerState extends State<SlotPicker> {
   @override
   Widget build(BuildContext context) {
     var slotInfo = Provider.of<SlotInfo>(context);
-    // print("${timeRange.end.hhmm()}");
+
     return Scaffold(
       backgroundColor: Palette.quaternaryColor,
       body: Column(
@@ -57,12 +57,8 @@ class _SlotPickerState extends State<SlotPicker> {
             initialRange: timeRange,
             timeStep: 30,
             timeBlock: 30,
-            onRangeCompleted: (range) => setState(() => {
-                  timeRange = range,
-                  slotInfo.change = range
-                  // if (timeRange != null)
-                  //   slotInfo.change = "${timeRange.end.hhmm()}"
-                }),
+            onRangeCompleted: (range) =>
+                setState(() => {timeRange = range, slotInfo.change = range}),
           ),
         ],
       ),
