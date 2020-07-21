@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/domain/identity_access/model/user/learner/learner.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/profile/widgets/profile_form.dart';
 import 'package:helloworld/presentation/profile/widgets/language_set.dart';
@@ -9,30 +10,33 @@ import 'package:helloworld/presentation/profile/widgets/biography.dart';
 import 'package:helloworld/presentation/profile/widgets/user_menu.dart';
 
 class LearnerProfile extends StatelessWidget {
+  final Learner learner;
+
+  const LearnerProfile({Key key, this.learner}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Palette.backgroundColor,
         body: SingleChildScrollView(
             child: Column(children: <Widget>[
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: <
+              Widget>[
+            IconButton(
+                icon: Icon(Icons.keyboard_arrow_left,
+                    color: Palette.primaryColor),
+                onPressed: () {}),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                IconButton(
-                    icon: Icon(Icons.keyboard_arrow_left,
-                        color: Palette.primaryColor),
-                    onPressed: () {}),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    GestureDetector(
-                        onTap: () {},
-                        child: const Image(
-                            image: AssetImage('assets/images/message.png'))),
-                    UserMenu()
-                  ],
-                )
-              ]),
+                GestureDetector(
+                    onTap: () {},
+                    child: const Image(
+                        image: AssetImage('assets/images/messenger_logo.png'))),
+                UserMenu()
+              ],
+            )
+          ]),
           Padding(
               padding: const EdgeInsets.only(top: 10),
               child: Container(

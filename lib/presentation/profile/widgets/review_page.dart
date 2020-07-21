@@ -14,7 +14,9 @@ class ReviewPage extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   child: IconButton(
                     icon: Icon(Icons.keyboard_arrow_left),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     color: Palette.primaryColor,
                   )),
               Row(

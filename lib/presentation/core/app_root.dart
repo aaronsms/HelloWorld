@@ -14,7 +14,7 @@ class AppRoot extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
       title: 'HelloWorld!<>',
-      home: ReviewPage(),
+      home: LearnerProfile(),
       theme: ThemeData(
         primaryColor: Palette.primaryColor,
         accentColor: Palette.secondaryColor,
