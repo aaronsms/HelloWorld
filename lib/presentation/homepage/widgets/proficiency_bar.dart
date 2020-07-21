@@ -13,7 +13,7 @@ class ProficiencyBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.only(left: 10, top: 10),
+        padding: EdgeInsets.only(left: 5),
         child: RatingBar(
           initialRating: rating,
           minRating: 1,

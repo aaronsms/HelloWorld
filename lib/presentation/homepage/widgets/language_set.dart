@@ -17,21 +17,13 @@ class LanguageSet extends StatelessWidget {
     return Row(children: <Widget>[
       RichText(
           text: TextSpan(
-              text: "  " + language,
-              style: TextStyle(
-                  color: Palette.primaryColor,
-                  fontWeight: FontWeight.w600,
-                  height: 1.4),
-              children: <TextSpan>[
-            TextSpan(
-                text: " (" + proficiency.toString() + "/5.0)",
-                style: TextStyle(
-                    fontFamily: 'Martel Sans',
-                    fontWeight: FontWeight.w600,
-                    height: 1.3,
-                    color: Palette.quaternaryColor))
-          ])),
-      // ProficiencyBar(rating: proficiency),
+        text: "  " + language,
+        style: TextStyle(
+            color: Palette.primaryColor,
+            fontWeight: FontWeight.w600,
+            height: 1.4),
+      )),
+      ProficiencyBar(rating: proficiency),
     ]);
   }
 }
