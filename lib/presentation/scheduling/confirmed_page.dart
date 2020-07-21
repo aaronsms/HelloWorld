@@ -34,9 +34,10 @@ class ConfirmedPage extends StatelessWidget {
                           fontFamily: 'Martel Sans',
                           fontWeight: FontWeight.w900,
                           fontSize: 16))),
+              /** DATE NOT DONE */
               const ConfirmationCard(
-                  date: "Tuesday, 2 May 2020",
-                  slots: ["08:00 - 08:30", "09:00 - 09:30", "14:00 - 15:00"]),
+                date: "Tuesday, 2 May 2020",
+              ),
               Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.only(top: 5, left: 10),

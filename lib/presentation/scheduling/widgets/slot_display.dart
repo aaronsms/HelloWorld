@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/presentation/scheduling/widgets/slot_info.dart';
+import 'package:provider/provider.dart';
+import 'package:time_range/time_range.dart';
+import 'package:tuple/tuple.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/scheduling/widgets/time_slot.dart';
 
 class SlotDisplay extends StatelessWidget {
-  final List<List<String>>
-      slots; //[["08:00 - 09:00", "STATUS"], "09:00 - 09:30"]
-  const SlotDisplay({
-    Key key,
-    @required this.slots,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    var slotInfo = Provider.of<SlotInfo>(context);
     return Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
       Expanded(
           child: Card(
@@ -21,9 +19,10 @@ class SlotDisplay extends StatelessWidget {
                   mainAxisSpacing: 3.0,
                   crossAxisSpacing: 3.0,
                   crossAxisCount: 4,
-                  children: List.generate(slots.length, (index) {
-                    return TimeSlot(
-                        range: slots[index][0], status: slots[index][1]);
+                  children: List.generate(slotInfo.display.length, (index) {
+                    Tuple2<TimeRangeResult, String> slot =
+                        slotInfo.display[index];
+                    return TimeSlot(range: slot.item1, status: slot.item2);
                   }))))
     ]);
   }

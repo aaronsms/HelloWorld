@@ -24,7 +24,7 @@ class AppRoot extends StatelessWidget {
           debugShowCheckedModeBanner: false,
 //      debugShowMaterialGrid: true,
           title: 'HelloWorld!<>',
-          home: EditSchedulePage(),
+          home: SchedulePage(),
           theme: ThemeData(
             primaryColor: Palette.primaryColor,
             accentColor: Palette.secondaryColor,

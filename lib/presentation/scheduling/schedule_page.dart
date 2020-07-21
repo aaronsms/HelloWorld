@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
+import 'package:helloworld/presentation/scheduling/confirmation_page.dart';
 import 'package:intl/intl.dart';
 import 'package:helloworld/presentation/scheduling/widgets/slot_display.dart';
 import 'package:helloworld/presentation/scheduling/widgets/legend_view.dart';
-import 'package:helloworld/presentation/scheduling/widgets/slot_picker.dart';
 
 class SchedulePage extends StatefulWidget {
   @override
@@ -53,7 +53,7 @@ class _SchedulePageState extends State<SchedulePage> {
                     color: Palette.primaryColor,
                   )),
               Container(
-                  padding: EdgeInsets.only(bottom: 20),
+                  padding: const EdgeInsets.only(bottom: 20),
                   child: Text(
                     "Schedule",
                     style: TextStyle(
@@ -107,31 +107,31 @@ class _SchedulePageState extends State<SchedulePage> {
                             fontWeight: FontWeight.w900),
                       )),
                   LegendView(),
-                  const Expanded(
-                      child: SlotDisplay(
-                    slots: [
-                      ["08:00 - 09:00", "AVAILABLE"],
-                      ["10:00 - 10:30", "AVAILABLE"],
-                      ["11:00 - 11:30", "PENDING"],
-                      ["12:30 - 13:30", "AVAILABLE"],
-                      ["14:00 - 14:30", "PENDING"],
-                      ["15:00 - 16:30", "UNAVAILABLE"],
-                      ["17:00 - 18:30", "AVAILABLE"],
-                    ],
-                  )),
-                  RaisedButton(
-                    color: Palette.primaryColor,
-                    onPressed: () {},
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14.0),
+                  Expanded(child: SlotDisplay()),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 15),
+                    child: RaisedButton(
+                      padding: const EdgeInsets.only(
+                          top: 5, bottom: 5, left: 10, right: 10),
+                      color: Palette.primaryColor,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ConfirmationPage()),
+                        );
+                      },
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14.0),
+                      ),
+                      child: const Text('Book Slots',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Martel Sans',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w900)),
                     ),
-                    child: const Text('Book Slots',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Martel Sans',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w900)),
-                  ),
+                  )
                 ],
               )),
             ]));
