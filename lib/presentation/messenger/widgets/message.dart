@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 
-class Message extends StatelessWidget {
-  final String sender;
-  final int id;
-  final Image senderImage;
-  final String time;
+class MessageUi extends StatelessWidget {
+  final String otherUser;
+  final DateTime time;
   final String text;
   final bool unread;
 
-  const Message({
+  const MessageUi({
     Key key,
-    @required this.sender,
-    this.senderImage,
-    @required this.id,
+    @required this.otherUser,
     @required this.time,
     @required this.text,
     @required this.unread,
   }) : super(key: key);
+
+  String _toHoursMinutes(DateTime dateTime) {
+    String _twoDigits(int x) {
+      return x <= 9 ? '0$x' : x.toString();
+    }
+    return '${_twoDigits(dateTime.hour)}:${_twoDigits(dateTime.minute)}';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +52,7 @@ class Message extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(sender,
+                    Text(otherUser,
                         style: TextStyle(
                             color: Palette.primaryColor,
                             fontWeight: FontWeight.w900,
@@ -86,7 +89,7 @@ class Message extends StatelessWidget {
                             fontFamily: 'Martel Sans',
                             fontSize: 14))),
               SizedBox(height: unread ? 10.0 : 33.0),
-              Text(time,
+              Text(_toHoursMinutes(time),
                   style: TextStyle(
                       color: Colors.grey,
                       fontWeight: FontWeight.w600,

@@ -1,48 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:helloworld/application/messenger/message_bloc.dart';
+import 'package:helloworld/domain/identity_access/model/user/user_id.dart';
+import 'package:helloworld/domain/messenger/message.dart';
+import 'package:helloworld/domain/messenger/receiver.dart';
+import 'package:helloworld/domain/messenger/sender.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/messenger/widgets/message.dart';
+import 'package:helloworld/presentation/messenger/widgets/recent_chat.dart';
+import 'package:provider/provider.dart';
 
-class ChatScreen extends StatefulWidget {
-  final String sender;
-  const ChatScreen({Key key, @required this.sender}) : super(key: key);
+// ignore: must_be_immutable
+class ChatScreen extends StatelessWidget {
+  final String otherUser;
+  final UserId otherUserId;
 
-  @override
-  _ChatScreenState createState() => _ChatScreenState();
-}
+  const ChatScreen({Key key, this.otherUser, this.otherUserId})
+      : super(key: key);
 
-class _ChatScreenState extends State<ChatScreen> {
-  List<Message> messages = [
-    const Message(
-        id: 0,
-        sender: "Admin",
-        time: "12:43",
-        text:
-            "Which location is convenient for you to meet-up this coming Monday?",
-        unread: false),
-    const Message(
-        id: 0,
-        sender: "Admin",
-        time: "12:42",
-        text: "Muy bien, gracias. ¿Y tú?",
-        unread: false),
-    const Message(
-        id: 1,
-        sender: "Chelsea",
-        time: "12:40",
-        text: "Hola, cómo estás?",
-        unread: false),
-  ];
+  Container _buildMessage(MessageUi message, bool isAdmin) {
+    String _toHoursMinutes(DateTime dateTime) {
+      String _twoDigits(int x) {
+        return x <= 9 ? '0$x' : x.toString();
+      }
+      return '${_twoDigits(dateTime.hour)}:${_twoDigits(dateTime.minute)}';
+    }
 
-  Container _buildMessage(Message message, bool isAdmin) {
     return Container(
         decoration: BoxDecoration(
           borderRadius: isAdmin
               ? const BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  bottomLeft: Radius.circular(20.0))
+              topLeft: Radius.circular(20),
+              bottomLeft: Radius.circular(20.0))
               : const BorderRadius.only(
-                  topRight: Radius.circular(20),
-                  bottomRight: Radius.circular(20.0)),
+              topRight: Radius.circular(20),
+              bottomRight: Radius.circular(20.0)),
           color: isAdmin ? Palette.secondaryColor : Palette.primaryColor,
         ),
         margin: isAdmin
@@ -52,7 +44,7 @@ class _ChatScreenState extends State<ChatScreen> {
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(message.time,
+              Text(_toHoursMinutes(message.time),
                   style: TextStyle(
                       fontFamily: 'Martel Sans',
                       fontSize: 15.0,
@@ -68,7 +60,164 @@ class _ChatScreenState extends State<ChatScreen> {
             ]));
   }
 
-  Container _buildMessageComposer() {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.keyboard_arrow_left),
+          iconSize: 30.0,
+          color: Palette.primaryColor,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Center(
+            child: Text(otherUser,
+                style: TextStyle(
+                    fontFamily: 'Martel Sans',
+                    fontSize: 28.0,
+                    color: Palette.primaryColor,
+                    fontWeight: FontWeight.w900))),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.more_horiz),
+            iconSize: 30.0,
+            color: Palette.primaryColor,
+            onPressed: () {},
+          ),
+        ],
+      ),
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: BlocBuilder<MessageBloc, MessageState>(
+          builder: (_, state) =>
+              state.maybeMap(
+                loaded: (state) => Column(
+                      children: <Widget>[
+                        Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Palette.backgroundColor,
+                                  borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(40.0),
+                                      topRight: Radius.circular(40.0))),
+                              child: ClipRRect(
+                                  borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(40.0),
+                                      topRight: Radius.circular(40.0)),
+                                  child: ListView.builder(
+                                    reverse: true,
+                                    padding: const EdgeInsets.only(top: 30.0),
+                                    itemCount: state.messages.length,
+                                    itemBuilder: (_, index) {
+                                      bool _userIsSenderOrReceiver(
+                                          Message message) {
+                                        return message.sender.id.getOrCrash() ==
+                                            RecentChat.userId;
+                                      }
+
+                                      final userIsSenderOrReceiver =
+                                      _userIsSenderOrReceiver(
+                                          state.messages[index]);
+                                      final MessageUi message = MessageUi(
+                                        otherUser: userIsSenderOrReceiver
+                                            ? state.messages[index].receiver
+                                            .name
+                                            .getOrCrash()
+                                            : state.messages[index].sender.name
+                                            .getOrCrash(),
+                                        text: state.messages[index].content
+                                            .getOrCrash(),
+                                        unread: state.messages[index].read
+                                            .getOrCrash(),
+                                        time: state.messages[index].time
+                                            .getOrCrash(),
+                                      );
+                                      return _buildMessage(
+                                          message, userIsSenderOrReceiver);
+                                    },
+                                  )),
+                            )),
+                        Provider(
+                          create: (_) => ValueNotifier<String>(''),
+                          child: MessageComposer(otherUserId: otherUserId),
+                        )
+                      ],
+                    ),
+                loading: (state) => Column(
+                  children: <Widget>[
+                    Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Palette.backgroundColor,
+                              borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(40.0),
+                                  topRight: Radius.circular(40.0))),
+                          child: ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(40.0),
+                                  topRight: Radius.circular(40.0)),
+                              child: ListView.builder(
+                                reverse: true,
+                                padding: const EdgeInsets.only(top: 30.0),
+                                itemCount: state.messages.length,
+                                itemBuilder: (_, index) {
+                                  bool _userIsSenderOrReceiver(
+                                      Message message) {
+                                    return message.sender.id.getOrCrash() ==
+                                        RecentChat.userId;
+                                  }
+
+                                  final userIsSenderOrReceiver =
+                                  _userIsSenderOrReceiver(
+                                      state.messages[index]);
+                                  final MessageUi message = MessageUi(
+                                    otherUser: userIsSenderOrReceiver
+                                        ? state.messages[index].receiver
+                                        .name
+                                        .getOrCrash()
+                                        : state.messages[index].sender.name
+                                        .getOrCrash(),
+                                    text: state.messages[index].content
+                                        .getOrCrash(),
+                                    unread: state.messages[index].read
+                                        .getOrCrash(),
+                                    time: state.messages[index].time
+                                        .getOrCrash(),
+                                  );
+                                  return _buildMessage(
+                                      message, userIsSenderOrReceiver);
+                                },
+                              )),
+                        )),
+                    Provider(
+                      create: (_) => ValueNotifier<String>(''),
+                      child: MessageComposer(otherUserId: otherUserId),
+                    )
+                  ],
+                ),
+                orElse: () => Container(),
+              ),
+        ),
+      ),
+    );
+  }
+}
+
+class MessageComposer extends StatelessWidget {
+  final UserId otherUserId;
+  final TextEditingController controller;
+
+  MessageComposer({Key key, this.otherUserId})
+      : controller = TextEditingController(text: ''),
+        super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       height: 70.0,
@@ -81,8 +230,13 @@ class _ChatScreenState extends State<ChatScreen> {
                       color: Colors.grey[400],
                       borderRadius: BorderRadius.circular(10.0)),
                   child: TextField(
+                    controller: controller,
                     textCapitalization: TextCapitalization.sentences,
-                    onChanged: (value) {},
+                    onChanged: (value) {
+                      context
+                          .read<ValueNotifier<String>>()
+                          .value = value;
+                    },
                     decoration: InputDecoration(
                         border: InputBorder.none,
                         prefixIcon: IconButton(
@@ -98,7 +252,21 @@ class _ChatScreenState extends State<ChatScreen> {
                           iconSize: 25.0,
                           color: Palette.primaryColor,
                           onPressed: () {
-                            /** CREATES A MESSAGE */
+                            context.bloc<MessageBloc>().add(
+                              MessageEvent.sendMessage(
+                                Message.create(
+                                  senderId: SenderId.fromUniqueId(
+                                      RecentChat.userId), // TODO
+                                  receiverId: ReceiverId.fromUniqueId(
+                                      otherUserId.getOrCrash()),
+                                  content: Content(context
+                                      .read<ValueNotifier<String>>()
+                                      .value),
+                                ),
+                              ),
+                            );
+
+                            controller.clear();
                           },
                         ),
                         hintStyle: TextStyle(
@@ -112,68 +280,5 @@ class _ChatScreenState extends State<ChatScreen> {
         ],
       ),
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0,
-          leading: IconButton(
-            icon: Icon(Icons.keyboard_arrow_left),
-            iconSize: 30.0,
-            color: Palette.primaryColor,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          title: Center(
-              child: Text(widget.sender,
-                  style: TextStyle(
-                      fontFamily: 'Martel Sans',
-                      fontSize: 28.0,
-                      color: Palette.primaryColor,
-                      fontWeight: FontWeight.w900))),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.more_horiz),
-              iconSize: 30.0,
-              color: Palette.primaryColor,
-              onPressed: () {},
-            ),
-          ],
-        ),
-        body: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                  child: Container(
-                decoration: BoxDecoration(
-                    color: Palette.backgroundColor,
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(40.0),
-                        topRight: Radius.circular(40.0))),
-                child: ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(40.0),
-                        topRight: Radius.circular(40.0)),
-                    child: ListView.builder(
-                      reverse: true,
-                      padding: const EdgeInsets.only(top: 30.0),
-                      itemCount: messages.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final Message message = messages[index];
-                        final bool isAdmin = message.sender == "Admin";
-                        return _buildMessage(message, isAdmin);
-                      },
-                    )),
-              )),
-              _buildMessageComposer()
-            ],
-          ),
-        ));
   }
 }
