@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/requests/widgets/slots.dart';
-import 'package:helloworld/presentation/requests/widgets/status.dart';
+import 'package:helloworld/presentation/requests/widgets/learner_status.dart';
 
 class LearnerSentPreview extends StatelessWidget {
   final String name;
   final List<Slots> booked;
-  final Status status;
+  final LearnerStatus status;
 
   const LearnerSentPreview({
     Key key,

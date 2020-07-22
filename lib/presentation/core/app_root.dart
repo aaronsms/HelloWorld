@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/login/login_page.dart';
 import 'package:helloworld/presentation/requests/request_page.dart';
+import 'package:helloworld/presentation/requests/widgets/add_review.dart';
 import 'routes.dart';
 
 class AppRoot extends StatelessWidget {

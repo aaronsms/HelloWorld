@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 
-class Status extends StatelessWidget {
+class LearnerStatus extends StatelessWidget {
   final String status;
 
-  const Status({
+  const LearnerStatus({
     Key key,
     @required this.status,
   }) : super(key: key);
