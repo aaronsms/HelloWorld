@@ -4,10 +4,15 @@ import 'package:helloworld/presentation/scheduling/widgets/confirmation_card.dar
 import 'package:helloworld/presentation/scheduling/confirmed_page.dart';
 import 'package:helloworld/presentation/scheduling/schedule_page.dart';
 import 'package:helloworld/presentation/scheduling/widgets/slot_info.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:time_range/time_range.dart';
 
 class ConfirmationPage extends StatelessWidget {
+  final DateTime date;
+
+  const ConfirmationPage({Key key, this.date}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var slotInfo = Provider.of<SlotInfo>(context);
@@ -43,10 +48,7 @@ class ConfirmationPage extends StatelessWidget {
                           fontFamily: 'Martel Sans',
                           fontWeight: FontWeight.w900,
                           fontSize: 16))),
-              const ConfirmationCard(
-                /** NEEDS TO FETCH DATE AND SLOTS FROM SCHEDULE PAGE */
-                date: "Tuesday, 2 May 2020",
-              ),
+              ConfirmationCard(date: DateFormat.yMMMd().format(date)),
               Padding(
                   padding: const EdgeInsets.only(top: 80),
                   child: RaisedButton(
@@ -57,7 +59,7 @@ class ConfirmationPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ConfirmedPage()),
+                            builder: (context) => ConfirmedPage(date: date)),
                       );
                     },
                     shape: RoundedRectangleBorder(

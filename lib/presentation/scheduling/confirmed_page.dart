@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/scheduling/widgets/confirmation_card.dart';
+import 'package:intl/intl.dart';
 
 class ConfirmedPage extends StatelessWidget {
+  final DateTime date;
+
+  const ConfirmedPage({Key key, this.date}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,10 +38,8 @@ class ConfirmedPage extends StatelessWidget {
                           fontFamily: 'Martel Sans',
                           fontWeight: FontWeight.w900,
                           fontSize: 16))),
-              /** DATE NOT DONE */
-              const ConfirmationCard(
-                date: "Tuesday, 2 May 2020",
-              ),
+              ConfirmationCard(date: DateFormat.yMMMd().format(date)),
+              // date: "Tuesday, 2 May 2020"),
               Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.only(top: 5, left: 10),

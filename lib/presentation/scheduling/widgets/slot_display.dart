@@ -7,9 +7,25 @@ import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/scheduling/widgets/time_slot.dart';
 
 class SlotDisplay extends StatelessWidget {
+  final DateTime selected;
+
+  const SlotDisplay({Key key, this.selected}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var slotInfo = Provider.of<SlotInfo>(context);
+
+    List<Tuple2<TimeRangeResult, String>> getSlots() {
+      List<Tuple2<TimeRangeResult, String>> list = [];
+      for (int index = 0; index < slotInfo.display.length; index++) {
+        DateTime date = slotInfo.display[index].item1;
+        if (selected.compareTo(date) == 0) {
+          list = slotInfo.display[index].item2;
+        }
+      }
+      return list;
+    }
+
     return Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
       Expanded(
           child: Card(
@@ -19,9 +35,9 @@ class SlotDisplay extends StatelessWidget {
                   mainAxisSpacing: 3.0,
                   crossAxisSpacing: 3.0,
                   crossAxisCount: 4,
-                  children: List.generate(slotInfo.display.length, (index) {
-                    Tuple2<TimeRangeResult, String> slot =
-                        slotInfo.display[index];
+                  /** List<Tuple2<DateTime, List<Tuple2<TimeRangeResult, String>>>> */
+                  children: List.generate(getSlots().length, (index) {
+                    Tuple2<TimeRangeResult, String> slot = getSlots()[index];
                     return TimeSlot(range: slot.item1, status: slot.item2);
                   }))))
     ]);

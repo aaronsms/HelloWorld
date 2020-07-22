@@ -5,27 +5,46 @@ import 'package:time_range/time_range.dart';
 
 class SlotInfo with ChangeNotifier {
   /// DISPLAY OF SLOTS */
-  List<Tuple2<TimeRangeResult, String>> _display = [
-    Tuple2(
-        TimeRangeResult(const TimeOfDay(hour: 8, minute: 00),
-            const TimeOfDay(hour: 9, minute: 00)),
-        "AVAILABLE"),
-    Tuple2(
-        TimeRangeResult(const TimeOfDay(hour: 10, minute: 00),
-            const TimeOfDay(hour: 11, minute: 00)),
-        "PENDING"),
-    Tuple2(
-        TimeRangeResult(const TimeOfDay(hour: 12, minute: 00),
-            const TimeOfDay(hour: 13, minute: 00)),
-        "AVAILABLE"),
-    Tuple2(
-        TimeRangeResult(const TimeOfDay(hour: 13, minute: 30),
-            const TimeOfDay(hour: 14, minute: 00)),
-        "UNAVAILABLE"),
-    Tuple2(
-        TimeRangeResult(const TimeOfDay(hour: 15, minute: 00),
-            const TimeOfDay(hour: 15, minute: 30)),
-        "AVAILABLE"),
+  /// MOCK DATA FOR 19, 20 JULY */
+  List<Tuple2<DateTime, List<Tuple2<TimeRangeResult, String>>>> _display = [
+    /** 19 JULY */
+    Tuple2(DateTime.utc(2020, 7, 19).toLocal(), [
+      Tuple2(
+          TimeRangeResult(const TimeOfDay(hour: 8, minute: 00),
+              const TimeOfDay(hour: 9, minute: 00)),
+          "AVAILABLE"),
+      Tuple2(
+          TimeRangeResult(const TimeOfDay(hour: 10, minute: 00),
+              const TimeOfDay(hour: 11, minute: 00)),
+          "PENDING"),
+      Tuple2(
+          TimeRangeResult(const TimeOfDay(hour: 12, minute: 00),
+              const TimeOfDay(hour: 13, minute: 00)),
+          "AVAILABLE"),
+      Tuple2(
+          TimeRangeResult(const TimeOfDay(hour: 13, minute: 30),
+              const TimeOfDay(hour: 14, minute: 00)),
+          "UNAVAILABLE"),
+      Tuple2(
+          TimeRangeResult(const TimeOfDay(hour: 15, minute: 00),
+              const TimeOfDay(hour: 15, minute: 30)),
+          "AVAILABLE")
+    ]),
+    /** 20 JULY */
+    Tuple2(DateTime.utc(2020, 7, 20).toLocal(), [
+      Tuple2(
+          TimeRangeResult(const TimeOfDay(hour: 8, minute: 00),
+              const TimeOfDay(hour: 9, minute: 00)),
+          "AVAILABLE"),
+      Tuple2(
+          TimeRangeResult(const TimeOfDay(hour: 10, minute: 00),
+              const TimeOfDay(hour: 11, minute: 00)),
+          "PENDING"),
+      Tuple2(
+          TimeRangeResult(const TimeOfDay(hour: 12, minute: 00),
+              const TimeOfDay(hour: 13, minute: 00)),
+          "AVAILABLE"),
+    ])
   ];
 
   /// EDITING SLOTS */
@@ -51,7 +70,8 @@ class SlotInfo with ChangeNotifier {
 
   final List<TimeRangeResult> _selected = <TimeRangeResult>[];
 
-  List<Tuple2<TimeRangeResult, String>> get display => _display;
+  List<Tuple2<DateTime, List<Tuple2<TimeRangeResult, String>>>> get display =>
+      _display;
   List<TimeRangeResult> get slots => _slots;
   TimeRangeResult get slot => _slot;
   List<TimeRangeResult> get selected => _selected;
@@ -68,7 +88,8 @@ class SlotInfo with ChangeNotifier {
     notifyListeners();
   }
 
-  set display(List<Tuple2<TimeRangeResult, String>> newSlots) {
+  set display(
+      List<Tuple2<DateTime, List<Tuple2<TimeRangeResult, String>>>> newSlots) {
     _display = newSlots;
     notifyListeners();
   }

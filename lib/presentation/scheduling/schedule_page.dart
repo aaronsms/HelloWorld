@@ -107,7 +107,7 @@ class _SchedulePageState extends State<SchedulePage> {
                             fontWeight: FontWeight.w900),
                       )),
                   LegendView(),
-                  Expanded(child: SlotDisplay()),
+                  Expanded(child: SlotDisplay(selected: selectedDate)),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 15),
                     child: RaisedButton(
@@ -118,7 +118,8 @@ class _SchedulePageState extends State<SchedulePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ConfirmationPage()),
+                              builder: (context) =>
+                                  ConfirmationPage(date: selectedDate)),
                         );
                       },
                       shape: RoundedRectangleBorder(
