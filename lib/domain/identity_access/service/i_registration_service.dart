@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:helloworld/domain/identity_access/model/user/biography.dart';
 import 'package:helloworld/domain/identity_access/model/user/email_address.dart';
 import 'package:helloworld/domain/identity_access/model/user/language_proficiency.dart';
@@ -26,6 +27,6 @@ abstract class IRegistrationService {
         List<Tuple2<TeachingLanguage, LanguageProficiency>> teachingLanguages,
     @required ProfilePicture profilePicture,
     @required Biography biography,
-    @required List<Location> location,
+    @required List<Tuple2<LatLng, Location>> location,
   });
 }

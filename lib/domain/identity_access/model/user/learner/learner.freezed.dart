@@ -19,7 +19,7 @@ class _$LearnerTearOff {
       @required ProfilePicture profilePicture,
       @required Biography biography,
       @required LearningBackground languageBackground,
-      @required List<Location> location}) {
+      @required List<Tuple2<LatLng, Location>> location}) {
     return _Learner(
       id: id,
       userId: userId,
@@ -42,7 +42,7 @@ mixin _$Learner {
   ProfilePicture get profilePicture;
   Biography get biography;
   LearningBackground get languageBackground;
-  List<Location> get location;
+  List<Tuple2<LatLng, Location>> get location;
 
   $LearnerCopyWith<Learner> get copyWith;
 }
@@ -57,7 +57,7 @@ abstract class $LearnerCopyWith<$Res> {
       ProfilePicture profilePicture,
       Biography biography,
       LearningBackground languageBackground,
-      List<Location> location});
+      List<Tuple2<LatLng, Location>> location});
 }
 
 class _$LearnerCopyWithImpl<$Res> implements $LearnerCopyWith<$Res> {
@@ -89,8 +89,9 @@ class _$LearnerCopyWithImpl<$Res> implements $LearnerCopyWith<$Res> {
       languageBackground: languageBackground == freezed
           ? _value.languageBackground
           : languageBackground as LearningBackground,
-      location:
-          location == freezed ? _value.location : location as List<Location>,
+      location: location == freezed
+          ? _value.location
+          : location as List<Tuple2<LatLng, Location>>,
     ));
   }
 }
@@ -106,7 +107,7 @@ abstract class _$LearnerCopyWith<$Res> implements $LearnerCopyWith<$Res> {
       ProfilePicture profilePicture,
       Biography biography,
       LearningBackground languageBackground,
-      List<Location> location});
+      List<Tuple2<LatLng, Location>> location});
 }
 
 class __$LearnerCopyWithImpl<$Res> extends _$LearnerCopyWithImpl<$Res>
@@ -139,8 +140,9 @@ class __$LearnerCopyWithImpl<$Res> extends _$LearnerCopyWithImpl<$Res>
       languageBackground: languageBackground == freezed
           ? _value.languageBackground
           : languageBackground as LearningBackground,
-      location:
-          location == freezed ? _value.location : location as List<Location>,
+      location: location == freezed
+          ? _value.location
+          : location as List<Tuple2<LatLng, Location>>,
     ));
   }
 }
@@ -175,7 +177,7 @@ class _$_Learner implements _Learner {
   @override
   final LearningBackground languageBackground;
   @override
-  final List<Location> location;
+  final List<Tuple2<LatLng, Location>> location;
 
   @override
   String toString() {
@@ -230,7 +232,7 @@ abstract class _Learner implements Learner {
       @required ProfilePicture profilePicture,
       @required Biography biography,
       @required LearningBackground languageBackground,
-      @required List<Location> location}) = _$_Learner;
+      @required List<Tuple2<LatLng, Location>> location}) = _$_Learner;
 
   @override
   LearnerId get id;
@@ -245,7 +247,7 @@ abstract class _Learner implements Learner {
   @override
   LearningBackground get languageBackground;
   @override
-  List<Location> get location;
+  List<Tuple2<LatLng, Location>> get location;
   @override
   _$LearnerCopyWith<_Learner> get copyWith;
 }

@@ -19,7 +19,7 @@ class _$MentorTearOff {
       @required ProfilePicture profilePicture,
       @required Biography biography,
       @required TeachingBackground languageBackground,
-      @required List<Location> location}) {
+      @required List<Tuple2<LatLng, Location>> location}) {
     return _Mentor(
       id: id,
       userId: userId,
@@ -42,7 +42,7 @@ mixin _$Mentor {
   ProfilePicture get profilePicture;
   Biography get biography;
   TeachingBackground get languageBackground;
-  List<Location> get location;
+  List<Tuple2<LatLng, Location>> get location;
 
   $MentorCopyWith<Mentor> get copyWith;
 }
@@ -57,7 +57,7 @@ abstract class $MentorCopyWith<$Res> {
       ProfilePicture profilePicture,
       Biography biography,
       TeachingBackground languageBackground,
-      List<Location> location});
+      List<Tuple2<LatLng, Location>> location});
 }
 
 class _$MentorCopyWithImpl<$Res> implements $MentorCopyWith<$Res> {
@@ -89,8 +89,9 @@ class _$MentorCopyWithImpl<$Res> implements $MentorCopyWith<$Res> {
       languageBackground: languageBackground == freezed
           ? _value.languageBackground
           : languageBackground as TeachingBackground,
-      location:
-          location == freezed ? _value.location : location as List<Location>,
+      location: location == freezed
+          ? _value.location
+          : location as List<Tuple2<LatLng, Location>>,
     ));
   }
 }
@@ -106,7 +107,7 @@ abstract class _$MentorCopyWith<$Res> implements $MentorCopyWith<$Res> {
       ProfilePicture profilePicture,
       Biography biography,
       TeachingBackground languageBackground,
-      List<Location> location});
+      List<Tuple2<LatLng, Location>> location});
 }
 
 class __$MentorCopyWithImpl<$Res> extends _$MentorCopyWithImpl<$Res>
@@ -139,8 +140,9 @@ class __$MentorCopyWithImpl<$Res> extends _$MentorCopyWithImpl<$Res>
       languageBackground: languageBackground == freezed
           ? _value.languageBackground
           : languageBackground as TeachingBackground,
-      location:
-          location == freezed ? _value.location : location as List<Location>,
+      location: location == freezed
+          ? _value.location
+          : location as List<Tuple2<LatLng, Location>>,
     ));
   }
 }
@@ -175,7 +177,7 @@ class _$_Mentor implements _Mentor {
   @override
   final TeachingBackground languageBackground;
   @override
-  final List<Location> location;
+  final List<Tuple2<LatLng, Location>> location;
 
   @override
   String toString() {
@@ -230,7 +232,7 @@ abstract class _Mentor implements Mentor {
       @required ProfilePicture profilePicture,
       @required Biography biography,
       @required TeachingBackground languageBackground,
-      @required List<Location> location}) = _$_Mentor;
+      @required List<Tuple2<LatLng, Location>> location}) = _$_Mentor;
 
   @override
   MentorId get id;
@@ -245,7 +247,7 @@ abstract class _Mentor implements Mentor {
   @override
   TeachingBackground get languageBackground;
   @override
-  List<Location> get location;
+  List<Tuple2<LatLng, Location>> get location;
   @override
   _$MentorCopyWith<_Mentor> get copyWith;
 }

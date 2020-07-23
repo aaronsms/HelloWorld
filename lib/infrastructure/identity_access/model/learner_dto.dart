@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:dartz/dartz.dart' as dartz;
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:helloworld/domain/common/languages.dart';
 import 'package:helloworld/domain/identity_access/model/user/biography.dart';
 import 'package:helloworld/domain/identity_access/model/user/language_proficiency.dart';
@@ -17,7 +18,6 @@ import 'package:helloworld/domain/identity_access/model/user/user_id.dart';
 import 'package:helloworld/domain/identity_access/model/user/location.dart';
 import 'package:helloworld/domain/identity_access/model/user/profile_picture.dart';
 import 'package:helloworld/infrastructure/common/io_utils.dart';
-import 'package:path_provider/path_provider.dart';
 
 part 'learner_dto.freezed.dart';
 
@@ -34,7 +34,7 @@ abstract class LearnerDto implements _$LearnerDto {
     @required String userId,
     String profilePicture,
     String biography,
-    @required List<String> locations,
+    @required List<Map<String, dynamic>> locations,
     @required Map<String, String> learningLanguages,
     @required Map<String, String> speakingLanguages,
   }) = _LearnerDto;
@@ -53,11 +53,16 @@ abstract class LearnerDto implements _$LearnerDto {
       name: learner.name.getOrCrash(),
       userId: learner.userId.getOrCrash(),
       profilePicture:
-          base64Encode(learner.profilePicture.getOrCrash().readAsBytesSync()),
+          base64Encode(learner.profilePicture.getOrElse(null)?.readAsBytesSync() ?? []),
       biography: learner.biography.getOrCrash(),
       learningLanguages: learningLanguages,
       speakingLanguages: speakingLanguages,
-      locations: learner.location.map((e) => e.getOrCrash()).toList(),
+      locations: learner.location
+          .map((e) => {
+        'latlng': e.value1.toJson(),
+        'location': e.value2.getOrCrash()
+      })
+          .toList(),
     );
   }
 
@@ -74,11 +79,14 @@ abstract class LearnerDto implements _$LearnerDto {
     }
 
     return Learner(
-      id: LearnerId.fromUniqueId(id),
+      id: LearnerId.fromUniqueId(this.id),
       userId: UserId.fromUniqueId(userId),
       name: Name(name ?? ''),
       biography: Biography(biography ?? ''),
-      location: locations.map((e) => Location(dartz.right(e))).toList(),
+      location: locations
+          .map((e) => Tuple2(
+          LatLng.fromJson(e['latlng']), Location(e['location'] as String)))
+          .toList(),
       profilePicture: profilePicture != null
           ? ProfilePicture(file)
           : ProfilePicture.empty(),

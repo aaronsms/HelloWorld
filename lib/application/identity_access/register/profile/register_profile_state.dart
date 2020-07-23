@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:helloworld/domain/identity_access/model/user/biography.dart';
 import 'package:helloworld/domain/identity_access/model/user/language_proficiency.dart';
 import 'package:helloworld/domain/identity_access/model/user/learner/learning_language.dart';
@@ -18,7 +19,7 @@ abstract class RegisterProfileState with _$RegisterProfileState {
     @required List<Tuple2<LearningLanguage, LanguageProficiency>> learningLanguages,
     @required List<Tuple2<SpeakingLanguage, LanguageProficiency>> speakingLanguages,
     @required List<Tuple2<TeachingLanguage, LanguageProficiency>> teachingLanguages,
-    @required List<Location> preferredLocations,
+    @required List<Tuple2<LatLng, Location>> preferredLocations,
     @required bool isSubmitting,
     @required bool isChangingItem,
     @required Option createAccountSuccessOrFailureOption,

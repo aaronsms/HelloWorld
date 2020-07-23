@@ -1,4 +1,6 @@
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:helloworld/domain/common/entity.dart';
 import 'package:helloworld/domain/identity_access/model/user/learner/learning_language.dart';
 import 'package:helloworld/domain/identity_access/model/user/mentor/teaching_language.dart';
@@ -22,7 +24,7 @@ abstract class Mentor with _$Mentor implements Entity {
     Name name,
     ProfilePicture profilePicture,
     Biography bio,
-    List<Location> location,
+    List<Tuple2<LatLng, Location>> location,
     Map<LearningLanguage, LanguageProficiency> learningLanguages,
     Map<SpeakingLanguage, LanguageProficiency> speakingLanguages,
     Map<TeachingLanguage, LanguageProficiency> teachingLanguages,
@@ -52,6 +54,6 @@ abstract class Mentor with _$Mentor implements Entity {
     @required ProfilePicture profilePicture,
     @required Biography biography,
     @required TeachingBackground languageBackground,
-    @required List<Location> location,
+    @required List<Tuple2<LatLng, Location>> location,
   }) = _Mentor;
 }

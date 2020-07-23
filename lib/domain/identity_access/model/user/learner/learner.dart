@@ -1,4 +1,6 @@
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:helloworld/domain/common/entity.dart';
 
 import '../biography.dart';
@@ -21,7 +23,7 @@ abstract class Learner with _$Learner implements Entity {
     Name name,
     ProfilePicture profilePicture,
     Biography bio,
-    List<Location> location,
+    List<Tuple2<LatLng, Location>> location,
     Map<LearningLanguage, LanguageProficiency> learningLanguages,
     Map<SpeakingLanguage, LanguageProficiency> speakingLanguages,
   }) {
@@ -49,6 +51,6 @@ abstract class Learner with _$Learner implements Entity {
     @required ProfilePicture profilePicture,
     @required Biography biography,
     @required LearningBackground languageBackground,
-    @required List<Location> location,
+    @required List<Tuple2<LatLng, Location>> location,
   }) = _Learner;
 }

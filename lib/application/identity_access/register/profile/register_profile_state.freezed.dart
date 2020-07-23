@@ -24,7 +24,7 @@ class _$RegisterProfileStateTearOff {
       @required
           List<Tuple2<TeachingLanguage, LanguageProficiency>> teachingLanguages,
       @required
-          List<Location> preferredLocations,
+          List<Tuple2<LatLng, Location>> preferredLocations,
       @required
           bool isSubmitting,
       @required
@@ -54,7 +54,7 @@ mixin _$RegisterProfileState {
   List<Tuple2<LearningLanguage, LanguageProficiency>> get learningLanguages;
   List<Tuple2<SpeakingLanguage, LanguageProficiency>> get speakingLanguages;
   List<Tuple2<TeachingLanguage, LanguageProficiency>> get teachingLanguages;
-  List<Location> get preferredLocations;
+  List<Tuple2<LatLng, Location>> get preferredLocations;
   bool get isSubmitting;
   bool get isChangingItem;
   Option<dynamic> get createAccountSuccessOrFailureOption;
@@ -72,7 +72,7 @@ abstract class $RegisterProfileStateCopyWith<$Res> {
       List<Tuple2<LearningLanguage, LanguageProficiency>> learningLanguages,
       List<Tuple2<SpeakingLanguage, LanguageProficiency>> speakingLanguages,
       List<Tuple2<TeachingLanguage, LanguageProficiency>> teachingLanguages,
-      List<Location> preferredLocations,
+      List<Tuple2<LatLng, Location>> preferredLocations,
       bool isSubmitting,
       bool isChangingItem,
       Option<dynamic> createAccountSuccessOrFailureOption});
@@ -118,7 +118,7 @@ class _$RegisterProfileStateCopyWithImpl<$Res>
               as List<Tuple2<TeachingLanguage, LanguageProficiency>>,
       preferredLocations: preferredLocations == freezed
           ? _value.preferredLocations
-          : preferredLocations as List<Location>,
+          : preferredLocations as List<Tuple2<LatLng, Location>>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
       isChangingItem: isChangingItem == freezed
@@ -144,7 +144,7 @@ abstract class _$RegisterProfileStateCopyWith<$Res>
       List<Tuple2<LearningLanguage, LanguageProficiency>> learningLanguages,
       List<Tuple2<SpeakingLanguage, LanguageProficiency>> speakingLanguages,
       List<Tuple2<TeachingLanguage, LanguageProficiency>> teachingLanguages,
-      List<Location> preferredLocations,
+      List<Tuple2<LatLng, Location>> preferredLocations,
       bool isSubmitting,
       bool isChangingItem,
       Option<dynamic> createAccountSuccessOrFailureOption});
@@ -192,7 +192,7 @@ class __$RegisterProfileStateCopyWithImpl<$Res>
               as List<Tuple2<TeachingLanguage, LanguageProficiency>>,
       preferredLocations: preferredLocations == freezed
           ? _value.preferredLocations
-          : preferredLocations as List<Location>,
+          : preferredLocations as List<Tuple2<LatLng, Location>>,
       isSubmitting:
           isSubmitting == freezed ? _value.isSubmitting : isSubmitting as bool,
       isChangingItem: isChangingItem == freezed
@@ -238,7 +238,7 @@ class _$_RegisterProfileState implements _RegisterProfileState {
   @override
   final List<Tuple2<TeachingLanguage, LanguageProficiency>> teachingLanguages;
   @override
-  final List<Location> preferredLocations;
+  final List<Tuple2<LatLng, Location>> preferredLocations;
   @override
   final bool isSubmitting;
   @override
@@ -318,7 +318,7 @@ abstract class _RegisterProfileState implements RegisterProfileState {
       @required
           List<Tuple2<TeachingLanguage, LanguageProficiency>> teachingLanguages,
       @required
-          List<Location> preferredLocations,
+          List<Tuple2<LatLng, Location>> preferredLocations,
       @required
           bool isSubmitting,
       @required
@@ -338,7 +338,7 @@ abstract class _RegisterProfileState implements RegisterProfileState {
   @override
   List<Tuple2<TeachingLanguage, LanguageProficiency>> get teachingLanguages;
   @override
-  List<Location> get preferredLocations;
+  List<Tuple2<LatLng, Location>> get preferredLocations;
   @override
   bool get isSubmitting;
   @override

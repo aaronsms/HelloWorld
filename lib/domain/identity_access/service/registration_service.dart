@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:helloworld/domain/common/languages.dart';
 import 'package:helloworld/domain/common/value_objects.dart';
 import 'package:helloworld/domain/identity_access/model/user/biography.dart';
@@ -42,7 +43,7 @@ class RegistrationService implements IRegistrationService {
         List<Tuple2<TeachingLanguage, LanguageProficiency>> teachingLanguages,
     @required ProfilePicture profilePicture,
     @required Biography biography,
-    @required List<Location> location,
+    @required  List<Tuple2<LatLng, Location>> location,
   }) {
     final User newUser =
         User(name: name, emailAddress: emailAddress, password: password);

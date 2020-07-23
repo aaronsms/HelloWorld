@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:google_map_location_picker/google_map_location_picker.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:helloworld/domain/identity_access/model/user/email_address.dart';
 import 'package:helloworld/domain/identity_access/model/user/name.dart';
 import 'package:helloworld/domain/identity_access/model/user/password.dart';
@@ -23,6 +25,10 @@ abstract class RegisterProfileEvent with _$RegisterProfileEvent {
       {String language}) = SpeakingLanguageDeleted;
   const factory RegisterProfileEvent.teachingLanguageDeleted(
       {String language}) = TeachingLanguageDeleted;
+  const factory RegisterProfileEvent.locationAdded(
+      {LocationResult location}) = LocationAdded;
+  const factory RegisterProfileEvent.locationDeleted(
+      {LatLng latLng}) = LocationDeleted;
   const factory RegisterProfileEvent.doneClicked({
     Name name,
     EmailAddress emailAddress,

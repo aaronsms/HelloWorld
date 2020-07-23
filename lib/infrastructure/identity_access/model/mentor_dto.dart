@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:dartz/dartz.dart' as dartz;
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:helloworld/domain/common/languages.dart';
 import 'package:helloworld/domain/identity_access/model/user/biography.dart';
 import 'package:helloworld/domain/identity_access/model/user/language_proficiency.dart';
@@ -34,7 +35,7 @@ abstract class MentorDto implements _$MentorDto {
     String name,
     String biography,
     @required String profilePicture,
-    @required List<String> locations,
+    @required List<Map<String, dynamic>> locations,
     @required Map<String, String> learningLanguages,
     @required Map<String, String> speakingLanguages,
     @required Map<String, String> teachingLanguages,
@@ -57,12 +58,17 @@ abstract class MentorDto implements _$MentorDto {
       userId: mentor.userId.getOrCrash(),
       name: mentor.name.getOrCrash(),
       profilePicture:
-          base64Encode(mentor.profilePicture.getOrCrash().readAsBytesSync()),
+          base64Encode(mentor.profilePicture.getOrElse(null)?.readAsBytesSync() ?? []),
       biography: mentor.biography.getOrCrash(),
       learningLanguages: learningLanguages,
       speakingLanguages: speakingLanguages,
       teachingLanguages: teachingLanguages,
-      locations: mentor.location.map((e) => e.getOrCrash()).toList(),
+      locations: mentor.location
+          .map((e) => {
+                'latlng': e.value1.toJson(),
+                'location': e.value2.getOrCrash()
+              })
+          .toList(),
     );
   }
 
@@ -81,11 +87,14 @@ abstract class MentorDto implements _$MentorDto {
     }
 
     return Mentor(
-      id: MentorId.fromUniqueId(id),
+      id: MentorId.fromUniqueId(this.id),
       userId: UserId.fromUniqueId(userId),
       name: Name(name ?? ''),
       biography: Biography(biography ?? ''),
-      location: locations.map((e) => Location(dartz.right(e))).toList(),
+      location: locations
+          .map((e) => Tuple2(
+              LatLng.fromJson(e['latlng']), Location(e['location'] as String)))
+          .toList(),
       profilePicture: profilePicture != null
           ? ProfilePicture(file)
           : ProfilePicture.empty(),
