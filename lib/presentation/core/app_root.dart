@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:helloworld/application/identity_access/auth/auth_bloc.dart';
+import 'package:helloworld/application/messenger/message_bloc.dart';
 import 'package:helloworld/presentation/core/palette.dart';
-import 'package:helloworld/presentation/login/login_page.dart';
+import 'package:helloworld/presentation/messenger/messenger_main.dart';
 
 import 'routes.dart';
 
@@ -14,7 +15,10 @@ class AppRoot extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'HelloWorld!<>',
-        home: LoginPage(),
+        home: BlocProvider(
+          create: (_) => MessageBloc()..add(const MessageEvent.fetchConversations()),
+          child: MessengerMain(),
+        ),
         theme: ThemeData(
           primaryColor: Palette.primaryColor,
           accentColor: Palette.secondaryColor,

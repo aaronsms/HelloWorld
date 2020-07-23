@@ -9,6 +9,7 @@ It provides a platform to connect all language learners and tutors all around th
 ## Table of Contents
 
 * [Motivation](#motivation)
+* [User Stories](#user-stories)
 * [Technologies](#technologies)
 * [Set-up](#setup)
 * [Features](#features)
@@ -18,6 +19,9 @@ It provides a platform to connect all language learners and tutors all around th
     * [View Mentors' Profile](#view-mentor-profile)
     * [Connect Offline](#connect-offline)
     * [Connect Online](#connect-online)
+    * [View Past & Present Requests](#requests)
+* [Timeline](#timeline)
+* [User Guide](#user-guide)
 * [Developers](#developers)
 
 <a name="motivation"></a>
@@ -36,6 +40,15 @@ with similar language goals both online and offline.
 With this application, we hope to build a positive peer-to-peer learning 
 environment where language learners can stay engaged and motivated in their 
 learning journey, accelerating their learning progress.
+
+<a name="user-stories"></a>
+# User Stories
+
+<li>As a student who wants to pick up a new language, I want to find another learner of the same language/dialect to practice conversing in that language/dialect.</li>
+<li>As a student who has questions and problems with a new language, I want to find a mentor to converse with and guide me as soon as possible, to accelerate my learning.</li>
+<li>As a student seeking for another learner/partner to practice speaking the new language, I need to have a view of the other party’s schedule in order to arrange a mutually convenient timing.</li> 
+<li>As students who want to converse with other students or mentors wish to help students at inconvenient timings, I want to be able to communicate on an online messaging built-in feature.</li>
+<li>As an administrator who wants to prevent abuse of the system, I want to be able to identify abusers, warn them and ban them if they continue to cause problems.</li>
 
 <a name="technologies"></a>
 # Technologies
@@ -145,6 +158,41 @@ Find someone with similar learning goals to practice speaking with online, even 
 <img src="./prototype/messenger-preview.jpg" width="250">
 <img src="./prototype/messenger.jpg" width="250">
 <img src="./prototype/messenger - learner.jpg" width="250">
+</p>
+
+<a name="requests"></a>
+## View Past & Present Requests
+
+View the history of all requests received from and sent to others, and accept/reject pending requests.
+
+<p>
+<img src="./prototype/requests (1).jpg" width="250">
+<img src="./prototype/requests (2).jpg" width="250">
+<img src="./prototype/requests (3).jpg" width="250">
+</p>
+
+<a name="timeline"></a>
+## Timeline
+<p>
+<b>Features to be completed by Milestone 2:</b>
+<li>Login</li>
+<li>Sign In</li>
+<li>Homepage</li>
+<li>Request System</li>
+<li>Student/Mentor Profiles</li>
+</p>
+<p>
+<b>Features to be completed by Milestone 3:</b>
+<li>Scheduling System</li>
+<li>Messenger</li>
+<li>Sign Out</li>
+</p>
+<i>Note: The booking system is made up of two parts, namely the request and scheduling systems.</i> 
+
+<a name="user-guide"></a>
+## User Guide
+<p>
+<img src="./prototype/helloworld__! flowchart.png">
 </p>
 
 <a name="developers"></a>
