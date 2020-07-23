@@ -26,7 +26,7 @@ class NavigationBar extends StatelessWidget {
             NavigationButton(
               icon: Icons.send,
               caption: "MESSENGER",
-              route: '',
+              route: Routes.messenger,
             ),
             NavigationButton(
               icon: Icons.person,

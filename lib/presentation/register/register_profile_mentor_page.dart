@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_map_location_picker/google_map_location_picker.dart';
 import 'package:helloworld/application/identity_access/register/account/register_account_bloc.dart';
 import 'package:helloworld/application/identity_access/register/profile/bloc.dart';
 import 'package:helloworld/presentation/core/palette.dart';
@@ -69,7 +70,21 @@ class RegisterProfileMentorPage extends StatelessWidget {
                 children: <Widget>[
                   LocationPreferred(),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () async {
+                      final LocationResult result = await showLocationPicker(
+                        context,
+                        'AIzaSyAq8DekxFfhSpuq7AV7OVNS_Go1pzspxTA',
+                        automaticallyAnimateToCurrentLocation: true,
+//                      mapStylePath: 'assets/mapStyle.json',
+                        myLocationButtonEnabled: true,
+                        layersButtonEnabled: true,
+//                      resultCardAlignment: Alignment.bottomCenter,
+                      );
+                      print("result = $result");
+
+                      context.bloc<RegisterProfileBloc>().add(
+                          RegisterProfileEvent.locationAdded(location: result));
+                    },
                     child: Icon(
                       Icons.add_circle,
                       color: Palette.primaryColor,

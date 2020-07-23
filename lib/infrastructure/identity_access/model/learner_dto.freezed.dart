@@ -21,7 +21,7 @@ class _$LearnerDtoTearOff {
       @required String userId,
       String profilePicture,
       String biography,
-      @required List<String> locations,
+      @required List<Map<String, dynamic>> locations,
       @required Map<String, String> learningLanguages,
       @required Map<String, String> speakingLanguages}) {
     return _LearnerDto(
@@ -46,7 +46,7 @@ mixin _$LearnerDto {
   String get userId;
   String get profilePicture;
   String get biography;
-  List<String> get locations;
+  List<Map<String, dynamic>> get locations;
   Map<String, String> get learningLanguages;
   Map<String, String> get speakingLanguages;
 
@@ -64,7 +64,7 @@ abstract class $LearnerDtoCopyWith<$Res> {
       String userId,
       String profilePicture,
       String biography,
-      List<String> locations,
+      List<Map<String, dynamic>> locations,
       Map<String, String> learningLanguages,
       Map<String, String> speakingLanguages});
 }
@@ -95,8 +95,9 @@ class _$LearnerDtoCopyWithImpl<$Res> implements $LearnerDtoCopyWith<$Res> {
           ? _value.profilePicture
           : profilePicture as String,
       biography: biography == freezed ? _value.biography : biography as String,
-      locations:
-          locations == freezed ? _value.locations : locations as List<String>,
+      locations: locations == freezed
+          ? _value.locations
+          : locations as List<Map<String, dynamic>>,
       learningLanguages: learningLanguages == freezed
           ? _value.learningLanguages
           : learningLanguages as Map<String, String>,
@@ -118,7 +119,7 @@ abstract class _$LearnerDtoCopyWith<$Res> implements $LearnerDtoCopyWith<$Res> {
       String userId,
       String profilePicture,
       String biography,
-      List<String> locations,
+      List<Map<String, dynamic>> locations,
       Map<String, String> learningLanguages,
       Map<String, String> speakingLanguages});
 }
@@ -151,8 +152,9 @@ class __$LearnerDtoCopyWithImpl<$Res> extends _$LearnerDtoCopyWithImpl<$Res>
           ? _value.profilePicture
           : profilePicture as String,
       biography: biography == freezed ? _value.biography : biography as String,
-      locations:
-          locations == freezed ? _value.locations : locations as List<String>,
+      locations: locations == freezed
+          ? _value.locations
+          : locations as List<Map<String, dynamic>>,
       learningLanguages: learningLanguages == freezed
           ? _value.learningLanguages
           : learningLanguages as Map<String, String>,
@@ -196,7 +198,7 @@ class _$_LearnerDto extends _LearnerDto {
   @override
   final String biography;
   @override
-  final List<String> locations;
+  final List<Map<String, dynamic>> locations;
   @override
   final Map<String, String> learningLanguages;
   @override
@@ -264,7 +266,7 @@ abstract class _LearnerDto extends LearnerDto {
       @required String userId,
       String profilePicture,
       String biography,
-      @required List<String> locations,
+      @required List<Map<String, dynamic>> locations,
       @required Map<String, String> learningLanguages,
       @required Map<String, String> speakingLanguages}) = _$_LearnerDto;
 
@@ -282,7 +284,7 @@ abstract class _LearnerDto extends LearnerDto {
   @override
   String get biography;
   @override
-  List<String> get locations;
+  List<Map<String, dynamic>> get locations;
   @override
   Map<String, String> get learningLanguages;
   @override

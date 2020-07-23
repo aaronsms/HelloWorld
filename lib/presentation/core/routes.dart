@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:helloworld/application/messenger/message_bloc.dart';
 import 'package:helloworld/application/schedule_requests/display_bloc.dart';
 import 'package:helloworld/application/identity_access/register/account/register_account_bloc.dart';
 import 'package:helloworld/application/identity_access/register/profile/register_profile_bloc.dart';
@@ -10,6 +11,7 @@ import 'package:helloworld/domain/identity_access/model/user/password.dart';
 import 'package:helloworld/infrastructure/identity_access/profile_repository.dart';
 import 'package:helloworld/presentation/homepage/landing_page.dart';
 import 'package:helloworld/presentation/login/login_page.dart';
+import 'package:helloworld/presentation/messenger/messenger_main.dart';
 import 'package:helloworld/presentation/password_reset/submit_email_page.dart';
 import 'package:helloworld/presentation/profile/learner_profile.dart';
 import 'package:helloworld/presentation/register/register_account_learner_page.dart';
@@ -46,6 +48,7 @@ class Routes {
   static const String profile = '/profile';
   static const String schedule = '/schedule';
   static const String requests = '/requests';
+  static const String messenger = '/messenger';
 
   static void createRoutes() {
     sailor.addRoutes([
@@ -158,8 +161,7 @@ class Routes {
           return BlocProvider(
               create: (_) => DisplayBloc(ProfileRepository())
                 ..add(const DisplayEvent.watchAllStarted()),
-              child: LandingPage()
-          );
+              child: LandingPage());
         },
       ),
       SailorRoute(
@@ -174,6 +176,16 @@ class Routes {
           return LearnerProfile();
         },
       ),
+      SailorRoute(
+        name: messenger,
+        builder: (context, args, paramMap) {
+          return BlocProvider(
+            create: (_) =>
+                MessageBloc()..add(const MessageEvent.fetchConversations()),
+            child: MessengerMain(),
+          );
+        },
+      )
     ]);
   }
 }

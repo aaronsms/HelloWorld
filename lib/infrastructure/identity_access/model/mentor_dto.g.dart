@@ -13,7 +13,9 @@ _$_MentorDto _$_$_MentorDtoFromJson(Map<String, dynamic> json) {
     name: json['name'] as String,
     biography: json['biography'] as String,
     profilePicture: json['profilePicture'] as String,
-    locations: (json['locations'] as List)?.map((e) => e as String)?.toList(),
+    locations: (json['locations'] as List)
+        ?.map((e) => e as Map<String, dynamic>)
+        ?.toList(),
     learningLanguages: (json['learningLanguages'] as Map<String, dynamic>)?.map(
       (k, e) => MapEntry(k, e as String),
     ),

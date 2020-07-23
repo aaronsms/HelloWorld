@@ -21,7 +21,7 @@ class _$MentorDtoTearOff {
       String name,
       String biography,
       @required String profilePicture,
-      @required List<String> locations,
+      @required List<Map<String, dynamic>> locations,
       @required Map<String, String> learningLanguages,
       @required Map<String, String> speakingLanguages,
       @required Map<String, String> teachingLanguages}) {
@@ -48,7 +48,7 @@ mixin _$MentorDto {
   String get name;
   String get biography;
   String get profilePicture;
-  List<String> get locations;
+  List<Map<String, dynamic>> get locations;
   Map<String, String> get learningLanguages;
   Map<String, String> get speakingLanguages;
   Map<String, String> get teachingLanguages;
@@ -66,7 +66,7 @@ abstract class $MentorDtoCopyWith<$Res> {
       String name,
       String biography,
       String profilePicture,
-      List<String> locations,
+      List<Map<String, dynamic>> locations,
       Map<String, String> learningLanguages,
       Map<String, String> speakingLanguages,
       Map<String, String> teachingLanguages});
@@ -99,8 +99,9 @@ class _$MentorDtoCopyWithImpl<$Res> implements $MentorDtoCopyWith<$Res> {
       profilePicture: profilePicture == freezed
           ? _value.profilePicture
           : profilePicture as String,
-      locations:
-          locations == freezed ? _value.locations : locations as List<String>,
+      locations: locations == freezed
+          ? _value.locations
+          : locations as List<Map<String, dynamic>>,
       learningLanguages: learningLanguages == freezed
           ? _value.learningLanguages
           : learningLanguages as Map<String, String>,
@@ -125,7 +126,7 @@ abstract class _$MentorDtoCopyWith<$Res> implements $MentorDtoCopyWith<$Res> {
       String name,
       String biography,
       String profilePicture,
-      List<String> locations,
+      List<Map<String, dynamic>> locations,
       Map<String, String> learningLanguages,
       Map<String, String> speakingLanguages,
       Map<String, String> teachingLanguages});
@@ -159,8 +160,9 @@ class __$MentorDtoCopyWithImpl<$Res> extends _$MentorDtoCopyWithImpl<$Res>
       profilePicture: profilePicture == freezed
           ? _value.profilePicture
           : profilePicture as String,
-      locations:
-          locations == freezed ? _value.locations : locations as List<String>,
+      locations: locations == freezed
+          ? _value.locations
+          : locations as List<Map<String, dynamic>>,
       learningLanguages: learningLanguages == freezed
           ? _value.learningLanguages
           : learningLanguages as Map<String, String>,
@@ -209,7 +211,7 @@ class _$_MentorDto extends _MentorDto {
   @override
   final String profilePicture;
   @override
-  final List<String> locations;
+  final List<Map<String, dynamic>> locations;
   @override
   final Map<String, String> learningLanguages;
   @override
@@ -283,7 +285,7 @@ abstract class _MentorDto extends MentorDto {
       String name,
       String biography,
       @required String profilePicture,
-      @required List<String> locations,
+      @required List<Map<String, dynamic>> locations,
       @required Map<String, String> learningLanguages,
       @required Map<String, String> speakingLanguages,
       @required Map<String, String> teachingLanguages}) = _$_MentorDto;
@@ -302,7 +304,7 @@ abstract class _MentorDto extends MentorDto {
   @override
   String get profilePicture;
   @override
-  List<String> get locations;
+  List<Map<String, dynamic>> get locations;
   @override
   Map<String, String> get learningLanguages;
   @override

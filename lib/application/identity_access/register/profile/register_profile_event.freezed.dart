@@ -66,6 +66,18 @@ class _$RegisterProfileEventTearOff {
     );
   }
 
+  LocationAdded locationAdded({LocationResult location}) {
+    return LocationAdded(
+      location: location,
+    );
+  }
+
+  LocationDeleted locationDeleted({LatLng latLng}) {
+    return LocationDeleted(
+      latLng: latLng,
+    );
+  }
+
   DoneClicked doneClicked(
       {Name name,
       EmailAddress emailAddress,
@@ -94,6 +106,8 @@ mixin _$RegisterProfileEvent {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
+    @required Result locationAdded(LocationResult location),
+    @required Result locationDeleted(LatLng latLng),
     @required
         Result doneClicked(Name name, EmailAddress emailAddress,
             Password password, bool isMentorOrLearner),
@@ -108,6 +122,8 @@ mixin _$RegisterProfileEvent {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
+    Result locationAdded(LocationResult location),
+    Result locationDeleted(LatLng latLng),
     Result doneClicked(Name name, EmailAddress emailAddress, Password password,
         bool isMentorOrLearner),
     @required Result orElse(),
@@ -122,6 +138,8 @@ mixin _$RegisterProfileEvent {
     @required Result learningLanguageDeleted(LearningLanguageDeleted value),
     @required Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     @required Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    @required Result locationAdded(LocationAdded value),
+    @required Result locationDeleted(LocationDeleted value),
     @required Result doneClicked(DoneClicked value),
   });
   @optionalTypeArgs
@@ -134,6 +152,8 @@ mixin _$RegisterProfileEvent {
     Result learningLanguageDeleted(LearningLanguageDeleted value),
     Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    Result locationAdded(LocationAdded value),
+    Result locationDeleted(LocationDeleted value),
     Result doneClicked(DoneClicked value),
     @required Result orElse(),
   });
@@ -217,6 +237,8 @@ class _$ImageSet implements ImageSet {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
+    @required Result locationAdded(LocationResult location),
+    @required Result locationDeleted(LatLng latLng),
     @required
         Result doneClicked(Name name, EmailAddress emailAddress,
             Password password, bool isMentorOrLearner),
@@ -229,6 +251,8 @@ class _$ImageSet implements ImageSet {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return imageSet(file);
   }
@@ -244,6 +268,8 @@ class _$ImageSet implements ImageSet {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
+    Result locationAdded(LocationResult location),
+    Result locationDeleted(LatLng latLng),
     Result doneClicked(Name name, EmailAddress emailAddress, Password password,
         bool isMentorOrLearner),
     @required Result orElse(),
@@ -266,6 +292,8 @@ class _$ImageSet implements ImageSet {
     @required Result learningLanguageDeleted(LearningLanguageDeleted value),
     @required Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     @required Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    @required Result locationAdded(LocationAdded value),
+    @required Result locationDeleted(LocationDeleted value),
     @required Result doneClicked(DoneClicked value),
   }) {
     assert(imageSet != null);
@@ -276,6 +304,8 @@ class _$ImageSet implements ImageSet {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return imageSet(this);
   }
@@ -291,6 +321,8 @@ class _$ImageSet implements ImageSet {
     Result learningLanguageDeleted(LearningLanguageDeleted value),
     Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    Result locationAdded(LocationAdded value),
+    Result locationDeleted(LocationDeleted value),
     Result doneClicked(DoneClicked value),
     @required Result orElse(),
   }) {
@@ -373,6 +405,8 @@ class _$BioChanged implements BioChanged {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
+    @required Result locationAdded(LocationResult location),
+    @required Result locationDeleted(LatLng latLng),
     @required
         Result doneClicked(Name name, EmailAddress emailAddress,
             Password password, bool isMentorOrLearner),
@@ -385,6 +419,8 @@ class _$BioChanged implements BioChanged {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return bioChanged(bio);
   }
@@ -400,6 +436,8 @@ class _$BioChanged implements BioChanged {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
+    Result locationAdded(LocationResult location),
+    Result locationDeleted(LatLng latLng),
     Result doneClicked(Name name, EmailAddress emailAddress, Password password,
         bool isMentorOrLearner),
     @required Result orElse(),
@@ -422,6 +460,8 @@ class _$BioChanged implements BioChanged {
     @required Result learningLanguageDeleted(LearningLanguageDeleted value),
     @required Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     @required Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    @required Result locationAdded(LocationAdded value),
+    @required Result locationDeleted(LocationDeleted value),
     @required Result doneClicked(DoneClicked value),
   }) {
     assert(imageSet != null);
@@ -432,6 +472,8 @@ class _$BioChanged implements BioChanged {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return bioChanged(this);
   }
@@ -447,6 +489,8 @@ class _$BioChanged implements BioChanged {
     Result learningLanguageDeleted(LearningLanguageDeleted value),
     Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    Result locationAdded(LocationAdded value),
+    Result locationDeleted(LocationDeleted value),
     Result doneClicked(DoneClicked value),
     @required Result orElse(),
   }) {
@@ -542,6 +586,8 @@ class _$LearningLanguageAdded implements LearningLanguageAdded {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
+    @required Result locationAdded(LocationResult location),
+    @required Result locationDeleted(LatLng latLng),
     @required
         Result doneClicked(Name name, EmailAddress emailAddress,
             Password password, bool isMentorOrLearner),
@@ -554,6 +600,8 @@ class _$LearningLanguageAdded implements LearningLanguageAdded {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return learningLanguageAdded(language, proficiency);
   }
@@ -569,6 +617,8 @@ class _$LearningLanguageAdded implements LearningLanguageAdded {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
+    Result locationAdded(LocationResult location),
+    Result locationDeleted(LatLng latLng),
     Result doneClicked(Name name, EmailAddress emailAddress, Password password,
         bool isMentorOrLearner),
     @required Result orElse(),
@@ -591,6 +641,8 @@ class _$LearningLanguageAdded implements LearningLanguageAdded {
     @required Result learningLanguageDeleted(LearningLanguageDeleted value),
     @required Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     @required Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    @required Result locationAdded(LocationAdded value),
+    @required Result locationDeleted(LocationDeleted value),
     @required Result doneClicked(DoneClicked value),
   }) {
     assert(imageSet != null);
@@ -601,6 +653,8 @@ class _$LearningLanguageAdded implements LearningLanguageAdded {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return learningLanguageAdded(this);
   }
@@ -616,6 +670,8 @@ class _$LearningLanguageAdded implements LearningLanguageAdded {
     Result learningLanguageDeleted(LearningLanguageDeleted value),
     Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    Result locationAdded(LocationAdded value),
+    Result locationDeleted(LocationDeleted value),
     Result doneClicked(DoneClicked value),
     @required Result orElse(),
   }) {
@@ -713,6 +769,8 @@ class _$SpeakingLanguageAdded implements SpeakingLanguageAdded {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
+    @required Result locationAdded(LocationResult location),
+    @required Result locationDeleted(LatLng latLng),
     @required
         Result doneClicked(Name name, EmailAddress emailAddress,
             Password password, bool isMentorOrLearner),
@@ -725,6 +783,8 @@ class _$SpeakingLanguageAdded implements SpeakingLanguageAdded {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return speakingLanguageAdded(language, proficiency);
   }
@@ -740,6 +800,8 @@ class _$SpeakingLanguageAdded implements SpeakingLanguageAdded {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
+    Result locationAdded(LocationResult location),
+    Result locationDeleted(LatLng latLng),
     Result doneClicked(Name name, EmailAddress emailAddress, Password password,
         bool isMentorOrLearner),
     @required Result orElse(),
@@ -762,6 +824,8 @@ class _$SpeakingLanguageAdded implements SpeakingLanguageAdded {
     @required Result learningLanguageDeleted(LearningLanguageDeleted value),
     @required Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     @required Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    @required Result locationAdded(LocationAdded value),
+    @required Result locationDeleted(LocationDeleted value),
     @required Result doneClicked(DoneClicked value),
   }) {
     assert(imageSet != null);
@@ -772,6 +836,8 @@ class _$SpeakingLanguageAdded implements SpeakingLanguageAdded {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return speakingLanguageAdded(this);
   }
@@ -787,6 +853,8 @@ class _$SpeakingLanguageAdded implements SpeakingLanguageAdded {
     Result learningLanguageDeleted(LearningLanguageDeleted value),
     Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    Result locationAdded(LocationAdded value),
+    Result locationDeleted(LocationDeleted value),
     Result doneClicked(DoneClicked value),
     @required Result orElse(),
   }) {
@@ -884,6 +952,8 @@ class _$TeachingLanguageAdded implements TeachingLanguageAdded {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
+    @required Result locationAdded(LocationResult location),
+    @required Result locationDeleted(LatLng latLng),
     @required
         Result doneClicked(Name name, EmailAddress emailAddress,
             Password password, bool isMentorOrLearner),
@@ -896,6 +966,8 @@ class _$TeachingLanguageAdded implements TeachingLanguageAdded {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return teachingLanguageAdded(language, proficiency);
   }
@@ -911,6 +983,8 @@ class _$TeachingLanguageAdded implements TeachingLanguageAdded {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
+    Result locationAdded(LocationResult location),
+    Result locationDeleted(LatLng latLng),
     Result doneClicked(Name name, EmailAddress emailAddress, Password password,
         bool isMentorOrLearner),
     @required Result orElse(),
@@ -933,6 +1007,8 @@ class _$TeachingLanguageAdded implements TeachingLanguageAdded {
     @required Result learningLanguageDeleted(LearningLanguageDeleted value),
     @required Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     @required Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    @required Result locationAdded(LocationAdded value),
+    @required Result locationDeleted(LocationDeleted value),
     @required Result doneClicked(DoneClicked value),
   }) {
     assert(imageSet != null);
@@ -943,6 +1019,8 @@ class _$TeachingLanguageAdded implements TeachingLanguageAdded {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return teachingLanguageAdded(this);
   }
@@ -958,6 +1036,8 @@ class _$TeachingLanguageAdded implements TeachingLanguageAdded {
     Result learningLanguageDeleted(LearningLanguageDeleted value),
     Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    Result locationAdded(LocationAdded value),
+    Result locationDeleted(LocationDeleted value),
     Result doneClicked(DoneClicked value),
     @required Result orElse(),
   }) {
@@ -1045,6 +1125,8 @@ class _$LearningLanguageDeleted implements LearningLanguageDeleted {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
+    @required Result locationAdded(LocationResult location),
+    @required Result locationDeleted(LatLng latLng),
     @required
         Result doneClicked(Name name, EmailAddress emailAddress,
             Password password, bool isMentorOrLearner),
@@ -1057,6 +1139,8 @@ class _$LearningLanguageDeleted implements LearningLanguageDeleted {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return learningLanguageDeleted(language);
   }
@@ -1072,6 +1156,8 @@ class _$LearningLanguageDeleted implements LearningLanguageDeleted {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
+    Result locationAdded(LocationResult location),
+    Result locationDeleted(LatLng latLng),
     Result doneClicked(Name name, EmailAddress emailAddress, Password password,
         bool isMentorOrLearner),
     @required Result orElse(),
@@ -1094,6 +1180,8 @@ class _$LearningLanguageDeleted implements LearningLanguageDeleted {
     @required Result learningLanguageDeleted(LearningLanguageDeleted value),
     @required Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     @required Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    @required Result locationAdded(LocationAdded value),
+    @required Result locationDeleted(LocationDeleted value),
     @required Result doneClicked(DoneClicked value),
   }) {
     assert(imageSet != null);
@@ -1104,6 +1192,8 @@ class _$LearningLanguageDeleted implements LearningLanguageDeleted {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return learningLanguageDeleted(this);
   }
@@ -1119,6 +1209,8 @@ class _$LearningLanguageDeleted implements LearningLanguageDeleted {
     Result learningLanguageDeleted(LearningLanguageDeleted value),
     Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    Result locationAdded(LocationAdded value),
+    Result locationDeleted(LocationDeleted value),
     Result doneClicked(DoneClicked value),
     @required Result orElse(),
   }) {
@@ -1205,6 +1297,8 @@ class _$SpeakingLanguageDeleted implements SpeakingLanguageDeleted {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
+    @required Result locationAdded(LocationResult location),
+    @required Result locationDeleted(LatLng latLng),
     @required
         Result doneClicked(Name name, EmailAddress emailAddress,
             Password password, bool isMentorOrLearner),
@@ -1217,6 +1311,8 @@ class _$SpeakingLanguageDeleted implements SpeakingLanguageDeleted {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return speakingLanguageDeleted(language);
   }
@@ -1232,6 +1328,8 @@ class _$SpeakingLanguageDeleted implements SpeakingLanguageDeleted {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
+    Result locationAdded(LocationResult location),
+    Result locationDeleted(LatLng latLng),
     Result doneClicked(Name name, EmailAddress emailAddress, Password password,
         bool isMentorOrLearner),
     @required Result orElse(),
@@ -1254,6 +1352,8 @@ class _$SpeakingLanguageDeleted implements SpeakingLanguageDeleted {
     @required Result learningLanguageDeleted(LearningLanguageDeleted value),
     @required Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     @required Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    @required Result locationAdded(LocationAdded value),
+    @required Result locationDeleted(LocationDeleted value),
     @required Result doneClicked(DoneClicked value),
   }) {
     assert(imageSet != null);
@@ -1264,6 +1364,8 @@ class _$SpeakingLanguageDeleted implements SpeakingLanguageDeleted {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return speakingLanguageDeleted(this);
   }
@@ -1279,6 +1381,8 @@ class _$SpeakingLanguageDeleted implements SpeakingLanguageDeleted {
     Result learningLanguageDeleted(LearningLanguageDeleted value),
     Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    Result locationAdded(LocationAdded value),
+    Result locationDeleted(LocationDeleted value),
     Result doneClicked(DoneClicked value),
     @required Result orElse(),
   }) {
@@ -1365,6 +1469,8 @@ class _$TeachingLanguageDeleted implements TeachingLanguageDeleted {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
+    @required Result locationAdded(LocationResult location),
+    @required Result locationDeleted(LatLng latLng),
     @required
         Result doneClicked(Name name, EmailAddress emailAddress,
             Password password, bool isMentorOrLearner),
@@ -1377,6 +1483,8 @@ class _$TeachingLanguageDeleted implements TeachingLanguageDeleted {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return teachingLanguageDeleted(language);
   }
@@ -1392,6 +1500,8 @@ class _$TeachingLanguageDeleted implements TeachingLanguageDeleted {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
+    Result locationAdded(LocationResult location),
+    Result locationDeleted(LatLng latLng),
     Result doneClicked(Name name, EmailAddress emailAddress, Password password,
         bool isMentorOrLearner),
     @required Result orElse(),
@@ -1414,6 +1524,8 @@ class _$TeachingLanguageDeleted implements TeachingLanguageDeleted {
     @required Result learningLanguageDeleted(LearningLanguageDeleted value),
     @required Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     @required Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    @required Result locationAdded(LocationAdded value),
+    @required Result locationDeleted(LocationDeleted value),
     @required Result doneClicked(DoneClicked value),
   }) {
     assert(imageSet != null);
@@ -1424,6 +1536,8 @@ class _$TeachingLanguageDeleted implements TeachingLanguageDeleted {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return teachingLanguageDeleted(this);
   }
@@ -1439,6 +1553,8 @@ class _$TeachingLanguageDeleted implements TeachingLanguageDeleted {
     Result learningLanguageDeleted(LearningLanguageDeleted value),
     Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    Result locationAdded(LocationAdded value),
+    Result locationDeleted(LocationDeleted value),
     Result doneClicked(DoneClicked value),
     @required Result orElse(),
   }) {
@@ -1456,6 +1572,346 @@ abstract class TeachingLanguageDeleted implements RegisterProfileEvent {
 
   String get language;
   $TeachingLanguageDeletedCopyWith<TeachingLanguageDeleted> get copyWith;
+}
+
+abstract class $LocationAddedCopyWith<$Res> {
+  factory $LocationAddedCopyWith(
+          LocationAdded value, $Res Function(LocationAdded) then) =
+      _$LocationAddedCopyWithImpl<$Res>;
+  $Res call({LocationResult location});
+}
+
+class _$LocationAddedCopyWithImpl<$Res>
+    extends _$RegisterProfileEventCopyWithImpl<$Res>
+    implements $LocationAddedCopyWith<$Res> {
+  _$LocationAddedCopyWithImpl(
+      LocationAdded _value, $Res Function(LocationAdded) _then)
+      : super(_value, (v) => _then(v as LocationAdded));
+
+  @override
+  LocationAdded get _value => super._value as LocationAdded;
+
+  @override
+  $Res call({
+    Object location = freezed,
+  }) {
+    return _then(LocationAdded(
+      location:
+          location == freezed ? _value.location : location as LocationResult,
+    ));
+  }
+}
+
+class _$LocationAdded implements LocationAdded {
+  const _$LocationAdded({this.location});
+
+  @override
+  final LocationResult location;
+
+  @override
+  String toString() {
+    return 'RegisterProfileEvent.locationAdded(location: $location)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is LocationAdded &&
+            (identical(other.location, location) ||
+                const DeepCollectionEquality()
+                    .equals(other.location, location)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(location);
+
+  @override
+  $LocationAddedCopyWith<LocationAdded> get copyWith =>
+      _$LocationAddedCopyWithImpl<LocationAdded>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result imageSet(File file),
+    @required Result bioChanged(String bio),
+    @required Result learningLanguageAdded(String language, String proficiency),
+    @required Result speakingLanguageAdded(String language, String proficiency),
+    @required Result teachingLanguageAdded(String language, String proficiency),
+    @required Result learningLanguageDeleted(String language),
+    @required Result speakingLanguageDeleted(String language),
+    @required Result teachingLanguageDeleted(String language),
+    @required Result locationAdded(LocationResult location),
+    @required Result locationDeleted(LatLng latLng),
+    @required
+        Result doneClicked(Name name, EmailAddress emailAddress,
+            Password password, bool isMentorOrLearner),
+  }) {
+    assert(imageSet != null);
+    assert(bioChanged != null);
+    assert(learningLanguageAdded != null);
+    assert(speakingLanguageAdded != null);
+    assert(teachingLanguageAdded != null);
+    assert(learningLanguageDeleted != null);
+    assert(speakingLanguageDeleted != null);
+    assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
+    assert(doneClicked != null);
+    return locationAdded(location);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result imageSet(File file),
+    Result bioChanged(String bio),
+    Result learningLanguageAdded(String language, String proficiency),
+    Result speakingLanguageAdded(String language, String proficiency),
+    Result teachingLanguageAdded(String language, String proficiency),
+    Result learningLanguageDeleted(String language),
+    Result speakingLanguageDeleted(String language),
+    Result teachingLanguageDeleted(String language),
+    Result locationAdded(LocationResult location),
+    Result locationDeleted(LatLng latLng),
+    Result doneClicked(Name name, EmailAddress emailAddress, Password password,
+        bool isMentorOrLearner),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (locationAdded != null) {
+      return locationAdded(location);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result imageSet(ImageSet value),
+    @required Result bioChanged(BioChanged value),
+    @required Result learningLanguageAdded(LearningLanguageAdded value),
+    @required Result speakingLanguageAdded(SpeakingLanguageAdded value),
+    @required Result teachingLanguageAdded(TeachingLanguageAdded value),
+    @required Result learningLanguageDeleted(LearningLanguageDeleted value),
+    @required Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
+    @required Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    @required Result locationAdded(LocationAdded value),
+    @required Result locationDeleted(LocationDeleted value),
+    @required Result doneClicked(DoneClicked value),
+  }) {
+    assert(imageSet != null);
+    assert(bioChanged != null);
+    assert(learningLanguageAdded != null);
+    assert(speakingLanguageAdded != null);
+    assert(teachingLanguageAdded != null);
+    assert(learningLanguageDeleted != null);
+    assert(speakingLanguageDeleted != null);
+    assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
+    assert(doneClicked != null);
+    return locationAdded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result imageSet(ImageSet value),
+    Result bioChanged(BioChanged value),
+    Result learningLanguageAdded(LearningLanguageAdded value),
+    Result speakingLanguageAdded(SpeakingLanguageAdded value),
+    Result teachingLanguageAdded(TeachingLanguageAdded value),
+    Result learningLanguageDeleted(LearningLanguageDeleted value),
+    Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
+    Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    Result locationAdded(LocationAdded value),
+    Result locationDeleted(LocationDeleted value),
+    Result doneClicked(DoneClicked value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (locationAdded != null) {
+      return locationAdded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LocationAdded implements RegisterProfileEvent {
+  const factory LocationAdded({LocationResult location}) = _$LocationAdded;
+
+  LocationResult get location;
+  $LocationAddedCopyWith<LocationAdded> get copyWith;
+}
+
+abstract class $LocationDeletedCopyWith<$Res> {
+  factory $LocationDeletedCopyWith(
+          LocationDeleted value, $Res Function(LocationDeleted) then) =
+      _$LocationDeletedCopyWithImpl<$Res>;
+  $Res call({LatLng latLng});
+}
+
+class _$LocationDeletedCopyWithImpl<$Res>
+    extends _$RegisterProfileEventCopyWithImpl<$Res>
+    implements $LocationDeletedCopyWith<$Res> {
+  _$LocationDeletedCopyWithImpl(
+      LocationDeleted _value, $Res Function(LocationDeleted) _then)
+      : super(_value, (v) => _then(v as LocationDeleted));
+
+  @override
+  LocationDeleted get _value => super._value as LocationDeleted;
+
+  @override
+  $Res call({
+    Object latLng = freezed,
+  }) {
+    return _then(LocationDeleted(
+      latLng: latLng == freezed ? _value.latLng : latLng as LatLng,
+    ));
+  }
+}
+
+class _$LocationDeleted implements LocationDeleted {
+  const _$LocationDeleted({this.latLng});
+
+  @override
+  final LatLng latLng;
+
+  @override
+  String toString() {
+    return 'RegisterProfileEvent.locationDeleted(latLng: $latLng)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is LocationDeleted &&
+            (identical(other.latLng, latLng) ||
+                const DeepCollectionEquality().equals(other.latLng, latLng)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(latLng);
+
+  @override
+  $LocationDeletedCopyWith<LocationDeleted> get copyWith =>
+      _$LocationDeletedCopyWithImpl<LocationDeleted>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result imageSet(File file),
+    @required Result bioChanged(String bio),
+    @required Result learningLanguageAdded(String language, String proficiency),
+    @required Result speakingLanguageAdded(String language, String proficiency),
+    @required Result teachingLanguageAdded(String language, String proficiency),
+    @required Result learningLanguageDeleted(String language),
+    @required Result speakingLanguageDeleted(String language),
+    @required Result teachingLanguageDeleted(String language),
+    @required Result locationAdded(LocationResult location),
+    @required Result locationDeleted(LatLng latLng),
+    @required
+        Result doneClicked(Name name, EmailAddress emailAddress,
+            Password password, bool isMentorOrLearner),
+  }) {
+    assert(imageSet != null);
+    assert(bioChanged != null);
+    assert(learningLanguageAdded != null);
+    assert(speakingLanguageAdded != null);
+    assert(teachingLanguageAdded != null);
+    assert(learningLanguageDeleted != null);
+    assert(speakingLanguageDeleted != null);
+    assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
+    assert(doneClicked != null);
+    return locationDeleted(latLng);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result imageSet(File file),
+    Result bioChanged(String bio),
+    Result learningLanguageAdded(String language, String proficiency),
+    Result speakingLanguageAdded(String language, String proficiency),
+    Result teachingLanguageAdded(String language, String proficiency),
+    Result learningLanguageDeleted(String language),
+    Result speakingLanguageDeleted(String language),
+    Result teachingLanguageDeleted(String language),
+    Result locationAdded(LocationResult location),
+    Result locationDeleted(LatLng latLng),
+    Result doneClicked(Name name, EmailAddress emailAddress, Password password,
+        bool isMentorOrLearner),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (locationDeleted != null) {
+      return locationDeleted(latLng);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result imageSet(ImageSet value),
+    @required Result bioChanged(BioChanged value),
+    @required Result learningLanguageAdded(LearningLanguageAdded value),
+    @required Result speakingLanguageAdded(SpeakingLanguageAdded value),
+    @required Result teachingLanguageAdded(TeachingLanguageAdded value),
+    @required Result learningLanguageDeleted(LearningLanguageDeleted value),
+    @required Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
+    @required Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    @required Result locationAdded(LocationAdded value),
+    @required Result locationDeleted(LocationDeleted value),
+    @required Result doneClicked(DoneClicked value),
+  }) {
+    assert(imageSet != null);
+    assert(bioChanged != null);
+    assert(learningLanguageAdded != null);
+    assert(speakingLanguageAdded != null);
+    assert(teachingLanguageAdded != null);
+    assert(learningLanguageDeleted != null);
+    assert(speakingLanguageDeleted != null);
+    assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
+    assert(doneClicked != null);
+    return locationDeleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result imageSet(ImageSet value),
+    Result bioChanged(BioChanged value),
+    Result learningLanguageAdded(LearningLanguageAdded value),
+    Result speakingLanguageAdded(SpeakingLanguageAdded value),
+    Result teachingLanguageAdded(TeachingLanguageAdded value),
+    Result learningLanguageDeleted(LearningLanguageDeleted value),
+    Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
+    Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    Result locationAdded(LocationAdded value),
+    Result locationDeleted(LocationDeleted value),
+    Result doneClicked(DoneClicked value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (locationDeleted != null) {
+      return locationDeleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LocationDeleted implements RegisterProfileEvent {
+  const factory LocationDeleted({LatLng latLng}) = _$LocationDeleted;
+
+  LatLng get latLng;
+  $LocationDeletedCopyWith<LocationDeleted> get copyWith;
 }
 
 abstract class $DoneClickedCopyWith<$Res> {
@@ -1557,6 +2013,8 @@ class _$DoneClicked implements DoneClicked {
     @required Result learningLanguageDeleted(String language),
     @required Result speakingLanguageDeleted(String language),
     @required Result teachingLanguageDeleted(String language),
+    @required Result locationAdded(LocationResult location),
+    @required Result locationDeleted(LatLng latLng),
     @required
         Result doneClicked(Name name, EmailAddress emailAddress,
             Password password, bool isMentorOrLearner),
@@ -1569,6 +2027,8 @@ class _$DoneClicked implements DoneClicked {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return doneClicked(name, emailAddress, password, isMentorOrLearner);
   }
@@ -1584,6 +2044,8 @@ class _$DoneClicked implements DoneClicked {
     Result learningLanguageDeleted(String language),
     Result speakingLanguageDeleted(String language),
     Result teachingLanguageDeleted(String language),
+    Result locationAdded(LocationResult location),
+    Result locationDeleted(LatLng latLng),
     Result doneClicked(Name name, EmailAddress emailAddress, Password password,
         bool isMentorOrLearner),
     @required Result orElse(),
@@ -1606,6 +2068,8 @@ class _$DoneClicked implements DoneClicked {
     @required Result learningLanguageDeleted(LearningLanguageDeleted value),
     @required Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     @required Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    @required Result locationAdded(LocationAdded value),
+    @required Result locationDeleted(LocationDeleted value),
     @required Result doneClicked(DoneClicked value),
   }) {
     assert(imageSet != null);
@@ -1616,6 +2080,8 @@ class _$DoneClicked implements DoneClicked {
     assert(learningLanguageDeleted != null);
     assert(speakingLanguageDeleted != null);
     assert(teachingLanguageDeleted != null);
+    assert(locationAdded != null);
+    assert(locationDeleted != null);
     assert(doneClicked != null);
     return doneClicked(this);
   }
@@ -1631,6 +2097,8 @@ class _$DoneClicked implements DoneClicked {
     Result learningLanguageDeleted(LearningLanguageDeleted value),
     Result speakingLanguageDeleted(SpeakingLanguageDeleted value),
     Result teachingLanguageDeleted(TeachingLanguageDeleted value),
+    Result locationAdded(LocationAdded value),
+    Result locationDeleted(LocationDeleted value),
     Result doneClicked(DoneClicked value),
     @required Result orElse(),
   }) {

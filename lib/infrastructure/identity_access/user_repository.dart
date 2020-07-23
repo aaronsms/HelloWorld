@@ -43,6 +43,7 @@ class UserRepository implements IUserRepository {
         return left(const RegistrationFailure.serverError());
       }
     } catch (e) {
+      print(e);
       return left(const RegistrationFailure.serverError());
     }
   }

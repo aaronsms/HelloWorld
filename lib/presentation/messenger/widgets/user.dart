@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/domain/identity_access/model/user/user_id.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 
-class User extends StatelessWidget {
+class RecentContact extends StatelessWidget {
   final String name;
-  final int id;
+  final UserId id;
   final String imageUrl;
 
-  const User({
+  const RecentContact({
     Key key,
     @required this.name,
     @required this.id,

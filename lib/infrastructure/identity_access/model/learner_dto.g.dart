@@ -13,7 +13,9 @@ _$_LearnerDto _$_$_LearnerDtoFromJson(Map<String, dynamic> json) {
     userId: json['userId'] as String,
     profilePicture: json['profilePicture'] as String,
     biography: json['biography'] as String,
-    locations: (json['locations'] as List)?.map((e) => e as String)?.toList(),
+    locations: (json['locations'] as List)
+        ?.map((e) => e as Map<String, dynamic>)
+        ?.toList(),
     learningLanguages: (json['learningLanguages'] as Map<String, dynamic>)?.map(
       (k, e) => MapEntry(k, e as String),
     ),
