@@ -7,6 +7,7 @@ import 'package:helloworld/presentation/profile/widgets/name_tag.dart';
 import 'package:helloworld/presentation/profile/widgets/biography.dart';
 import 'package:helloworld/presentation/profile/widgets/ratings_form.dart';
 import 'package:helloworld/presentation/profile/widgets/portfolio.dart';
+import 'package:helloworld/presentation/profile/widgets/review_page.dart';
 import 'package:helloworld/presentation/profile/widgets/user_menu.dart';
 import 'package:helloworld/presentation/profile/widgets/ratings.dart';
 import 'package:helloworld/presentation/profile/widgets/charge.dart';
@@ -18,24 +19,23 @@ class MentorProfile extends StatelessWidget {
         backgroundColor: Palette.backgroundColor,
         body: SingleChildScrollView(
             child: Column(children: <Widget>[
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: <
+              Widget>[
+            IconButton(
+                icon: Icon(Icons.keyboard_arrow_left,
+                    color: Palette.primaryColor),
+                onPressed: () {}),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                IconButton(
-                    icon: Icon(Icons.keyboard_arrow_left,
-                        color: Palette.primaryColor),
-                    onPressed: () {}),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    GestureDetector(
-                        onTap: () {},
-                        child: const Image(
-                            image: AssetImage('assets/images/message.png'))),
-                    UserMenu()
-                  ],
-                )
-              ]),
+                GestureDetector(
+                    onTap: () {},
+                    child: const Image(
+                        image: AssetImage('assets/images/messenger_logo.png'))),
+                UserMenu()
+              ],
+            )
+          ]),
           Padding(
               padding: const EdgeInsets.only(top: 10),
               child: Container(

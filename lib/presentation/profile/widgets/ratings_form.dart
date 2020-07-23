@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/profile/widgets/ratings.dart';
 import 'package:helloworld/presentation/core/palette.dart';
+import 'package:helloworld/presentation/profile/widgets/review_page.dart';
 
 class RatingsForm extends StatelessWidget {
   final String title;
@@ -44,7 +45,12 @@ class RatingsForm extends StatelessWidget {
                         Icons.keyboard_arrow_right,
                         color: Palette.secondaryColor,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ReviewPage()),
+                        );
+                      },
                     ))
               ]),
             ],
