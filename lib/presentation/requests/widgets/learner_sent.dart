@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/requests/widgets/learner_sent_preview.dart';
 import 'package:helloworld/presentation/requests/widgets/slots.dart';
-import 'package:helloworld/presentation/requests/widgets/status.dart';
+import 'package:helloworld/presentation/requests/widgets/learner_status.dart';
 
 class LearnerSent extends StatelessWidget {
   @override
@@ -21,7 +21,7 @@ class LearnerSent extends StatelessWidget {
                   Slots(slot: "Tue, 4 May 08:00 - 08:30"),
                   Slots(slot: "Wed, 5 May 08:00 - 08:30")
                 ],
-                status: Status(status: "PENDING"),
+                status: LearnerStatus(status: "PENDING"),
               ),
               const LearnerSentPreview(
                 name: "Sample Name 2",
@@ -29,7 +29,7 @@ class LearnerSent extends StatelessWidget {
                   Slots(slot: "Tue, 4 May 09:00 - 09:30"),
                   Slots(slot: "Thur, 6 May 08:00 - 08:30")
                 ],
-                status: Status(status: "ACCEPTED"),
+                status: LearnerStatus(status: "ACCEPTED"),
               ),
               const LearnerSentPreview(
                 name: "Sample Name 2",
@@ -38,7 +38,7 @@ class LearnerSent extends StatelessWidget {
                   Slots(slot: "Thur, 6 May 13:00 - 13:30"),
                   Slots(slot: "Sat, 9 May 08:00 - 08:30")
                 ],
-                status: Status(status: "REJECTED"),
+                status: LearnerStatus(status: "REJECTED"),
               ),
             ],
           ),

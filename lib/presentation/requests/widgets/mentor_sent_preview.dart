@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/requests/widgets/slots.dart';
-import 'package:helloworld/presentation/requests/widgets/status.dart';
+import 'package:helloworld/presentation/requests/widgets/mentor_status.dart';
 
 class MentorSentPreview extends StatelessWidget {
   final String name;
   final List<Slots> booked;
-  final Status status;
+  final MentorStatus status;
   final double cost; //NEEDS TO BE COMPUTED (DURATION X HOURLY-RATES)
 
   const MentorSentPreview(
