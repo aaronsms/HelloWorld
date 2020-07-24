@@ -2,10 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/scheduling/widgets/confirmation_card.dart';
 import 'package:helloworld/presentation/scheduling/confirmed_page.dart';
+import 'package:helloworld/presentation/scheduling/schedule_page.dart';
+import 'package:helloworld/presentation/scheduling/widgets/slot_info.dart';
+import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:time_range/time_range.dart';
 
 class ConfirmationPage extends StatelessWidget {
+  final DateTime date;
+
+  const ConfirmationPage({Key key, this.date}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    var slotInfo = Provider.of<SlotInfo>(context);
+    List<TimeRangeResult> selected = slotInfo.selected;
     return Scaffold(
         backgroundColor: Palette.backgroundColor,
         body: SingleChildScrollView(
@@ -17,7 +28,11 @@ class ConfirmationPage extends StatelessWidget {
                   child: IconButton(
                     icon: Icon(Icons.keyboard_arrow_left),
                     onPressed: () {
-                      /** NAVIGATES TO SCHEDULE PAGE */
+                      selected.clear();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SchedulePage()),
+                      );
                     },
                     color: Palette.primaryColor,
                   )),
@@ -33,10 +48,7 @@ class ConfirmationPage extends StatelessWidget {
                           fontFamily: 'Martel Sans',
                           fontWeight: FontWeight.w900,
                           fontSize: 16))),
-              const ConfirmationCard(
-                  /** NEEDS TO FETCH DATE AND SLOTS FROM SCHEDULE PAGE */
-                  date: "Tuesday, 2 May 2020",
-                  slots: ["08:00 - 08:30", "09:00 - 09:30", "14:00 - 15:00"]),
+              ConfirmationCard(date: DateFormat.yMMMd().format(date)),
               Padding(
                   padding: const EdgeInsets.only(top: 80),
                   child: RaisedButton(
@@ -44,11 +56,10 @@ class ConfirmationPage extends StatelessWidget {
                         top: 10, bottom: 10, left: 20, right: 20),
                     color: Palette.primaryColor,
                     onPressed: () {
-                      /** NAVIGATES TO CONFIRMED PAGE */
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ConfirmedPage()),
+                            builder: (context) => ConfirmedPage(date: date)),
                       );
                     },
                     shape: RoundedRectangleBorder(

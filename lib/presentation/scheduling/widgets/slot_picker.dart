@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
+import 'package:helloworld/presentation/scheduling/widgets/slot_info.dart';
+import 'package:provider/provider.dart';
 import 'package:time_range/time_range.dart';
 
 class SlotPicker extends StatefulWidget {
@@ -7,14 +9,13 @@ class SlotPicker extends StatefulWidget {
   _SlotPickerState createState() => _SlotPickerState();
 }
 
-/** RESOLVE ERROR WHEN "TO" TIME IS PICKED FIRST */
-/** ADJUST POSITIONING */
-
 class _SlotPickerState extends State<SlotPicker> {
-  TimeRangeResult _timeRange;
+  TimeRangeResult timeRange;
 
   @override
   Widget build(BuildContext context) {
+    var slotInfo = Provider.of<SlotInfo>(context);
+
     return Scaffold(
       backgroundColor: Palette.quaternaryColor,
       body: Column(
@@ -53,30 +54,12 @@ class _SlotPickerState extends State<SlotPicker> {
             activeBackgroundColor: Palette.primaryColor,
             firstTime: const TimeOfDay(hour: 8, minute: 00),
             lastTime: const TimeOfDay(hour: 22, minute: 00),
-            initialRange: _timeRange,
+            initialRange: timeRange,
             timeStep: 30,
             timeBlock: 30,
-            onRangeCompleted: (range) => setState(() => _timeRange = range),
+            onRangeCompleted: (range) =>
+                setState(() => {timeRange = range, slotInfo.change = range}),
           ),
-          // const SizedBox(height: 30),
-          // if (_timeRange != null)
-          //   Padding(
-          //     padding: const EdgeInsets.only(top: 9),
-          //     child: Column(
-          //       crossAxisAlignment: CrossAxisAlignment.start,
-          //       children: <Widget>[
-          //         Text(
-          //           "You've selected: \n    ${_timeRange.start.hhmm()} - ${_timeRange.end.hhmm()}",
-          //           style: const TextStyle(
-          //             fontSize: 16,
-          //             color: Colors.white,
-          //             fontFamily: 'Martel Sans',
-          //             fontWeight: FontWeight.w800,
-          //           ),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
         ],
       ),
     );

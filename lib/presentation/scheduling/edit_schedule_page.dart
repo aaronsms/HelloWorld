@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:intl/intl.dart';
 import 'package:helloworld/presentation/scheduling/widgets/slot_picker.dart';
+import 'package:helloworld/presentation/scheduling/widgets/slot_info.dart';
 import 'package:helloworld/presentation/scheduling/widgets/edit_time_slot_display.dart';
+import 'package:provider/provider.dart';
 
 class EditSchedulePage extends StatefulWidget {
   @override
@@ -105,18 +107,7 @@ class _EditSchedulePageState extends State<EditSchedulePage> {
                         fontSize: 16,
                         fontWeight: FontWeight.w900),
                   )),
-              const Expanded(
-                  child: EditTimeSlotDisplay(slots: [
-                "08:00 - 09:00",
-                "09:00 - 09:30",
-                "10:00 - 11:00",
-                "13:00 - 14:00",
-                "14:00 - 14:30",
-                "20:00 - 20:30",
-                "20:30 - 21:00",
-                "21:00 - 21:30",
-                "+"
-              ]))
+              Expanded(child: EditTimeSlotDisplay())
             ]));
   }
 }
