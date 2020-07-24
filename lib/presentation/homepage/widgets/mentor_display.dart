@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/domain/identity_access/model/user/user_id.dart';
+import 'package:helloworld/domain/schedule_requests/service/i_profile_repository.dart';
+import 'package:helloworld/infrastructure/identity_access/profile_repository.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/homepage/widgets/language_set.dart';
+import 'package:helloworld/presentation/profile/mentor_profile.dart';
 
 class MentorDisplay extends StatelessWidget {
   final String name;
@@ -10,6 +14,7 @@ class MentorDisplay extends StatelessWidget {
   final double distance;
   final List<LanguageSet> common;
   final List<LanguageSet> teaching;
+  final UserId userId;
 
   const MentorDisplay({
     Key key,
@@ -20,6 +25,7 @@ class MentorDisplay extends StatelessWidget {
     @required this.common,
     @required this.teaching,
     this.display,
+    @required this.userId,
   }) : super(key: key);
 
   @override
@@ -30,8 +36,18 @@ class MentorDisplay extends StatelessWidget {
         margin: const EdgeInsets.all(0.0),
         child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
           ListTile(
-              onTap: () {
-                /** NAVIGATES TO USER'S PROFILE */
+              onTap: () async {
+                final IProfileRepository repo = ProfileRepository();
+                final mentor = await repo.getMentor(userId);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return MentorProfile(
+                          mentor: mentor.getOrElse(() => null));
+                    },
+                  ),
+                );
               },
               leading: Container(
                 width: 50,
@@ -128,7 +144,19 @@ class MentorDisplay extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(14.0),
                             ),
-                            onPressed: () {},
+                            onPressed: () async {
+                              final IProfileRepository repo = ProfileRepository();
+                              final mentor = await repo.getMentor(userId);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return MentorProfile(
+                                        mentor: mentor.getOrElse(() => null));
+                                  },
+                                ),
+                              );
+                            },
                             child: Text(
                               'View Profile',
                               style: TextStyle(color: Colors.white),

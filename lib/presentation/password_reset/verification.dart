@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/common/palette.dart';
-import 'package:helloworld/presentation/passwordreset/header.dart';
+import 'package:helloworld/presentation/password_reset/header.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class Verification extends StatefulWidget {

@@ -1,17 +1,18 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:helloworld/domain/identity_access/model/user/user_id.dart';
+import 'package:helloworld/infrastructure/common/io_utils.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 
 class RecentContact extends StatelessWidget {
   final String name;
   final UserId id;
-  final String imageUrl;
 
   const RecentContact({
     Key key,
     @required this.name,
     @required this.id,
-    this.imageUrl,
   }) : super(key: key);
 
   @override
@@ -28,8 +29,18 @@ class RecentContact extends StatelessWidget {
               width: 3.0,
             ),
           ),
-          child: const CircleAvatar(
-            backgroundImage: AssetImage('assets/images/avatar.png'),
+          child: FutureBuilder<String>(
+            future: localPath,
+            builder: (context, snapshot) {
+              try {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return CircleAvatar(backgroundImage: FileImage(File('${snapshot.data}/${id.getOrCrash()}.jpg')));
+                }
+                return Container();
+              } catch (e) {
+                return const CircleAvatar(backgroundImage: AssetImage('assets/images/avatar.png'));
+              }
+            },
           ),
         ),
         Text(name,

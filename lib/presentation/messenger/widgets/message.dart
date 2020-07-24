@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:helloworld/domain/identity_access/model/user/user_id.dart';
+import 'package:helloworld/infrastructure/common/io_utils.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 
 class MessageUi extends StatelessWidget {
+  final UserId id;
   final String otherUser;
   final DateTime time;
   final String text;
@@ -13,6 +18,7 @@ class MessageUi extends StatelessWidget {
     @required this.time,
     @required this.text,
     @required this.unread,
+    @required this.id,
   }) : super(key: key);
 
   String _toHoursMinutes(DateTime dateTime) {
@@ -42,8 +48,18 @@ class MessageUi extends StatelessWidget {
                       width: 3.0,
                     ),
                   ),
-                  child: const CircleAvatar(
-                    backgroundImage: AssetImage('assets/images/avatar.png'),
+                  child: FutureBuilder<String>(
+                    future: localPath,
+                    builder: (context, snapshot) {
+                      try {
+                        if (snapshot.connectionState == ConnectionState.done) {
+                          return CircleAvatar(backgroundImage: FileImage(File('${snapshot.data}/${id.getOrCrash()}.jpg')));
+                        }
+                        return Container();
+                      } catch (e) {
+                        return const CircleAvatar(backgroundImage: AssetImage('assets/images/avatar.png'));
+                      }
+                    },
                   ),
                 ),
                 const SizedBox(

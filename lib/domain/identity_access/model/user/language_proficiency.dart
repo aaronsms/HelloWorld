@@ -17,6 +17,16 @@ class LanguageProficiency extends ValueObject<String> {
     return [A1, A2, B1, B2, C1, C2];
   }
 
+  double toDouble() {
+    final str = value.getOrElse(() => '');
+    if (str == A1) return 0;
+    if (str == A2) return 1;
+    if (str == B1) return 2;
+    if (str == B2) return 3;
+    if (str == C1) return 4;
+    if (str == C2) return 5;
+  }
+
   factory LanguageProficiency(String str) =>
       LanguageProficiency._(validateProficiency(str));
   factory LanguageProficiency.a1() => LanguageProficiency._(right(A1));

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/domain/identity_access/model/user/user_id.dart';
+import 'package:helloworld/domain/schedule_requests/service/i_profile_repository.dart';
+import 'package:helloworld/infrastructure/identity_access/profile_repository.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/homepage/widgets/language_set.dart';
+import 'package:helloworld/presentation/profile/learner_profile.dart';
 
 class LearnerDisplay extends StatelessWidget {
   final String name;
@@ -9,6 +13,7 @@ class LearnerDisplay extends StatelessWidget {
   final List<LanguageSet> common;
   final List<LanguageSet> learning;
   final ImageProvider display;
+  final UserId userId;
 
   const LearnerDisplay({
     Key key,
@@ -18,6 +23,7 @@ class LearnerDisplay extends StatelessWidget {
     @required this.common,
     @required this.learning,
     this.display,
+    this.userId,
   }) : super(key: key);
 
   @override
@@ -28,8 +34,18 @@ class LearnerDisplay extends StatelessWidget {
         margin: const EdgeInsets.all(0.0),
         child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
           ListTile(
-              onTap: () {
-                /** NAVIGATES TO USER'S PROFILE */
+              onTap: () async {
+                final IProfileRepository repo = ProfileRepository();
+                final learner = await repo.getLearner(userId);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return LearnerProfile(
+                          learner: learner.getOrElse(() => null));
+                    },
+                  ),
+                );
               },
               leading: Container(
                 width: 50,
@@ -109,7 +125,20 @@ class LearnerDisplay extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(14.0),
                             ),
-                            onPressed: () {},
+                            onPressed: () async {
+                              final IProfileRepository repo =
+                                  ProfileRepository();
+                              final learner = await repo.getLearner(userId);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return LearnerProfile(
+                                        learner: learner.getOrElse(() => null));
+                                  },
+                                ),
+                              );
+                            },
                             child: Text(
                               'View Profile',
                               style: TextStyle(color: Colors.white),

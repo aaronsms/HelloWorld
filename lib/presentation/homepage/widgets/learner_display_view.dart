@@ -56,7 +56,7 @@ class LearnerDisplayView extends StatelessWidget {
                                 (k, v) => learningLanguageSet.add(
                                   LanguageSet(
                                     language: languageToString(k.getOrCrash()),
-                                    proficiency: v.getOrCrash().toString(),
+                                    proficiency: v.toDouble(),
                                   ),
                                 ),
                               );
@@ -67,11 +67,12 @@ class LearnerDisplayView extends StatelessWidget {
                                 (k, v) => speakingLanguageSet.add(
                                   LanguageSet(
                                     language: languageToString(k.getOrCrash()),
-                                    proficiency: v.getOrCrash().toString(),
+                                    proficiency: v.toDouble(),
                                   ),
                                 ),
                               );
                           return LearnerDisplay(
+                            userId: listLearners[index].userId,
                             name: listLearners[index].name.getOrCrash(),
                             active: 2,
                             distance: 1.0,

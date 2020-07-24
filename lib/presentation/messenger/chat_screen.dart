@@ -23,6 +23,7 @@ class ChatScreen extends StatelessWidget {
       String _twoDigits(int x) {
         return x <= 9 ? '0$x' : x.toString();
       }
+
       return '${_twoDigits(dateTime.hour)}:${_twoDigits(dateTime.minute)}';
     }
 
@@ -30,11 +31,11 @@ class ChatScreen extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: isAdmin
               ? const BorderRadius.only(
-              topLeft: Radius.circular(20),
-              bottomLeft: Radius.circular(20.0))
+                  topLeft: Radius.circular(20),
+                  bottomLeft: Radius.circular(20.0))
               : const BorderRadius.only(
-              topRight: Radius.circular(20),
-              bottomRight: Radius.circular(20.0)),
+                  topRight: Radius.circular(20),
+                  bottomRight: Radius.circular(20.0)),
           color: isAdmin ? Palette.secondaryColor : Palette.primaryColor,
         ),
         margin: isAdmin
@@ -94,114 +95,107 @@ class ChatScreen extends StatelessWidget {
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: BlocBuilder<MessageBloc, MessageState>(
-          builder: (_, state) =>
-              state.maybeMap(
-                loaded: (state) => Column(
-                      children: <Widget>[
-                        Expanded(
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: Palette.backgroundColor,
-                                  borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(40.0),
-                                      topRight: Radius.circular(40.0))),
-                              child: ClipRRect(
-                                  borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(40.0),
-                                      topRight: Radius.circular(40.0)),
-                                  child: ListView.builder(
-                                    reverse: true,
-                                    padding: const EdgeInsets.only(top: 30.0),
-                                    itemCount: state.messages.length,
-                                    itemBuilder: (_, index) {
-                                      bool _userIsSenderOrReceiver(
-                                          Message message) {
-                                        return message.sender.id.getOrCrash() ==
-                                            RecentChat.userId;
-                                      }
+          builder: (_, state) => state.maybeMap(
+            loaded: (state) => Column(
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Palette.backgroundColor,
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(40.0),
+                            topRight: Radius.circular(40.0))),
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(40.0),
+                          topRight: Radius.circular(40.0)),
+                      child: ListView.builder(
+                        reverse: true,
+                        padding: const EdgeInsets.only(top: 30.0),
+                        itemCount: state.messages.length,
+                        itemBuilder: (_, index) {
+                          bool _userIsSenderOrReceiver(Message message) {
+                            return message.sender.id.getOrCrash() ==
+                                RecentChat.userId;
+                          }
 
-                                      final userIsSenderOrReceiver =
-                                      _userIsSenderOrReceiver(
-                                          state.messages[index]);
-                                      final MessageUi message = MessageUi(
-                                        otherUser: userIsSenderOrReceiver
-                                            ? state.messages[index].receiver
-                                            .name
-                                            .getOrCrash()
-                                            : state.messages[index].sender.name
-                                            .getOrCrash(),
-                                        text: state.messages[index].content
-                                            .getOrCrash(),
-                                        unread: state.messages[index].read
-                                            .getOrCrash(),
-                                        time: state.messages[index].time
-                                            .getOrCrash(),
-                                      );
-                                      return _buildMessage(
-                                          message, userIsSenderOrReceiver);
-                                    },
-                                  )),
-                            )),
-                        Provider(
-                          create: (_) => ValueNotifier<String>(''),
-                          child: MessageComposer(otherUserId: otherUserId),
-                        )
-                      ],
+                          final userIsSenderOrReceiver =
+                              _userIsSenderOrReceiver(state.messages[index]);
+                          final MessageUi message = MessageUi(
+                            otherUser: userIsSenderOrReceiver
+                                ? state.messages[index].receiver.name
+                                    .getOrCrash()
+                                : state.messages[index].sender.name
+                                    .getOrCrash(),
+                            text: state.messages[index].content.getOrCrash(),
+                            unread: state.messages[index].read.getOrCrash(),
+                            time: state.messages[index].time.getOrCrash(),
+                            id: userIsSenderOrReceiver
+                                ? state.messages[index].receiver.id
+                                : state.messages[index].sender.id,
+                          );
+                          return _buildMessage(message, userIsSenderOrReceiver);
+                        },
+                      ),
                     ),
-                loading: (state) => Column(
-                  children: <Widget>[
-                    Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Palette.backgroundColor,
-                              borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(40.0),
-                                  topRight: Radius.circular(40.0))),
-                          child: ClipRRect(
-                              borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(40.0),
-                                  topRight: Radius.circular(40.0)),
-                              child: ListView.builder(
-                                reverse: true,
-                                padding: const EdgeInsets.only(top: 30.0),
-                                itemCount: state.messages.length,
-                                itemBuilder: (_, index) {
-                                  bool _userIsSenderOrReceiver(
-                                      Message message) {
-                                    return message.sender.id.getOrCrash() ==
-                                        RecentChat.userId;
-                                  }
-
-                                  final userIsSenderOrReceiver =
-                                  _userIsSenderOrReceiver(
-                                      state.messages[index]);
-                                  final MessageUi message = MessageUi(
-                                    otherUser: userIsSenderOrReceiver
-                                        ? state.messages[index].receiver
-                                        .name
-                                        .getOrCrash()
-                                        : state.messages[index].sender.name
-                                        .getOrCrash(),
-                                    text: state.messages[index].content
-                                        .getOrCrash(),
-                                    unread: state.messages[index].read
-                                        .getOrCrash(),
-                                    time: state.messages[index].time
-                                        .getOrCrash(),
-                                  );
-                                  return _buildMessage(
-                                      message, userIsSenderOrReceiver);
-                                },
-                              )),
-                        )),
-                    Provider(
-                      create: (_) => ValueNotifier<String>(''),
-                      child: MessageComposer(otherUserId: otherUserId),
-                    )
-                  ],
+                  ),
                 ),
-                orElse: () => Container(),
-              ),
+                Provider(
+                  create: (_) => ValueNotifier<String>(''),
+                  child: MessageComposer(otherUserId: otherUserId),
+                )
+              ],
+            ),
+            loading: (state) => Column(
+              children: <Widget>[
+                Expanded(
+                    child: Container(
+                  decoration: BoxDecoration(
+                      color: Palette.backgroundColor,
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(40.0),
+                          topRight: Radius.circular(40.0))),
+                  child: ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(40.0),
+                          topRight: Radius.circular(40.0)),
+                      child: ListView.builder(
+                        reverse: true,
+                        padding: const EdgeInsets.only(top: 30.0),
+                        itemCount: state.messages.length,
+                        itemBuilder: (_, index) {
+                          bool _userIsSenderOrReceiver(Message message) {
+                            return message.sender.id.getOrCrash() ==
+                                RecentChat.userId;
+                          }
+
+                          final userIsSenderOrReceiver =
+                              _userIsSenderOrReceiver(state.messages[index]);
+                          final MessageUi message = MessageUi(
+                            otherUser: userIsSenderOrReceiver
+                                ? state.messages[index].receiver.name
+                                    .getOrCrash()
+                                : state.messages[index].sender.name
+                                    .getOrCrash(),
+                            text: state.messages[index].content.getOrCrash(),
+                            unread: state.messages[index].read.getOrCrash(),
+                            time: state.messages[index].time.getOrCrash(),
+                            id: userIsSenderOrReceiver
+                                ? state.messages[index].receiver.id
+                                : state.messages[index].sender.id,
+                          );
+                          return _buildMessage(message, userIsSenderOrReceiver);
+                        },
+                      )),
+                )),
+                Provider(
+                  create: (_) => ValueNotifier<String>(''),
+                  child: MessageComposer(otherUserId: otherUserId),
+                )
+              ],
+            ),
+            orElse: () => Container(),
+          ),
         ),
       ),
     );
@@ -233,9 +227,7 @@ class MessageComposer extends StatelessWidget {
                     controller: controller,
                     textCapitalization: TextCapitalization.sentences,
                     onChanged: (value) {
-                      context
-                          .read<ValueNotifier<String>>()
-                          .value = value;
+                      context.read<ValueNotifier<String>>().value = value;
                     },
                     decoration: InputDecoration(
                         border: InputBorder.none,
@@ -253,18 +245,18 @@ class MessageComposer extends StatelessWidget {
                           color: Palette.primaryColor,
                           onPressed: () {
                             context.bloc<MessageBloc>().add(
-                              MessageEvent.sendMessage(
-                                Message.create(
-                                  senderId: SenderId.fromUniqueId(
-                                      RecentChat.userId), // TODO
-                                  receiverId: ReceiverId.fromUniqueId(
-                                      otherUserId.getOrCrash()),
-                                  content: Content(context
-                                      .read<ValueNotifier<String>>()
-                                      .value),
-                                ),
-                              ),
-                            );
+                                  MessageEvent.sendMessage(
+                                    Message.create(
+                                      senderId: SenderId.fromUniqueId(
+                                          RecentChat.userId), // TODO
+                                      receiverId: ReceiverId.fromUniqueId(
+                                          otherUserId.getOrCrash()),
+                                      content: Content(context
+                                          .read<ValueNotifier<String>>()
+                                          .value),
+                                    ),
+                                  ),
+                                );
 
                             controller.clear();
                           },

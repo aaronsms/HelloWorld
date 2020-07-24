@@ -6,6 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:helloworld/domain/identity_access/model/user/user_id.dart';
 import 'package:helloworld/domain/messenger/message.dart';
 import 'package:helloworld/domain/messenger/service/i_message_repository.dart';
+import 'package:helloworld/infrastructure/common/io_utils.dart';
 import 'package:helloworld/infrastructure/messenger/message_repository.dart';
 import 'package:meta/meta.dart';
 import 'package:web_socket_channel/io.dart';
@@ -19,21 +20,23 @@ part 'message_bloc.freezed.dart';
 class MessageBloc extends Bloc<MessageEvent, MessageState> {
   static const wsUrl = 'ws://192.168.0.109:3000/api/messages';
   final IMessageRepository _messageRepository;
-  final IOWebSocketChannel channel;
+  IOWebSocketChannel channel;
 
   MessageBloc._()
-      : _messageRepository = MessageRepository(),
-        channel = IOWebSocketChannel.connect(wsUrl, headers: {
-          'cookie':
-              'session=ypgMrWo5nqXXFd_ueQD99A.fplstxrJZxP1QdIlfWrmmzP1ydbigNc7-_qN6xu_1bPsYcoCgcycmcPICSwfvkKDBI2-rWJo96NvRaUTaVzcnQ.1595307612902.86400000.bDLdmdUlMnsLyTHV3FzeOSsjhLP1guN1qHnLiZF9T1Y'
-        });
+      : _messageRepository = MessageRepository();
 
   // ignore: sort_unnamed_constructors_first
   factory MessageBloc() {
     final bloc = MessageBloc._();
 
-    bloc.channel.stream.listen((event) {
-      bloc.add(MessageEvent.receiveMessage(event as String));
+    cookie.then((value) {
+      bloc.channel = IOWebSocketChannel.connect(wsUrl, headers: {
+        'cookie': value
+      });
+
+      bloc.channel.stream.listen((event) {
+        bloc.add(MessageEvent.receiveMessage(event as String));
+      });
     });
 
     return bloc;

@@ -81,7 +81,7 @@ abstract class MentorDto implements _$MentorDto {
         TeachingLanguage(parseLanguage(key)), LanguageProficiency(value)));
 
     final appDirectory = await localPath;
-    final file = File('$appDirectory/$id.jpg');
+    final file = File('$appDirectory/$userId.jpg');
     if (profilePicture != null) {
       file.writeAsBytesSync(base64Decode(profilePicture));
     }

@@ -15,6 +15,7 @@ import 'model/user_dto.dart';
 
 @LazySingleton(as: IUserRepository)
 class UserRepository implements IUserRepository {
+  final http.Client client = http.Client();
   static const String url = 'http://192.168.0.109:3000/api/users';
 
   @override
@@ -24,7 +25,7 @@ class UserRepository implements IUserRepository {
       final userDto = UserDto.fromDomain(user);
       final learnerDto = LearnerDto.fromDomain(learner);
 
-      final response = await http.post(
+      final response = await client.post(
         url,
         body: jsonEncode({
           "user": userDto.toJson(),
@@ -55,7 +56,7 @@ class UserRepository implements IUserRepository {
       final userDto = UserDto.fromDomain(user);
       final mentorDto = MentorDto.fromDomain(mentor);
 
-      final response = await http.post(
+      final response = await client.post(
         url,
         body: jsonEncode({
           "user": userDto.toJson(),

@@ -56,7 +56,7 @@ class MentorDisplayView extends StatelessWidget {
                                 (k, v) => speakingLanguageSet.add(
                                   LanguageSet(
                                     language: languageToString(k.getOrCrash()),
-                                    proficiency: v.getOrCrash().toString(),
+                                    proficiency: v.toDouble(),
                                   ),
                                 ),
                               );
@@ -67,7 +67,7 @@ class MentorDisplayView extends StatelessWidget {
                                 (k, v) => teachingLanguageSet.add(
                                   LanguageSet(
                                     language: languageToString(k.getOrCrash()),
-                                    proficiency: v.getOrCrash().toString(),
+                                    proficiency: v.toDouble(),
                                   ),
                                 ),
                               );
@@ -85,6 +85,7 @@ class MentorDisplayView extends StatelessWidget {
                                     (l) => const AssetImage(
                                         'assets/images/avatar.png'),
                                     (r) => FileImage(r)),
+                            userId: listMentors[index].userId,
                           );
                         },
                       );

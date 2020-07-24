@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:helloworld/application/messenger/message_bloc.dart';
@@ -10,7 +12,7 @@ import 'package:helloworld/presentation/messenger/widgets/recent_chat.dart';
 // ignore: must_be_immutable
 class MessengerMain extends StatelessWidget {
   static const userId =
-      'd1749d79-f2d8-4c64-88e1-8ef80d37d6c1'; // TODO production
+      '7ff6d6f0-ccbd-11ea-8665-e1b27133ad10'; // TODO production
   bool _otherUserIsSenderOrReceiver(Message message) {
     return message.sender.id.getOrCrash() != userId;
   }
@@ -85,6 +87,7 @@ class MessengerMain extends StatelessWidget {
                               itemBuilder: (BuildContext context, int index) {
                                 final contact = conversations[index];
                                 if (_otherUserIsSenderOrReceiver(contact)) {
+
                                   return Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: RecentContact(

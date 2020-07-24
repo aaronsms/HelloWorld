@@ -73,7 +73,7 @@ abstract class LearnerDto implements _$LearnerDto {
         SpeakingLanguage(parseLanguage(key)), LanguageProficiency(value)));
 
     final appDirectory = await localPath;
-    final file = File('$appDirectory/$id.jpg');
+    final file = File('$appDirectory/$userId.jpg');
     if (profilePicture != null) {
       file.writeAsBytesSync(base64Decode(profilePicture));
     }
