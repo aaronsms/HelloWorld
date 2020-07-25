@@ -3,7 +3,10 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:helloworld/domain/identity_access/model/user/learner/learner.dart';
+import 'package:helloworld/domain/identity_access/model/user/learner/learning_language.dart';
 import 'package:helloworld/domain/identity_access/model/user/mentor/mentor.dart';
+import 'package:helloworld/domain/identity_access/model/user/mentor/teaching_language.dart';
+import 'package:helloworld/domain/identity_access/model/user/speaking_language.dart';
 import 'package:helloworld/domain/schedule_requests/service/i_profile_repository.dart';
 import 'package:helloworld/domain/schedule_requests/service/profile_failure.dart';
 
@@ -42,7 +45,9 @@ class DisplayBloc extends Bloc<DisplayEvent, DisplayState> {
             },
             (r) async* {
               yield DisplayState.loadSuccess(
-                  listOfLearner: r, isLearnerOrMentor: state.isLearnerOrMentor);
+                  listOfLearner: r,
+                  isLearnerOrMentor: state.isLearnerOrMentor,
+                  filterOptions: const Tuple3({}, {}, {}));
             },
           );
         } else {
@@ -57,7 +62,8 @@ class DisplayBloc extends Bloc<DisplayEvent, DisplayState> {
             (r) async* {
               yield DisplayState.loadSuccess(
                   listOfMentor: r,
-                  isLearnerOrMentor: state.isLearnerOrMentor);
+                  isLearnerOrMentor: state.isLearnerOrMentor,
+                  filterOptions: const Tuple3({}, {}, {}));
             },
           );
         }
@@ -69,7 +75,23 @@ class DisplayBloc extends Bloc<DisplayEvent, DisplayState> {
             (r) => DisplayState.loadSuccess(
                 listOfLearner: r.value1,
                 listOfMentor: r.value2,
-                isLearnerOrMentor: state.isLearnerOrMentor));
+                isLearnerOrMentor: state.isLearnerOrMentor,
+                filterOptions: const Tuple3({}, {}, {})));
+      },
+      languageFiltered: (event) async* {
+        final options = event.languageOptions;
+
+        yield state.map(
+          id,
+          loading: id,
+          loadFailure: id,
+          loadSuccess: (state) => DisplayState.loadSuccess(
+            filterOptions: options,
+            isLearnerOrMentor: state.isLearnerOrMentor,
+            listOfLearner: state.listOfLearner,
+            listOfMentor: state.listOfMentor,
+          ),
+        );
       },
     );
   }

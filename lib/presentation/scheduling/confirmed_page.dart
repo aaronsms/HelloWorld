@@ -7,6 +7,7 @@ class ConfirmedPage extends StatelessWidget {
   final DateTime date;
 
   const ConfirmedPage({Key key, this.date}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,14 +31,17 @@ class ConfirmedPage extends StatelessWidget {
                 height: 280,
               ),
               Container(
-                  alignment: Alignment.centerLeft,
-                  padding: const EdgeInsets.only(left: 10, top: 25),
-                  child: Text("You've requested to book...",
-                      style: TextStyle(
-                          color: Palette.primaryColor,
-                          fontFamily: 'Martel Sans',
-                          fontWeight: FontWeight.w900,
-                          fontSize: 16))),
+                alignment: Alignment.centerLeft,
+                padding: const EdgeInsets.only(left: 10, top: 25),
+                child: Text(
+                  "You've requested to book...",
+                  style: TextStyle(
+                      color: Palette.primaryColor,
+                      fontFamily: 'Martel Sans',
+                      fontWeight: FontWeight.w900,
+                      fontSize: 16),
+                ),
+              ),
               ConfirmationCard(date: DateFormat.yMMMd().format(date)),
               // date: "Tuesday, 2 May 2020"),
               Container(
@@ -69,7 +73,9 @@ class ConfirmedPage extends StatelessWidget {
                     padding: const EdgeInsets.only(
                         top: 10, bottom: 10, left: 20, right: 20),
                     color: Palette.primaryColor,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),

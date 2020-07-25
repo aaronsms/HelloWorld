@@ -11,7 +11,7 @@ class ConfirmationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var slotInfo = Provider.of<SlotInfo>(context);
+    final slotInfo = Provider.of<SlotInfo>(context);
     final List<TimeRangeResult> selected = slotInfo.selected;
     return Card(
         shape: RoundedRectangleBorder(

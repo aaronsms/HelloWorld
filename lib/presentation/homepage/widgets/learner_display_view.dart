@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:helloworld/domain/common/languages.dart';
+import 'package:helloworld/domain/identity_access/model/user/learner/learning_language.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/homepage/widgets/learner_display.dart';
 import 'package:helloworld/presentation/homepage/widgets/language_set.dart';
@@ -37,12 +38,21 @@ class LearnerDisplayView extends StatelessWidget {
                       );
                     },
                     loadSuccess: (value) {
-                      final listLearners = value.listOfLearner;
+                      final listLearners = [...value.listOfLearner];
+                      final options = value.filterOptions;
+
+                      final learningOptions = options.value1;
+                      final speakingOptions = options.value2;
+
+                      listLearners.removeWhere((learner) {
+                        return (learningOptions.isNotEmpty && !learner.languageBackground.learningLanguages.keys.any((language) => learningOptions.contains(language)))
+                            || (speakingOptions.isNotEmpty && !learner.languageBackground.speakingLanguages.keys.any((language) => speakingOptions.contains(language)));
+                      });
 
                       return ListView.separated(
                         padding: const EdgeInsets.all(12.0),
                         physics: const BouncingScrollPhysics(),
-                        itemCount: value.listOfLearner.length,
+                        itemCount: listLearners.length,
                         separatorBuilder: (_, index) => const Divider(
                             thickness: 1.5, indent: 15, endIndent: 15),
                         itemBuilder: (_, index) {

@@ -1,53 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/domain/identity_access/model/user/learner/learning_language.dart';
+import 'package:helloworld/domain/identity_access/model/user/mentor/teaching_language.dart';
+import 'package:helloworld/domain/identity_access/model/user/speaking_language.dart';
+import 'package:provider/provider.dart';
+import 'package:helloworld/domain/common/languages.dart';
 import 'package:multiselect_formfield/multiselect_formfield.dart';
 
-class LanguageFilter extends StatefulWidget {
-  @override
-  _LanguageFilterState createState() => _LanguageFilterState();
-}
+class LanguageFilter extends StatelessWidget {
+  final bool isLearn;
+  final bool isSpeak;
+  final bool isTeach;
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-class _LanguageFilterState extends State<LanguageFilter> {
-  List _goals;
-  String _goalsResult;
-  final formKey = GlobalKey<FormState>();
+  final List<Map<String, dynamic>> languages = Language.values
+      .map((Language e) => {'display': languageToString(e), 'value': e})
+      .toList();
 
-  @override
-  void initState() {
-    super.initState();
-    _goals = [];
-    _goalsResult = "";
-  }
-
-  _saveForm() {
-    var form = formKey.currentState;
-    if (form.validate()) {
-      form.save();
-      setState(() {
-        _goalsResult = _goals.toString();
-      });
-    }
-  }
-
-  List languages = [
-    {"display": "English", "value": "English"},
-    {"display": "Japanese", "value": "Japanese"},
-    {"display": "Mandarin (Chinese)", "value": "Mandarin (Chinese)"},
-    {"display": "Spanish", "value": "Spanish"},
-    {"display": "Korean", "value": "Korean"},
-    {"display": "French", "value": "French"},
-    {"display": "German", "value": "German"},
-    {"display": "Thai", "value": "Thai"},
-    {"display": "Malay", "value": "Malay"},
-    {"display": "Italiano", "value": "Italiano"},
-  ];
+  LanguageFilter({
+    Key key,
+    this.isLearn,
+    this.isSpeak,
+    this.isTeach,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final speakInitial = context
+            .watch<ValueNotifier<Set<SpeakingLanguage>>>()
+            .value;
+    final learnInitial = context
+            .watch<ValueNotifier<Set<LearningLanguage>>>()
+            .value;
+    final teachInitial = context
+            .watch<ValueNotifier<Set<TeachingLanguage>>>()
+            .value;
+
+    final List<Language> initialList = isSpeak
+        ? speakInitial.map((e) => e.getOrCrash()).toList()
+        : isLearn
+          ? learnInitial.map((e) => e.getOrCrash()).toList()
+          : teachInitial.map((e) => e.getOrCrash()).toList();
+
     return Form(
         key: formKey,
         child: Column(children: <Widget>[
           Container(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: MultiSelectFormField(
               autovalidate: false,
               titleText: 'Select Languages',
@@ -58,6 +56,7 @@ class _LanguageFilterState extends State<LanguageFilter> {
                 }
                 return null;
               },
+              initialValue: initialList,
               dataSource: languages,
               textField: 'display',
               valueField: 'value',
@@ -65,9 +64,39 @@ class _LanguageFilterState extends State<LanguageFilter> {
               cancelButtonLabel: 'CANCEL',
               onSaved: (value) {
                 if (value == null) return;
-                setState(() {
-                  _goals = value as List;
-                });
+
+                if (isSpeak) {
+                  context
+                      .read<ValueNotifier<Set<SpeakingLanguage>>>()
+                      .value =
+                      (value as List)
+                          .cast<Language>()
+                          .map((e) => SpeakingLanguage(e))
+                          .toSet()
+                          .cast<SpeakingLanguage>();
+                }
+
+                if (isLearn) {
+                  context
+                      .read<ValueNotifier<Set<LearningLanguage>>>()
+                      .value =
+                      (value as List)
+                          .cast<Language>()
+                          .map((e) => LearningLanguage(e))
+                          .toSet()
+                          .cast<LearningLanguage>();
+                }
+
+                if (isTeach) {
+                  context
+                      .read<ValueNotifier<Set<TeachingLanguage>>>()
+                      .value =
+                      (value as List)
+                          .cast<Language>()
+                          .map((e) => TeachingLanguage(e))
+                          .toSet()
+                          .cast<TeachingLanguage>();
+                }
               },
             ),
           ),

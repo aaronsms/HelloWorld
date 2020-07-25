@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/scheduling/confirmation_page.dart';
+import 'package:helloworld/presentation/scheduling/widgets/slot_info.dart';
 import 'package:intl/intl.dart';
 import 'package:helloworld/presentation/scheduling/widgets/slot_display.dart';
 import 'package:helloworld/presentation/scheduling/widgets/legend_view.dart';
+import 'package:provider/provider.dart';
 
 class SchedulePage extends StatefulWidget {
   @override
@@ -38,6 +40,8 @@ class _SchedulePageState extends State<SchedulePage> {
 
   @override
   Widget build(BuildContext context) {
+    final slotInfo = context.watch<SlotInfo>();
+    print(slotInfo.display);
     return Scaffold(
         backgroundColor: Palette.backgroundColor,
         body: Column(
@@ -115,11 +119,16 @@ class _SchedulePageState extends State<SchedulePage> {
                           top: 5, bottom: 5, left: 10, right: 10),
                       color: Palette.primaryColor,
                       onPressed: () {
+                        final slotInfo = context.read<SlotInfo>();
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  ConfirmationPage(date: selectedDate)),
+                            builder: (context) {
+                              return ChangeNotifierProvider.value(
+                                  value: slotInfo,
+                                  child: ConfirmationPage(date: selectedDate));
+                            },
+                          ),
                         );
                       },
                       shape: RoundedRectangleBorder(

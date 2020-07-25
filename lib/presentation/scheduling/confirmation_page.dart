@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/scheduling/widgets/confirmation_card.dart';
 import 'package:helloworld/presentation/scheduling/confirmed_page.dart';
-import 'package:helloworld/presentation/scheduling/schedule_page.dart';
 import 'package:helloworld/presentation/scheduling/widgets/slot_info.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -15,8 +14,8 @@ class ConfirmationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var slotInfo = Provider.of<SlotInfo>(context);
-    List<TimeRangeResult> selected = slotInfo.selected;
+    final slotInfo = Provider.of<SlotInfo>(context);
+    final List<TimeRangeResult> selected = slotInfo.selected;
     return Scaffold(
         backgroundColor: Palette.backgroundColor,
         body: SingleChildScrollView(
@@ -29,10 +28,7 @@ class ConfirmationPage extends StatelessWidget {
                     icon: Icon(Icons.keyboard_arrow_left),
                     onPressed: () {
                       selected.clear();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SchedulePage()),
-                      );
+                      Navigator.pop(context);
                     },
                     color: Palette.primaryColor,
                   )),
@@ -56,10 +52,19 @@ class ConfirmationPage extends StatelessWidget {
                         top: 10, bottom: 10, left: 20, right: 20),
                     color: Palette.primaryColor,
                     onPressed: () {
-                      Navigator.push(
+                      final slotInfo = context.read<SlotInfo>();
+
+                      Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ConfirmedPage(date: date)),
+                          builder: (context) {
+                            return ChangeNotifierProvider.value(
+                              value: slotInfo,
+                              child: ConfirmedPage(date: date),
+                            );
+                          },
+                        ),
+                        (route) => route.isFirst,
                       );
                     },
                     shape: RoundedRectangleBorder(

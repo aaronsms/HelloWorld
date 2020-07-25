@@ -13,13 +13,15 @@ class SlotDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var slotInfo = Provider.of<SlotInfo>(context);
+    final slotInfo = Provider.of<SlotInfo>(context);
 
     List<Tuple2<TimeRangeResult, String>> getSlots() {
       List<Tuple2<TimeRangeResult, String>> list = [];
       for (int index = 0; index < slotInfo.display.length; index++) {
         DateTime date = slotInfo.display[index].item1;
-        if (selected.compareTo(date) == 0) {
+        if (selected.year == date.year &&
+            selected.day == date.day &&
+            selected.month == date.month) {
           list = slotInfo.display[index].item2;
         }
       }

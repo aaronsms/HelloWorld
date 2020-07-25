@@ -7,4 +7,7 @@ abstract class DisplayEvent with _$DisplayEvent {
   const factory DisplayEvent.profileReceived(
       Either<ProfileFailure, Tuple2<List<Learner>, List<Mentor>>>
           failureOrProfiles) = _ProfileReceived;
+  const factory DisplayEvent.languageFiltered(
+      Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>, Set<TeachingLanguage>>
+      languageOptions) = _LanguageFiltered;
 }

@@ -25,6 +25,7 @@ class LanguageProficiency extends ValueObject<String> {
     if (str == B2) return 3;
     if (str == C1) return 4;
     if (str == C2) return 5;
+    return -1;
   }
 
   factory LanguageProficiency(String str) =>

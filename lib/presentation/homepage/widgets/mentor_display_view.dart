@@ -37,12 +37,23 @@ class MentorDisplayView extends StatelessWidget {
                       );
                     },
                     loadSuccess: (value) {
-                      final listMentors = value.listOfMentor;
+                      final listMentors = [...value.listOfMentor];
+                      final options = value.filterOptions;
+
+                      final learningOptions = options.value1;
+                      final speakingOptions = options.value2;
+                      final teachingOptions = options.value3;
+
+                      listMentors.removeWhere((mentor) {
+                        return (learningOptions.isNotEmpty && !mentor.languageBackground.learningLanguages.keys.any((language) => learningOptions.contains(language)))
+                        || (speakingOptions.isNotEmpty && !mentor.languageBackground.speakingLanguages.keys.any((language) => speakingOptions.contains(language)))
+                        || (teachingOptions.isNotEmpty && !mentor.languageBackground.teachingLanguages.keys.any((language) => teachingOptions.contains(language)));
+                      });
 
                       return ListView.separated(
                         padding: const EdgeInsets.all(12.0),
                         physics: const BouncingScrollPhysics(),
-                        itemCount: value.listOfMentor.length,
+                        itemCount: listMentors.length,
                         separatorBuilder: (_, index) => const Divider(
                             thickness: 1.5, indent: 15, endIndent: 15),
                         itemBuilder: (_, index) {

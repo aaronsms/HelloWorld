@@ -3,12 +3,12 @@ import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/homepage/widgets/distance_filter.dart';
 import 'package:helloworld/presentation/homepage/widgets/language_filter.dart';
 
-class SearchProfileFilters extends StatefulWidget {
-  @override
-  _SearchProfileFiltersState createState() => _SearchProfileFiltersState();
-}
+class SearchProfileFilters extends StatelessWidget {
+  final bool isLearnerOrMentor;
 
-class _SearchProfileFiltersState extends State<SearchProfileFilters> {
+  const SearchProfileFilters({Key key, this.isLearnerOrMentor})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -18,27 +18,30 @@ class _SearchProfileFiltersState extends State<SearchProfileFilters> {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          if (!isLearnerOrMentor)
+            Container(
+                padding: const EdgeInsets.only(left: 15),
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  "Languages Teaching",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      height: 0.1,
+                      fontFamily: 'Martel Sans',
+                      fontWeight: FontWeight.w900),
+                )),
+          if (!isLearnerOrMentor)
+            LanguageFilter(isLearn: false, isSpeak: false, isTeach: true),
+          if (!isLearnerOrMentor)
+            Divider(
+              color: Colors.white,
+              thickness: 1,
+              indent: 10,
+              endIndent: 10,
+            ),
           Container(
-              padding: EdgeInsets.only(left: 15),
-              alignment: Alignment.bottomLeft,
-              child: Text(
-                "Languages Teaching",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    height: 0.1,
-                    fontFamily: 'Martel Sans',
-                    fontWeight: FontWeight.w900),
-              )),
-          LanguageFilter(),
-          new Divider(
-            color: Colors.white,
-            thickness: 1,
-            indent: 10,
-            endIndent: 10,
-          ),
-          Container(
-              padding: EdgeInsets.only(left: 15, top: 30),
+              padding: const EdgeInsets.only(left: 15, top: 30),
               alignment: Alignment.bottomLeft,
               child: Text(
                 "Languages Learning",
@@ -49,15 +52,15 @@ class _SearchProfileFiltersState extends State<SearchProfileFilters> {
                     fontFamily: 'Martel Sans',
                     fontWeight: FontWeight.w900),
               )),
-          LanguageFilter(),
-          new Divider(
+          LanguageFilter(isLearn: true, isSpeak: false, isTeach: false),
+          Divider(
             color: Colors.white,
             thickness: 1,
             indent: 10,
             endIndent: 10,
           ),
           Container(
-              padding: EdgeInsets.only(left: 15, top: 30),
+              padding: const EdgeInsets.only(left: 15, top: 30),
               alignment: Alignment.bottomLeft,
               child: Text(
                 "Also Speaks",
@@ -68,15 +71,15 @@ class _SearchProfileFiltersState extends State<SearchProfileFilters> {
                     fontFamily: 'Martel Sans',
                     fontWeight: FontWeight.w900),
               )),
-          LanguageFilter(),
-          new Divider(
+          LanguageFilter(isLearn: false, isSpeak: true, isTeach: false),
+          Divider(
             color: Colors.white,
             thickness: 1,
             indent: 10,
             endIndent: 10,
           ),
           Container(
-              padding: EdgeInsets.only(left: 15, top: 30),
+              padding: const EdgeInsets.only(left: 15, top: 30),
               alignment: Alignment.bottomLeft,
               child: Text(
                 "Distance Range",
@@ -88,9 +91,9 @@ class _SearchProfileFiltersState extends State<SearchProfileFilters> {
                     fontWeight: FontWeight.w900),
               )),
           Container(
-              padding: EdgeInsets.only(bottom: 15),
+              padding: const EdgeInsets.only(bottom: 15),
               child: Row(children: <Widget>[DistanceFilter()])),
-          new Divider(
+          Divider(
             color: Colors.white,
             thickness: 1,
             indent: 10,

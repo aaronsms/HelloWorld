@@ -1,8 +1,16 @@
+import 'package:dartz/dartz.dart' as dartz;
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:helloworld/application/schedule_requests/display_bloc.dart';
+import 'package:helloworld/domain/identity_access/model/user/learner/learning_language.dart';
+import 'package:helloworld/domain/identity_access/model/user/mentor/teaching_language.dart';
+import 'package:helloworld/domain/identity_access/model/user/speaking_language.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/homepage/widgets/search_profile_filters.dart';
 import 'package:helloworld/presentation/core/custom_dialog.dart'
+// ignore: library_prefixes
     as customDialog;
+import 'package:provider/provider.dart';
 
 class SearchBar extends StatefulWidget {
   @override
@@ -12,63 +20,46 @@ class SearchBar extends StatefulWidget {
 class _SearchBarState extends State<SearchBar> {
   final _search = TextEditingController();
 
-  Future<void> createFilterAlertDialog(BuildContext context) async {
-    showDialog(
+  Future<
+      dartz.Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
+          Set<TeachingLanguage>>> createFilterAlertDialog(
+      BuildContext context,
+      Set<LearningLanguage> setLearn,
+      Set<SpeakingLanguage> setSpeak,
+      Set<TeachingLanguage> setTeach,
+      {bool isLearnerOrMentor}) async {
+    final dartz.Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
+        Set<TeachingLanguage>> filterOptions = await showDialog(
       context: context,
-      builder: (context) {
-        return SingleChildScrollView(
-          child: customDialog.AlertDialog(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(14.0),
+      builder: (cont) {
+        return MultiProvider(
+          providers: [
+            ListenableProvider(
+                create: (_) => ValueNotifier<Set<LearningLanguage>>(setLearn)),
+            ListenableProvider(
+                create: (_) => ValueNotifier<Set<SpeakingLanguage>>(setSpeak)),
+            ListenableProvider(
+                create: (_) => ValueNotifier<Set<TeachingLanguage>>(setTeach)),
+          ],
+          child: SingleChildScrollView(
+            child: customDialog.AlertDialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14.0),
+              ),
+              backgroundColor: Palette.secondaryColor,
+              title: const Text(""),
+              content: SearchProfileFilters(
+                isLearnerOrMentor: isLearnerOrMentor,
+              ),
+              contentPadding: const EdgeInsets.all(0),
+              actions: <Widget>[_ButtonBar()],
             ),
-            backgroundColor: Palette.secondaryColor,
-            title: const Text(""),
-            content: SearchProfileFilters(),
-            contentPadding: const EdgeInsets.all(0),
-            actions: <Widget>[
-              ButtonBar(
-                children: <Widget>[
-                  RaisedButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14.0),
-                    ),
-                    child: Text(
-                      "APPLY",
-                      style: TextStyle(
-                          color: Palette.secondaryColor,
-                          fontFamily: 'Martel Sans',
-                          fontSize: 16,
-                          fontWeight: FontWeight.w900),
-                    ),
-                  ),
-                  RaisedButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14.0),
-                    ),
-                    child: Text(
-                      "CANCEL",
-                      style: TextStyle(
-                          color: Palette.secondaryColor,
-                          fontFamily: 'Martel Sans',
-                          fontSize: 16,
-                          fontWeight: FontWeight.w900),
-                    ),
-                  ),
-                ],
-              )
-            ],
           ),
         );
       },
     );
+
+    return filterOptions;
   }
 
   @override
@@ -79,8 +70,23 @@ class _SearchBarState extends State<SearchBar> {
         width: double.infinity,
         height: 50,
         child: TextFormField(
-          onTap: () {
-            createFilterAlertDialog(context);
+          onTap: () async {
+            final bloc = context.bloc<DisplayBloc>();
+            await bloc.state.maybeMap(
+              (value) => null,
+              loadSuccess: (state) async {
+                final option = state.filterOptions;
+                final filterOptions = await createFilterAlertDialog(
+                  context,
+                  option.value1,
+                  option.value2,
+                  option.value3,
+                  isLearnerOrMentor: state.isLearnerOrMentor,
+                );
+                bloc.add(DisplayEvent.languageFiltered(filterOptions));
+              },
+              orElse: () => null,
+            );
           },
           style: TextStyle(
               color: Palette.secondaryColor,
@@ -96,7 +102,7 @@ class _SearchBarState extends State<SearchBar> {
                 fontSize: 11,
                 color: Colors.grey,
                 fontWeight: FontWeight.w700),
-            contentPadding: EdgeInsets.all(10),
+            contentPadding: const EdgeInsets.all(10),
             filled: true,
             fillColor: Colors.white,
             focusedBorder: OutlineInputBorder(
@@ -119,6 +125,59 @@ class _SearchBarState extends State<SearchBar> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _ButtonBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ButtonBar(
+      children: <Widget>[
+        RaisedButton(
+          onPressed: () {
+            final setSpeak =
+                context.read<ValueNotifier<Set<LearningLanguage>>>().value;
+            final setLearn =
+                context.read<ValueNotifier<Set<SpeakingLanguage>>>().value;
+            final setTeach =
+                context.read<ValueNotifier<Set<TeachingLanguage>>>().value;
+
+            Navigator.of(context)
+                .pop(dartz.Tuple3(setSpeak, setLearn, setTeach));
+          },
+          color: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(14.0),
+          ),
+          child: Text(
+            "APPLY",
+            style: TextStyle(
+                color: Palette.secondaryColor,
+                fontFamily: 'Martel Sans',
+                fontSize: 16,
+                fontWeight: FontWeight.w900),
+          ),
+        ),
+        RaisedButton(
+          onPressed: () {
+            Navigator.of(context).pop(const dartz.Tuple3(<LearningLanguage>{},
+                <SpeakingLanguage>{}, <TeachingLanguage>{}));
+          },
+          color: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(14.0),
+          ),
+          child: Text(
+            "CANCEL",
+            style: TextStyle(
+                color: Palette.secondaryColor,
+                fontFamily: 'Martel Sans',
+                fontSize: 16,
+                fontWeight: FontWeight.w900),
+          ),
+        ),
+      ],
     );
   }
 }

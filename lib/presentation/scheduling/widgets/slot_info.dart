@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:time_range/time_range.dart';
 
 class SlotInfo with ChangeNotifier {
-  /// DISPLAY OF SLOTS */
-  /// MOCK DATA FOR 19, 20 JULY */
+  // DISPLAY OF SLOTS */
+  // MOCK DATA FOR 19, 20 JULY */
   List<Tuple2<DateTime, List<Tuple2<TimeRangeResult, String>>>> _display = [
     /** 19 JULY */
     Tuple2(DateTime.utc(2020, 7, 19).toLocal(), [
@@ -100,6 +100,7 @@ class SlotInfo with ChangeNotifier {
     notifyListeners();
   }
 
+  // ignore: avoid_setters_without_getters
   set deselect(TimeRangeResult newSlot) {
     _selected.removeWhere((slot) => slot == newSlot);
     notifyListeners();
