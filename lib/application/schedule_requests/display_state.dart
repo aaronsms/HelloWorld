@@ -12,6 +12,7 @@ abstract class DisplayState with _$DisplayState {
     List<Mentor> listOfMentor,
     @required bool isLearnerOrMentor,
     Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>, Set<TeachingLanguage>> filterOptions,
+    String searchText,
   }) = _LoadSuccess;
   const factory DisplayState.loadFailure({
     @required ProfileFailure profileFailure,

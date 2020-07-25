@@ -47,7 +47,8 @@ class MentorDisplayView extends StatelessWidget {
                       listMentors.removeWhere((mentor) {
                         return (learningOptions.isNotEmpty && !mentor.languageBackground.learningLanguages.keys.any((language) => learningOptions.contains(language)))
                         || (speakingOptions.isNotEmpty && !mentor.languageBackground.speakingLanguages.keys.any((language) => speakingOptions.contains(language)))
-                        || (teachingOptions.isNotEmpty && !mentor.languageBackground.teachingLanguages.keys.any((language) => teachingOptions.contains(language)));
+                        || (teachingOptions.isNotEmpty && !mentor.languageBackground.teachingLanguages.keys.any((language) => teachingOptions.contains(language)))
+                        || !mentor.name.getOrCrash().toLowerCase().contains(value.searchText.toLowerCase());;
                       });
 
                       return ListView.separated(

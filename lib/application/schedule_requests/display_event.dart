@@ -10,4 +10,5 @@ abstract class DisplayEvent with _$DisplayEvent {
   const factory DisplayEvent.languageFiltered(
       Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>, Set<TeachingLanguage>>
       languageOptions) = _LanguageFiltered;
+  const factory DisplayEvent.searchTextChanged(String searchText) = _SearchTextChanged;
 }

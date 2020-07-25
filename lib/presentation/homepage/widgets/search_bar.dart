@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
@@ -12,13 +14,8 @@ import 'package:helloworld/presentation/core/custom_dialog.dart'
     as customDialog;
 import 'package:provider/provider.dart';
 
-class SearchBar extends StatefulWidget {
-  @override
-  _SearchBarState createState() => _SearchBarState();
-}
-
-class _SearchBarState extends State<SearchBar> {
-  final _search = TextEditingController();
+class SearchBar extends StatelessWidget {
+  final _Debouncer debounce = _Debouncer(milliseconds: 500);
 
   Future<
       dartz.Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
@@ -88,11 +85,17 @@ class _SearchBarState extends State<SearchBar> {
               orElse: () => null,
             );
           },
+          onChanged: (value) {
+            debounce.run(() {
+              context
+                  .bloc<DisplayBloc>()
+                  .add(DisplayEvent.searchTextChanged(value));
+            });
+          },
           style: TextStyle(
               color: Palette.secondaryColor,
               fontFamily: 'Martel Sans',
               fontWeight: FontWeight.w800),
-          controller: _search,
           cursorColor: Palette.secondaryColor,
           decoration: InputDecoration(
             hintText: "Input user's name or filter by user profile...",
@@ -179,5 +182,19 @@ class _ButtonBar extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class _Debouncer {
+  final int milliseconds;
+  Timer _timer;
+
+  _Debouncer({this.milliseconds});
+
+  void run(VoidCallback action) {
+    if (null != _timer) {
+      _timer.cancel();
+    }
+    _timer = Timer(Duration(milliseconds: milliseconds), action);
   }
 }

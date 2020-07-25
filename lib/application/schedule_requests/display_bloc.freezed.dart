@@ -36,6 +36,12 @@ class _$DisplayEventTearOff {
       languageOptions,
     );
   }
+
+  _SearchTextChanged searchTextChanged(String searchText) {
+    return _SearchTextChanged(
+      searchText,
+    );
+  }
 }
 
 // ignore: unused_element
@@ -55,6 +61,7 @@ mixin _$DisplayEvent {
             Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                     Set<TeachingLanguage>>
                 languageOptions),
+    @required Result searchTextChanged(String searchText),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -67,6 +74,7 @@ mixin _$DisplayEvent {
         Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                 Set<TeachingLanguage>>
             languageOptions),
+    Result searchTextChanged(String searchText),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -75,6 +83,7 @@ mixin _$DisplayEvent {
     @required Result watchAllStarted(_WatchAllStarted value),
     @required Result profileReceived(_ProfileReceived value),
     @required Result languageFiltered(_LanguageFiltered value),
+    @required Result searchTextChanged(_SearchTextChanged value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
@@ -82,6 +91,7 @@ mixin _$DisplayEvent {
     Result watchAllStarted(_WatchAllStarted value),
     Result profileReceived(_ProfileReceived value),
     Result languageFiltered(_LanguageFiltered value),
+    Result searchTextChanged(_SearchTextChanged value),
     @required Result orElse(),
   });
 }
@@ -147,11 +157,13 @@ class _$_SwitchProfileDisplay implements _SwitchProfileDisplay {
             Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                     Set<TeachingLanguage>>
                 languageOptions),
+    @required Result searchTextChanged(String searchText),
   }) {
     assert(switchProfileDisplay != null);
     assert(watchAllStarted != null);
     assert(profileReceived != null);
     assert(languageFiltered != null);
+    assert(searchTextChanged != null);
     return switchProfileDisplay();
   }
 
@@ -167,6 +179,7 @@ class _$_SwitchProfileDisplay implements _SwitchProfileDisplay {
         Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                 Set<TeachingLanguage>>
             languageOptions),
+    Result searchTextChanged(String searchText),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -183,11 +196,13 @@ class _$_SwitchProfileDisplay implements _SwitchProfileDisplay {
     @required Result watchAllStarted(_WatchAllStarted value),
     @required Result profileReceived(_ProfileReceived value),
     @required Result languageFiltered(_LanguageFiltered value),
+    @required Result searchTextChanged(_SearchTextChanged value),
   }) {
     assert(switchProfileDisplay != null);
     assert(watchAllStarted != null);
     assert(profileReceived != null);
     assert(languageFiltered != null);
+    assert(searchTextChanged != null);
     return switchProfileDisplay(this);
   }
 
@@ -198,6 +213,7 @@ class _$_SwitchProfileDisplay implements _SwitchProfileDisplay {
     Result watchAllStarted(_WatchAllStarted value),
     Result profileReceived(_ProfileReceived value),
     Result languageFiltered(_LanguageFiltered value),
+    Result searchTextChanged(_SearchTextChanged value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -259,11 +275,13 @@ class _$_WatchAllStarted implements _WatchAllStarted {
             Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                     Set<TeachingLanguage>>
                 languageOptions),
+    @required Result searchTextChanged(String searchText),
   }) {
     assert(switchProfileDisplay != null);
     assert(watchAllStarted != null);
     assert(profileReceived != null);
     assert(languageFiltered != null);
+    assert(searchTextChanged != null);
     return watchAllStarted();
   }
 
@@ -279,6 +297,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
         Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                 Set<TeachingLanguage>>
             languageOptions),
+    Result searchTextChanged(String searchText),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -295,11 +314,13 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     @required Result watchAllStarted(_WatchAllStarted value),
     @required Result profileReceived(_ProfileReceived value),
     @required Result languageFiltered(_LanguageFiltered value),
+    @required Result searchTextChanged(_SearchTextChanged value),
   }) {
     assert(switchProfileDisplay != null);
     assert(watchAllStarted != null);
     assert(profileReceived != null);
     assert(languageFiltered != null);
+    assert(searchTextChanged != null);
     return watchAllStarted(this);
   }
 
@@ -310,6 +331,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     Result watchAllStarted(_WatchAllStarted value),
     Result profileReceived(_ProfileReceived value),
     Result languageFiltered(_LanguageFiltered value),
+    Result searchTextChanged(_SearchTextChanged value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -401,11 +423,13 @@ class _$_ProfileReceived implements _ProfileReceived {
             Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                     Set<TeachingLanguage>>
                 languageOptions),
+    @required Result searchTextChanged(String searchText),
   }) {
     assert(switchProfileDisplay != null);
     assert(watchAllStarted != null);
     assert(profileReceived != null);
     assert(languageFiltered != null);
+    assert(searchTextChanged != null);
     return profileReceived(failureOrProfiles);
   }
 
@@ -421,6 +445,7 @@ class _$_ProfileReceived implements _ProfileReceived {
         Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                 Set<TeachingLanguage>>
             languageOptions),
+    Result searchTextChanged(String searchText),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -437,11 +462,13 @@ class _$_ProfileReceived implements _ProfileReceived {
     @required Result watchAllStarted(_WatchAllStarted value),
     @required Result profileReceived(_ProfileReceived value),
     @required Result languageFiltered(_LanguageFiltered value),
+    @required Result searchTextChanged(_SearchTextChanged value),
   }) {
     assert(switchProfileDisplay != null);
     assert(watchAllStarted != null);
     assert(profileReceived != null);
     assert(languageFiltered != null);
+    assert(searchTextChanged != null);
     return profileReceived(this);
   }
 
@@ -452,6 +479,7 @@ class _$_ProfileReceived implements _ProfileReceived {
     Result watchAllStarted(_WatchAllStarted value),
     Result profileReceived(_ProfileReceived value),
     Result languageFiltered(_LanguageFiltered value),
+    Result searchTextChanged(_SearchTextChanged value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -550,11 +578,13 @@ class _$_LanguageFiltered implements _LanguageFiltered {
             Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                     Set<TeachingLanguage>>
                 languageOptions),
+    @required Result searchTextChanged(String searchText),
   }) {
     assert(switchProfileDisplay != null);
     assert(watchAllStarted != null);
     assert(profileReceived != null);
     assert(languageFiltered != null);
+    assert(searchTextChanged != null);
     return languageFiltered(languageOptions);
   }
 
@@ -570,6 +600,7 @@ class _$_LanguageFiltered implements _LanguageFiltered {
         Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                 Set<TeachingLanguage>>
             languageOptions),
+    Result searchTextChanged(String searchText),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -586,11 +617,13 @@ class _$_LanguageFiltered implements _LanguageFiltered {
     @required Result watchAllStarted(_WatchAllStarted value),
     @required Result profileReceived(_ProfileReceived value),
     @required Result languageFiltered(_LanguageFiltered value),
+    @required Result searchTextChanged(_SearchTextChanged value),
   }) {
     assert(switchProfileDisplay != null);
     assert(watchAllStarted != null);
     assert(profileReceived != null);
     assert(languageFiltered != null);
+    assert(searchTextChanged != null);
     return languageFiltered(this);
   }
 
@@ -601,6 +634,7 @@ class _$_LanguageFiltered implements _LanguageFiltered {
     Result watchAllStarted(_WatchAllStarted value),
     Result profileReceived(_ProfileReceived value),
     Result languageFiltered(_LanguageFiltered value),
+    Result searchTextChanged(_SearchTextChanged value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -620,6 +654,149 @@ abstract class _LanguageFiltered implements DisplayEvent {
   Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>, Set<TeachingLanguage>>
       get languageOptions;
   _$LanguageFilteredCopyWith<_LanguageFiltered> get copyWith;
+}
+
+abstract class _$SearchTextChangedCopyWith<$Res> {
+  factory _$SearchTextChangedCopyWith(
+          _SearchTextChanged value, $Res Function(_SearchTextChanged) then) =
+      __$SearchTextChangedCopyWithImpl<$Res>;
+  $Res call({String searchText});
+}
+
+class __$SearchTextChangedCopyWithImpl<$Res>
+    extends _$DisplayEventCopyWithImpl<$Res>
+    implements _$SearchTextChangedCopyWith<$Res> {
+  __$SearchTextChangedCopyWithImpl(
+      _SearchTextChanged _value, $Res Function(_SearchTextChanged) _then)
+      : super(_value, (v) => _then(v as _SearchTextChanged));
+
+  @override
+  _SearchTextChanged get _value => super._value as _SearchTextChanged;
+
+  @override
+  $Res call({
+    Object searchText = freezed,
+  }) {
+    return _then(_SearchTextChanged(
+      searchText == freezed ? _value.searchText : searchText as String,
+    ));
+  }
+}
+
+class _$_SearchTextChanged implements _SearchTextChanged {
+  const _$_SearchTextChanged(this.searchText) : assert(searchText != null);
+
+  @override
+  final String searchText;
+
+  @override
+  String toString() {
+    return 'DisplayEvent.searchTextChanged(searchText: $searchText)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SearchTextChanged &&
+            (identical(other.searchText, searchText) ||
+                const DeepCollectionEquality()
+                    .equals(other.searchText, searchText)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(searchText);
+
+  @override
+  _$SearchTextChangedCopyWith<_SearchTextChanged> get copyWith =>
+      __$SearchTextChangedCopyWithImpl<_SearchTextChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result switchProfileDisplay(),
+    @required Result watchAllStarted(),
+    @required
+        Result profileReceived(
+            Either<ProfileFailure, Tuple2<List<Learner>, List<Mentor>>>
+                failureOrProfiles),
+    @required
+        Result languageFiltered(
+            Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
+                    Set<TeachingLanguage>>
+                languageOptions),
+    @required Result searchTextChanged(String searchText),
+  }) {
+    assert(switchProfileDisplay != null);
+    assert(watchAllStarted != null);
+    assert(profileReceived != null);
+    assert(languageFiltered != null);
+    assert(searchTextChanged != null);
+    return searchTextChanged(searchText);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result switchProfileDisplay(),
+    Result watchAllStarted(),
+    Result profileReceived(
+        Either<ProfileFailure, Tuple2<List<Learner>, List<Mentor>>>
+            failureOrProfiles),
+    Result languageFiltered(
+        Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
+                Set<TeachingLanguage>>
+            languageOptions),
+    Result searchTextChanged(String searchText),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (searchTextChanged != null) {
+      return searchTextChanged(searchText);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result switchProfileDisplay(_SwitchProfileDisplay value),
+    @required Result watchAllStarted(_WatchAllStarted value),
+    @required Result profileReceived(_ProfileReceived value),
+    @required Result languageFiltered(_LanguageFiltered value),
+    @required Result searchTextChanged(_SearchTextChanged value),
+  }) {
+    assert(switchProfileDisplay != null);
+    assert(watchAllStarted != null);
+    assert(profileReceived != null);
+    assert(languageFiltered != null);
+    assert(searchTextChanged != null);
+    return searchTextChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result switchProfileDisplay(_SwitchProfileDisplay value),
+    Result watchAllStarted(_WatchAllStarted value),
+    Result profileReceived(_ProfileReceived value),
+    Result languageFiltered(_LanguageFiltered value),
+    Result searchTextChanged(_SearchTextChanged value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (searchTextChanged != null) {
+      return searchTextChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchTextChanged implements DisplayEvent {
+  const factory _SearchTextChanged(String searchText) = _$_SearchTextChanged;
+
+  String get searchText;
+  _$SearchTextChangedCopyWith<_SearchTextChanged> get copyWith;
 }
 
 class _$DisplayStateTearOff {
@@ -643,12 +820,14 @@ class _$DisplayStateTearOff {
       @required bool isLearnerOrMentor,
       Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
               Set<TeachingLanguage>>
-          filterOptions}) {
+          filterOptions,
+      String searchText}) {
     return _LoadSuccess(
       listOfLearner: listOfLearner,
       listOfMentor: listOfMentor,
       isLearnerOrMentor: isLearnerOrMentor,
       filterOptions: filterOptions,
+      searchText: searchText,
     );
   }
 
@@ -679,7 +858,8 @@ mixin _$DisplayState {
             bool isLearnerOrMentor,
             Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                     Set<TeachingLanguage>>
-                filterOptions),
+                filterOptions,
+            String searchText),
     @required
         Result loadFailure(
             ProfileFailure profileFailure, bool isLearnerOrMentor),
@@ -694,7 +874,8 @@ mixin _$DisplayState {
         bool isLearnerOrMentor,
         Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                 Set<TeachingLanguage>>
-            filterOptions),
+            filterOptions,
+        String searchText),
     Result loadFailure(ProfileFailure profileFailure, bool isLearnerOrMentor),
     @required Result orElse(),
   });
@@ -812,7 +993,8 @@ class _$_Initial implements _Initial {
             bool isLearnerOrMentor,
             Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                     Set<TeachingLanguage>>
-                filterOptions),
+                filterOptions,
+            String searchText),
     @required
         Result loadFailure(
             ProfileFailure profileFailure, bool isLearnerOrMentor),
@@ -835,7 +1017,8 @@ class _$_Initial implements _Initial {
         bool isLearnerOrMentor,
         Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                 Set<TeachingLanguage>>
-            filterOptions),
+            filterOptions,
+        String searchText),
     Result loadFailure(ProfileFailure profileFailure, bool isLearnerOrMentor),
     @required Result orElse(),
   }) {
@@ -956,7 +1139,8 @@ class _$_Loading implements _Loading {
             bool isLearnerOrMentor,
             Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                     Set<TeachingLanguage>>
-                filterOptions),
+                filterOptions,
+            String searchText),
     @required
         Result loadFailure(
             ProfileFailure profileFailure, bool isLearnerOrMentor),
@@ -979,7 +1163,8 @@ class _$_Loading implements _Loading {
         bool isLearnerOrMentor,
         Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                 Set<TeachingLanguage>>
-            filterOptions),
+            filterOptions,
+        String searchText),
     Result loadFailure(ProfileFailure profileFailure, bool isLearnerOrMentor),
     @required Result orElse(),
   }) {
@@ -1043,7 +1228,8 @@ abstract class _$LoadSuccessCopyWith<$Res>
       bool isLearnerOrMentor,
       Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
               Set<TeachingLanguage>>
-          filterOptions});
+          filterOptions,
+      String searchText});
 }
 
 class __$LoadSuccessCopyWithImpl<$Res> extends _$DisplayStateCopyWithImpl<$Res>
@@ -1061,6 +1247,7 @@ class __$LoadSuccessCopyWithImpl<$Res> extends _$DisplayStateCopyWithImpl<$Res>
     Object listOfMentor = freezed,
     Object isLearnerOrMentor = freezed,
     Object filterOptions = freezed,
+    Object searchText = freezed,
   }) {
     return _then(_LoadSuccess(
       listOfLearner: listOfLearner == freezed
@@ -1076,6 +1263,8 @@ class __$LoadSuccessCopyWithImpl<$Res> extends _$DisplayStateCopyWithImpl<$Res>
           ? _value.filterOptions
           : filterOptions as Tuple3<Set<LearningLanguage>,
               Set<SpeakingLanguage>, Set<TeachingLanguage>>,
+      searchText:
+          searchText == freezed ? _value.searchText : searchText as String,
     ));
   }
 }
@@ -1085,7 +1274,8 @@ class _$_LoadSuccess implements _LoadSuccess {
       {this.listOfLearner,
       this.listOfMentor,
       @required this.isLearnerOrMentor,
-      this.filterOptions})
+      this.filterOptions,
+      this.searchText})
       : assert(isLearnerOrMentor != null);
 
   @override
@@ -1097,10 +1287,12 @@ class _$_LoadSuccess implements _LoadSuccess {
   @override
   final Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
       Set<TeachingLanguage>> filterOptions;
+  @override
+  final String searchText;
 
   @override
   String toString() {
-    return 'DisplayState.loadSuccess(listOfLearner: $listOfLearner, listOfMentor: $listOfMentor, isLearnerOrMentor: $isLearnerOrMentor, filterOptions: $filterOptions)';
+    return 'DisplayState.loadSuccess(listOfLearner: $listOfLearner, listOfMentor: $listOfMentor, isLearnerOrMentor: $isLearnerOrMentor, filterOptions: $filterOptions, searchText: $searchText)';
   }
 
   @override
@@ -1118,7 +1310,10 @@ class _$_LoadSuccess implements _LoadSuccess {
                     .equals(other.isLearnerOrMentor, isLearnerOrMentor)) &&
             (identical(other.filterOptions, filterOptions) ||
                 const DeepCollectionEquality()
-                    .equals(other.filterOptions, filterOptions)));
+                    .equals(other.filterOptions, filterOptions)) &&
+            (identical(other.searchText, searchText) ||
+                const DeepCollectionEquality()
+                    .equals(other.searchText, searchText)));
   }
 
   @override
@@ -1127,7 +1322,8 @@ class _$_LoadSuccess implements _LoadSuccess {
       const DeepCollectionEquality().hash(listOfLearner) ^
       const DeepCollectionEquality().hash(listOfMentor) ^
       const DeepCollectionEquality().hash(isLearnerOrMentor) ^
-      const DeepCollectionEquality().hash(filterOptions);
+      const DeepCollectionEquality().hash(filterOptions) ^
+      const DeepCollectionEquality().hash(searchText);
 
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
@@ -1145,7 +1341,8 @@ class _$_LoadSuccess implements _LoadSuccess {
             bool isLearnerOrMentor,
             Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                     Set<TeachingLanguage>>
-                filterOptions),
+                filterOptions,
+            String searchText),
     @required
         Result loadFailure(
             ProfileFailure profileFailure, bool isLearnerOrMentor),
@@ -1154,8 +1351,8 @@ class _$_LoadSuccess implements _LoadSuccess {
     assert(loading != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
-    return loadSuccess(
-        listOfLearner, listOfMentor, isLearnerOrMentor, filterOptions);
+    return loadSuccess(listOfLearner, listOfMentor, isLearnerOrMentor,
+        filterOptions, searchText);
   }
 
   @override
@@ -1169,14 +1366,15 @@ class _$_LoadSuccess implements _LoadSuccess {
         bool isLearnerOrMentor,
         Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                 Set<TeachingLanguage>>
-            filterOptions),
+            filterOptions,
+        String searchText),
     Result loadFailure(ProfileFailure profileFailure, bool isLearnerOrMentor),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (loadSuccess != null) {
-      return loadSuccess(
-          listOfLearner, listOfMentor, isLearnerOrMentor, filterOptions);
+      return loadSuccess(listOfLearner, listOfMentor, isLearnerOrMentor,
+          filterOptions, searchText);
     }
     return orElse();
   }
@@ -1220,7 +1418,8 @@ abstract class _LoadSuccess implements DisplayState {
       @required bool isLearnerOrMentor,
       Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
               Set<TeachingLanguage>>
-          filterOptions}) = _$_LoadSuccess;
+          filterOptions,
+      String searchText}) = _$_LoadSuccess;
 
   List<Learner> get listOfLearner;
   List<Mentor> get listOfMentor;
@@ -1228,6 +1427,7 @@ abstract class _LoadSuccess implements DisplayState {
   bool get isLearnerOrMentor;
   Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>, Set<TeachingLanguage>>
       get filterOptions;
+  String get searchText;
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
@@ -1328,7 +1528,8 @@ class _$_LoadFailure implements _LoadFailure {
             bool isLearnerOrMentor,
             Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                     Set<TeachingLanguage>>
-                filterOptions),
+                filterOptions,
+            String searchText),
     @required
         Result loadFailure(
             ProfileFailure profileFailure, bool isLearnerOrMentor),
@@ -1351,7 +1552,8 @@ class _$_LoadFailure implements _LoadFailure {
         bool isLearnerOrMentor,
         Tuple3<Set<LearningLanguage>, Set<SpeakingLanguage>,
                 Set<TeachingLanguage>>
-            filterOptions),
+            filterOptions,
+        String searchText),
     Result loadFailure(ProfileFailure profileFailure, bool isLearnerOrMentor),
     @required Result orElse(),
   }) {

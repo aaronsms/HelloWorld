@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:helloworld/domain/common/languages.dart';
-import 'package:helloworld/domain/identity_access/model/user/learner/learning_language.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/homepage/widgets/learner_display.dart';
 import 'package:helloworld/presentation/homepage/widgets/language_set.dart';
@@ -46,7 +45,8 @@ class LearnerDisplayView extends StatelessWidget {
 
                       listLearners.removeWhere((learner) {
                         return (learningOptions.isNotEmpty && !learner.languageBackground.learningLanguages.keys.any((language) => learningOptions.contains(language)))
-                            || (speakingOptions.isNotEmpty && !learner.languageBackground.speakingLanguages.keys.any((language) => speakingOptions.contains(language)));
+                            || (speakingOptions.isNotEmpty && !learner.languageBackground.speakingLanguages.keys.any((language) => speakingOptions.contains(language)))
+                            || !learner.name.getOrCrash().toLowerCase().contains(value.searchText.toLowerCase());
                       });
 
                       return ListView.separated(

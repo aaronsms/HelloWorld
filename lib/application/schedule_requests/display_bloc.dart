@@ -47,7 +47,8 @@ class DisplayBloc extends Bloc<DisplayEvent, DisplayState> {
               yield DisplayState.loadSuccess(
                   listOfLearner: r,
                   isLearnerOrMentor: state.isLearnerOrMentor,
-                  filterOptions: const Tuple3({}, {}, {}));
+                  filterOptions: const Tuple3({}, {}, {}),
+                  searchText: '');
             },
           );
         } else {
@@ -63,7 +64,8 @@ class DisplayBloc extends Bloc<DisplayEvent, DisplayState> {
               yield DisplayState.loadSuccess(
                   listOfMentor: r,
                   isLearnerOrMentor: state.isLearnerOrMentor,
-                  filterOptions: const Tuple3({}, {}, {}));
+                  filterOptions: const Tuple3({}, {}, {}),
+                  searchText: '');
             },
           );
         }
@@ -76,7 +78,8 @@ class DisplayBloc extends Bloc<DisplayEvent, DisplayState> {
                 listOfLearner: r.value1,
                 listOfMentor: r.value2,
                 isLearnerOrMentor: state.isLearnerOrMentor,
-                filterOptions: const Tuple3({}, {}, {})));
+                filterOptions: const Tuple3({}, {}, {}),
+                searchText: ''));
       },
       languageFiltered: (event) async* {
         final options = event.languageOptions;
@@ -86,7 +89,22 @@ class DisplayBloc extends Bloc<DisplayEvent, DisplayState> {
           loading: id,
           loadFailure: id,
           loadSuccess: (state) => DisplayState.loadSuccess(
+            searchText: state.searchText,
             filterOptions: options,
+            isLearnerOrMentor: state.isLearnerOrMentor,
+            listOfLearner: state.listOfLearner,
+            listOfMentor: state.listOfMentor,
+          ),
+        );
+      },
+      searchTextChanged: (_SearchTextChanged value) async* {
+        yield state.map(
+          id,
+          loading: id,
+          loadFailure: id,
+          loadSuccess: (state) => DisplayState.loadSuccess(
+            searchText: value.searchText,
+            filterOptions: state.filterOptions,
             isLearnerOrMentor: state.isLearnerOrMentor,
             listOfLearner: state.listOfLearner,
             listOfMentor: state.listOfMentor,
