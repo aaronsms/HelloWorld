@@ -11,8 +11,16 @@ abstract class IUserRepository {
     @required Learner learner,
   });
 
+  Future<Either<RegistrationFailure, Unit>> updateLearner({
+    @required Learner learner,
+  });
+
   Future<Either<RegistrationFailure, Unit>> addMentor({
     @required User user,
+    @required Mentor mentor,
+  });
+
+  Future<Either<RegistrationFailure, Unit>> updateMentor({
     @required Mentor mentor,
   });
 }

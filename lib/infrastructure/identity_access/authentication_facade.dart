@@ -42,6 +42,7 @@ class AuthenticationFacade implements IAuthenticationFacade {
       final appDirectory = await localPath;
       final file = File('$appDirectory/authToken');
       file.writeAsStringSync(response.headers['set-cookie'].split(';')[0]);
+      File('$appDirectory/userId').writeAsStringSync(json.decode(response.body) as String);
 
       return right(unit);
     } catch (e) {

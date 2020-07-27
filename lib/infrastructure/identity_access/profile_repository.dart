@@ -55,6 +55,8 @@ class ProfileRepository implements IProfileRepository {
 
   @override
   Future<Either<ProfileFailure, Learner>> getLearner(UserId userId) async {
+    print(userId.getOrCrash());
+
     final response = await client.get(
       'http://192.168.0.109:3000/api/users/${userId.getOrElse('')}',
       headers: {

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:helloworld/application/messenger/message_bloc.dart';
 import 'package:helloworld/domain/common/languages.dart';
 import 'package:helloworld/domain/identity_access/model/user/learner/learner.dart';
 import 'package:helloworld/presentation/core/palette.dart';
+import 'package:helloworld/presentation/messenger/chat_screen.dart';
 import 'package:helloworld/presentation/profile/widgets/profile_form.dart';
 import 'package:helloworld/presentation/profile/widgets/language_set.dart';
 import 'package:helloworld/presentation/profile/widgets/location.dart';
@@ -27,15 +30,33 @@ class LearnerProfile extends StatelessWidget {
                   IconButton(
                       icon: Icon(Icons.keyboard_arrow_left,
                           color: Palette.primaryColor),
-                      onPressed: () {}),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      }),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) {
+                                return BlocProvider(
+                                    create: (_) => MessageBloc()
+                                      ..add(MessageEvent.getMessagesWith(
+                                          learner.userId)),
+                                    child: ChatScreen(
+                                      otherUser: learner.name.getOrCrash(),
+                                      otherUserId: learner.userId,
+                                    ));
+                              },
+                            ),
+                          );
+                        },
                         child: const Image(
-                            image:
-                                AssetImage('assets/images/messenger_logo.png')),
+                          image: AssetImage('assets/images/messenger_logo.png'),
+                        ),
                       ),
                       UserMenu()
                     ],
@@ -63,7 +84,7 @@ class LearnerProfile extends StatelessWidget {
                   ),
                 )),
             NameTag(name: learner.name.getOrCrash(), type: "LEARNER"),
-            Biography(bio: learner.biography.getOrCrash()),
+            BiographyUi(bio: learner.biography.getOrCrash()),
             Divider(
               color: Colors.grey.withOpacity(0.5),
               thickness: 0,
@@ -114,7 +135,7 @@ class LearnerProfile extends StatelessWidget {
             ),
             Builder(builder: (context) {
               final locations = learner.location
-                  .map((e) => Location(
+                  .map((e) => LocationUi(
                       latlng: e.value1, location: e.value2.getOrCrash()))
                   .toList();
 

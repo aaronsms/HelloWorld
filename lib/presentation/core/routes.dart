@@ -8,12 +8,14 @@ import 'package:helloworld/domain/identity_access/model/user/email_address.dart'
 import 'package:helloworld/domain/identity_access/model/user/mentor/age.dart';
 import 'package:helloworld/domain/identity_access/model/user/name.dart';
 import 'package:helloworld/domain/identity_access/model/user/password.dart';
+import 'package:helloworld/domain/schedule_requests/service/i_profile_repository.dart';
 import 'package:helloworld/infrastructure/identity_access/profile_repository.dart';
 import 'package:helloworld/presentation/homepage/landing_page.dart';
 import 'package:helloworld/presentation/login/login_page.dart';
 import 'package:helloworld/presentation/messenger/messenger_main.dart';
 import 'package:helloworld/presentation/password_reset/submit_email_page.dart';
 import 'package:helloworld/presentation/profile/learner_profile.dart';
+import 'package:helloworld/presentation/profile/own_profile.dart';
 import 'package:helloworld/presentation/register/register_account_learner_page.dart';
 import 'package:helloworld/presentation/register/register_account_mentor_page.dart';
 import 'package:helloworld/presentation/register/register_pre_page.dart';
@@ -174,12 +176,6 @@ class Routes {
             lazy: false,
             child: SchedulePage(),
           );
-        },
-      ),
-      SailorRoute(
-        name: profile,
-        builder: (context, args, params) {
-          return LearnerProfile(learner: null,);
         },
       ),
       SailorRoute(

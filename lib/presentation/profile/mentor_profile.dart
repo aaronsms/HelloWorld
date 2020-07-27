@@ -35,7 +35,9 @@ class MentorProfile extends StatelessWidget {
                   IconButton(
                       icon: Icon(Icons.keyboard_arrow_left,
                           color: Palette.primaryColor),
-                      onPressed: () {}),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      }),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
@@ -46,12 +48,13 @@ class MentorProfile extends StatelessWidget {
                               MaterialPageRoute(
                                 builder: (_) {
                                   return BlocProvider(
-                                      create: (_) => MessageBloc()..add(MessageEvent.getMessagesWith(mentor.userId)),
+                                      create: (_) => MessageBloc()
+                                        ..add(MessageEvent.getMessagesWith(
+                                            mentor.userId)),
                                       child: ChatScreen(
                                         otherUser: mentor.name.getOrCrash(),
                                         otherUserId: mentor.userId,
-                                      )
-                                  );
+                                      ));
                                 },
                               ),
                             );
@@ -85,7 +88,13 @@ class MentorProfile extends StatelessWidget {
                   ),
                 )),
             NameTag(name: mentor.name.getOrCrash(), type: "MENTOR"),
-            Biography(bio: mentor.biography.getOrCrash()),
+            BiographyUi(bio: mentor.biography.getOrCrash()),
+            Divider(
+              color: Colors.grey.withOpacity(0.5),
+              thickness: 0,
+              indent: 10,
+              endIndent: 10,
+            ),
             Builder(builder: (context) {
               final List<LanguageSet> teachingLanguageSet = [];
               final list = mentor.languageBackground.teachingLanguages;
@@ -101,12 +110,6 @@ class MentorProfile extends StatelessWidget {
               return ProfileForm(
                   title: "TEACHING", languages: teachingLanguageSet);
             }),
-            Divider(
-              color: Colors.grey.withOpacity(0.5),
-              thickness: 0,
-              indent: 10,
-              endIndent: 10,
-            ),
             Divider(
               color: Colors.grey.withOpacity(0.5),
               thickness: 0,
@@ -157,7 +160,7 @@ class MentorProfile extends StatelessWidget {
             ),
             Builder(builder: (context) {
               final locations = mentor.location
-                  .map((e) => Location(
+                  .map((e) => LocationUi(
                       latlng: e.value1, location: e.value2.getOrCrash()))
                   .toList();
 
@@ -209,18 +212,23 @@ class MentorProfile extends StatelessWidget {
                 title: "RATINGS",
                 rating: Ratings(numberOfReviews: 25, rating: 4.0)),
             Container(
-                padding: const EdgeInsets.only(top: 50),
-                child: RaisedButton(
-                    onPressed: () {},
-                    color: Palette.primaryColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14.0),
-                    ),
-                    child: Text('View Schedule',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Martel Sans',
-                            fontWeight: FontWeight.w900))))
+              padding: const EdgeInsets.only(top: 50),
+              child: RaisedButton(
+                onPressed: () {},
+                color: Palette.primaryColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(14.0),
+                ),
+                child: Text(
+                  'View Schedule',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Martel Sans',
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

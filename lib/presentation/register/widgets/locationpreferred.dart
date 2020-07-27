@@ -3,12 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:helloworld/application/identity_access/register/profile/bloc.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 
-class LocationPreferred extends StatefulWidget {
-  @override
-  _LocationPreferredState createState() => _LocationPreferredState();
-}
-
-class _LocationPreferredState extends State<LocationPreferred> {
+class LocationPreferred extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RegisterProfileBloc, RegisterProfileState>(

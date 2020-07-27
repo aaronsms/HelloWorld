@@ -60,15 +60,15 @@ class LanguageSelectionDashboard extends StatelessWidget {
       bool isTeach = false,
       bool isSpeak = false,
       bool isLearn = false}) async {
-    final languageStr = await _buildDialog(
+    final languageStr = await buildDialog(
       context,
       initialValue: '',
       dialog: () => LanguageDialog(),
       title: 'Please select your language',
     );
 
-    if (languageStr != null) {
-      final proficiencyStr = await _buildDialog(
+    if (languageStr != null && languageStr != '') {
+      final proficiencyStr = await buildDialog(
         context,
         title: 'Please select the proficiency',
         dialog: () => ProficiencyDialog(),
@@ -93,32 +93,32 @@ class LanguageSelectionDashboard extends StatelessWidget {
       }
     }
   }
+}
 
-  Future<String> _buildDialog(BuildContext context,
-      {@required String title,
+Future<String> buildDialog(BuildContext context,
+    {@required String title,
       @required Widget Function() dialog,
       @required String initialValue}) async {
-    final String result = await showDialog(
-      context: context,
-      builder: (context) {
-        return ListenableProvider(
-          create: (_) => ValueNotifier<String>(initialValue),
-          child: AlertDialog(
-            title: Text(title),
-            content: Container(
-              height: 80,
-              width: double.infinity,
-              child: dialog(),
-            ),
-            actions: <Widget>[
-              SelectRaisedButton(),
-            ],
+  final String result = await showDialog(
+    context: context,
+    builder: (context) {
+      return ListenableProvider(
+        create: (_) => ValueNotifier<String>(initialValue),
+        child: AlertDialog(
+          title: Text(title),
+          content: Container(
+            height: 80,
+            width: double.infinity,
+            child: dialog(),
           ),
-        );
-      },
-    );
-    return result;
-  }
+          actions: <Widget>[
+            SelectRaisedButton(),
+          ],
+        ),
+      );
+    },
+  );
+  return result;
 }
 
 class SelectRaisedButton extends StatelessWidget {

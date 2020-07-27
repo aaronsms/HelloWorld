@@ -17,3 +17,9 @@ Future<String> get cookie async {
   final file = File('$appDirectory/authToken');
   return file.readAsStringSync();
 }
+
+Future<String> get ownUserId async {
+  final appDirectory = await localPath;
+  final file = File('$appDirectory/userId');
+  return file.readAsStringSync();
+}

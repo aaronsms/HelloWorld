@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:helloworld/domain/identity_access/model/user/learner/learner.dart';
+import 'package:helloworld/domain/identity_access/model/user/user_id.dart';
+import 'package:helloworld/domain/schedule_requests/service/i_profile_repository.dart';
+import 'package:helloworld/infrastructure/common/io_utils.dart';
+import 'package:helloworld/infrastructure/identity_access/model/learner_dto.dart';
+import 'package:helloworld/infrastructure/identity_access/profile_repository.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/core/routes.dart';
+import 'package:helloworld/presentation/profile/own_profile.dart';
+import 'package:provider/provider.dart';
 
 class NavigationBar extends StatelessWidget {
   @override
@@ -21,17 +30,41 @@ class NavigationBar extends StatelessWidget {
             NavigationButton(
               icon: Icons.calendar_today,
               caption: "SCHEDULE",
-              route: Routes.schedule,
+              route: () => Routes.sailor(Routes.schedule),
             ),
             NavigationButton(
               icon: Icons.send,
               caption: "MESSENGER",
-              route: Routes.messenger,
+              route: () => Routes.sailor(Routes.messenger),
             ),
             NavigationButton(
               icon: Icons.person,
               caption: "PROFILE",
-              route: Routes.profile,
+              route: () async {
+                final IProfileRepository repo = ProfileRepository();
+                final userId = await ownUserId;
+                final learner =
+                    await repo.getLearner(UserId.fromUniqueId(userId));
+
+                final learnerCopy =
+                    await LearnerDto.fromDomain(learner.getOrElse(() => null))
+                        ?.toDomain();
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return ListenableProvider(
+                        create: (_) => ValueNotifier<Learner>(learnerCopy),
+                        child: OwnProfile(
+                          isLearnerOrMentor: true,
+                          learner: learner.getOrElse(() => null),
+                        ),
+                      );
+                    },
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -43,7 +76,7 @@ class NavigationBar extends StatelessWidget {
 class NavigationButton extends StatelessWidget {
   final IconData icon;
   final String caption;
-  final String route;
+  final void Function() route;
 
   const NavigationButton(
       {Key key,
@@ -64,7 +97,7 @@ class NavigationButton extends StatelessWidget {
             color: Palette.backgroundColor,
             size: 35,
           ),
-          onPressed: () => Routes.sailor(route),
+          onPressed: route,
         ),
         Text(
           caption,

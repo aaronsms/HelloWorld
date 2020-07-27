@@ -5,11 +5,11 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Location extends StatelessWidget {
+class LocationUi extends StatelessWidget {
   final LatLng latlng;
   final String location;
 
-  const Location({
+  const LocationUi({
     Key key,
     @required this.location,
     this.latlng,
