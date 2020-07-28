@@ -12,7 +12,7 @@ import 'package:helloworld/presentation/messenger/widgets/recent_chat.dart';
 // ignore: must_be_immutable
 class MessengerMain extends StatelessWidget {
   static const userId =
-      '7ff6d6f0-ccbd-11ea-8665-e1b27133ad10'; // TODO production
+      '8828b240-cfff-11ea-ec27-890a702fa47f'; // TODO production
   bool _otherUserIsSenderOrReceiver(Message message) {
     return message.sender.id.getOrCrash() != userId;
   }
@@ -87,7 +87,6 @@ class MessengerMain extends StatelessWidget {
                               itemBuilder: (BuildContext context, int index) {
                                 final contact = conversations[index];
                                 if (_otherUserIsSenderOrReceiver(contact)) {
-
                                   return Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: RecentContact(

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:helloworld/application/identity_access/register/account/register_account_bloc.dart';
+import 'package:helloworld/application/identity_access/register/profile/register_profile_bloc.dart';
+import 'package:helloworld/application/identity_access/register/profile/register_profile_event.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/core/routes.dart';
 import 'package:helloworld/presentation/register/widgets/header.dart';
@@ -194,7 +198,16 @@ class _RegisterQualificationsPageState
                   borderRadius: BorderRadius.circular(14.0),
                 ),
                 onPressed: () {
-                  Routes.sailor(Routes.verifyEmail);
+                  final state = context.bloc<RegisterAccountBloc>().state;
+                  context
+                      .bloc<RegisterProfileBloc>()
+                      .add(RegisterProfileEvent.doneClicked(
+                    name: state.name,
+                    password: state.password,
+                    emailAddress: state.emailAddress,
+                    isMentorOrLearner: false,
+                  ));
+//                  Routes.sailor(Routes.verifyEmail);
                 },
                 child: Text(
                   'Done',

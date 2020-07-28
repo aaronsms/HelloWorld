@@ -16,7 +16,7 @@ Future<void> main() async {
   request.headers.set(HttpHeaders.contentTypeHeader, 'application/json');
   request.headers.set(HttpHeaders.acceptHeader, 'application/json');
   request.write(jsonEncode({
-    "email": 'anothersaw78@gmail.com',
+    "email": 'amandasoo@gmail.com',
     "password": '12345678',
   }));
 
@@ -43,10 +43,12 @@ Future<void> main() async {
   channel.sink.add("connected!");
   channel.sink.add(json.encode({
     'type': 'send',
-    "id": "2e8c8d36-c69a-4921-a980-9f33bc414c32",
-    "senderId": "d1749d79-f2d8-4c64-88e1-8ef80d37d6c5",
-    "receiverId": "d1749d79-f2d8-4c64-88e1-8ef80d37d6c1",
-    "content": "Please don't.",
+    "id": "2e8c8d36-c69a-4921-a980-9f33bc414c83",
+    "senderId": "aa88e5d0-cfff-11ea-b920-f368f2c88e7c",
+    "receiverId": "8828b240-cfff-11ea-ec27-890a702fa47f",
+//    "content": "Hey...",
+//    "content": "Yeah sure! I've accepted your request.",
+    "content": "Okay! See you then.",
     "sendDate": DateTime.now().toString()
   }));
   channel.stream.listen((event) {

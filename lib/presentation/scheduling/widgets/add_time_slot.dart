@@ -7,6 +7,7 @@ import 'package:time_range/time_range.dart';
 
 class AddTimeSlot extends StatefulWidget {
   final String range;
+
   const AddTimeSlot({
     Key key,
     @required this.range,
@@ -29,17 +30,22 @@ class _AddTimeSlotState extends State<AddTimeSlot> {
         firstTiming.minute == secondTiming.minute;
   }
 
-  void _showTimePicker() {
+  void _showTimePicker(BuildContext context) {
     showDialog(
         context: context,
-        builder: (context) {
+        builder: (cont) {
           var slotInfo = Provider.of<SlotInfo>(context);
           return AlertDialog(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(14.0),
             ),
             backgroundColor: Palette.quaternaryColor,
-            content: SizedBox(height: 180, child: SlotPicker()),
+            content: SizedBox(
+                height: 180,
+                child: ChangeNotifierProvider.value(
+                  value: slotInfo,
+                  child: SlotPicker(),
+                )),
             actions: <Widget>[
               ButtonBar(
                 children: <Widget>[
@@ -50,7 +56,7 @@ class _AddTimeSlotState extends State<AddTimeSlot> {
                       color: Palette.secondaryColor,
                       onPressed: () {
                         /** DO NOTHING */
-                        Navigator.pop(context);
+                        Navigator.pop(cont);
                       },
                       child: const Text("CANCEL",
                           style: TextStyle(
@@ -85,7 +91,7 @@ class _AddTimeSlotState extends State<AddTimeSlot> {
                         }
 
                         slotInfo.edit = newSlots;
-                        Navigator.pop(context);
+                        Navigator.pop(cont);
                       },
                       child: const Text("ADD",
                           style: TextStyle(
@@ -105,7 +111,7 @@ class _AddTimeSlotState extends State<AddTimeSlot> {
         child: InkWell(
             onTap: () {
               /** POP-UP TIME PICKER */
-              _showTimePicker();
+              _showTimePicker(context);
             },
             child: Text(widget.range,
                 style: const TextStyle(

@@ -13,12 +13,13 @@ class LearnerReceived extends StatelessWidget {
           elevation: 0,
           color: Palette.backgroundColor,
           child: Column(
+            // ignore: prefer_const_literals_to_create_immutables
             children: <Widget>[
               const LearnerReceivedPreview(
-                name: "Learner 1",
+                name: "John Doe",
+                userId: '4dc414c0-cff3-11ea-9e8a-9fa3bac937ce',
                 booked: [
-                  Slots(slot: "Tue, 4 May 08:00 - 08:30"),
-                  Slots(slot: "Wed, 5 May 08:00 - 08:30")
+                  Slots(slot: "Tue, 1 Aug 15:00 - 15:30"),
                 ],
               ),
             ],

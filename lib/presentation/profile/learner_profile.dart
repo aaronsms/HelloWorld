@@ -4,6 +4,7 @@ import 'package:helloworld/application/messenger/message_bloc.dart';
 import 'package:helloworld/domain/common/languages.dart';
 import 'package:helloworld/domain/identity_access/model/user/learner/learner.dart';
 import 'package:helloworld/presentation/core/palette.dart';
+import 'package:helloworld/presentation/core/routes.dart';
 import 'package:helloworld/presentation/messenger/chat_screen.dart';
 import 'package:helloworld/presentation/profile/widgets/profile_form.dart';
 import 'package:helloworld/presentation/profile/widgets/language_set.dart';
@@ -11,6 +12,7 @@ import 'package:helloworld/presentation/profile/widgets/location.dart';
 import 'package:helloworld/presentation/profile/widgets/name_tag.dart';
 import 'package:helloworld/presentation/profile/widgets/biography.dart';
 import 'package:helloworld/presentation/profile/widgets/user_menu.dart';
+import 'package:helloworld/presentation/scheduling/schedule_page.dart';
 
 class LearnerProfile extends StatelessWidget {
   final Learner learner;
@@ -145,18 +147,29 @@ class LearnerProfile extends StatelessWidget {
               );
             }),
             Container(
-                padding: const EdgeInsets.only(top: 50),
-                child: RaisedButton(
-                    onPressed: () {},
-                    color: Palette.primaryColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14.0),
-                    ),
-                    child: Text('View Schedule',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Martel Sans',
-                            fontWeight: FontWeight.w900))))
+              padding: const EdgeInsets.only(top: 50),
+              child: RaisedButton(
+                onPressed: () {
+                  Routes.sailor(Routes.schedule);
+//                  Navigator.push(
+//                    context,
+//                    MaterialPageRoute(builder: (context) => SchedulePage()),
+//                  );
+                },
+                color: Palette.primaryColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(14.0),
+                ),
+                child: Text(
+                  'View Schedule',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Martel Sans',
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

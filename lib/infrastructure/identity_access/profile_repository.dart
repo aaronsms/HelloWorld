@@ -6,6 +6,7 @@ import 'package:helloworld/domain/identity_access/model/user/mentor/mentor.dart'
 import 'package:helloworld/domain/identity_access/model/user/user_id.dart';
 import 'package:helloworld/domain/schedule_requests/service/i_profile_repository.dart';
 import 'package:helloworld/domain/schedule_requests/service/profile_failure.dart';
+import 'package:helloworld/infrastructure/common/io_utils.dart';
 import 'package:helloworld/infrastructure/identity_access/model/mentor_dto.dart';
 import 'package:helloworld/infrastructure/common/string_utils.dart';
 
@@ -18,8 +19,10 @@ class ProfileRepository implements IProfileRepository {
 
   @override
   Future<Either<ProfileFailure, List<Learner>>> watchAllLearners() async {
+    final userId = await ownUserId;
+
     final response = await client.get(
-      'http://192.168.0.109:3000/api/learners',
+      'http://192.168.0.109:3000/api/learners/$userId',
       headers: {
         "Accept": "application/json",
       },
@@ -37,8 +40,10 @@ class ProfileRepository implements IProfileRepository {
 
   @override
   Future<Either<ProfileFailure, List<Mentor>>> watchAllMentors() async {
+    final userId = await ownUserId;
+
     final response = await client.get(
-      'http://192.168.0.109:3000/api/mentors/7ff6fe00-ccbd-11ea-bc0e-419c611f356e',
+      'http://192.168.0.109:3000/api/mentors/$userId',
       headers: {
         "Accept": "application/json",
       },

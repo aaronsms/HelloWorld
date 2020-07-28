@@ -14,32 +14,26 @@ class MentorSent extends StatelessWidget {
           elevation: 0,
           color: Palette.backgroundColor,
           child: Column(
+            // ignore: prefer_const_literals_to_create_immutables
             children: <Widget>[
               const MentorSentPreview(
-                  name: "Sample Name 1",
+                  name: "Santiago...",
+//                  userId: 'ea9a2850-cff5-11ea-9cf2-ed0c34e38365',
                   booked: [
-                    Slots(slot: "Tue, 4 May 08:00 - 08:30"),
-                    Slots(slot: "Wed, 5 May 08:00 - 08:30")
+                    Slots(slot: "Tue, 4 Aug 08:00 - 08:30"),
+                    Slots(slot: "Wed, 5 Aug 08:00 - 08:30")
                   ],
                   status: MentorStatus(status: "PENDING"),
                   cost: 10.0),
               const MentorSentPreview(
-                  name: "Sample Name 2",
+                  name: "Park Jim...",
+//                  userId: '6179c990-cff5-11ea-973a-4b2a489c8095',
                   booked: [
-                    Slots(slot: "Tue, 4 May 09:00 - 09:30"),
-                    Slots(slot: "Thur, 6 May 08:00 - 08:30")
+                    Slots(slot: "Tue, 4 Aug 09:00 - 09:30"),
+                    Slots(slot: "Thur, 6 Aug 08:00 - 08:30")
                   ],
                   status: MentorStatus(status: "ACCEPTED"),
                   cost: 8.00),
-              const MentorSentPreview(
-                  name: "Sample Name 2",
-                  booked: [
-                    Slots(slot: "Tue, 4 May 10:00 - 10:30"),
-                    Slots(slot: "Thur, 6 May 13:00 - 13:30"),
-                    Slots(slot: "Sat, 9 May 08:00 - 08:30")
-                  ],
-                  status: MentorStatus(status: "REJECTED"),
-                  cost: 9.00),
             ],
           ),
         )));

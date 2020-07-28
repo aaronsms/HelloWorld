@@ -4,6 +4,7 @@ import 'package:google_map_location_picker/google_map_location_picker.dart';
 import 'package:helloworld/application/identity_access/register/account/register_account_bloc.dart';
 import 'package:helloworld/application/identity_access/register/profile/bloc.dart';
 import 'package:helloworld/presentation/core/palette.dart';
+import 'package:helloworld/presentation/register/register_qualifications_page.dart';
 import 'package:helloworld/presentation/register/widgets/header.dart';
 import 'package:helloworld/presentation/register/widgets/language_selection_dashboard.dart';
 import 'package:helloworld/presentation/register/widgets/profile_picture_avatar.dart';
@@ -103,15 +104,17 @@ class RegisterProfileMentorPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(14.0),
               ),
               onPressed: () {
-                final state = context.bloc<RegisterAccountBloc>().state;
-                context
-                    .bloc<RegisterProfileBloc>()
-                    .add(RegisterProfileEvent.doneClicked(
-                      name: state.name,
-                      password: state.password,
-                      emailAddress: state.emailAddress,
-                      isMentorOrLearner: true,
-                    ));
+                final bloc1 = context.bloc<RegisterAccountBloc>();
+                final bloc2 = context.bloc<RegisterProfileBloc>();
+                Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                  return BlocProvider.value(
+                    value: bloc1,
+                    child: BlocProvider.value(
+                      value: bloc2,
+                      child: RegisterQualificationsPage(),
+                    ),
+                  );
+                }));
               },
               child: Text(
                 'Done',

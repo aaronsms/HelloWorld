@@ -25,6 +25,7 @@ import 'package:helloworld/presentation/register/register_qualifications_page.da
 import 'package:helloworld/presentation/register/verified_email_learner_page.dart';
 import 'package:helloworld/presentation/register/verified_email_mentor_page.dart';
 import 'package:helloworld/presentation/register/verify_email_page.dart';
+import 'package:helloworld/presentation/requests/request_page.dart';
 import 'package:helloworld/presentation/scheduling/schedule_page.dart';
 import 'package:helloworld/presentation/scheduling/widgets/slot_info.dart';
 import 'package:provider/provider.dart';
@@ -187,7 +188,13 @@ class Routes {
             child: MessengerMain(),
           );
         },
-      )
+      ),
+      SailorRoute(
+        name: requests,
+        builder: (context, args, params) {
+          return RequestPage();
+        },
+      ),
     ]);
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
+import 'package:helloworld/presentation/core/routes.dart';
 
 class AddReview extends StatefulWidget {
   @override
@@ -147,7 +148,7 @@ class _AddReviewState extends State<AddReview> {
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
-                                    onPressed: () {
+                                    onPressed: () async {
                                       setState(() {
                                         _rating.text.isEmpty ||
                                                 double.parse(_rating.text) > 5
@@ -156,6 +157,9 @@ class _AddReviewState extends State<AddReview> {
                                         _feedback.text.isEmpty
                                             ? _validateFeedback = true
                                             : _validateFeedback = false;
+                                        if (!_validateFeedback) {
+                                          Routes.sailor(Routes.homepage); //TODO
+                                        }
                                       });
                                     },
                                     color: Palette.primaryColor,

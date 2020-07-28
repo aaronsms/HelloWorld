@@ -7,6 +7,9 @@ import 'package:helloworld/domain/identity_access/service/i_user_repository.dart
 import 'package:helloworld/infrastructure/identity_access/model/learner_dto.dart';
 import 'package:helloworld/infrastructure/identity_access/model/mentor_dto.dart';
 import 'package:helloworld/infrastructure/identity_access/user_repository.dart';
+import 'package:helloworld/presentation/scheduling/edit_schedule_page.dart';
+import 'package:helloworld/presentation/scheduling/widgets/edit_time_slot.dart';
+import 'package:helloworld/presentation/scheduling/widgets/slot_info.dart';
 import 'package:provider/provider.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
@@ -384,7 +387,11 @@ class _OwnProfileState extends State<OwnProfile> {
               padding: const EdgeInsets.only(top: 50),
               child: RaisedButton(
                 onPressed: () {
-                  /* View schedule */
+                  Navigator.of(context).push(MaterialPageRoute(builder: (cont) {
+                    return ChangeNotifierProvider(
+                        create: (context) => SlotInfo(),
+                        child: EditSchedulePage());
+                  }));
                 },
                 color: Palette.primaryColor,
                 shape: RoundedRectangleBorder(
@@ -409,20 +416,26 @@ class _OwnProfileState extends State<OwnProfile> {
                   if (isEditing) {
                     //Check if edited
                     if (widget.isLearnerOrMentor) {
-                      final valueNotifier = context.read<ValueNotifier<Learner>>();
+                      final valueNotifier =
+                          context.read<ValueNotifier<Learner>>();
                       final IUserRepository repo = UserRepository();
 
-                      final isChanged = LearnerDto.fromDomain(valueNotifier.value) != LearnerDto.fromDomain(widget.learner);
+                      final isChanged =
+                          LearnerDto.fromDomain(valueNotifier.value) !=
+                              LearnerDto.fromDomain(widget.learner);
 
                       if (isChanged) {
                         repo.updateLearner(learner: valueNotifier.value);
                         Navigator.of(context).pop();
                       }
                     } else {
-                      final valueNotifier = context.read<ValueNotifier<Mentor>>();
+                      final valueNotifier =
+                          context.read<ValueNotifier<Mentor>>();
                       final IUserRepository repo = UserRepository();
 
-                      final isChanged = MentorDto.fromDomain(valueNotifier.value) != MentorDto.fromDomain(widget.mentor);
+                      final isChanged =
+                          MentorDto.fromDomain(valueNotifier.value) !=
+                              MentorDto.fromDomain(widget.mentor);
 
                       if (isChanged) {
                         repo.updateMentor(mentor: valueNotifier.value);

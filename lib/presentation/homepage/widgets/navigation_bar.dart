@@ -29,8 +29,8 @@ class NavigationBar extends StatelessWidget {
           children: <Widget>[
             NavigationButton(
               icon: Icons.calendar_today,
-              caption: "SCHEDULE",
-              route: () => Routes.sailor(Routes.schedule),
+              caption: "REQUEST",
+              route: () => Routes.sailor(Routes.requests),
             ),
             NavigationButton(
               icon: Icons.send,

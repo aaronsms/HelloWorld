@@ -64,7 +64,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       // Development Only:
       failureOrSuccess.fold((l) => null, (r) async {
-        await Future.delayed(const Duration(milliseconds: 100));
         Routes.sailor(Routes.homepage,
             navigationType: NavigationType.pushReplace,
             removeUntilPredicate: (route) => route.isFirst);

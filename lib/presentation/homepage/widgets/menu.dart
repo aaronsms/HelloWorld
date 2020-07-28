@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
+import 'package:helloworld/presentation/core/routes.dart';
 
 class Menu extends StatefulWidget {
   @override
@@ -16,6 +17,9 @@ class _MenuState extends State<Menu> {
       onSelected: (String result) {
         setState(() {
           _menu = result;
+          if (_menu == 'Sign Out') {
+            Routes.sailor(Routes.login);
+          }
         });
       },
       itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[

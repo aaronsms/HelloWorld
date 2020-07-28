@@ -29,9 +29,19 @@ class LoginForm extends StatelessWidget {
                         context.bloc<LoginBloc>().state.emailAddress.value.fold(
                               (f) => f.maybeMap(
                                 invalidEmail: (_) => 'Invalid email',
-                                orElse: () => null,
+                                orElse: () {
+                                  if (context.bloc<LoginBloc>().state.authFailureOrSuccessOption.map((a) => a.isLeft()).getOrElse(() => false)) {
+                                    return 'Wrong email or password';
+                                  }
+                                  return null;
+                                },
                               ),
-                              (_) => null,
+                              (_) {
+                                if (context.bloc<LoginBloc>().state.authFailureOrSuccessOption.map((a) => a.isLeft()).getOrElse(() => false)) {
+                                  return 'Wrong email or password';
+                                }
+                                return null;
+                              },
                             ),
                   ),
                 ),
@@ -45,14 +55,25 @@ class LoginForm extends StatelessWidget {
                     onChanged: (value) => context
                         .bloc<LoginBloc>()
                         .add(LoginEvent.passwordChanged(value)),
-                    validator: (_) =>
-                        context.bloc<LoginBloc>().state.password.value.fold(
+                    validator: (_) {
+                      return context.bloc<LoginBloc>().state.password.value.fold(
                               (f) => f.maybeMap(
-                                shortPassword: (_) => 'Short password',
-                                orElse: () => null,
+                                shortPassword: (_) => 'Invalid password',
+                                orElse: () {
+                                  if (context.bloc<LoginBloc>().state.authFailureOrSuccessOption.map((a) => a.isLeft()).getOrElse(() => false)) {
+                                    return 'Wrong email or password';
+                                  }
+                                  return null;
+                                },
                               ),
-                              (_) => null,
-                            ),
+                              (_) {
+                                if (context.bloc<LoginBloc>().state.authFailureOrSuccessOption.map((a) => a.isLeft()).getOrElse(() => false)) {
+                                  return 'Wrong email or password';
+                                }
+                                return null;
+                              },
+                            );
+                    },
                   ),
                 ),
                 const SizedBox(height: 20.0),

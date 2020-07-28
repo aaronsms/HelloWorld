@@ -14,29 +14,32 @@ class LearnerSent extends StatelessWidget {
           elevation: 0,
           color: Palette.backgroundColor,
           child: Column(
+            // ignore: prefer_const_literals_to_create_immutables
             children: <Widget>[
               const LearnerSentPreview(
-                name: "Sample Name 1",
+                name: "Aaron Saw",
+                userId: '8828b240-cfff-11ea-ec27-890a702fa47f',
                 booked: [
-                  Slots(slot: "Tue, 4 May 08:00 - 08:30"),
-                  Slots(slot: "Wed, 5 May 08:00 - 08:30")
+                  Slots(slot: "Tue, 4 Aug 08:00 - 08:30"),
+                  Slots(slot: "Wed, 5 Aug 08:00 - 08:30")
                 ],
                 status: LearnerStatus(status: "PENDING"),
               ),
               const LearnerSentPreview(
-                name: "Sample Name 2",
+                name: "Amanda Soo",
+                userId: 'aa88e5d0-cfff-11ea-b920-f368f2c88e7c',
                 booked: [
-                  Slots(slot: "Tue, 4 May 09:00 - 09:30"),
-                  Slots(slot: "Thur, 6 May 08:00 - 08:30")
+                  Slots(slot: "Tue, 4 Aug 15:00 - 15:30"),
                 ],
                 status: LearnerStatus(status: "ACCEPTED"),
               ),
               const LearnerSentPreview(
-                name: "Sample Name 2",
+                name: "Sally Lee",
+                userId: 'cb5a6310-cfff-11ea-b755-07ecf03f1001',
                 booked: [
-                  Slots(slot: "Tue, 4 May 10:00 - 10:30"),
-                  Slots(slot: "Thur, 6 May 13:00 - 13:30"),
-                  Slots(slot: "Sat, 9 May 08:00 - 08:30")
+                  Slots(slot: "Tue, 4 Aug 10:00 - 10:30"),
+                  Slots(slot: "Thur, 6 Aug 13:00 - 13:30"),
+                  Slots(slot: "Sat, 9 Aug 08:00 - 08:30")
                 ],
                 status: LearnerStatus(status: "REJECTED"),
               ),
