@@ -3,7 +3,6 @@
 helloworld!<> is a cross-platform mobile app created with Flutter, Dart, Node.js and PostgresQL. 
 It provides a platform to connect all language learners and tutors all around the world.
 
-[Check out the project documentation here.](https://aaronsms.github.io/HelloWorld/)
 [Visit the prototyping page on Figma here.](https://www.figma.com/file/1frbSEL5SntI8UFomeSfOj/helloworld?node-id=0%3A1)
 
 ## Table of Contents
