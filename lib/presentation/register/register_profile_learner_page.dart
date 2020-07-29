@@ -66,7 +66,7 @@ class RegisterProfileLearnerPage extends StatelessWidget {
                     onTap: () async {
                       final LocationResult result = await showLocationPicker(
                         context,
-                        'AIzaSyAq8DekxFfhSpuq7AV7OVNS_Go1pzspxTA',
+                        '',
                         automaticallyAnimateToCurrentLocation: true,
 //                      mapStylePath: 'assets/mapStyle.json',
                         myLocationButtonEnabled: true,
