@@ -22,7 +22,7 @@ class ProfileRepository implements IProfileRepository {
     final userId = await ownUserId;
 
     final response = await client.get(
-      'http://192.168.0.109:3000/api/learners/$userId',
+      'http://$host/api/learners/$userId',
       headers: {
         "Accept": "application/json",
       },
@@ -43,7 +43,7 @@ class ProfileRepository implements IProfileRepository {
     final userId = await ownUserId;
 
     final response = await client.get(
-      'http://192.168.0.109:3000/api/mentors/$userId',
+      'http://$host/api/mentors/$userId',
       headers: {
         "Accept": "application/json",
       },
@@ -63,7 +63,7 @@ class ProfileRepository implements IProfileRepository {
     print(userId.getOrCrash());
 
     final response = await client.get(
-      'http://192.168.0.109:3000/api/users/${userId.getOrElse('')}',
+      'http://$host/api/users/${userId.getOrElse('')}',
       headers: {
         "Accept": "application/json",
       },
@@ -82,7 +82,7 @@ class ProfileRepository implements IProfileRepository {
   @override
   Future<Either<ProfileFailure, Mentor>> getMentor(UserId userId) async {
     final response = await client.get(
-      'http://192.168.0.109:3000/api/users/${userId.getOrElse('')}',
+      'http://$host/api/users/${userId.getOrElse('')}',
       headers: {
         "Accept": "application/json",
       },

@@ -43,7 +43,7 @@ android {
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-	manifestPlaceHolders = [mapsApiKey: "AIzaSyAq8DekxFfhSpuq7AV7OVNS_Go1pzspxTA"]
+        manifestPlaceholders = [mapsApiKey: "AIzaSyAq8DekxFfhSpuq7AV7OVNS_Go1pzspxTA"]
     }
 
     buildTypes {
