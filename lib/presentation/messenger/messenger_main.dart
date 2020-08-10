@@ -111,7 +111,7 @@ class MessengerMain extends StatelessWidget {
                     ),
                   ),
                   const Divider(color: Palette.tertiaryColor),
-                  RecentChat(),
+                  const RecentChat(userId: userId),
                 ],
               ),
             ),

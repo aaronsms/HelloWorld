@@ -17,7 +17,7 @@ import 'model/user_dto.dart';
 @LazySingleton(as: IUserRepository)
 class UserRepository implements IUserRepository {
   final http.Client client = http.Client();
-  static const String url = 'http://192.168.0.109:3000/api/users';
+  static String url = 'http://$host/api/users';
 
   @override
   Future<Either<RegistrationFailure, Unit>> addLearner(

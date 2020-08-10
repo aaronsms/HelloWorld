@@ -35,7 +35,10 @@ class NavigationBar extends StatelessWidget {
             NavigationButton(
               icon: Icons.send,
               caption: "MESSENGER",
-              route: () => Routes.sailor(Routes.messenger),
+              route: () async {
+                final userId = await ownUserId;
+                Routes.sailor(Routes.messenger, params: {'userId': userId});
+              },
             ),
             NavigationButton(
               icon: Icons.person,

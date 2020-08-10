@@ -182,12 +182,16 @@ class Routes {
       SailorRoute(
         name: messenger,
         builder: (context, args, paramMap) {
+          final userId = paramMap.param<String>('userId');
           return BlocProvider(
             create: (_) =>
                 MessageBloc()..add(const MessageEvent.fetchConversations()),
             child: MessengerMain(),
           );
         },
+        params: [
+          SailorParam<String>(name: 'userId', isRequired: true),
+        ]
       ),
       SailorRoute(
         name: requests,

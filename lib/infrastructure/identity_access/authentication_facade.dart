@@ -12,7 +12,7 @@ import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: IAuthenticationFacade)
 class AuthenticationFacade implements IAuthenticationFacade {
-  static const String url = 'http://192.168.0.109:3000/api/sessions';
+  static String url = 'http://$host/api/sessions';
 
   @override
   Future<Either<AuthenticationFailure, Unit>> loginUserWithEmailAndPassword(

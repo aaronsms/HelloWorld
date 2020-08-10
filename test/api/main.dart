@@ -1,13 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:helloworld/infrastructure/common/io_utils.dart';
 import 'package:web_socket_channel/io.dart';
 
 import 'package:cookie_jar/cookie_jar.dart';
 
-const wsUrl = 'ws://192.168.0.109:3000/api/messages';
-const loginUrl = 'http://192.168.0.109:3000/api/sessions';
-const getMessageUrl = 'http://192.168.0.109:3000/api/sessions';
+final String wsUrl = 'ws://$host/api/messages';
+final String loginUrl = 'http://$host/api/sessions';
+final String getMessageUrl = 'http://$host/api/sessions';
 
 Future<void> main() async {
   final HttpClient client = HttpClient();

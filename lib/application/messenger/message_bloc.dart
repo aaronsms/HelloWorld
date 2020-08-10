@@ -18,7 +18,7 @@ part 'message_state.dart';
 part 'message_bloc.freezed.dart';
 
 class MessageBloc extends Bloc<MessageEvent, MessageState> {
-  static const wsUrl = 'ws://192.168.0.109:3000/api/messages';
+  static String wsUrl = 'ws://$host/api/messages';
   final IMessageRepository _messageRepository;
   IOWebSocketChannel channel;
 

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:helloworld/application/messenger/message_bloc.dart';
 import 'package:helloworld/domain/common/languages.dart';
 import 'package:helloworld/domain/identity_access/model/user/mentor/mentor.dart';
+import 'package:helloworld/infrastructure/common/io_utils.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/messenger/chat_screen.dart';
 import 'package:helloworld/presentation/profile/widgets/profile_form.dart';
@@ -42,7 +43,8 @@ class MentorProfile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       GestureDetector(
-                          onTap: () {
+                          onTap: () async {
+                            final userId = await ownUserId;
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -52,6 +54,7 @@ class MentorProfile extends StatelessWidget {
                                         ..add(MessageEvent.getMessagesWith(
                                             mentor.userId)),
                                       child: ChatScreen(
+                                        userId: userId,
                                         otherUser: mentor.name.getOrCrash(),
                                         otherUserId: mentor.userId,
                                       ));

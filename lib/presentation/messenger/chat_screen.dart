@@ -7,15 +7,15 @@ import 'package:helloworld/domain/messenger/receiver.dart';
 import 'package:helloworld/domain/messenger/sender.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/messenger/widgets/message.dart';
-import 'package:helloworld/presentation/messenger/widgets/recent_chat.dart';
 import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class ChatScreen extends StatelessWidget {
   final String otherUser;
   final UserId otherUserId;
+  final String userId;
 
-  const ChatScreen({Key key, this.otherUser, this.otherUserId})
+  const ChatScreen({Key key, this.otherUser, this.otherUserId, this.userId})
       : super(key: key);
 
   Container _buildMessage(MessageUi message, bool isAdmin) {
@@ -116,7 +116,7 @@ class ChatScreen extends StatelessWidget {
                         itemBuilder: (_, index) {
                           bool _userIsSenderOrReceiver(Message message) {
                             return message.sender.id.getOrCrash() ==
-                                RecentChat.userId;
+                                userId;
                           }
 
                           final userIsSenderOrReceiver =
@@ -142,7 +142,7 @@ class ChatScreen extends StatelessWidget {
                 ),
                 Provider(
                   create: (_) => ValueNotifier<String>(''),
-                  child: MessageComposer(otherUserId: otherUserId),
+                  child: MessageComposer(userId: userId, otherUserId: otherUserId),
                 )
               ],
             ),
@@ -166,7 +166,7 @@ class ChatScreen extends StatelessWidget {
                         itemBuilder: (_, index) {
                           bool _userIsSenderOrReceiver(Message message) {
                             return message.sender.id.getOrCrash() ==
-                                RecentChat.userId;
+                                userId;
                           }
 
                           final userIsSenderOrReceiver =
@@ -190,7 +190,7 @@ class ChatScreen extends StatelessWidget {
                 )),
                 Provider(
                   create: (_) => ValueNotifier<String>(''),
-                  child: MessageComposer(otherUserId: otherUserId),
+                  child: MessageComposer(userId: userId, otherUserId: otherUserId),
                 )
               ],
             ),
@@ -203,10 +203,11 @@ class ChatScreen extends StatelessWidget {
 }
 
 class MessageComposer extends StatelessWidget {
+  final String userId;
   final UserId otherUserId;
   final TextEditingController controller;
 
-  MessageComposer({Key key, this.otherUserId})
+  MessageComposer({Key key, this.otherUserId, this.userId})
       : controller = TextEditingController(text: ''),
         super(key: key);
 
@@ -247,8 +248,7 @@ class MessageComposer extends StatelessWidget {
                             context.bloc<MessageBloc>().add(
                                   MessageEvent.sendMessage(
                                     Message.create(
-                                      senderId: SenderId.fromUniqueId(
-                                          RecentChat.userId), // TODO
+                                      senderId: SenderId.fromUniqueId(userId),
                                       receiverId: ReceiverId.fromUniqueId(
                                           otherUserId.getOrCrash()),
                                       content: Content(context

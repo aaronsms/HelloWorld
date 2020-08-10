@@ -23,3 +23,5 @@ Future<String> get ownUserId async {
   final file = File('$appDirectory/userId');
   return file.readAsStringSync();
 }
+
+String get host => '128.199.164.241:3000';

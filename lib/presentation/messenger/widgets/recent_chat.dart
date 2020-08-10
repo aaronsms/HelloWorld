@@ -7,7 +7,9 @@ import 'package:helloworld/presentation/messenger/chat_screen.dart';
 
 // ignore: must_be_immutable
 class RecentChat extends StatelessWidget {
-  static const userId = '8828b240-cfff-11ea-ec27-890a702fa47f'; // TODO production
+  final String userId;
+
+  const RecentChat({Key key, this.userId}) : super(key: key);
 
   bool _userIsSenderOrReceiver(Message message) {
     return message.sender.id.getOrCrash() == userId;
@@ -33,6 +35,7 @@ class RecentChat extends StatelessWidget {
                             ? BlocProvider.value(
                               value: context.bloc<MessageBloc>()..add(MessageEvent.getMessagesWith(conversation.receiver.id)),
                               child: ChatScreen(
+                                  userId: userId,
                                   otherUser: conversation.receiver.name.getOrCrash(),
                                   otherUserId: conversation.receiver.id,
                                 ),
@@ -40,6 +43,7 @@ class RecentChat extends StatelessWidget {
                             : BlocProvider.value(
                               value: context.bloc<MessageBloc>()..add(MessageEvent.getMessagesWith(conversation.sender.id)),
                               child: ChatScreen(
+                                  userId: userId,
                                   otherUser: conversation.sender.name.getOrCrash(),
                                   otherUserId: conversation.sender.id,
                                 ),

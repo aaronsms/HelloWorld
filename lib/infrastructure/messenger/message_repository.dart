@@ -15,8 +15,8 @@ import 'message_dto.dart';
 
 class MessageRepository extends IMessageRepository {
   http.Client client = http.Client();
-  static const url = 'http://192.168.0.109:3000/api/messages';
-  static const wsUrl = 'ws://192.168.0.109:3000/api/messages';
+  static String url = 'http://$host/api/messages';
+  static String wsUrl = 'ws://$host/api/messages';
 
   IOWebSocketChannel channel;
 
