@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/presentation/core/palette.dart';
+import 'package:helloworld/presentation/core/routes.dart';
 import 'package:helloworld/presentation/register/widgets/header.dart';
 
 class VerifiedEmailMentorPage extends StatelessWidget {
@@ -36,7 +37,9 @@ class VerifiedEmailMentorPage extends StatelessWidget {
             Container(
                 padding: EdgeInsets.only(top: 150.0),
                 child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Routes.sailor(Routes.login);
+                  },
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(14.0),
                   ),

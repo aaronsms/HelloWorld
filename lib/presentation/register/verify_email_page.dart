@@ -83,7 +83,7 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
             Container(
               padding: const EdgeInsets.only(top: 25.0),
               child: RaisedButton(
-                onPressed: () => Routes.sailor(Routes.verifiedLearner),
+                onPressed: () => Routes.sailor(Routes.verifiedMentor),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(14.0),
                 ),

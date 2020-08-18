@@ -76,6 +76,11 @@ class LanguageSelectionDashboard extends StatelessWidget {
       );
       if (proficiencyStr != null) {
         if (isTeach) {
+          await buildRateDialog(
+            context,
+            title: 'Please select a rate',
+            initialValue: 0,
+          );
           context.bloc<RegisterProfileBloc>().add(
               RegisterProfileEvent.teachingLanguageAdded(
                   language: languageStr, proficiency: proficiencyStr));
@@ -97,8 +102,8 @@ class LanguageSelectionDashboard extends StatelessWidget {
 
 Future<String> buildDialog(BuildContext context,
     {@required String title,
-      @required Widget Function() dialog,
-      @required String initialValue}) async {
+    @required Widget Function() dialog,
+    @required String initialValue}) async {
   final String result = await showDialog(
     context: context,
     builder: (context) {
@@ -130,6 +135,86 @@ class SelectRaisedButton extends StatelessWidget {
       },
       color: Palette.primaryColor,
       child: const Text("Select"),
+    );
+  }
+}
+
+Future<int> buildRateDialog(BuildContext context,
+    {@required String title, @required int initialValue}) async {
+  final int result = await showDialog(
+    context: context,
+    builder: (context) {
+      return ListenableProvider(
+        create: (_) => ValueNotifier<int>(initialValue),
+        child: Builder(
+          builder: (cont) => AlertDialog(
+            title: Text(title),
+            content: Container(
+              height: 80,
+              width: 50,
+              child: TextField(
+                keyboardType: TextInputType.number,
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                    color: Palette.primaryColor,
+                    fontFamily: 'Martel Sans',
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700),
+                decoration: InputDecoration(
+                  errorStyle: TextStyle(color: Colors.red),
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide:
+                        BorderSide(width: 2, color: Palette.primaryColor),
+                  ),
+                  prefixText: "\$",
+                  suffixText: "/hr",
+                  suffixStyle: TextStyle(
+                      color: Palette.primaryColor,
+                      fontFamily: 'Martel Sans',
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500),
+                ),
+              ),
+            ),
+            actions: <Widget>[
+              RaisedButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .pop(cont.read<ValueNotifier<int>>().value);
+                },
+                color: Palette.primaryColor,
+                child: const Text("Select"),
+              )
+            ],
+          ),
+        ),
+      );
+    },
+  );
+  return result;
+}
+
+class RateDialog extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButtonFormField(
+      items: [],
+      value: 0,
+      onChanged: (value) {
+        context.read<ValueNotifier<int>>().value = value as int;
+      },
+      onSaved: (value) {
+        context.read<ValueNotifier<int>>().value = value as int;
+      },
+      style: const TextStyle(
+          color: Palette.primaryColor,
+          fontWeight: FontWeight.w600,
+          fontSize: 17.0),
+      decoration: const InputDecoration(
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Palette.primaryColor, width: 2.0),
+        ),
+      ),
     );
   }
 }

@@ -8,7 +8,7 @@ class SlotInfo with ChangeNotifier {
   // MOCK DATA FOR 19, 20 JULY */
   List<Tuple2<DateTime, List<Tuple2<TimeRangeResult, String>>>> _display = [
     /** 19 JULY */
-    Tuple2(DateTime.utc(2020, 8, 4).toLocal(), [
+    Tuple2(DateTime.utc(2020, 8, 18).toLocal(), [
       Tuple2(
           TimeRangeResult(const TimeOfDay(hour: 8, minute: 00),
               const TimeOfDay(hour: 9, minute: 00)),
@@ -31,7 +31,7 @@ class SlotInfo with ChangeNotifier {
           "AVAILABLE")
     ]),
     /** 20 JULY */
-    Tuple2(DateTime.utc(2020, 8, 3).toLocal(), [
+    Tuple2(DateTime.utc(2020, 8, 21).toLocal(), [
       Tuple2(
           TimeRangeResult(const TimeOfDay(hour: 8, minute: 00),
               const TimeOfDay(hour: 9, minute: 00)),
@@ -45,7 +45,7 @@ class SlotInfo with ChangeNotifier {
               const TimeOfDay(hour: 13, minute: 00)),
           "AVAILABLE"),
     ]),
-    Tuple2(DateTime.utc(2020, 7, 31).toLocal(), [
+    Tuple2(DateTime.utc(2020, 8, 20).toLocal(), [
       Tuple2(
           TimeRangeResult(const TimeOfDay(hour: 8, minute: 00),
               const TimeOfDay(hour: 9, minute: 00)),
@@ -59,7 +59,7 @@ class SlotInfo with ChangeNotifier {
               const TimeOfDay(hour: 13, minute: 00)),
           "AVAILABLE"),
     ]),
-    Tuple2(DateTime.utc(2020, 8, 1).toLocal(), [
+    Tuple2(DateTime.utc(2020, 8, 16).toLocal(), [
       Tuple2(
           TimeRangeResult(const TimeOfDay(hour: 8, minute: 00),
               const TimeOfDay(hour: 9, minute: 00)),

@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:helloworld/presentation/core/palette.dart';
 
 class QualificationAddition extends StatefulWidget {
@@ -55,7 +58,9 @@ class _QualificationAdditionState extends State<QualificationAddition> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(14.0),
                           ),
-                          onPressed: () {},
+                          onPressed: () async {
+                            await FilePicker.getFilePath();
+                          },                                                                                  
                           color: Palette.secondaryColor,
                           child: Row(
                               mainAxisSize: MainAxisSize.min,

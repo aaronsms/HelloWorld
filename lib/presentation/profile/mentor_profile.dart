@@ -180,13 +180,9 @@ class MentorProfile extends StatelessWidget {
             ),
             const ProfileForm(title: "CHARGING RATES", charges: [
               Charge(
-                charge: 10.0,
+                charge: 15.0,
                 language: 'Spanish',
               ),
-              Charge(
-                charge: 10.50,
-                language: 'Thai',
-              )
             ]),
             Divider(
               color: Colors.grey.withOpacity(0.5),

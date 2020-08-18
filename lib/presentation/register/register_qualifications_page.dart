@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:helloworld/application/identity_access/register/account/register_account_bloc.dart';
 import 'package:helloworld/application/identity_access/register/profile/register_profile_bloc.dart';
 import 'package:helloworld/application/identity_access/register/profile/register_profile_event.dart';
-import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/core/routes.dart';
+import 'package:helloworld/presentation/core/palette.dart';
 import 'package:helloworld/presentation/register/widgets/header.dart';
 import 'package:helloworld/presentation/register/widgets/qualification.dart';
 import 'package:helloworld/presentation/register/widgets/qualification_addition.dart';
@@ -19,6 +19,9 @@ class _RegisterQualificationsPageState
     extends State<RegisterQualificationsPage> {
   bool _firstChecked = false;
   bool _secondChecked = false;
+  bool _show = false;
+  List<List<String>> listOfQualifications = [];
+
 
   createQualificationAlertDialog(BuildContext context) {
     return showDialog(
@@ -87,19 +90,23 @@ class _RegisterQualificationsPageState
                     color: Palette.tertiaryColor,
                     child: Column(
                       children: <Widget>[
-                        Container(
+                        if (_show) Container(
                             padding: EdgeInsets.all(10.0),
                             child: Qualification()),
                         Container(
                             padding: EdgeInsets.only(bottom: 10.0),
+                            width: double.infinity,
                             child: GestureDetector(
                               child: Icon(
                                 Icons.add_circle,
                                 color: Palette.primaryColor,
                                 size: 30.0,
                               ),
-                              onTap: () {
-                                createQualificationAlertDialog(context);
+                              onTap: () async {
+                                await createQualificationAlertDialog(context);
+                                setState(() {
+                                  _show = true;
+                                });
                               },
                             ))
                       ],
@@ -205,9 +212,9 @@ class _RegisterQualificationsPageState
                     name: state.name,
                     password: state.password,
                     emailAddress: state.emailAddress,
-                    isMentorOrLearner: false,
+                    isMentorOrLearner: true,
                   ));
-//                  Routes.sailor(Routes.verifyEmail);
+                  Routes.sailor(Routes.verifyEmail);
                 },
                 child: Text(
                   'Done',

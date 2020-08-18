@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:helloworld/domain/common/languages.dart';
@@ -7,6 +9,8 @@ import 'package:helloworld/presentation/homepage/widgets/language_set.dart';
 import 'package:helloworld/application/schedule_requests/display_bloc.dart';
 
 class MentorDisplayView extends StatelessWidget {
+  final Random rng = Random();
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -51,6 +55,8 @@ class MentorDisplayView extends StatelessWidget {
                         || !mentor.name.getOrCrash().toLowerCase().contains(value.searchText.toLowerCase());;
                       });
 
+                      final rate = (rng.nextInt(2) + 2) * 5;
+
                       return ListView.separated(
                         padding: const EdgeInsets.all(12.0),
                         physics: const BouncingScrollPhysics(),
@@ -87,7 +93,7 @@ class MentorDisplayView extends StatelessWidget {
                             name: listMentors[index].name.getOrCrash(),
                             active: 2,
                             distance: 1.0,
-                            rates: 10,
+                            rates: rate.toDouble(),
                             teaching: teachingLanguageSet,
                             common: speakingLanguageSet,
                             display: listMentors[index]

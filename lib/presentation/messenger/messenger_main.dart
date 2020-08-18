@@ -12,7 +12,7 @@ import 'package:helloworld/presentation/messenger/widgets/recent_chat.dart';
 // ignore: must_be_immutable
 class MessengerMain extends StatelessWidget {
   static const userId =
-      '8828b240-cfff-11ea-ec27-890a702fa47f'; // TODO production
+      '84179b50-dfac-11ea-bfd7-4541e8ebaa62'; // TODO production
   bool _otherUserIsSenderOrReceiver(Message message) {
     return message.sender.id.getOrCrash() != userId;
   }

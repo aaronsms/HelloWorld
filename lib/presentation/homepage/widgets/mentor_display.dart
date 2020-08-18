@@ -72,27 +72,27 @@ class MentorDisplay extends StatelessWidget {
               subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('Active $active days ago',
-                        style: TextStyle(
-                            height: 1.2,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Martel Sans')),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Icon(
-                          Icons.location_on,
-                          color: Palette.primaryColor,
-                        ),
-                        Text('${distance}km from your preferred location',
-                            style: TextStyle(
-                                color: Palette.primaryColor,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w700,
-                                fontFamily: 'Martel Sans'))
-                      ],
-                    ),
+//                    Text('Active $active days ago',
+//                        style: TextStyle(
+//                            height: 1.2,
+//                            color: Colors.grey,
+//                            fontWeight: FontWeight.w600,
+//                            fontFamily: 'Martel Sans')),
+//                    Row(
+//                      crossAxisAlignment: CrossAxisAlignment.start,
+//                      children: <Widget>[
+//                        Icon(
+//                          Icons.location_on,
+//                          color: Palette.primaryColor,
+//                        ),
+//                        Text('${distance}km from your preferred location',
+//                            style: TextStyle(
+//                                color: Palette.primaryColor,
+//                                fontSize: 12,
+//                                fontWeight: FontWeight.w700,
+//                                fontFamily: 'Martel Sans'))
+//                      ],
+//                    ),
                     Row(children: <Widget>[
                       RichText(
                         text: TextSpan(
